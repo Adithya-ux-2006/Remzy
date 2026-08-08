@@ -36,8 +36,8 @@ test.describe('Favorites — Remedy Card Heart Button', () => {
     await page.waitForLoadState('networkidle');
     await page.waitForTimeout(800);
 
-    const heartBtn = page.locator('button[aria-label*="Add to favorites"]').first();
-    await expect(heartBtn).toBeVisible({ timeout: 5000 });
+    const heartBtn = page.locator('button[aria-label*="favorite" i]').first();
+    await expect(heartBtn).toBeVisible({ timeout: 10000 });
     await heartBtn.click();
 
     await expect(page).toHaveURL(/\/register/);

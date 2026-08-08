@@ -58,7 +58,7 @@ export const ALLERGIES = [
 export const REMOVED_ALLERGY_VALUES = ['medication-allergies'];
 
 export const TREATMENT_PREFERENCES = [
-  { value: 'prefer_natural', label: 'Prefer Natural Remedies', emoji: '🌿', description: 'Prioritize natural and herbal treatments over conventional medicine' },
+  { value: 'prefer_natural', label: 'Prefer Natural Remedies', emoji: '🌿', description: 'Prioritize natural and herbal treatments over OTC medicine' },
   { value: 'avoid_medication', label: 'Avoid Medication', emoji: '💊', description: 'Minimize pharmaceutical interventions when possible' },
   { value: 'vegetarian_remedies', label: 'Vegetarian Only', emoji: '🥬', description: 'Only show remedies without animal-derived ingredients' },
 ];
@@ -74,7 +74,7 @@ export const FAQ_ITEMS = [
   },
   {
     question: 'Where does the research come from?',
-    answer: 'Our remedy database is built from NIH studies, PubMed meta-analyses, WHO guidelines, and established conventional, lifestyle, natural, and Ayurveda references. Each remedy card links to its source research.',
+    answer: 'Our remedy database is built from NIH studies, PubMed meta-analyses, WHO guidelines, and established OTC, lifestyle, natural, and Ayurveda references. Each remedy card links to its source research.',
   },
   {
     question: 'How are remedies personalized to me?',
@@ -94,6 +94,6 @@ export const FAQ_ITEMS = [
   },
   {
     question: 'Which countries is Remzy available in?',
-    answer: 'Remzy is available globally. Remedy content is in English. We include both Western conventional medicine, lifestyle care, natural remedies, and Ayurveda to serve users across different cultural health contexts.',
+    answer: 'Remzy is available globally. Remedy content is in English. We include both Western OTC medicine, lifestyle care, natural remedies, and Ayurveda to serve users across different cultural health contexts.',
   },
 ];

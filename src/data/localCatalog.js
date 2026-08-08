@@ -1534,7 +1534,7 @@ export const LOCAL_REMEDIES = [
     "rating": 4,
     "reviewCount": 87,
     "shortDescription": "Valeriana wallichii, an Ayurvedic sedative herb that gently induces sleep without hangover.",
-    "longDescription": "Tagara (Indian valerian) has demonstrated GABAergic activity. Unlike conventional sedatives, it promotes physiological sleep architecture without next-day grogginess.",
+    "longDescription": "Tagara (Indian valerian) has demonstrated GABAergic activity. Unlike OTC sedatives, it promotes physiological sleep architecture without next-day grogginess.",
     "howToUse": "Take 250-500mg Tagara extract 30-60 minutes before bedtime. Start with the lower dose. Use for up to 4 weeks, then take a 1-week break.",
     "warnings": "May cause vivid dreams. Avoid with other sedatives or alcohol. Avoid during pregnancy.",
     "timeToEffect": "30-60 minutes",
