@@ -154,8 +154,8 @@ export function QuestionnaireFlow({
     : currentStep.options;
 
   return (
-    <div className={cn('mx-auto flex flex-col rounded-[2rem] bg-transparent', compact ? 'max-w-2xl' : 'min-h-[82vh] max-w-3xl')}>
-      <div className="mb-8 space-y-4">
+    <div className={cn('mx-auto flex flex-col rounded-[2rem] bg-transparent', compact ? 'min-h-0 flex-1 max-w-2xl' : 'min-h-[82vh] max-w-3xl')}>
+      <div className={cn(compact ? 'mb-4 shrink-0 space-y-2' : 'mb-8 space-y-4')}>
         <div className="flex gap-2">
           {STEPS.map((step, index) => (
             <div key={step.key} className="h-2 flex-1 overflow-hidden rounded-full bg-card">
@@ -171,7 +171,7 @@ export function QuestionnaireFlow({
         <p className="text-sm font-medium text-ink-muted">Step {progress} of {STEPS.length}</p>
       </div>
 
-      <div className={cn('relative flex-1 overflow-hidden rounded-[2rem] border border-white/70 bg-card shadow-sm backdrop-blur', compact ? 'p-5 md:p-6' : 'p-6 md:p-10')}>
+      <div className={cn('relative flex-1 rounded-[2rem] border border-white/70 bg-card shadow-sm backdrop-blur', compact ? 'min-h-0 overflow-y-auto p-4 md:p-5' : 'overflow-hidden p-6 md:p-10')}>
         <AnimatePresence custom={direction} mode="wait">
           <motion.div
             key={currentStep.key}
@@ -183,12 +183,12 @@ export function QuestionnaireFlow({
             className="space-y-8"
           >
             <div className="max-w-2xl">
-              <h1 className={cn('font-extrabold leading-tight text-ink', compact ? 'text-2xl md:text-3xl' : 'text-3xl md:text-4xl')}>
+              <h1 className={cn('font-extrabold leading-tight text-ink', compact ? 'text-xl md:text-2xl' : 'text-3xl md:text-4xl')}>
                 {currentStep.title}
               </h1>
             </div>
 
-            <div className={cn('grid gap-3', currentStep.key === 'gender' ? 'grid-cols-1' : 'grid-cols-2 md:grid-cols-3')}>
+            <div className={cn('grid gap-2.5', currentStep.key === 'gender' ? 'grid-cols-1' : 'grid-cols-2 md:grid-cols-3')}>
               {visibleOptions.map((option) => {
                 const isSelected = currentStep.key === 'gender'
                   ? gender === option.value
@@ -222,7 +222,8 @@ export function QuestionnaireFlow({
                     type="button"
                     onClick={handleClick}
                     className={cn(
-                      'min-h-[88px] rounded-2xl border px-4 py-4 text-left transition-all',
+                      'rounded-2xl border px-4 py-3 text-left transition-all',
+                      compact ? 'min-h-[64px]' : 'min-h-[88px]',
                       isSelected
                         ? 'border-primary bg-primary text-white'
                         : 'border-primary bg-card text-ink hover:bg-primary/5'
@@ -268,7 +269,7 @@ export function QuestionnaireFlow({
         </AnimatePresence>
       </div>
 
-      <div className="mt-6 flex items-center justify-between gap-3">
+      <div className={cn('flex shrink-0 items-center justify-between gap-3', compact ? 'mt-4' : 'mt-6')}>
         <button
           type="button"
           onClick={handleBack}
