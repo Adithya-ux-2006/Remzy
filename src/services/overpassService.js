@@ -1,4 +1,4 @@
-const CACHE_KEY = 'clotsolid_overpass_cache';
+const CACHE_KEY = 'remzy_overpass_cache';
 const CACHE_TTL = 1800000; // 30 minutes
 const REQUEST_TIMEOUT_MS = 12000;
 
