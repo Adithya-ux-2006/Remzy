@@ -23,7 +23,7 @@ export function searchRemedies(query, remedies) {
       remedy.shortDescription,
       remedy.longDescription,
       remedy.howToUse,
-      remedy.warnings,
+      Array.isArray(remedy.warnings) ? remedy.warnings.join(' ') : remedy.warnings,
       ...(remedy.symptoms || []),
       ...(remedy.keywordTags || []),
       ...(remedy.allergen_tags || []),

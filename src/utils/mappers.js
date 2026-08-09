@@ -60,6 +60,17 @@ function simplifyStringList(value) {
   return Array.isArray(value) ? value.map(simplifyRemedyLanguage) : value;
 }
 
+function normalizeWarnings(value) {
+  if (!value) return value;
+  const items = Array.isArray(value)
+    ? value
+    : (value.match(/[^.!?]+[.!?]+/g) ?? [value]);
+  return items
+    .map((item) => item.trim())
+    .filter(Boolean)
+    .map(simplifyRemedyLanguage);
+}
+
 export function getInitials(name = '') {
   const initials = name
     .split(' ')
@@ -100,7 +111,7 @@ export function mapRemedy(remedy) {
     shortDescription: simplifyRemedyLanguage(remedy.short_description ?? remedy.shortDescription),
     longDescription: simplifyRemedyLanguage(remedy.long_description ?? remedy.longDescription),
     howToUse: simplifyRemedyLanguage(remedy.how_to_use ?? remedy.howToUse),
-    warnings: simplifyRemedyLanguage(remedy.warnings),
+    warnings: normalizeWarnings(remedy.warnings),
     allergen_tags: remedy.allergen_tags ?? remedy.allergenTags ?? [],
     contraindications: simplifyStringList(remedy.contraindications ?? []),
     ingredients: simplifyStringList(remedy.ingredients ?? []),

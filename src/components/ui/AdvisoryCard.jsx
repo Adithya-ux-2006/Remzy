@@ -24,9 +24,18 @@ export function AdvisoryCard({ title, message, className }) {
       </div>
       <div className="flex-1 min-w-0">
         {title && <p className="font-semibold text-ink text-sm mb-1">{title}</p>}
-        {message && (
+        {Array.isArray(message) ? (
+          <ul className="mt-1.5 space-y-2.5">
+            {message.map((item, i) => (
+              <li key={i} className="flex items-start gap-2.5 text-sm text-ink-muted leading-relaxed">
+                <ShieldAlert className="w-4 h-4 text-warning shrink-0 mt-0.5" />
+                <span>{item}</span>
+              </li>
+            ))}
+          </ul>
+        ) : message ? (
           <p className="text-sm text-ink-muted leading-relaxed">{message}</p>
-        )}
+        ) : null}
       </div>
     </motion.div>
   );

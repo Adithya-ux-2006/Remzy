@@ -49,7 +49,7 @@ function computeSafetyScore(remedy) {
   const contraindications = (remedy.contraindications || []).length;
   if (contraindications > 0) score -= contraindications * 10;
 
-  const warnings = (remedy.warnings || '').length;
+  const warnings = Array.isArray(remedy.warnings) ? remedy.warnings.join(' ').length : (remedy.warnings || '').length;
   if (warnings > 50) score -= 10;
 
   return Math.max(score, 0);
