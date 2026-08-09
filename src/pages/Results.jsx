@@ -19,6 +19,7 @@ import { getRankedRemediesForSymptoms, isEmergencyQuery, resolveWithSemanticFall
 import { resolveQuery } from '../utils/symptomEngine';
 import { fetchGeminiInterpretation } from '../utils/geminiInterpreter';
 import { trackSearchEvent } from '../utils/analytics';
+import { isRemedyDisplayable } from '../utils/evidence';
 
 const EMPTY_ARRAY = [];
 
@@ -339,7 +340,7 @@ export function Results() {
       ...(grouped.bestMatches || []),
       ...(grouped.additionalOptions || []),
       ...(grouped.supportive || []),
-    ].filter(Boolean);
+    ].filter(Boolean).filter(r => isRemedyDisplayable(r));
     return all.slice(0, 3);
   }, [grouped]);
 
@@ -348,8 +349,7 @@ export function Results() {
     [highlightedRemedies]
   );
 
-  const hasResults = (grouped?.bestMatch != null) || (grouped?.bestMatches?.length > 0)
-    || (grouped?.additionalOptions?.length > 0) || (grouped?.supportive?.length > 0);
+  const hasResults = highlightedRemedies.length > 0 || allAlternatives.length > 0;
 
   const allAlternatives = useMemo(() => {
     if (!grouped) return [];
@@ -357,7 +357,7 @@ export function Results() {
       ...(grouped.bestMatches || []),
       ...(grouped.additionalOptions || []),
       ...(grouped.supportive || []),
-    ].filter((r) => !highlightedIds.has(r.id));
+    ].filter((r) => !highlightedIds.has(r.id) && isRemedyDisplayable(r));
   }, [grouped, highlightedIds]);
 
   const visibleAlternatives = showAllAlternatives ? allAlternatives : allAlternatives.slice(0, 5);

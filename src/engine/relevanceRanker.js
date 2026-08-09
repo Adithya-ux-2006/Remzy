@@ -1,6 +1,7 @@
 import { buildKnowledgeContext } from './knowledgeGraph';
 import { getChildSafetyStatus } from '../utils/guestProfile';
 import { CONDITION_TO_CONTRAINDICATION_MAP, normalizeConditionValue } from '../utils/conditionMapping';
+import { computeEvidenceScore } from '../utils/evidence';
 
 export const REMEDY_TIER = {
   DIRECT: 0,
@@ -17,9 +18,11 @@ const TIER_LABELS = {
 export function classifyRelationship(remedy, symptomId) {
   const isPrimary = remedy.primarySymptoms?.includes(symptomId);
   const isSecondary = remedy.secondarySymptoms?.includes(symptomId);
+  const isAssociated = remedy.symptoms?.includes(symptomId);
 
   if (isPrimary) return REMEDY_TIER.DIRECT;
   if (isSecondary) return REMEDY_TIER.ASSOCIATED;
+  if (isAssociated) return REMEDY_TIER.ASSOCIATED;
   return REMEDY_TIER.SUPPORTIVE;
 }
 
@@ -289,13 +292,10 @@ export function rankRemedies(remedies, concerns, symptomRemediesMap, options = {
       const penalty = computeUserContextPenalty(remedy, userContext);
 
       let baseScore;
+      const evidenceScore = computeEvidenceScore(remedy);
       if (tier === REMEDY_TIER.DIRECT) {
-        const paperCount = (remedy.researchPapers?.length || 0) + (remedy.researchLinks?.length || 0);
-        const evidenceScore = Math.min(paperCount * 3, 10);
         baseScore = computeDirectScore(evidenceScore, 5);
       } else {
-        const paperCount = (remedy.researchPapers?.length || 0) + (remedy.researchLinks?.length || 0);
-        const evidenceScore = Math.min(paperCount * 3, 10);
         baseScore = computeAssociatedScore(evidenceScore, 3);
       }
 
@@ -309,7 +309,7 @@ export function rankRemedies(remedies, concerns, symptomRemediesMap, options = {
         _isPrimaryConcern: isPrimaryConcern,
         _tier: tier,
         _tierLabel: TIER_LABELS[tier],
-        _evidenceScore: 0,
+        _evidenceScore: evidenceScore,
         _priorityRank: 0,
         _safetyScore: safetyScore,
         _relevanceScore: Math.round(score),

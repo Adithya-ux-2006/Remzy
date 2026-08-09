@@ -22,6 +22,7 @@ import { isRemedySafeForUser } from '../utils/guestProfile';
 import { cn } from '../utils/cn';
 import { trackRemedyEvent } from '../utils/analytics';
 import { getMedicalCareWarnings } from '../data/symptoms';
+import { computeEvidenceScore, getEvidenceLevel } from '../utils/evidence';
 
 const CATEGORY_BENEFITS = {
   Natural: [
@@ -124,11 +125,8 @@ export function RemedyDetail() {
   }, [remedy]);
 
   const evidenceScore = useMemo(() => {
-    if (!researchLinks.length) return 0;
-    if (researchLinks.length >= 3) return 8;
-    if (researchLinks.length >= 2) return 6;
-    return 4;
-  }, [researchLinks]);
+    return computeEvidenceScore(remedy);
+  }, [remedy]);
 
   const safetyScore = useMemo(() => {
     if (!remedy) return 80;

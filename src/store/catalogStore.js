@@ -20,21 +20,38 @@ function buildLocalSymptomRemedies(remedies = []) {
   const map = {};
 
   remedies.forEach((remedy, remedyIndex) => {
-    for (const symptomId of remedy.primarySymptoms || remedy.symptoms || []) {
-      if (!map[symptomId]) map[symptomId] = [];
-      map[symptomId].push({
-        remedyId: remedy.id,
-        evidenceScore: 8,
-        priorityRank: Math.max(1, 1000 - remedyIndex),
-      });
-    }
+    const primarySet = new Set(remedy.primarySymptoms || []);
+    const secondarySet = new Set(remedy.secondarySymptoms || []);
+    // Broader symptom list (some remedies list additional symptoms here
+    // that aren't in primarySymptoms/secondarySymptoms)
+    const allSymptoms = new Set([
+      ...primarySet,
+      ...secondarySet,
+      ...(remedy.symptoms || []),
+    ]);
 
-    for (const symptomId of remedy.secondarySymptoms || []) {
+    for (const symptomId of allSymptoms) {
       if (!map[symptomId]) map[symptomId] = [];
+
+      // Determine relationship strength for evidence scoring
+      let evidenceScore;
+      let priorityRank;
+      if (primarySet.has(symptomId)) {
+        evidenceScore = 8;
+        priorityRank = Math.max(1, 1000 - remedyIndex);
+      } else if (secondarySet.has(symptomId)) {
+        evidenceScore = 4;
+        priorityRank = Math.max(1, 500 - remedyIndex);
+      } else {
+        // Listed in symptoms array but not primary/secondary — treat as associated
+        evidenceScore = 3;
+        priorityRank = Math.max(1, 300 - remedyIndex);
+      }
+
       map[symptomId].push({
         remedyId: remedy.id,
-        evidenceScore: 4,
-        priorityRank: Math.max(1, 500 - remedyIndex),
+        evidenceScore,
+        priorityRank,
       });
     }
   });
@@ -43,10 +60,17 @@ function buildLocalSymptomRemedies(remedies = []) {
 }
 
 async function loadLocalCatalog() {
-  const [{ SYMPTOMS }, { REMEDIES }] = await Promise.all([
+  const [{ SYMPTOMS }, { REMEDIES }, { LOCAL_REMEDIES, LOCAL_SYMPTOM_REMEDIES }] = await Promise.all([
     import('../data/symptoms'),
     import('../data/remedies'),
+    import('../data/localCatalog'),
   ]);
+
+  const allRemedies = [...REMEDIES, ...LOCAL_REMEDIES];
+
+  const localSymptomRemedies = buildLocalSymptomRemedies(allRemedies);
+
+  const mergedSymptomRemedies = mergeSymptomRemedies(localSymptomRemedies, LOCAL_SYMPTOM_REMEDIES);
 
   return {
     symptoms: SYMPTOMS.map((s) => ({
@@ -55,8 +79,8 @@ async function loadLocalCatalog() {
       emoji: s.emoji,
       color: s.color,
     })),
-    remedies: REMEDIES.map(mapRemedy),
-    symptomRemedies: buildLocalSymptomRemedies(REMEDIES),
+    remedies: allRemedies.map(mapRemedy),
+    symptomRemedies: mergedSymptomRemedies,
   };
 }
 
