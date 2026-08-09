@@ -65,14 +65,14 @@ export function Modal({ isOpen, onClose, title, children, className }) {
 
   return (
     <div className="fixed inset-0 z-50 flex items-center justify-center p-4" style={{ paddingBottom: 'calc(1rem + env(safe-area-inset-bottom, 0px))' }}>
-      <div className="fixed inset-0 bg-ink/20" onClick={onClose} aria-hidden="true" />
+      <div className="fixed inset-0 bg-black/60 backdrop-blur-md" onClick={onClose} aria-hidden="true" />
       <div
         ref={modalRef}
         role="dialog"
         aria-modal="true"
         aria-labelledby={titleId}
         className={cn(
-          "relative bg-card rounded-4xl w-full max-w-lg max-h-[85vh] overflow-y-auto shadow-2xl",
+          "relative w-full max-w-lg max-h-[85vh] overflow-y-auto rounded-4xl border border-ink/15 bg-modal shadow-2xl shadow-black/30",
           className
         )}
       >
