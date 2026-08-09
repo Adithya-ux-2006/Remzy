@@ -1,23 +1,6 @@
-const OVERPASS_ENDPOINTS = [
-  'https://overpass-api.de/api/interpreter',
-  'https://overpass.kumi.systems/api/interpreter',
-];
-
 const CACHE_KEY = 'clotsolid_overpass_cache';
 const CACHE_TTL = 1800000; // 30 minutes
-const REQUEST_TIMEOUT_MS = 7000;
-const FALLBACK_DELAY_MS = 350;
-
-function buildOverpassQuery(lat, lon, radiusMeters) {
-  return `
-    [out:json][timeout:7];
-    (
-      nwr["amenity"~"^(hospital|clinic|doctors)$"](around:${radiusMeters},${lat},${lon});
-      nwr["healthcare"~"^(hospital|clinic|doctor|diagnostics|laboratory)$"](around:${radiusMeters},${lat},${lon});
-    );
-    out center body;
-  `;
-}
+const REQUEST_TIMEOUT_MS = 9000;
 
 function calculateDistance(lat1, lon1, lat2, lon2) {
   const R = 6371;
@@ -130,39 +113,22 @@ function saveToCache(cacheKey, centres) {
   }
 }
 
-async function queryOverpassEndpoint(endpoint, query, externalSignal) {
+async function queryMedicalCentreApi(userLat, userLon, radiusKm) {
   const controller = new AbortController();
   const timeoutId = setTimeout(() => controller.abort(), REQUEST_TIMEOUT_MS);
-  const abortFromParent = () => controller.abort();
-  externalSignal?.addEventListener('abort', abortFromParent, { once: true });
 
   try {
-    const response = await fetch(endpoint, {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-      body: `data=${encodeURIComponent(query)}`,
-      signal: controller.signal,
-    });
+    const params = new URLSearchParams({ lat: String(userLat), lon: String(userLon), radiusKm: String(radiusKm) });
+    const response = await fetch(`/api/nearby-medical-centres?${params}`, { signal: controller.signal });
 
     if (!response.ok) {
-      throw new Error(`Overpass API returned ${response.status}`);
+      throw new Error(`Medical-centre API returned ${response.status}`);
     }
 
     return await response.json();
   } finally {
     clearTimeout(timeoutId);
-    externalSignal?.removeEventListener('abort', abortFromParent);
   }
-}
-
-function delay(ms, signal) {
-  return new Promise((resolve, reject) => {
-    const timeoutId = setTimeout(resolve, ms);
-    signal?.addEventListener('abort', () => {
-      clearTimeout(timeoutId);
-      reject(new DOMException('Request cancelled', 'AbortError'));
-    }, { once: true });
-  });
 }
 
 export async function searchNearbyCentres(userLat, userLon, radiusKm = 10) {
@@ -172,19 +138,8 @@ export async function searchNearbyCentres(userLat, userLon, radiusKm = 10) {
     return cachedResults;
   }
 
-  const radiusMeters = radiusKm * 1000;
-  const query = buildOverpassQuery(userLat, userLon, radiusMeters);
-
-  const searchController = new AbortController();
-
   try {
-    // Start the fallback shortly after the primary instead of waiting for a full
-    // timeout. Promise.any returns the first successful response.
-    const data = await Promise.any(OVERPASS_ENDPOINTS.map((endpoint, index) => (async () => {
-      if (index) await delay(FALLBACK_DELAY_MS * index, searchController.signal);
-      return queryOverpassEndpoint(endpoint, query, searchController.signal);
-    })()));
-    searchController.abort();
+    const data = await queryMedicalCentreApi(userLat, userLon, radiusKm);
 
     let centres = (data.elements || [])
       .map(el => extractCentreInfo(el, userLat, userLon))
@@ -195,8 +150,7 @@ export async function searchNearbyCentres(userLat, userLon, radiusKm = 10) {
     saveToCache(cacheKey, results);
     return results;
   } catch (error) {
-    searchController.abort();
-    console.warn('[medical-centres] Overpass endpoints failed', {
+    console.warn('[medical-centres] API request failed', {
       message: error?.message || String(error),
       radiusKm,
     });
