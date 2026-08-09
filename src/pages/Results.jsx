@@ -349,8 +349,6 @@ export function Results() {
     [highlightedRemedies]
   );
 
-  const hasResults = highlightedRemedies.length > 0 || allAlternatives.length > 0;
-
   const allAlternatives = useMemo(() => {
     if (!grouped) return [];
     return [
@@ -359,6 +357,8 @@ export function Results() {
       ...(grouped.supportive || []),
     ].filter((r) => !highlightedIds.has(r.id) && isRemedyDisplayable(r));
   }, [grouped, highlightedIds]);
+
+  const hasResults = highlightedRemedies.length > 0 || allAlternatives.length > 0;
 
   const visibleAlternatives = showAllAlternatives ? allAlternatives : allAlternatives.slice(0, 5);
 
