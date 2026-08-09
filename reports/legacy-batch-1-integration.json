@@ -1,0 +1,81 @@
+{
+  "generatedAt": "2026-08-09T09:11:29.595Z",
+  "scope": "runtime",
+  "remedies": 12,
+  "passed": 12,
+  "failed": 0,
+  "details": [
+    {
+      "remedyId": "rem_c01",
+      "remedyName": "Zinc Cold-Relief Lozenges",
+      "status": "PASS",
+      "errors": []
+    },
+    {
+      "remedyId": "rem_c05",
+      "remedyName": "Honey Lemon Warm Tea",
+      "status": "PASS",
+      "errors": []
+    },
+    {
+      "remedyId": "rem_a01",
+      "remedyName": "L-Theanine for Stress",
+      "status": "PASS",
+      "errors": []
+    },
+    {
+      "remedyId": "rem_a02",
+      "remedyName": "Ashwagandha Stress Relief Capsule",
+      "status": "PASS",
+      "errors": []
+    },
+    {
+      "remedyId": "rem_a05",
+      "remedyName": "Slow Paced Breathing",
+      "status": "PASS",
+      "errors": []
+    },
+    {
+      "remedyId": "rem_i01",
+      "remedyName": "Melatonin for Sleep Timing",
+      "status": "PASS",
+      "errors": []
+    },
+    {
+      "remedyId": "rem_i02",
+      "remedyName": "Tart Cherry Juice",
+      "status": "PASS",
+      "errors": []
+    },
+    {
+      "remedyId": "rem_i05",
+      "remedyName": "Stimulus Control Routine",
+      "status": "PASS",
+      "errors": []
+    },
+    {
+      "remedyId": "rem_s01",
+      "remedyName": "Rhodiola for Stress-Related Fatigue",
+      "status": "PASS",
+      "errors": []
+    },
+    {
+      "remedyId": "rem_s02",
+      "remedyName": "Lemon Balm Tea",
+      "status": "PASS",
+      "errors": []
+    },
+    {
+      "remedyId": "rem_s05",
+      "remedyName": "Ten-Minute Outdoor Walk",
+      "status": "PASS",
+      "errors": []
+    },
+    {
+      "remedyId": "rem_bp02",
+      "remedyName": "Gentle Yoga Mobility for Back Pain",
+      "status": "PASS",
+      "errors": []
+    }
+  ]
+}

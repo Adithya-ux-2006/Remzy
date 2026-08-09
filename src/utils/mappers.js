@@ -122,6 +122,8 @@ export function mapRemedy(remedy) {
     isPurchasable: remedy.is_purchasable ?? remedy.isPurchasable ?? (remedy.category !== 'Lifestyle' || (remedy.ingredients ?? []).length > 0),
     childSafe: remedy.child_safe ?? remedy.childSafe,
     childSafetyNote: remedy.child_safety_note ?? remedy.childSafetyNote ?? '',
+    evidenceTier: remedy.evidence_tier ?? remedy.evidenceTier,
+    evidenceNote: simplifyRemedyLanguage(remedy.evidence_note ?? remedy.evidenceNote ?? ''),
     researchPapers: remedy.research_papers?.map((paper) => ({
       title: paper.title,
       journal: paper.journal,

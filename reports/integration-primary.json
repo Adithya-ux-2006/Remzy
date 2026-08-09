@@ -1,0 +1,387 @@
+{
+  "generatedAt": "2026-08-09T09:03:14.765Z",
+  "scope": "primary",
+  "remedies": 63,
+  "passed": 63,
+  "failed": 0,
+  "details": [
+    {
+      "remedyId": "rem_001",
+      "remedyName": "Peppermint Oil on Temples",
+      "status": "PASS",
+      "errors": []
+    },
+    {
+      "remedyId": "rem_h04",
+      "remedyName": "Ibuprofen",
+      "status": "PASS",
+      "errors": []
+    },
+    {
+      "remedyId": "rem_004",
+      "remedyName": "Drink More Water",
+      "status": "PASS",
+      "errors": []
+    },
+    {
+      "remedyId": "rem_005",
+      "remedyName": "Feverfew Herbal Capsule",
+      "status": "PASS",
+      "errors": []
+    },
+    {
+      "remedyId": "rem_006",
+      "remedyName": "Cetirizine",
+      "status": "PASS",
+      "errors": []
+    },
+    {
+      "remedyId": "rem_007",
+      "remedyName": "Salt Water Nose Rinse",
+      "status": "PASS",
+      "errors": []
+    },
+    {
+      "remedyId": "rem_008",
+      "remedyName": "Albuterol Rescue Inhaler",
+      "status": "PASS",
+      "errors": []
+    },
+    {
+      "remedyId": "rem_009",
+      "remedyName": "Cranberry Supplement",
+      "status": "PASS",
+      "errors": []
+    },
+    {
+      "remedyId": "rem_010",
+      "remedyName": "D-Mannose Powder for UTI",
+      "status": "PASS",
+      "errors": []
+    },
+    {
+      "remedyId": "rem_011",
+      "remedyName": "Probiotic Supplement",
+      "status": "PASS",
+      "errors": []
+    },
+    {
+      "remedyId": "rem_012",
+      "remedyName": "Antifungal Cream",
+      "status": "PASS",
+      "errors": []
+    },
+    {
+      "remedyId": "rem_013",
+      "remedyName": "L-Arginine for Blood Flow",
+      "status": "PASS",
+      "errors": []
+    },
+    {
+      "remedyId": "rem_014",
+      "remedyName": "Fenugreek for Libido",
+      "status": "PASS",
+      "errors": []
+    },
+    {
+      "remedyId": "rem_015",
+      "remedyName": "Vitamin E Oil",
+      "status": "PASS",
+      "errors": []
+    },
+    {
+      "remedyId": "rem_016",
+      "remedyName": "Warm Compress",
+      "status": "PASS",
+      "errors": []
+    },
+    {
+      "remedyId": "rem_017",
+      "remedyName": "Saw Palmetto for Prostate",
+      "status": "PASS",
+      "errors": []
+    },
+    {
+      "remedyId": "rem_018",
+      "remedyName": "Clove Oil for Toothache",
+      "status": "PASS",
+      "errors": []
+    },
+    {
+      "remedyId": "rem_019",
+      "remedyName": "Salt Water Rinse",
+      "status": "PASS",
+      "errors": []
+    },
+    {
+      "remedyId": "rem_020",
+      "remedyName": "Night Mouthguard",
+      "status": "PASS",
+      "errors": []
+    },
+    {
+      "remedyId": "rem_021",
+      "remedyName": "Rest Ice Compress Elevate",
+      "status": "PASS",
+      "errors": []
+    },
+    {
+      "remedyId": "rem_022",
+      "remedyName": "Aloe Vera Gel",
+      "status": "PASS",
+      "errors": []
+    },
+    {
+      "remedyId": "rem_023",
+      "remedyName": "Oatmeal Soothing Cream",
+      "status": "PASS",
+      "errors": []
+    },
+    {
+      "remedyId": "rem_024",
+      "remedyName": "Tea Tree Oil",
+      "status": "PASS",
+      "errors": []
+    },
+    {
+      "remedyId": "rem_025",
+      "remedyName": "CPAP Machine",
+      "status": "PASS",
+      "errors": []
+    },
+    {
+      "remedyId": "rem_026",
+      "remedyName": "Iron Supplement",
+      "status": "PASS",
+      "errors": []
+    },
+    {
+      "remedyId": "rem_027",
+      "remedyName": "Antacid",
+      "status": "PASS",
+      "errors": []
+    },
+    {
+      "remedyId": "rem_028",
+      "remedyName": "Psyllium Fiber Supplement",
+      "status": "PASS",
+      "errors": []
+    },
+    {
+      "remedyId": "rem_029",
+      "remedyName": "Witch Hazel Pads",
+      "status": "PASS",
+      "errors": []
+    },
+    {
+      "remedyId": "rem_030",
+      "remedyName": "Ginger Tea",
+      "status": "PASS",
+      "errors": []
+    },
+    {
+      "remedyId": "rem_031",
+      "remedyName": "Ginkgo Biloba for Brain and Ears",
+      "status": "PASS",
+      "errors": []
+    },
+    {
+      "remedyId": "rem_032",
+      "remedyName": "Epley Maneuver for Vertigo",
+      "status": "PASS",
+      "errors": []
+    },
+    {
+      "remedyId": "rem_033",
+      "remedyName": "Vitamin B Complex Pills",
+      "status": "PASS",
+      "errors": []
+    },
+    {
+      "remedyId": "rem_034",
+      "remedyName": "Buttock Stretch for Leg Pain",
+      "status": "PASS",
+      "errors": []
+    },
+    {
+      "remedyId": "rem_035",
+      "remedyName": "Compression Socks",
+      "status": "PASS",
+      "errors": []
+    },
+    {
+      "remedyId": "rem_036",
+      "remedyName": "Fish Oil",
+      "status": "PASS",
+      "errors": []
+    },
+    {
+      "remedyId": "rem_037",
+      "remedyName": "CoQ10 for Heart and Energy",
+      "status": "PASS",
+      "errors": []
+    },
+    {
+      "remedyId": "rem_038",
+      "remedyName": "Anti-Inflammatory Diet for Period Pain",
+      "status": "PASS",
+      "errors": []
+    },
+    {
+      "remedyId": "rem_039",
+      "remedyName": "Biotin Supplement",
+      "status": "PASS",
+      "errors": []
+    },
+    {
+      "remedyId": "rem_040",
+      "remedyName": "Leg Elevation for Swelling",
+      "status": "PASS",
+      "errors": []
+    },
+    {
+      "remedyId": "rem_041",
+      "remedyName": "Leg Stretches for Restless Legs",
+      "status": "PASS",
+      "errors": []
+    },
+    {
+      "remedyId": "rem_042",
+      "remedyName": "Cooling Pillow",
+      "status": "PASS",
+      "errors": []
+    },
+    {
+      "remedyId": "rem_043",
+      "remedyName": "White Noise Machine",
+      "status": "PASS",
+      "errors": []
+    },
+    {
+      "remedyId": "rem_044",
+      "remedyName": "Calendula (Marigold) Skin Cream",
+      "status": "PASS",
+      "errors": []
+    },
+    {
+      "remedyId": "rem_045",
+      "remedyName": "Kegel Exercises",
+      "status": "PASS",
+      "errors": []
+    },
+    {
+      "remedyId": "rem_101",
+      "remedyName": "Sleep & Stress Reset Routine",
+      "status": "PASS",
+      "errors": []
+    },
+    {
+      "remedyId": "rem_102",
+      "remedyName": "Maca Root for Energy",
+      "status": "PASS",
+      "errors": []
+    },
+    {
+      "remedyId": "rem_103",
+      "remedyName": "Pelvic Floor Relaxation",
+      "status": "PASS",
+      "errors": []
+    },
+    {
+      "remedyId": "rem_104",
+      "remedyName": "Water-Based Lubricant",
+      "status": "PASS",
+      "errors": []
+    },
+    {
+      "remedyId": "rem_105",
+      "remedyName": "Vaginal Moisturizer",
+      "status": "PASS",
+      "errors": []
+    },
+    {
+      "remedyId": "rem_106",
+      "remedyName": "Warm Cloth on Eyes",
+      "status": "PASS",
+      "errors": []
+    },
+    {
+      "remedyId": "rem_mg01",
+      "remedyName": "Magnesium Oxide Supplement",
+      "status": "PASS",
+      "errors": []
+    },
+    {
+      "remedyId": "rem_bt01",
+      "remedyName": "Mindfulness-Based Stress Reduction",
+      "status": "PASS",
+      "errors": []
+    },
+    {
+      "remedyId": "rem_np01",
+      "remedyName": "Neck Strengthening Exercises",
+      "status": "PASS",
+      "errors": []
+    },
+    {
+      "remedyId": "rem_sp01",
+      "remedyName": "Shoulder-Specific Exercise Therapy",
+      "status": "PASS",
+      "errors": []
+    },
+    {
+      "remedyId": "rem_kp01",
+      "remedyName": "Topical Diclofenac Gel",
+      "status": "PASS",
+      "errors": []
+    },
+    {
+      "remedyId": "rem_ep01",
+      "remedyName": "Herbal Extract Ear Drops",
+      "status": "PASS",
+      "errors": []
+    },
+    {
+      "remedyId": "rem_pms01",
+      "remedyName": "Calcium Supplement",
+      "status": "PASS",
+      "errors": []
+    },
+    {
+      "remedyId": "rem_fv01",
+      "remedyName": "Acetaminophen (Paracetamol)",
+      "status": "PASS",
+      "errors": []
+    },
+    {
+      "remedyId": "rem_hg01",
+      "remedyName": "N-Acetylcysteine (NAC)",
+      "status": "PASS",
+      "errors": []
+    },
+    {
+      "remedyId": "rem_dh01",
+      "remedyName": "Oral Rehydration Salts (ORS)",
+      "status": "PASS",
+      "errors": []
+    },
+    {
+      "remedyId": "rem_cs01",
+      "remedyName": "Lemon Balm (Melissa) Cream",
+      "status": "PASS",
+      "errors": []
+    },
+    {
+      "remedyId": "rem_hd01",
+      "remedyName": "Wrist Splint for Carpal Tunnel",
+      "status": "PASS",
+      "errors": []
+    },
+    {
+      "remedyId": "rem_rs01",
+      "remedyName": "Azelaic Acid 15% Gel",
+      "status": "PASS",
+      "errors": []
+    }
+  ]
+}

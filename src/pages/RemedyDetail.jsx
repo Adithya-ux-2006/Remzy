@@ -22,7 +22,7 @@ import { isRemedySafeForUser } from '../utils/guestProfile';
 import { cn } from '../utils/cn';
 import { trackRemedyEvent } from '../utils/analytics';
 import { getMedicalCareWarnings } from '../data/symptoms';
-import { computeEvidenceScore, getEvidenceLevel } from '../utils/evidence';
+import { computeEvidenceScore } from '../utils/evidence';
 
 const CATEGORY_BENEFITS = {
   Natural: [
@@ -104,24 +104,7 @@ export function RemedyDetail() {
 
   const researchLinks = useMemo(() => {
     if (!remedy) return [];
-    const baseLinks = remedy.researchPapers || remedy.researchLinks || [];
-    
-    // Add Google Scholar search link if available
-    if (remedy.googleScholarUrl) {
-      return [
-        ...baseLinks,
-        {
-          label: `Search Google Scholar for "${remedy.name}" research`,
-          url: remedy.googleScholarUrl,
-          journal: 'Google Scholar',
-          keyFinding: `Browse peer-reviewed studies, clinical trials, and meta-analyses on ${remedy.name} from Google Scholar`,
-          type: 'Search Index',
-          year: new Date().getFullYear(),
-        },
-      ];
-    }
-    
-    return baseLinks;
+    return remedy.researchPapers || remedy.researchLinks || [];
   }, [remedy]);
 
   const evidenceScore = useMemo(() => {

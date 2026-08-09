@@ -21,6 +21,10 @@
     "db:diff:output": "node scripts/db-diff.js --output supabase/pending_migration.sql",
     "db:generate-schema": "node scripts/generate-schema.js",
     "db:generate-schema:dry": "node scripts/generate-schema.js --dry-run"
+    ,"content:verify-citations": "node scripts/verify-citations.js"
+    ,"content:verify-primary": "node scripts/verify-citations.js --scope=primary"
+    ,"content:audit-integration": "node scripts/remedy-integration-audit.mjs"
+    ,"content:gate": "npm run content:verify-citations && npm run content:audit-integration"
   },
   "dependencies": {
     "@base-ui/react": "^1.6.0",

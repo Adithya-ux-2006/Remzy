@@ -1,0 +1,62 @@
+{
+  "generatedAt": "2026-08-09T09:16:32.650Z",
+  "scope": "runtime",
+  "httpVerified": true,
+  "remedies": 6,
+  "citations": 2,
+  "passed": 2,
+  "limited": 4,
+  "failed": 0,
+  "details": [
+    {
+      "remedyId": "rem_a08",
+      "remedyName": "Lavender Aromatherapy",
+      "source": "localCatalog",
+      "field": "researchPapers",
+      "index": 0,
+      "url": "https://pubmed.ncbi.nlm.nih.gov/31655395/",
+      "title": "Effects of lavender on anxiety: A systematic review and meta-analysis",
+      "status": "PASS",
+      "reason": null
+    },
+    {
+      "remedyId": "rem_a09",
+      "remedyName": "Yoga Nidra Practice",
+      "source": "localCatalog",
+      "status": "LIMITED",
+      "reason": "Small heterogeneous studies do not yet establish yoga nidra as a stand-alone treatment for anxiety."
+    },
+    {
+      "remedyId": "rem_a10",
+      "remedyName": "Daily Journaling Practice",
+      "source": "localCatalog",
+      "status": "LIMITED",
+      "reason": "Expressive-writing findings vary substantially by population and protocol; journaling is not a substitute for mental-health care."
+    },
+    {
+      "remedyId": "rem_i08",
+      "remedyName": "Weighted Blanket",
+      "source": "localCatalog",
+      "field": "researchPapers",
+      "index": 0,
+      "url": "https://pubmed.ncbi.nlm.nih.gov/32204779/",
+      "title": "Weighted Blanket Use: A Systematic Review",
+      "status": "PASS",
+      "reason": null
+    },
+    {
+      "remedyId": "rem_i09",
+      "remedyName": "Sleep Hygiene Protocol",
+      "source": "localCatalog",
+      "status": "LIMITED",
+      "reason": "Clinical guidelines advise against using sleep hygiene as the only treatment for chronic insomnia."
+    },
+    {
+      "remedyId": "rem_n09",
+      "remedyName": "Small Frequent Meals Protocol",
+      "source": "localCatalog",
+      "status": "LIMITED",
+      "reason": "This is cause-dependent supportive advice rather than an evidence-backed treatment for undifferentiated nausea."
+    }
+  ]
+}

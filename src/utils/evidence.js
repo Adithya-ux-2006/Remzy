@@ -2,7 +2,8 @@
  * Evidence Classification Utility
  * 
  * Provides functions to classify remedies and their evidence into:
- * - RESEARCH_BACKED: has a real, verifiable PubMed or Google Scholar citation
+ * - RESEARCH_BACKED: has a real, paper-specific citation
+ * - LIMITED: explicitly reviewed as limited evidence
  * - UNVERIFIED: has citations but none are verifiable
  * - UNKNOWN: no citations at all
  * 
@@ -12,13 +13,17 @@
 
 export const EVIDENCE_CLASSIFICATION = {
   RESEARCH_BACKED: 'RESEARCH_BACKED',
+  LIMITED: 'LIMITED',
   UNVERIFIED: 'UNVERIFIED',
   UNKNOWN: 'UNKNOWN',
 };
 
 export const CITATION_SOURCE = {
   PUBMED: 'pubmed',
+  DOI: 'doi',
+  WEB_OF_SCIENCE: 'web-of-science',
   SCHOLAR: 'scholar',
+  JOURNAL: 'journal',
   UNKNOWN: 'unknown',
 };
 
@@ -32,20 +37,24 @@ export function isRealPubMedUrl(url) {
 }
 
 /**
- * Check if a URL is a real Google Scholar citation link.
- * Accepts:
- * - scholar.google.com/scholar?... (search results linking to a specific paper)
- * - scholar.google.com/citations?... (individual citation pages)
- * Rejects generic search URLs with no paper-specific parameters.
+ * Only Google Scholar citation-detail pages count. Search-result URLs never do.
  */
 export function isRealScholarUrl(url) {
   if (!url || typeof url !== 'string') return false;
-  // Must be on scholar.google.com
-  if (!/scholar\.google\.com/.test(url)) return false;
-  // Must have either citations?view_op=view_citation or be a direct paper link
-  // Reject the generic placeholder URLs like scholar?q=rem%20001%20remedy%20clinical%20study
-  // Accept URLs with actual citation parameters
-  return /citations\?view_op=view_citation|scholar\?.*as_sdt=|scholar\?.*btnG=/.test(url);
+  return /^https:\/\/scholar\.google\.[^/]+\/citations\?.*\bview_op=view_citation\b/i.test(url);
+}
+
+export function isSpecificDoiUrl(url) {
+  return /^https:\/\/doi\.org\/10\.\d{4,9}\/[\S]+$/i.test(url || '');
+}
+
+export function isSpecificWebOfScienceUrl(url) {
+  return /^https:\/\/www\.webofscience\.com\/wos\/woscc\/full-record\/[^/?#]+/i.test(url || '');
+}
+
+export function isSpecificJournalUrl(url) {
+  if (!/^https?:\/\//i.test(url || '')) return false;
+  return !/(?:scholar\.google\.[^/]+\/scholar|pubmed\.ncbi\.nlm\.nih\.gov\/(?:\?|search)|webofscience\.com\/wos\/woscc\/(?:basic-search|search|summary)|[?&](?:q|query|term|as_q)=)/i.test(url);
 }
 
 /**
@@ -53,7 +62,10 @@ export function isRealScholarUrl(url) {
  */
 export function detectCitationSource(url) {
   if (isRealPubMedUrl(url)) return CITATION_SOURCE.PUBMED;
+  if (isSpecificDoiUrl(url)) return CITATION_SOURCE.DOI;
+  if (isSpecificWebOfScienceUrl(url)) return CITATION_SOURCE.WEB_OF_SCIENCE;
   if (isRealScholarUrl(url)) return CITATION_SOURCE.SCHOLAR;
+  if (isSpecificJournalUrl(url)) return CITATION_SOURCE.JOURNAL;
   return CITATION_SOURCE.UNKNOWN;
 }
 
@@ -61,7 +73,7 @@ export function detectCitationSource(url) {
  * Check if a URL is a real, verifiable citation (PubMed or Google Scholar).
  */
 export function isRealCitation(url) {
-  return isRealPubMedUrl(url) || isRealScholarUrl(url);
+  return detectCitationSource(url) !== CITATION_SOURCE.UNKNOWN;
 }
 
 /**
@@ -81,6 +93,10 @@ export function classifyRemedyEvidence(remedy) {
 
   if (hasRealPaper || hasRealLink) {
     return EVIDENCE_CLASSIFICATION.RESEARCH_BACKED;
+  }
+
+  if (remedy.evidenceTier === 'limited' && remedy.evidenceNote) {
+    return EVIDENCE_CLASSIFICATION.LIMITED;
   }
 
   const hasAnyCitation = papers.length > 0 || links.length > 0;
@@ -154,6 +170,7 @@ export function computeEvidenceScore(remedy) {
 
   if (details.real === 0) {
     if (details.fake > 0) return 1;
+    if (remedy.evidenceTier === 'limited' && remedy.evidenceNote) return 1;
     return 0;
   }
 
@@ -206,6 +223,7 @@ export function isRemedyDisplayable(remedy, options = {}) {
 
   switch (classification) {
     case EVIDENCE_CLASSIFICATION.RESEARCH_BACKED:
+    case EVIDENCE_CLASSIFICATION.LIMITED:
       return true;
     case EVIDENCE_CLASSIFICATION.UNVERIFIED:
       return allowUnverified;

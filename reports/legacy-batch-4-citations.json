@@ -1,0 +1,102 @@
+{
+  "generatedAt": "2026-08-09T09:17:51.089Z",
+  "scope": "runtime",
+  "httpVerified": true,
+  "remedies": 10,
+  "citations": 5,
+  "passed": 5,
+  "limited": 5,
+  "failed": 0,
+  "details": [
+    {
+      "remedyId": "rem_s10",
+      "remedyName": "Forest Bathing Walk",
+      "source": "localCatalog",
+      "field": "researchPapers",
+      "index": 0,
+      "url": "https://pubmed.ncbi.nlm.nih.gov/31001682/",
+      "title": "Effects of forest bathing on levels of cortisol as a stress biomarker",
+      "status": "PASS",
+      "reason": null
+    },
+    {
+      "remedyId": "rem_bp06",
+      "remedyName": "Core Strengthening Routine",
+      "source": "localCatalog",
+      "field": "researchPapers",
+      "index": 0,
+      "url": "https://pubmed.ncbi.nlm.nih.gov/25488399/",
+      "title": "An update of stabilisation exercises for low back pain",
+      "status": "PASS",
+      "reason": null
+    },
+    {
+      "remedyId": "rem_st03",
+      "remedyName": "Licorice Root Soothing Tea",
+      "source": "localCatalog",
+      "status": "LIMITED",
+      "reason": "Direct clinical evidence for licorice tea as a sore-throat treatment is insufficient."
+    },
+    {
+      "remedyId": "rem_st05",
+      "remedyName": "Marshmallow Root Soothing Tea",
+      "source": "localCatalog",
+      "status": "LIMITED",
+      "reason": "Traditional demulcent use is not supported by robust trials for acute sore throat."
+    },
+    {
+      "remedyId": "rem_es04",
+      "remedyName": "Palming Technique",
+      "source": "localCatalog",
+      "status": "LIMITED",
+      "reason": "No robust clinical evidence establishes palming as treatment for digital eye strain."
+    },
+    {
+      "remedyId": "rem_pc05",
+      "remedyName": "Gentle Exercise for Menstrual Cramps",
+      "source": "localCatalog",
+      "field": "researchPapers",
+      "index": 0,
+      "url": "https://pubmed.ncbi.nlm.nih.gov/38816591/",
+      "title": "Comparative Effectiveness of Different Exercises for Reducing Pain Intensity in Primary Dysmenorrhea",
+      "status": "PASS",
+      "reason": null
+    },
+    {
+      "remedyId": "rem_sr05",
+      "remedyName": "Virgin Coconut Oil for Mild Eczema",
+      "source": "localCatalog",
+      "field": "researchPapers",
+      "index": 0,
+      "url": "https://pubmed.ncbi.nlm.nih.gov/24320105/",
+      "title": "The effect of topical virgin coconut oil on mild to moderate pediatric atopic dermatitis",
+      "status": "PASS",
+      "reason": null
+    },
+    {
+      "remedyId": "rem_bg05",
+      "remedyName": "Abdominal Self-Massage",
+      "source": "localCatalog",
+      "status": "LIMITED",
+      "reason": "Evidence cannot be generalized to unexplained bloating, obstruction, or acute abdominal pain."
+    },
+    {
+      "remedyId": "rem_bg06",
+      "remedyName": "Clinician-Guided Low-FODMAP Trial",
+      "source": "localCatalog",
+      "field": "researchPapers",
+      "index": 0,
+      "url": "https://pubmed.ncbi.nlm.nih.gov/33315591/",
+      "title": "ACG Clinical Guideline: Management of Irritable Bowel Syndrome",
+      "status": "PASS",
+      "reason": null
+    },
+    {
+      "remedyId": "rem_ho06",
+      "remedyName": "Rest After Alcohol",
+      "source": "localCatalog",
+      "status": "LIMITED",
+      "reason": "Sleep is supportive care only; it does not detoxify alcohol or make an intoxicated person safe to leave unattended."
+    }
+  ]
+}

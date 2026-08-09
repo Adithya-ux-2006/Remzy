@@ -1,0 +1,98 @@
+{
+  "generatedAt": "2026-08-09T09:15:26.311Z",
+  "scope": "runtime",
+  "httpVerified": true,
+  "remedies": 10,
+  "citations": 4,
+  "passed": 4,
+  "limited": 6,
+  "failed": 0,
+  "details": [
+    {
+      "remedyId": "rem_st01",
+      "remedyName": "Salt Water Gargle",
+      "source": "localCatalog",
+      "field": "researchPapers",
+      "index": 0,
+      "url": "https://pubmed.ncbi.nlm.nih.gov/16242593/",
+      "title": "Prevention of upper respiratory tract infections by gargling",
+      "status": "PASS",
+      "reason": null
+    },
+    {
+      "remedyId": "rem_es01",
+      "remedyName": "20-20-20 Screen Reset",
+      "source": "localCatalog",
+      "status": "LIMITED",
+      "reason": "The exact 20-20-20 rule has limited direct trial evidence. It is presented as a low-risk ergonomic break, not a proven treatment."
+    },
+    {
+      "remedyId": "rem_pc01",
+      "remedyName": "Heating Pad for Period Cramps",
+      "source": "localCatalog",
+      "field": "researchPapers",
+      "index": 0,
+      "url": "https://pubmed.ncbi.nlm.nih.gov/30389956/",
+      "title": "Heat therapy for primary dysmenorrhea: a systematic review and meta-analysis",
+      "status": "PASS",
+      "reason": null
+    },
+    {
+      "remedyId": "rem_pc02",
+      "remedyName": "Ginger for Menstrual Pain",
+      "source": "localCatalog",
+      "field": "researchPapers",
+      "index": 0,
+      "url": "https://pubmed.ncbi.nlm.nih.gov/26177393/",
+      "title": "Efficacy of Ginger for Alleviating the Symptoms of Primary Dysmenorrhea",
+      "status": "PASS",
+      "reason": null
+    },
+    {
+      "remedyId": "rem_sr01",
+      "remedyName": "Colloidal Oatmeal for Mild Eczema",
+      "source": "localCatalog",
+      "field": "researchPapers",
+      "index": 0,
+      "url": "https://pubmed.ncbi.nlm.nih.gov/32484623/",
+      "title": "Effects of Colloidal Oatmeal Topical Atopic Dermatitis Cream on Skin Microbiome and Skin Barrier Properties",
+      "status": "PASS",
+      "reason": null
+    },
+    {
+      "remedyId": "rem_sr02",
+      "remedyName": "Cool Compress for Itchy Irritation",
+      "source": "localCatalog",
+      "status": "LIMITED",
+      "reason": "Cooling is standard comfort care, but high-quality trials of a cool compress as a stand-alone rash treatment are not available."
+    },
+    {
+      "remedyId": "rem_bg01",
+      "remedyName": "Peppermint Bloating Tea",
+      "source": "localCatalog",
+      "status": "LIMITED",
+      "reason": "Evidence for peppermint oil in IBS cannot be assumed to prove peppermint tea treats bloating."
+    },
+    {
+      "remedyId": "rem_bg02",
+      "remedyName": "Post-Meal Walk",
+      "source": "localCatalog",
+      "status": "LIMITED",
+      "reason": "Light walking is low risk for most people, but it is not established as a clinical treatment for unexplained bloating."
+    },
+    {
+      "remedyId": "rem_ho01",
+      "remedyName": "Supportive Hydration After Alcohol",
+      "source": "localCatalog",
+      "status": "LIMITED",
+      "reason": "No reliable intervention cures hangover. Hydration is presented only as supportive care for possible fluid loss."
+    },
+    {
+      "remedyId": "rem_ft01",
+      "remedyName": "Daylight Activity Break",
+      "source": "localCatalog",
+      "status": "LIMITED",
+      "reason": "Evidence varies by population and does not establish a short daylight walk as treatment for unexplained fatigue."
+    }
+  ]
+}

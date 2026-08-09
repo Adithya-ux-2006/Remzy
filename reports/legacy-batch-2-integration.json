@@ -1,0 +1,69 @@
+{
+  "generatedAt": "2026-08-09T09:15:23.239Z",
+  "scope": "runtime",
+  "remedies": 10,
+  "passed": 10,
+  "failed": 0,
+  "details": [
+    {
+      "remedyId": "rem_st01",
+      "remedyName": "Salt Water Gargle",
+      "status": "PASS",
+      "errors": []
+    },
+    {
+      "remedyId": "rem_es01",
+      "remedyName": "20-20-20 Screen Reset",
+      "status": "PASS",
+      "errors": []
+    },
+    {
+      "remedyId": "rem_pc01",
+      "remedyName": "Heating Pad for Period Cramps",
+      "status": "PASS",
+      "errors": []
+    },
+    {
+      "remedyId": "rem_pc02",
+      "remedyName": "Ginger for Menstrual Pain",
+      "status": "PASS",
+      "errors": []
+    },
+    {
+      "remedyId": "rem_sr01",
+      "remedyName": "Colloidal Oatmeal for Mild Eczema",
+      "status": "PASS",
+      "errors": []
+    },
+    {
+      "remedyId": "rem_sr02",
+      "remedyName": "Cool Compress for Itchy Irritation",
+      "status": "PASS",
+      "errors": []
+    },
+    {
+      "remedyId": "rem_bg01",
+      "remedyName": "Peppermint Bloating Tea",
+      "status": "PASS",
+      "errors": []
+    },
+    {
+      "remedyId": "rem_bg02",
+      "remedyName": "Post-Meal Walk",
+      "status": "PASS",
+      "errors": []
+    },
+    {
+      "remedyId": "rem_ho01",
+      "remedyName": "Supportive Hydration After Alcohol",
+      "status": "PASS",
+      "errors": []
+    },
+    {
+      "remedyId": "rem_ft01",
+      "remedyName": "Daylight Activity Break",
+      "status": "PASS",
+      "errors": []
+    }
+  ]
+}

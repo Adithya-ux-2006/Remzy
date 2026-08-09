@@ -1,0 +1,45 @@
+{
+  "generatedAt": "2026-08-09T09:19:00.689Z",
+  "scope": "runtime",
+  "remedies": 6,
+  "passed": 6,
+  "failed": 0,
+  "details": [
+    {
+      "remedyId": "rem_ft06",
+      "remedyName": "Short Daytime Nap",
+      "status": "PASS",
+      "errors": []
+    },
+    {
+      "remedyId": "rem_kp03",
+      "remedyName": "Supervised Quadriceps Strengthening for Knee Osteoarthritis",
+      "status": "PASS",
+      "errors": []
+    },
+    {
+      "remedyId": "rem_np07",
+      "remedyName": "Ergonomic Posture Break",
+      "status": "PASS",
+      "errors": []
+    },
+    {
+      "remedyId": "rem_sp03",
+      "remedyName": "Gentle Doorway Chest Stretch",
+      "status": "PASS",
+      "errors": []
+    },
+    {
+      "remedyId": "rem_sp07",
+      "remedyName": "Clinician-Guided Shoulder Mobility",
+      "status": "PASS",
+      "errors": []
+    },
+    {
+      "remedyId": "rem_ey06",
+      "remedyName": "Blinking and Distance-Focus Break",
+      "status": "PASS",
+      "errors": []
+    }
+  ]
+}

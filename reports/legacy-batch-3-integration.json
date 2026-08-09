@@ -1,0 +1,45 @@
+{
+  "generatedAt": "2026-08-09T09:16:30.933Z",
+  "scope": "runtime",
+  "remedies": 6,
+  "passed": 6,
+  "failed": 0,
+  "details": [
+    {
+      "remedyId": "rem_a08",
+      "remedyName": "Lavender Aromatherapy",
+      "status": "PASS",
+      "errors": []
+    },
+    {
+      "remedyId": "rem_a09",
+      "remedyName": "Yoga Nidra Practice",
+      "status": "PASS",
+      "errors": []
+    },
+    {
+      "remedyId": "rem_a10",
+      "remedyName": "Daily Journaling Practice",
+      "status": "PASS",
+      "errors": []
+    },
+    {
+      "remedyId": "rem_i08",
+      "remedyName": "Weighted Blanket",
+      "status": "PASS",
+      "errors": []
+    },
+    {
+      "remedyId": "rem_i09",
+      "remedyName": "Sleep Hygiene Protocol",
+      "status": "PASS",
+      "errors": []
+    },
+    {
+      "remedyId": "rem_n09",
+      "remedyName": "Small Frequent Meals Protocol",
+      "status": "PASS",
+      "errors": []
+    }
+  ]
+}

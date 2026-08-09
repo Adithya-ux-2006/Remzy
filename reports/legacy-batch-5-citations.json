@@ -1,0 +1,66 @@
+{
+  "generatedAt": "2026-08-09T09:19:02.918Z",
+  "scope": "runtime",
+  "httpVerified": true,
+  "remedies": 6,
+  "citations": 3,
+  "passed": 3,
+  "limited": 3,
+  "failed": 0,
+  "details": [
+    {
+      "remedyId": "rem_ft06",
+      "remedyName": "Short Daytime Nap",
+      "source": "localCatalog",
+      "field": "researchPapers",
+      "index": 0,
+      "url": "https://pubmed.ncbi.nlm.nih.gov/34639511/",
+      "title": "Effects of a Short Daytime Nap on Cognitive Performance",
+      "status": "PASS",
+      "reason": null
+    },
+    {
+      "remedyId": "rem_kp03",
+      "remedyName": "Supervised Quadriceps Strengthening for Knee Osteoarthritis",
+      "source": "localCatalog",
+      "field": "researchPapers",
+      "index": 0,
+      "url": "https://pubmed.ncbi.nlm.nih.gov/24574223/",
+      "title": "Impact of exercise type and dose on pain and disability in knee osteoarthritis",
+      "status": "PASS",
+      "reason": null
+    },
+    {
+      "remedyId": "rem_np07",
+      "remedyName": "Ergonomic Posture Break",
+      "source": "localCatalog",
+      "status": "LIMITED",
+      "reason": "Ergonomic breaks are supportive advice; evidence does not justify promising prevention or relief from a single posture routine."
+    },
+    {
+      "remedyId": "rem_sp03",
+      "remedyName": "Gentle Doorway Chest Stretch",
+      "source": "localCatalog",
+      "status": "LIMITED",
+      "reason": "Direct evidence for a doorway stretch alone is insufficient; shoulder pain has many causes."
+    },
+    {
+      "remedyId": "rem_sp07",
+      "remedyName": "Clinician-Guided Shoulder Mobility",
+      "source": "localCatalog",
+      "status": "LIMITED",
+      "reason": "Evidence is diagnosis-specific and does not support unsupervised pendulums for all shoulder pain."
+    },
+    {
+      "remedyId": "rem_ey06",
+      "remedyName": "Blinking and Distance-Focus Break",
+      "source": "localCatalog",
+      "field": "researchPapers",
+      "index": 0,
+      "url": "https://pubmed.ncbi.nlm.nih.gov/35809192/",
+      "title": "Digital Eye Strain—A Comprehensive Review",
+      "status": "PASS",
+      "reason": null
+    }
+  ]
+}

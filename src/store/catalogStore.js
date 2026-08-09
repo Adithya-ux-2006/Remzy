@@ -1,6 +1,11 @@
 import { create } from 'zustand';
 import { supabase } from '../lib/supabase';
 import { mapRemedy } from '../utils/mappers';
+import { applyLegacyBatch1 } from '../data/legacyRemedyBatch1';
+import { applyLegacyBatch2 } from '../data/legacyRemedyBatch2';
+import { applyLegacyBatch3 } from '../data/legacyRemedyBatch3';
+import { applyLegacyBatch4 } from '../data/legacyRemedyBatch4';
+import { applyLegacyBatch5 } from '../data/legacyRemedyBatch5';
 
 function buildSymptomRemediesMap(rows) {
   const map = {};
@@ -66,7 +71,7 @@ async function loadLocalCatalog() {
     import('../data/localCatalog'),
   ]);
 
-  const allRemedies = [...REMEDIES, ...LOCAL_REMEDIES];
+  const allRemedies = [...REMEDIES, ...applyLegacyBatch5(applyLegacyBatch4(applyLegacyBatch3(applyLegacyBatch2(applyLegacyBatch1(LOCAL_REMEDIES)))))];
 
   const localSymptomRemedies = buildLocalSymptomRemedies(allRemedies);
 
@@ -92,52 +97,43 @@ function mergeById(primary = [], fallback = []) {
   ];
 }
 
-import { SUPABASE_REMEDY_GOOGLE_SCHOLAR_MAP } from '../utils/supabaseRemedyGoogleScholarMap';
-
 function mergeRemedyFields(primary = [], fallback = []) {
-  // Merge specific fields from fallback (local) into primary (Supabase) remedies
+  // Keep Supabase authoritative for existing records while retaining reviewed
+  // local remedies that have not been migrated yet.
   const fallbackMapById = new Map(fallback.map(item => [item.id, item]));
   const fallbackMapByName = new Map(fallback.map(item => [item.name.toLowerCase(), item]));
+  const matchedFallbackIds = new Set();
   
-  return primary.map(primaryItem => {
+  const mergedPrimary = primary.map(primaryItem => {
     // Try matching by ID first
     let fallbackItem = fallbackMapById.get(primaryItem.id);
     
-    // Try Supabase-specific name mapping FIRST (before local fallback by name)
-    // This ensures Supabase-specific fields like googleScholarUrl take precedence
-    if (primaryItem.name) {
-      const supabaseMap = SUPABASE_REMEDY_GOOGLE_SCHOLAR_MAP[primaryItem.name];
-      if (supabaseMap) {
-        console.log('[CATALOG] Matched Supabase remedy:', primaryItem.name, '-> googleScholarUrl:', supabaseMap.googleScholarUrl);
-        fallbackItem = supabaseMap;
-      }
-    }
-    
-    // If not found by Supabase mapping, try matching by name (case-insensitive) from local fallback
+    // If not found by ID, try matching by name (case-insensitive) from local fallback.
     if (!fallbackItem && primaryItem.name) {
       fallbackItem = fallbackMapByName.get(primaryItem.name.toLowerCase());
     }
     
     if (!fallbackItem) return primaryItem;
+    matchedFallbackIds.add(fallbackItem.id);
     
-    // Merge specific fields from local data that may not be in Supabase
-    const merged = {
+    return {
+      ...fallbackItem,
       ...primaryItem,
-      googleScholarUrl: fallbackItem.googleScholarUrl ?? primaryItem.googleScholarUrl,
       childSafe: fallbackItem.childSafe ?? primaryItem.childSafe,
       childSafetyNote: fallbackItem.childSafetyNote ?? primaryItem.childSafetyNote,
+      evidenceTier: primaryItem.evidenceTier ?? fallbackItem.evidenceTier,
+      evidenceNote: primaryItem.evidenceNote || fallbackItem.evidenceNote,
+      researchPapers: primaryItem.researchPapers?.length
+        ? primaryItem.researchPapers
+        : fallbackItem.researchPapers,
+      researchLinks: primaryItem.researchLinks?.length
+        ? primaryItem.researchLinks
+        : fallbackItem.researchLinks,
     };
-    
-    if (primaryItem.name === 'Aloe Vera Gel') {
-      console.log('[CATALOG] Merged Aloe Vera Gel:', {
-        primaryGoogleScholarUrl: primaryItem.googleScholarUrl,
-        fallbackGoogleScholarUrl: fallbackItem?.googleScholarUrl,
-        mergedGoogleScholarUrl: merged.googleScholarUrl,
-      });
-    }
-    
-    return merged;
   });
+
+  const localOnly = fallback.filter((item) => !matchedFallbackIds.has(item.id));
+  return [...mergedPrimary, ...localOnly];
 }
 
 function mergeSymptomRemedies(primary = {}, fallback = {}) {

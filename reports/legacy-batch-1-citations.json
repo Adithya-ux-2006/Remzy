@@ -1,0 +1,143 @@
+{
+  "generatedAt": "2026-08-09T09:11:40.171Z",
+  "scope": "runtime",
+  "httpVerified": true,
+  "remedies": 12,
+  "citations": 12,
+  "passed": 12,
+  "failed": 0,
+  "details": [
+    {
+      "remedyId": "rem_c01",
+      "remedyName": "Zinc Cold-Relief Lozenges",
+      "source": "localCatalog",
+      "field": "researchPapers",
+      "index": 0,
+      "url": "https://pubmed.ncbi.nlm.nih.gov/38719213/",
+      "title": "Zinc for prevention and treatment of the common cold",
+      "status": "PASS",
+      "reason": null
+    },
+    {
+      "remedyId": "rem_c05",
+      "remedyName": "Honey Lemon Warm Tea",
+      "source": "localCatalog",
+      "field": "researchPapers",
+      "index": 0,
+      "url": "https://pubmed.ncbi.nlm.nih.gov/18056558/",
+      "title": "Effect of honey, dextromethorphan, and no treatment on nocturnal cough and sleep quality",
+      "status": "PASS",
+      "reason": null
+    },
+    {
+      "remedyId": "rem_a01",
+      "remedyName": "L-Theanine for Stress",
+      "source": "localCatalog",
+      "field": "researchPapers",
+      "index": 0,
+      "url": "https://pubmed.ncbi.nlm.nih.gov/31623400/",
+      "title": "Effects of L-Theanine Administration on Stress-Related Symptoms and Cognitive Functions in Healthy Adults",
+      "status": "PASS",
+      "reason": null
+    },
+    {
+      "remedyId": "rem_a02",
+      "remedyName": "Ashwagandha Stress Relief Capsule",
+      "source": "localCatalog",
+      "field": "researchPapers",
+      "index": 0,
+      "url": "https://pubmed.ncbi.nlm.nih.gov/31517876/",
+      "title": "An investigation into the stress-relieving and pharmacological actions of an ashwagandha extract",
+      "status": "PASS",
+      "reason": null
+    },
+    {
+      "remedyId": "rem_a05",
+      "remedyName": "Slow Paced Breathing",
+      "source": "localCatalog",
+      "field": "researchPapers",
+      "index": 0,
+      "url": "https://pubmed.ncbi.nlm.nih.gov/30245619/",
+      "title": "How breath-control can change your life: a systematic review on psychophysiological correlates of slow breathing",
+      "status": "PASS",
+      "reason": null
+    },
+    {
+      "remedyId": "rem_i01",
+      "remedyName": "Melatonin for Sleep Timing",
+      "source": "localCatalog",
+      "field": "researchPapers",
+      "index": 0,
+      "url": "https://pubmed.ncbi.nlm.nih.gov/23691095/",
+      "title": "Meta-analysis: melatonin for the treatment of primary sleep disorders",
+      "status": "PASS",
+      "reason": null
+    },
+    {
+      "remedyId": "rem_i02",
+      "remedyName": "Tart Cherry Juice",
+      "source": "localCatalog",
+      "field": "researchPapers",
+      "index": 0,
+      "url": "https://pubmed.ncbi.nlm.nih.gov/22038497/",
+      "title": "Effect of tart cherry juice on melatonin levels and enhanced sleep quality",
+      "status": "PASS",
+      "reason": null
+    },
+    {
+      "remedyId": "rem_i05",
+      "remedyName": "Stimulus Control Routine",
+      "source": "localCatalog",
+      "field": "researchPapers",
+      "index": 0,
+      "url": "https://pubmed.ncbi.nlm.nih.gov/33164742/",
+      "title": "Behavioral and psychological treatments for chronic insomnia disorder in adults",
+      "status": "PASS",
+      "reason": null
+    },
+    {
+      "remedyId": "rem_s01",
+      "remedyName": "Rhodiola for Stress-Related Fatigue",
+      "source": "localCatalog",
+      "field": "researchPapers",
+      "index": 0,
+      "url": "https://pubmed.ncbi.nlm.nih.gov/19016404/",
+      "title": "A randomised, double-blind, placebo-controlled, parallel-group study of Rhodiola rosea in stress related fatigue",
+      "status": "PASS",
+      "reason": null
+    },
+    {
+      "remedyId": "rem_s02",
+      "remedyName": "Lemon Balm Tea",
+      "source": "localCatalog",
+      "field": "researchPapers",
+      "index": 0,
+      "url": "https://pubmed.ncbi.nlm.nih.gov/15272110/",
+      "title": "Attenuation of laboratory-induced stress in humans after acute administration of Melissa officinalis",
+      "status": "PASS",
+      "reason": null
+    },
+    {
+      "remedyId": "rem_s05",
+      "remedyName": "Ten-Minute Outdoor Walk",
+      "source": "localCatalog",
+      "field": "researchPapers",
+      "index": 0,
+      "url": "https://pubmed.ncbi.nlm.nih.gov/20337470/",
+      "title": "What is the best dose of nature and green exercise for improving mental health?",
+      "status": "PASS",
+      "reason": null
+    },
+    {
+      "remedyId": "rem_bp02",
+      "remedyName": "Gentle Yoga Mobility for Back Pain",
+      "source": "localCatalog",
+      "field": "researchPapers",
+      "index": 0,
+      "url": "https://pubmed.ncbi.nlm.nih.gov/28631003/",
+      "title": "Yoga, Physical Therapy, or Education for Chronic Low Back Pain",
+      "status": "PASS",
+      "reason": null
+    }
+  ]
+}
