@@ -1,6 +1,6 @@
 const CACHE_KEY = 'clotsolid_overpass_cache';
 const CACHE_TTL = 1800000; // 30 minutes
-const REQUEST_TIMEOUT_MS = 9000;
+const REQUEST_TIMEOUT_MS = 12000;
 
 function calculateDistance(lat1, lon1, lat2, lon2) {
   const R = 6371;

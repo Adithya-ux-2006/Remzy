@@ -1,11 +1,12 @@
 import { applySecurity, json } from './middleware.js';
 
 const OVERPASS_ENDPOINTS = [
+  'https://maps.mail.ru/osm/tools/overpass/api/interpreter',
   'https://overpass-api.de/api/interpreter',
-  'https://overpass.kumi.systems/api/interpreter',
+  'https://overpass.private.coffee/api/interpreter',
 ];
-const PROVIDER_TIMEOUT_MS = 6500;
-const FALLBACK_DELAY_MS = 250;
+const PROVIDER_TIMEOUT_MS = 10000;
+const FALLBACK_DELAY_MS = 300;
 
 function validCoordinate(value, min, max) {
   const number = Number(value);
@@ -13,7 +14,32 @@ function validCoordinate(value, min, max) {
 }
 
 function buildQuery(lat, lon, radiusMeters) {
-  return `[out:json][timeout:6];(nwr["amenity"~"^(hospital|clinic|doctors)$"](around:${radiusMeters},${lat},${lon});nwr["healthcare"~"^(hospital|clinic|doctor|diagnostics|laboratory)$"](around:${radiusMeters},${lat},${lon}););out center body;`;
+  const latitudeDelta = radiusMeters / 111320;
+  const longitudeDelta = radiusMeters / (111320 * Math.max(0.2, Math.cos(lat * Math.PI / 180)));
+  const bounds = [lat - latitudeDelta, lon - longitudeDelta, lat + latitudeDelta, lon + longitudeDelta]
+    .map((value) => value.toFixed(5)).join(',');
+  return `[out:json][timeout:9];(nwr["amenity"~"^(hospital|clinic|doctors)$"]["name"](${bounds});nwr["healthcare"~"^(hospital|clinic|doctor|diagnostics|laboratory)$"]["name"](${bounds}););out center;`;
+}
+
+function distanceKm(lat1, lon1, lat2, lon2) {
+  const toRadians = (degrees) => degrees * Math.PI / 180;
+  const dLat = toRadians(lat2 - lat1);
+  const dLon = toRadians(lon2 - lon1);
+  const a = Math.sin(dLat / 2) ** 2
+    + Math.cos(toRadians(lat1)) * Math.cos(toRadians(lat2)) * Math.sin(dLon / 2) ** 2;
+  return 6371 * 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
+}
+
+function nearestElements(elements, lat, lon, radiusKm) {
+  return elements.map((element) => {
+    const elementLat = element.lat ?? element.center?.lat;
+    const elementLon = element.lon ?? element.center?.lon;
+    if (!Number.isFinite(elementLat) || !Number.isFinite(elementLon) || !element.tags?.name) return null;
+    return { element, distance: distanceKm(lat, lon, elementLat, elementLon) };
+  }).filter((item) => item && item.distance <= radiusKm)
+    .sort((a, b) => a.distance - b.distance)
+    .slice(0, 100)
+    .map((item) => item.element);
 }
 
 function delayed(ms) {
@@ -57,9 +83,10 @@ export default async function handler(req, res) {
   const query = buildQuery(lat, lon, radiusKm * 1000);
   const startedAt = Date.now();
   try {
-    const elements = await Promise.any(OVERPASS_ENDPOINTS.map((endpoint, index) =>
+    const providerElements = await Promise.any(OVERPASS_ENDPOINTS.map((endpoint, index) =>
       queryProvider(endpoint, query, index * FALLBACK_DELAY_MS)
     ));
+    const elements = nearestElements(providerElements, lat, lon, radiusKm);
     res.setHeader('Cache-Control', 'public, s-maxage=1800, stale-while-revalidate=86400');
     console.log('[nearby-medical-centres] success', { radiusKm, elements: elements.length, durationMs: Date.now() - startedAt });
     return json(res, 200, { elements });
