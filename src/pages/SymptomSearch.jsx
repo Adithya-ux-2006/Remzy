@@ -176,7 +176,7 @@ export function SymptomSearch() {
 
           {shouldShowDropdown && (
             <div
-              className="absolute left-0 right-0 top-full z-40 mt-2 overflow-hidden rounded-2xl border border-ink/5 bg-card shadow-xl"
+              className="absolute left-0 right-0 top-full z-40 mt-2 overflow-hidden rounded-2xl border border-ink/15 bg-modal shadow-2xl shadow-black/30"
             >
               <button
                 type="button"
