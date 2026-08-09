@@ -1,0 +1,100 @@
+{
+  "generatedAt": "2026-08-09T11:20:19.844Z",
+  "scope": "runtime",
+  "httpVerified": true,
+  "remedies": 8,
+  "citations": 8,
+  "passed": 8,
+  "limited": 0,
+  "failed": 0,
+  "details": [
+    {
+      "remedyId": "rem_es01",
+      "remedyName": "20-20-20 Screen Reset",
+      "source": "localCatalog",
+      "field": "researchPapers",
+      "index": 0,
+      "url": "https://pubmed.ncbi.nlm.nih.gov/35963776/",
+      "title": "The effects of breaks on digital eye strain, dry eye and binocular vision: Testing the 20-20-20 rule",
+      "status": "PASS",
+      "reason": null
+    },
+    {
+      "remedyId": "rem_bg02",
+      "remedyName": "Post-Meal Walk",
+      "source": "localCatalog",
+      "field": "researchPapers",
+      "index": 0,
+      "url": "https://pubmed.ncbi.nlm.nih.gov/33868611/",
+      "title": "The effect of a short-term physical activity after meals on gastrointestinal symptoms in individuals with functional abdominal bloating",
+      "status": "PASS",
+      "reason": null
+    },
+    {
+      "remedyId": "rem_ft01",
+      "remedyName": "Light Walking Activity Break",
+      "source": "localCatalog",
+      "field": "researchPapers",
+      "index": 0,
+      "url": "https://pubmed.ncbi.nlm.nih.gov/26920441/",
+      "title": "Acute effects of breaking up prolonged sitting on fatigue and cognition: a pilot study",
+      "status": "PASS",
+      "reason": null
+    },
+    {
+      "remedyId": "rem_a09",
+      "remedyName": "Yoga Nidra Practice",
+      "source": "localCatalog",
+      "field": "researchPapers",
+      "index": 0,
+      "url": "https://pubmed.ncbi.nlm.nih.gov/41327816/",
+      "title": "Effects of Yoga Nidra on Stress, Anxiety, and Depression: A Systematic Review and Meta-Analysis",
+      "status": "PASS",
+      "reason": null
+    },
+    {
+      "remedyId": "rem_a10",
+      "remedyName": "Daily Journaling Practice",
+      "source": "localCatalog",
+      "field": "researchPapers",
+      "index": 0,
+      "url": "https://pubmed.ncbi.nlm.nih.gov/35304431/",
+      "title": "Efficacy of journaling in the management of mental illness: a systematic review and meta-analysis",
+      "status": "PASS",
+      "reason": null
+    },
+    {
+      "remedyId": "rem_i09",
+      "remedyName": "Sleep Hygiene Protocol",
+      "source": "localCatalog",
+      "field": "researchPapers",
+      "index": 0,
+      "url": "https://pubmed.ncbi.nlm.nih.gov/33164742/",
+      "title": "Behavioral and psychological treatments for chronic insomnia disorder in adults: an American Academy of Sleep Medicine clinical practice guideline",
+      "status": "PASS",
+      "reason": null
+    },
+    {
+      "remedyId": "rem_bg05",
+      "remedyName": "Abdominal Self-Massage",
+      "source": "localCatalog",
+      "field": "researchPapers",
+      "index": 0,
+      "url": "https://pubmed.ncbi.nlm.nih.gov/19217105/",
+      "title": "Effects of abdominal massage in management of constipation--a randomized controlled trial",
+      "status": "PASS",
+      "reason": null
+    },
+    {
+      "remedyId": "rem_np07",
+      "remedyName": "Workplace Stretching and Ergonomics Program",
+      "source": "localCatalog",
+      "field": "researchPapers",
+      "index": 0,
+      "url": "https://pubmed.ncbi.nlm.nih.gov/28939263/",
+      "title": "Effects of stretching exercise training and ergonomic modifications on musculoskeletal discomforts of office workers: a randomized controlled trial",
+      "status": "PASS",
+      "reason": null
+    }
+  ]
+}

@@ -9,10 +9,12 @@ export const LEGACY_BATCH_2_EXCLUDED_IDS = new Set([
   'rem_lp01', // broad leg-pain mapping could mask urgent causes
   'rem_h06', // caffeine/L-theanine evidence does not support headache claim
   'rem_h08', // Bacopa evidence does not support headache claim
+  'rem_sr02', // no direct controlled evidence for a cool compress as rash treatment
+  'rem_bg01', // peppermint-oil trials do not validate peppermint tea
+  'rem_ho01', // water does not alleviate hangover severity in current evidence
 ]);
 
 const paper = (title, journal, keyFinding, pmid) => ({ title, journal, keyFinding, url: `https://pubmed.ncbi.nlm.nih.gov/${pmid}/` });
-const limited = (note) => ({ evidenceTier: 'limited', evidenceNote: note, researchPapers: [], researchLinks: [] });
 
 export const LEGACY_BATCH_2_OVERRIDES = {
   rem_st01: {
@@ -26,8 +28,8 @@ export const LEGACY_BATCH_2_OVERRIDES = {
   rem_es01: {
     isPurchasable: false, childSafe: true, ingredients: [], allergen_tags: [], contraindications: [],
     primarySymptoms: ['eye_strain'], secondarySymptoms: [],
-    shortDescription: 'A commonly recommended screen-break habit, but direct clinical evidence for the exact 20-20-20 schedule is limited.',
-    ...limited('The exact 20-20-20 rule has limited direct trial evidence. It is presented as a low-risk ergonomic break, not a proven treatment.'),
+    shortDescription: 'Break reminders using the 20-20-20 rule reduced digital-eye-strain and dry-eye symptoms in a small intervention study.',
+    researchPapers: [paper('The effects of breaks on digital eye strain, dry eye and binocular vision: Testing the 20-20-20 rule', 'Cont Lens Anterior Eye', 'In 29 symptomatic computer users, two weeks of 20-20-20 reminders reduced digital-eye-strain and dry-eye symptoms, without improving most objective eye measures.', '35963776')],
   },
   rem_pc01: {
     isPurchasable: true, childSafe: false,
@@ -51,40 +53,18 @@ export const LEGACY_BATCH_2_OVERRIDES = {
     shortDescription: 'A colloidal-oat product may improve mild-to-moderate eczema symptoms; it is not appropriate for an unexplained severe rash.',
     researchPapers: [paper('Effects of Colloidal Oatmeal Topical Atopic Dermatitis Cream on Skin Microbiome and Skin Barrier Properties', 'J Drugs Dermatol', 'A randomized study found improvements in eczema severity and skin-barrier measures with a 1% colloidal-oat cream.', '32484623')],
   },
-  rem_sr02: {
-    isPurchasable: false, childSafe: true, ingredients: [], allergen_tags: [], contraindications: ['cold-induced urticaria'],
-    primarySymptoms: ['skin_rash'], secondarySymptoms: ['hives'],
-    shortDescription: 'A cool damp cloth can provide temporary comfort for mild itching, but it does not treat the cause of a rash.',
-    ...limited('Cooling is standard comfort care, but high-quality trials of a cool compress as a stand-alone rash treatment are not available.'),
-  },
-  rem_bg01: {
-    isPurchasable: true, childSafe: false,
-    childSafetyNote: 'Medicinal peppermint products should not be given to children without clinician guidance.',
-    ingredients: ['peppermint leaf'], allergen_tags: ['peppermint'], contraindications: ['peppermint allergy', 'GERD'],
-    primarySymptoms: ['bloating'], secondarySymptoms: [],
-    shortDescription: 'Peppermint tea is traditionally used for bloating, but clinical evidence mainly concerns enteric-coated peppermint oil rather than tea.',
-    ...limited('Evidence for peppermint oil in IBS cannot be assumed to prove peppermint tea treats bloating.'),
-  },
   rem_bg02: {
     isPurchasable: false, childSafe: true, ingredients: [], allergen_tags: [], contraindications: ['exercise restriction', 'severe abdominal pain'],
     primarySymptoms: ['bloating'], secondarySymptoms: [],
-    shortDescription: 'A gentle post-meal walk may feel helpful, but direct evidence for treating bloating is limited.',
-    ...limited('Light walking is low risk for most people, but it is not established as a clinical treatment for unexplained bloating.'),
-  },
-  rem_ho01: {
-    name: 'Supportive Hydration After Alcohol', isPurchasable: true, childSafe: false,
-    childSafetyNote: 'This content is not appropriate for children.',
-    ingredients: ['water or oral rehydration drink'], allergen_tags: [], contraindications: ['fluid restriction', 'possible alcohol poisoning'],
-    primarySymptoms: ['hangover'], secondarySymptoms: ['dehydration'],
-    shortDescription: 'Fluids may correct dehydration but are not proven to cure a hangover or prevent alcohol poisoning.',
-    ...limited('No reliable intervention cures hangover. Hydration is presented only as supportive care for possible fluid loss.'),
+    shortDescription: 'A randomized trial found that a 10-to-15-minute walk after meals improved functional bloating symptoms over four weeks.',
+    researchPapers: [paper('The effect of a short-term physical activity after meals on gastrointestinal symptoms in individuals with functional abdominal bloating', 'Middle East J Dig Dis', 'A randomized trial found post-meal walking improved bloating and related gastrointestinal symptoms over four weeks.', '33868611')],
   },
   rem_ft01: {
-    name: 'Daylight Activity Break', isPurchasable: false, childSafe: true,
-    ingredients: [], allergen_tags: [], contraindications: ['exercise restriction', 'photosensitivity'],
+    name: 'Light Walking Activity Break', isPurchasable: false, childSafe: true,
+    ingredients: [], allergen_tags: [], contraindications: ['exercise restriction'],
     primarySymptoms: ['fatigue'], secondarySymptoms: ['brain_fog'],
-    shortDescription: 'Daylight and light activity may improve alertness temporarily, but persistent fatigue needs evaluation.',
-    ...limited('Evidence varies by population and does not establish a short daylight walk as treatment for unexplained fatigue.'),
+    shortDescription: 'Brief light-intensity walking breaks reduced short-term fatigue in a small randomized crossover study of sedentary adults.',
+    researchPapers: [paper('Acute effects of breaking up prolonged sitting on fatigue and cognition: a pilot study', 'BMJ Open', 'Three-minute light walking breaks every 30 minutes reduced self-reported fatigue versus uninterrupted sitting in a small crossover trial.', '26920441')],
   },
 };
 

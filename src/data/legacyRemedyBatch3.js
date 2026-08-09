@@ -1,9 +1,9 @@
 export const LEGACY_BATCH_3_EXCLUDED_IDS = new Set([
   'rem_h09','rem_h10','rem_c06','rem_c07','rem_c08','rem_c09','rem_c10','rem_a06','rem_a07',
   'rem_i06','rem_i07','rem_i10','rem_n06','rem_n07','rem_n10','rem_s06','rem_s07','rem_s08','rem_s09',
+  'rem_n09', // no direct evidence for small frequent meals across undifferentiated nausea
 ]);
 const paper = (title, journal, keyFinding, pmid) => ({ title, journal, keyFinding, url: `https://pubmed.ncbi.nlm.nih.gov/${pmid}/` });
-const limited = (note) => ({ evidenceTier: 'limited', evidenceNote: note, researchPapers: [], researchLinks: [] });
 export const LEGACY_BATCH_3_OVERRIDES = {
   rem_a08: {
     isPurchasable: true, childSafe: false, childSafetyNote: 'Keep essential oils away from children and do not use as a pediatric anxiety treatment without guidance.',
@@ -16,14 +16,14 @@ export const LEGACY_BATCH_3_OVERRIDES = {
     isPurchasable: false, childSafe: false, childSafetyNote: 'Children should use age-appropriate relaxation recordings with adult supervision.',
     ingredients: [], allergen_tags: [], contraindications: ['trauma-triggered dissociation'],
     primarySymptoms: ['stress'], secondarySymptoms: ['anxiety'],
-    shortDescription: 'Yoga nidra is a guided relaxation practice with promising but still limited clinical evidence.',
-    ...limited('Small heterogeneous studies do not yet establish yoga nidra as a stand-alone treatment for anxiety.'),
+    shortDescription: 'A meta-analysis found improvements in stress and anxiety, but low study quality and varied protocols limit certainty.',
+    researchPapers: [paper('Effects of Yoga Nidra on Stress, Anxiety, and Depression: A Systematic Review and Meta-Analysis', 'Ann N Y Acad Sci', 'The review found benefits for stress and anxiety, while warning that low methodological quality may inflate the effects.', '41327816')],
   },
   rem_a10: {
     isPurchasable: false, childSafe: true, ingredients: [], allergen_tags: [], contraindications: ['writing-triggered acute distress'],
     primarySymptoms: ['stress'], secondarySymptoms: ['anxiety'],
-    shortDescription: 'Expressive writing may help some people process stress, but effects vary and it can temporarily increase distress.',
-    ...limited('Expressive-writing findings vary substantially by population and protocol; journaling is not a substitute for mental-health care.'),
+    shortDescription: 'Journaling has a small average adjunctive benefit in mental-health trials, with substantial variation between studies.',
+    researchPapers: [paper('Efficacy of journaling in the management of mental illness: a systematic review and meta-analysis', 'Fam Med Community Health', 'Twenty randomized trials suggested a small-to-moderate adjunctive benefit, with high heterogeneity between studies.', '35304431')],
   },
   rem_i08: {
     isPurchasable: true, childSafe: false, childSafetyNote: 'Never use for infants; children require an appropriately sized product and professional safety guidance.',
@@ -33,14 +33,8 @@ export const LEGACY_BATCH_3_OVERRIDES = {
   },
   rem_i09: {
     isPurchasable: false, childSafe: true, ingredients: [], allergen_tags: [], contraindications: [],
-    shortDescription: 'Healthy sleep routines can support treatment, but sleep hygiene alone is not recommended for chronic insomnia.',
-    ...limited('Clinical guidelines advise against using sleep hygiene as the only treatment for chronic insomnia.'),
-  },
-  rem_n09: {
-    isPurchasable: false, childSafe: true, ingredients: [], allergen_tags: [], contraindications: ['eating disorder', 'medically prescribed meal plan'],
-    primarySymptoms: ['nausea'], secondarySymptoms: [],
-    shortDescription: 'Small frequent meals may be easier to tolerate for some causes of nausea, but the strategy is not universally effective.',
-    ...limited('This is cause-dependent supportive advice rather than an evidence-backed treatment for undifferentiated nausea.'),
+    shortDescription: 'Sleep hygiene can support a broader insomnia plan, but guidelines advise against using it as the only treatment for chronic insomnia.',
+    researchPapers: [paper('Behavioral and psychological treatments for chronic insomnia disorder in adults: an American Academy of Sleep Medicine clinical practice guideline', 'J Clin Sleep Med', 'The guideline recommends CBT-I and advises against sleep hygiene as a single-component therapy for chronic insomnia.', '33164742')],
   },
 };
 export function applyLegacyBatch3(remedies) {

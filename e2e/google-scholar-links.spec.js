@@ -13,11 +13,16 @@ test.describe('citation-link guardrail', () => {
     }
   });
 
-  test('reviewed limited-evidence remedies remain visible and clearly labelled', async ({ page }) => {
+  test('the former limited-evidence sample now has a specific paper and removed entries stay absent', async ({ page }) => {
     await page.goto('/results?symptom=eye_strain');
     await page.waitForLoadState('networkidle');
 
     await expect(page.getByText('20-20-20 Screen Reset', { exact: true })).toBeVisible();
-    await expect(page.getByText('Limited Evidence').first()).toBeVisible();
+
+    await page.goto('/remedy/rem_es01');
+    await expect(page.locator('a[href="https://pubmed.ncbi.nlm.nih.gov/35963776/"]')).toBeVisible();
+
+    await page.goto('/results?symptom=eye_strain');
+    await expect(page.getByText('Palming Technique', { exact: true })).toHaveCount(0);
   });
 });
