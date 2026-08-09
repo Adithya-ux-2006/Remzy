@@ -119,6 +119,7 @@ export function RemedyDetail() {
   }, [remedy]);
 
   const visibleEvidence = showAllEvidence ? researchLinks : researchLinks.slice(0, EVIDENCE_SHOW_LIMIT);
+  const hasGuidance = researchLinks.some((source) => /guideline|guidance|evidence-summary/.test(source.evidenceType || ''));
 
   const doctorWarnings = getMedicalCareWarnings(remedy?.primarySymptoms?.[0] || remedy?.symptoms?.[0]);
 
@@ -297,21 +298,23 @@ export function RemedyDetail() {
                 ) : (
                   <span className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full text-xs font-semibold bg-ink-muted/10 text-ink-muted">
                     <BookOpen className="w-3.5 h-3.5" />
-                    Not yet rated
+                    {remedy.evidenceTier === 'traditional' ? 'Traditional Use' : remedy.evidenceTier === 'supportive' ? 'Supportive Care' : 'Not yet rated'}
                   </span>
                 )}
                 {researchLinks.length > 0 && (
                   <span className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full text-xs font-semibold bg-evidence/10 text-evidence">
                     <BookOpen className="w-3.5 h-3.5" />
-                    Research-Referenced
+                    {hasGuidance ? 'Guideline-Referenced' : 'Research-Referenced'}
                   </span>
                 )}
               </div>
             </div>
             <p className="text-sm text-ink-muted mb-5">
               {researchLinks.length > 0
-                ? `Based on ${researchLinks.length} peer-reviewed ${researchLinks.length === 1 ? 'study' : 'studies'}`
-                : 'No published studies indexed yet'}
+                ? hasGuidance
+                  ? `Supported by ${researchLinks.length} named clinical or public-health ${researchLinks.length === 1 ? 'source' : 'sources'}`
+                  : `Based on ${researchLinks.length} peer-reviewed ${researchLinks.length === 1 ? 'study' : 'studies'}`
+                : remedy.evidenceNote || 'No published studies indexed yet'}
             </p>
           </Reveal>
           {researchLinks.length > 0 && (

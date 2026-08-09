@@ -44,7 +44,7 @@ export function RemedyHero({ remedy, evidenceScore, className }) {
           transition={{ duration: 0.3, delay: 0.18 }}
           className="flex flex-wrap items-center justify-center md:justify-start gap-3 mb-5"
         >
-          {evidenceScore > 0 && <EvidenceLabel score={evidenceScore} />}
+          {evidenceScore > 0 && <EvidenceLabel score={evidenceScore} tier={remedy.evidenceTier} note={remedy.evidenceNote} />}
           {remedy.rating > 0 && (
             <RatingStars rating={remedy.rating} size="sm" />
           )}

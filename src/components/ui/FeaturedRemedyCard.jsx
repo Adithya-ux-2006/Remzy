@@ -17,7 +17,11 @@ function generateReasons(remedy, evidenceScore, safetyScore) {
   if (remedy.timeToEffect?.match(/immediate|minute/i)) {
     reasons.push('Fast acting');
   }
-  if (evidenceScore >= 7) {
+  if (remedy.evidenceTier === 'traditional') {
+    reasons.push('Traditional use; clinical evidence not established');
+  } else if (remedy.evidenceTier === 'supportive') {
+    reasons.push('Supportive care; not a proven treatment');
+  } else if (evidenceScore >= 7) {
     reasons.push('High quality evidence');
   } else if (evidenceScore >= 4) {
     reasons.push('Supported by clinical research');
@@ -105,7 +109,7 @@ export function FeaturedRemedyCard({ remedy, isSafe, evidenceScore, safetyScore,
                 <SafetyLabel safetyScore={safetyScore} hasConflicts={!isSafe} />
               </MetadataCell>
               <MetadataCell icon={<span className="text-sm">📈</span>} label="Evidence">
-                <EvidenceLabel score={evidenceScore} />
+                <EvidenceLabel score={evidenceScore} tier={remedy.evidenceTier} note={remedy.evidenceNote} />
               </MetadataCell>
             </div>
 

@@ -1,7 +1,6 @@
 export const LEGACY_BATCH_4_EXCLUDED_IDS = new Set([
   'rem_bp04','rem_bp07','rem_st04','rem_st06','rem_es03','rem_es05','rem_pc03','rem_pc04','rem_fv03','rem_fv04',
   'rem_fv05','rem_sr03','rem_sr04','rem_ep03','rem_ep04','rem_ep06','rem_bg03','rem_bg04','rem_ho03','rem_ho05',
-  'rem_st03','rem_st05','rem_es04','rem_ho06',
 ]);
 const paper=(title,journal,keyFinding,pmid)=>({title,journal,keyFinding,url:`https://pubmed.ncbi.nlm.nih.gov/${pmid}/`});
 export const LEGACY_BATCH_4_OVERRIDES={

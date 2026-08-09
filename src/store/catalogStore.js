@@ -6,6 +6,8 @@ import { applyLegacyBatch2 } from '../data/legacyRemedyBatch2';
 import { applyLegacyBatch3 } from '../data/legacyRemedyBatch3';
 import { applyLegacyBatch4 } from '../data/legacyRemedyBatch4';
 import { applyLegacyBatch5 } from '../data/legacyRemedyBatch5';
+import { applyLegacyEvidenceTierOverlay } from '../data/legacyEvidenceTierOverlay';
+import { applyMultiSourceRemedyBatch1 } from '../data/multiSourceRemedyBatch1';
 
 function buildSymptomRemediesMap(rows) {
   const map = {};
@@ -71,7 +73,7 @@ async function loadLocalCatalog() {
     import('../data/localCatalog'),
   ]);
 
-  const allRemedies = [...REMEDIES, ...applyLegacyBatch5(applyLegacyBatch4(applyLegacyBatch3(applyLegacyBatch2(applyLegacyBatch1(LOCAL_REMEDIES)))))];
+  const allRemedies = applyMultiSourceRemedyBatch1([...REMEDIES, ...applyLegacyEvidenceTierOverlay(applyLegacyBatch5(applyLegacyBatch4(applyLegacyBatch3(applyLegacyBatch2(applyLegacyBatch1(LOCAL_REMEDIES))))))]);
 
   const localSymptomRemedies = buildLocalSymptomRemedies(allRemedies);
 

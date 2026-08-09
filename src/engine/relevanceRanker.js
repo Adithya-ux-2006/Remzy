@@ -249,11 +249,12 @@ export function rankRemedies(remedies, concerns, symptomRemediesMap, options = {
       const tier = classifyRelationship(remedy, symptomId);
       const safetyScore = computeSafetyScore(remedy);
       const penalty = computeUserContextPenalty(remedy, userContext);
+      const evidenceScore = remedy.evidenceTier ? computeEvidenceScore(remedy) : (entry.evidenceScore || 0);
 
       const baseScore = tier === REMEDY_TIER.DIRECT
-        ? computeDirectScore(entry.evidenceScore, entry.priorityRank)
+        ? computeDirectScore(evidenceScore, entry.priorityRank)
         : tier === REMEDY_TIER.ASSOCIATED
-          ? computeAssociatedScore(entry.evidenceScore, entry.priorityRank)
+          ? computeAssociatedScore(evidenceScore, entry.priorityRank)
           : computeSupportiveScore(remedy.rating);
 
       const popularityBoost = (popularityMap[symptomId]?.[remedy.id] || 0) * 0.5;
@@ -266,7 +267,7 @@ export function rankRemedies(remedies, concerns, symptomRemediesMap, options = {
         _isPrimaryConcern: isPrimaryConcern,
         _tier: tier,
         _tierLabel: TIER_LABELS[tier],
-        _evidenceScore: entry.evidenceScore || 0,
+        _evidenceScore: evidenceScore,
         _priorityRank: entry.priorityRank || 0,
         _safetyScore: safetyScore,
         _relevanceScore: Math.round(score),

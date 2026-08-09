@@ -8,6 +8,8 @@ import { applyLegacyBatch2 } from '../src/data/legacyRemedyBatch2.js';
 import { applyLegacyBatch3 } from '../src/data/legacyRemedyBatch3.js';
 import { applyLegacyBatch4 } from '../src/data/legacyRemedyBatch4.js';
 import { applyLegacyBatch5 } from '../src/data/legacyRemedyBatch5.js';
+import { applyLegacyEvidenceTierOverlay } from '../src/data/legacyEvidenceTierOverlay.js';
+import { applyMultiSourceRemedyBatch1 } from '../src/data/multiSourceRemedyBatch1.js';
 
 const args = new Map(process.argv.slice(2).map((arg) => {
   const [key, ...rest] = arg.replace(/^--/, '').split('=');
@@ -73,7 +75,7 @@ async function fetchChecked(url) {
 
 let remedies = scope === 'primary'
   ? REMEDIES.map((remedy) => ({ ...remedy, _source: 'primary' }))
-  : [...REMEDIES.map((remedy) => ({ ...remedy, _source: 'primary' })), ...applyLegacyBatch5(applyLegacyBatch4(applyLegacyBatch3(applyLegacyBatch2(applyLegacyBatch1(LOCAL_REMEDIES))))).map((remedy) => ({ ...remedy, _source: 'localCatalog' }))]
+  : applyMultiSourceRemedyBatch1([...REMEDIES.map((remedy) => ({ ...remedy, _source: 'primary' })), ...applyLegacyEvidenceTierOverlay(applyLegacyBatch5(applyLegacyBatch4(applyLegacyBatch3(applyLegacyBatch2(applyLegacyBatch1(LOCAL_REMEDIES)))))).map((remedy) => ({ ...remedy, _source: 'localCatalog' }))])
     .filter((remedy, index, all) => all.findIndex((candidate) => candidate.id === remedy.id) === index);
 if (args.get('ids')) {
   const ids = new Set(String(args.get('ids')).split(',').filter(Boolean));
@@ -84,8 +86,9 @@ const details = [];
 for (const remedy of remedies) {
   const citations = citationsOf(remedy);
   if (!citations.length) {
-    const isLimited = remedy.evidenceTier === 'limited' && typeof remedy.evidenceNote === 'string' && remedy.evidenceNote.trim();
-    details.push({ remedyId: remedy.id, remedyName: remedy.name, source: remedy._source, status: isLimited ? 'LIMITED' : 'FAIL', reason: isLimited ? remedy.evidenceNote : 'no citation (not explicitly labelled limited evidence)' });
+    const nonResearchTier = ['traditional', 'supportive'].includes(remedy.evidenceTier) && typeof remedy.evidenceNote === 'string' && remedy.evidenceNote.trim();
+    const status = nonResearchTier ? remedy.evidenceTier.toUpperCase() : 'FAIL';
+    details.push({ remedyId: remedy.id, remedyName: remedy.name, source: remedy._source, status, reason: nonResearchTier ? remedy.evidenceNote : 'no citation and no approved non-research evidence tier' });
     continue;
   }
   for (const citation of citations) {
@@ -100,11 +103,17 @@ const report = {
   generatedAt: new Date().toISOString(), scope, httpVerified: !skipHttp,
   remedies: remedies.length, citations: details.filter((item) => item.url).length,
   passed: details.filter((item) => item.status === 'PASS').length,
-  limited: details.filter((item) => item.status === 'LIMITED').length,
+  traditional: details.filter((item) => item.status === 'TRADITIONAL').length,
+  supportive: details.filter((item) => item.status === 'SUPPORTIVE').length,
   failed: details.filter((item) => item.status === 'FAIL').length,
+  sourceDistribution: details.filter((item) => item.url && item.status === 'PASS').reduce((counts, item) => {
+    const host = new URL(item.url).hostname.replace(/^www\./, '');
+    counts[host] = (counts[host] || 0) + 1;
+    return counts;
+  }, {}),
   details,
 };
-console.log(`Citation gate (${scope}): ${report.passed} cited, ${report.limited} limited-evidence, ${report.failed} failed across ${report.remedies} remedies.`);
+console.log(`Citation gate (${scope}): ${report.passed} cited, ${report.traditional} traditional-use, ${report.supportive} supportive-care, ${report.failed} failed across ${report.remedies} remedies.`);
 for (const item of details) console.log(`${item.status}\t${item.remedyId}\t${item.url || '-'}\t${item.reason || 'verified'}`);
 if (output) writeFileSync(resolve(String(output)), JSON.stringify(report, null, 2));
 process.exitCode = report.failed ? 1 : 0;

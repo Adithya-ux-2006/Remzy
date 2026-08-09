@@ -1,7 +1,6 @@
 export const LEGACY_BATCH_3_EXCLUDED_IDS = new Set([
   'rem_h09','rem_h10','rem_c06','rem_c07','rem_c08','rem_c09','rem_c10','rem_a06','rem_a07',
   'rem_i06','rem_i07','rem_i10','rem_n06','rem_n07','rem_n10','rem_s06','rem_s07','rem_s08','rem_s09',
-  'rem_n09', // no direct evidence for small frequent meals across undifferentiated nausea
 ]);
 const paper = (title, journal, keyFinding, pmid) => ({ title, journal, keyFinding, url: `https://pubmed.ncbi.nlm.nih.gov/${pmid}/` });
 export const LEGACY_BATCH_3_OVERRIDES = {

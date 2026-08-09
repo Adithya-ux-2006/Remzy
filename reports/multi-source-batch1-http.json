@@ -1,0 +1,121 @@
+{
+  "generatedAt": "2026-08-09T11:39:04.653Z",
+  "scope": "runtime",
+  "httpVerified": true,
+  "remedies": 10,
+  "citations": 10,
+  "passed": 10,
+  "traditional": 0,
+  "supportive": 0,
+  "failed": 0,
+  "sourceDistribution": {
+    "cochrane.org": 1,
+    "nice.org.uk": 5,
+    "iris.who.int": 1,
+    "cdc.gov": 1,
+    "europepmc.org": 1,
+    "who.int": 1
+  },
+  "details": [
+    {
+      "remedyId": "rem_ms01",
+      "remedyName": "Clinician-Provided Acupuncture for Migraine Prevention",
+      "field": "researchPapers",
+      "index": 0,
+      "url": "https://www.cochrane.org/evidence/CD001218_acupuncture-preventing-migraine-attacks",
+      "title": "Acupuncture for migraine prevention",
+      "status": "PASS",
+      "reason": null
+    },
+    {
+      "remedyId": "rem_ms02",
+      "remedyName": "Paracetamol for an Acute Migraine",
+      "field": "researchPapers",
+      "index": 0,
+      "url": "https://www.nice.org.uk/guidance/cg150/ifp/chapter/Treatments-for-migraine",
+      "title": "Headaches in over 12s: treatments for migraine",
+      "status": "PASS",
+      "reason": null
+    },
+    {
+      "remedyId": "rem_ms03",
+      "remedyName": "Warm, Dry Covering During Chills",
+      "field": "researchPapers",
+      "index": 0,
+      "url": "https://iris.who.int/bitstream/handle/10665/44633/9789241501859_eng_trainersguide.pdf?sequence=2",
+      "title": "Community case management: manage fever at home",
+      "status": "PASS",
+      "reason": null
+    },
+    {
+      "remedyId": "rem_ms04",
+      "remedyName": "Rest and Fluids During Mononucleosis Recovery",
+      "field": "researchPapers",
+      "index": 0,
+      "url": "https://www.cdc.gov/epstein-barr/about/mononucleosis.html",
+      "title": "About infectious mononucleosis",
+      "status": "PASS",
+      "reason": null
+    },
+    {
+      "remedyId": "rem_ms05",
+      "remedyName": "Salicylic Acid Cleanser for Mild Acne",
+      "field": "researchPapers",
+      "index": 0,
+      "url": "https://europepmc.org/article/MED/2525420",
+      "title": "Comparison of a salicylic acid cleanser and a benzoyl peroxide wash in acne vulgaris",
+      "status": "PASS",
+      "reason": null
+    },
+    {
+      "remedyId": "rem_ms06",
+      "remedyName": "Menopause-Specific Cognitive Behavioural Therapy",
+      "field": "researchPapers",
+      "index": 0,
+      "url": "https://www.nice.org.uk/guidance/ng23/chapter/Recommendations",
+      "title": "Menopause: identification and management - recommendations",
+      "status": "PASS",
+      "reason": null
+    },
+    {
+      "remedyId": "rem_ms07",
+      "remedyName": "Supervised Pelvic Floor Muscle Training",
+      "field": "researchPapers",
+      "index": 0,
+      "url": "https://www.nice.org.uk/guidance/ng210/chapter/recommendations",
+      "title": "Pelvic floor dysfunction: prevention and non-surgical management",
+      "status": "PASS",
+      "reason": null
+    },
+    {
+      "remedyId": "rem_ms08",
+      "remedyName": "Zinc with ORS for Childhood Diarrhoea",
+      "field": "researchPapers",
+      "index": 0,
+      "url": "https://www.who.int/tools/elena/interventions/zinc-diarrhoea",
+      "title": "Zinc supplementation in the management of diarrhoea",
+      "status": "PASS",
+      "reason": null
+    },
+    {
+      "remedyId": "rem_ms09",
+      "remedyName": "Paracetamol for Acute Middle-Ear Pain",
+      "field": "researchPapers",
+      "index": 0,
+      "url": "https://www.nice.org.uk/guidance/NG91/chapter/summary-of-the-evidence",
+      "title": "Otitis media (acute): summary of the evidence",
+      "status": "PASS",
+      "reason": null
+    },
+    {
+      "remedyId": "rem_ms10",
+      "remedyName": "Bladder Training for Urgency Leakage",
+      "field": "researchPapers",
+      "index": 0,
+      "url": "https://www.nice.org.uk/guidance/qs77/chapter/Quality-statements",
+      "title": "Urinary incontinence in women - quality statements",
+      "status": "PASS",
+      "reason": null
+    }
+  ]
+}

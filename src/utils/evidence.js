@@ -3,7 +3,8 @@
  * 
  * Provides functions to classify remedies and their evidence into:
  * - RESEARCH_BACKED: has a real, paper-specific citation
- * - LIMITED: explicitly reviewed as limited evidence
+ * - TRADITIONAL: traditional use without established clinical evidence
+ * - SUPPORTIVE: comfort/supportive care without a treatment claim
  * - UNVERIFIED: has citations but none are verifiable
  * - UNKNOWN: no citations at all
  * 
@@ -13,7 +14,8 @@
 
 export const EVIDENCE_CLASSIFICATION = {
   RESEARCH_BACKED: 'RESEARCH_BACKED',
-  LIMITED: 'LIMITED',
+  TRADITIONAL: 'TRADITIONAL',
+  SUPPORTIVE: 'SUPPORTIVE',
   UNVERIFIED: 'UNVERIFIED',
   UNKNOWN: 'UNKNOWN',
 };
@@ -95,8 +97,11 @@ export function classifyRemedyEvidence(remedy) {
     return EVIDENCE_CLASSIFICATION.RESEARCH_BACKED;
   }
 
-  if (remedy.evidenceTier === 'limited' && remedy.evidenceNote) {
-    return EVIDENCE_CLASSIFICATION.LIMITED;
+  if (remedy.evidenceTier === 'traditional' && remedy.evidenceNote) {
+    return EVIDENCE_CLASSIFICATION.TRADITIONAL;
+  }
+  if (remedy.evidenceTier === 'supportive' && remedy.evidenceNote) {
+    return EVIDENCE_CLASSIFICATION.SUPPORTIVE;
   }
 
   const hasAnyCitation = papers.length > 0 || links.length > 0;
@@ -170,7 +175,7 @@ export function computeEvidenceScore(remedy) {
 
   if (details.real === 0) {
     if (details.fake > 0) return 1;
-    if (remedy.evidenceTier === 'limited' && remedy.evidenceNote) return 1;
+    if (['traditional', 'supportive'].includes(remedy.evidenceTier) && remedy.evidenceNote) return 1;
     return 0;
   }
 
@@ -223,7 +228,8 @@ export function isRemedyDisplayable(remedy, options = {}) {
 
   switch (classification) {
     case EVIDENCE_CLASSIFICATION.RESEARCH_BACKED:
-    case EVIDENCE_CLASSIFICATION.LIMITED:
+    case EVIDENCE_CLASSIFICATION.TRADITIONAL:
+    case EVIDENCE_CLASSIFICATION.SUPPORTIVE:
       return true;
     case EVIDENCE_CLASSIFICATION.UNVERIFIED:
       return allowUnverified;

@@ -129,6 +129,8 @@ export function mapRemedy(remedy) {
       journal: paper.journal,
       url: paper.url,
       keyFinding: simplifyRemedyLanguage(paper.key_findings ?? paper.key_finding ?? paper.keyFinding),
+      sourceDatabase: paper.source_database ?? paper.sourceDatabase,
+      evidenceType: paper.evidence_type ?? paper.evidenceType,
     })) || remedy.researchPapers || [],
     researchLinks: remedy.researchLinks || [],
   };

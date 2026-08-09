@@ -11,7 +11,9 @@ import { RemedyImage } from './RemedyImage';
 import { useFavoritesStore } from '../../store/favoritesStore';
 import { useAuthStore } from '../../store/authStore';
 
-function getEvidenceText(score) {
+function getEvidenceText(score, tier) {
+  if (tier === 'traditional') return 'Traditional';
+  if (tier === 'supportive') return 'Supportive';
   if (score >= 7) return 'High';
   if (score >= 4) return 'Moderate';
   if (score > 0) return 'Limited';
@@ -20,7 +22,9 @@ function getEvidenceText(score) {
 
 function generateReasons(remedy, evidenceScore, safetyScore) {
   const reasons = [];
-  if (evidenceScore >= 7) reasons.push('High quality evidence');
+  if (remedy.evidenceTier === 'traditional') reasons.push('Traditional use; evidence not established');
+  else if (remedy.evidenceTier === 'supportive') reasons.push('Supportive care only');
+  else if (evidenceScore >= 7) reasons.push('High quality evidence');
   else if (evidenceScore >= 4) reasons.push('Supported by research');
   if (safetyScore >= 85) reasons.push('Very low risk');
   else if (safetyScore >= 60) reasons.push('Well tolerated');
@@ -99,7 +103,7 @@ export function HighlightedRemedyCard({ remedy, isSafe, evidenceScore, safetySco
             </div>
             <div className="flex flex-col items-center text-center">
               <div className="flex items-center gap-1 mb-0.5">
-                <span className="text-xs font-semibold text-ink">{getEvidenceText(evidenceScore)}</span>
+                <span className="text-xs font-semibold text-ink">{getEvidenceText(evidenceScore, remedy.evidenceTier)}</span>
               </div>
               <span className="text-[10px] text-ink-muted">Supporting info</span>
             </div>

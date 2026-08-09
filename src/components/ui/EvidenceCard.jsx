@@ -8,11 +8,17 @@ const STUDY_TYPE_STYLES = {
   'Systematic Review': 'bg-evidence/10 text-evidence',
   'Clinical Study': 'bg-evidence/10 text-evidence',
   'Search Index': 'bg-primary/10 text-primary',
+  'Clinical guideline': 'bg-primary/10 text-primary',
+  'Public health guidance': 'bg-primary/10 text-primary',
+  'Evidence guideline': 'bg-primary/10 text-primary',
+  'Evidence summary': 'bg-primary/10 text-primary',
+  'Clinical trial': 'bg-evidence/10 text-evidence',
+  'Systematic review': 'bg-evidence/10 text-evidence',
 };
 
 export function EvidenceCard({ source, onTrackClick, delay = 0, className }) {
   const reduced = useReducedMotion();
-  const studyType = source.type || source.journal?.match(/meta-analysis|randomized|systematic/i)?.[0];
+  const studyType = source.evidenceType?.replaceAll('-', ' ') || source.type || source.journal?.match(/meta-analysis|randomized|systematic/i)?.[0];
   const normalizedType = studyType
     ? studyType.charAt(0).toUpperCase() + studyType.slice(1).toLowerCase()
     : null;
@@ -45,9 +51,9 @@ export function EvidenceCard({ source, onTrackClick, delay = 0, className }) {
             <div className="flex items-center gap-2 mb-2 flex-wrap">
               <span className="inline-flex items-center gap-1.5 text-xs font-semibold text-evidence uppercase tracking-wider">
                 <BookOpen className="w-3.5 h-3.5 shrink-0" />
-                {source.journal || source.label || 'Clinical Research'}
+                {source.sourceDatabase || source.journal || source.label || 'Clinical Research'}
               </span>
-              {source.journal && (
+              {source.evidenceType && !source.evidenceType.includes('guideline') && !source.evidenceType.includes('guidance') && !source.evidenceType.includes('summary') && (
                 <span className="inline-flex items-center text-[10px] font-medium text-evidence/60 bg-evidence/5 rounded-full px-1.5 py-0.5">
                   Peer-reviewed
                 </span>
@@ -56,6 +62,7 @@ export function EvidenceCard({ source, onTrackClick, delay = 0, className }) {
                 <span className="text-[11px] text-ink-subtle font-medium">{source.year}</span>
               )}
             </div>
+            {source.title && <p className="text-sm font-semibold text-ink mb-1 line-clamp-2">{source.title}</p>}
             {source.keyFinding && (
               <p className="text-sm text-ink leading-relaxed line-clamp-2">&ldquo;{source.keyFinding}&rdquo;</p>
             )}

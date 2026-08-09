@@ -9,9 +9,6 @@ export const LEGACY_BATCH_2_EXCLUDED_IDS = new Set([
   'rem_lp01', // broad leg-pain mapping could mask urgent causes
   'rem_h06', // caffeine/L-theanine evidence does not support headache claim
   'rem_h08', // Bacopa evidence does not support headache claim
-  'rem_sr02', // no direct controlled evidence for a cool compress as rash treatment
-  'rem_bg01', // peppermint-oil trials do not validate peppermint tea
-  'rem_ho01', // water does not alleviate hangover severity in current evidence
 ]);
 
 const paper = (title, journal, keyFinding, pmid) => ({ title, journal, keyFinding, url: `https://pubmed.ncbi.nlm.nih.gov/${pmid}/` });

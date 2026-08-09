@@ -6,6 +6,8 @@ import { applyLegacyBatch2 } from '../src/data/legacyRemedyBatch2.js';
 import { applyLegacyBatch3 } from '../src/data/legacyRemedyBatch3.js';
 import { applyLegacyBatch4 } from '../src/data/legacyRemedyBatch4.js';
 import { applyLegacyBatch5 } from '../src/data/legacyRemedyBatch5.js';
+import { applyLegacyEvidenceTierOverlay } from '../src/data/legacyEvidenceTierOverlay.js';
+import { applyMultiSourceRemedyBatch1 } from '../src/data/multiSourceRemedyBatch1.js';
 import { readFileSync, writeFileSync } from 'node:fs';
 import { resolve } from 'node:path';
 
@@ -15,7 +17,7 @@ const symptomCode = readFileSync(new URL('../src/data/symptoms.js', import.meta.
 const symptomIds = new Set([...symptomCode.matchAll(/\bid:\s*'([^']+)'/g)].map((match) => match[1]));
 const validCategories = new Set(['Natural', 'Lifestyle', 'OTC']);
 const required = ['category', 'isPurchasable', 'childSafe', 'ingredients', 'allergen_tags', 'contraindications'];
-let all = scope === 'primary' ? REMEDIES : [...REMEDIES, ...applyLegacyBatch5(applyLegacyBatch4(applyLegacyBatch3(applyLegacyBatch2(applyLegacyBatch1(LOCAL_REMEDIES)))))].filter((r, i, a) => a.findIndex((x) => x.id === r.id) === i);
+let all = scope === 'primary' ? REMEDIES : applyMultiSourceRemedyBatch1([...REMEDIES, ...applyLegacyEvidenceTierOverlay(applyLegacyBatch5(applyLegacyBatch4(applyLegacyBatch3(applyLegacyBatch2(applyLegacyBatch1(LOCAL_REMEDIES))))))]).filter((r, i, a) => a.findIndex((x) => x.id === r.id) === i);
 if (args.get('ids')) {
   const ids = new Set(String(args.get('ids')).split(',').filter(Boolean));
   all = all.filter((remedy) => ids.has(remedy.id));
@@ -30,6 +32,8 @@ const details = all.map((remedy) => {
   if (typeof remedy.isPurchasable !== 'boolean') errors.push('isPurchasable must be boolean');
   if (typeof remedy.childSafe !== 'boolean') errors.push('childSafe must be boolean');
   if (remedy.childSafe === false && !remedy.childSafetyNote) errors.push('childSafetyNote required when childSafe=false');
+  if (remedy.evidenceTier && !['traditional', 'supportive'].includes(remedy.evidenceTier)) errors.push(`invalid evidenceTier: ${remedy.evidenceTier}`);
+  if (remedy.evidenceTier && !remedy.evidenceNote) errors.push('evidenceNote required for non-research tier');
   const mapped = [...new Set([...(remedy.primarySymptoms || []), ...(remedy.secondarySymptoms || []), ...(remedy.symptoms || [])])];
   if (!(remedy.primarySymptoms || []).length) errors.push('at least one primarySymptoms id is required');
   for (const id of mapped) if (!symptomIds.has(id)) errors.push(`unknown symptom id: ${id}`);

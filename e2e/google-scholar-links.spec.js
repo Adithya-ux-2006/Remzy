@@ -13,7 +13,7 @@ test.describe('citation-link guardrail', () => {
     }
   });
 
-  test('the former limited-evidence sample now has a specific paper and removed entries stay absent', async ({ page }) => {
+  test('research and non-research remedies are labelled as separate evidence tracks', async ({ page }) => {
     await page.goto('/results?symptom=eye_strain');
     await page.waitForLoadState('networkidle');
 
@@ -23,6 +23,11 @@ test.describe('citation-link guardrail', () => {
     await expect(page.locator('a[href="https://pubmed.ncbi.nlm.nih.gov/35963776/"]')).toBeVisible();
 
     await page.goto('/results?symptom=eye_strain');
-    await expect(page.getByText('Palming Technique', { exact: true })).toHaveCount(0);
+    await expect(page.getByText('Brief Eyes-Closed Rest', { exact: true })).toBeVisible();
+    await expect(page.getByText('Supportive Care').first()).toBeVisible();
+
+    await page.goto('/results?symptom=bloating');
+    await expect(page.getByText('Peppermint Bloating Tea', { exact: true })).toBeVisible();
+    await expect(page.getByText('Traditional Use').first()).toBeVisible();
   });
 });
