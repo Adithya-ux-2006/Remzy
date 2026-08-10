@@ -66,34 +66,34 @@ export const TREATMENT_PREFERENCES = [
 export const FAQ_ITEMS = [
   {
     question: 'Are these remedies safe to use?',
-    answer: 'All remedies on Remzy are sourced from peer-reviewed research and traditional medical literature. However, they are informational only and not a substitute for professional medical advice. Always consult a doctor before starting any new treatment, especially if you have existing conditions or take medication.',
+    answer: 'Every remedy listed on Remzy has supporting research linked in our database, and we clearly label the strength of that evidence. Remedies based mainly on traditional use are identified separately because their clinical evidence may be limited or not established. Remzy is for information only and is not a substitute for medical advice. Consult a qualified medical professional before starting a treatment, especially if you have a health condition, take medication, are pregnant, or are unsure whether it is safe for you.',
   },
   {
     question: 'Can I use Remzy instead of seeing a doctor?',
-    answer: 'No. Remzy is designed to help you understand your options before a doctor visit, not replace one. If your symptoms are severe, persistent, or worsening, please seek professional medical care immediately.',
+    answer: 'No. Remzy can help you explore remedy information, but it cannot diagnose you or replace a qualified medical professional. If your symptoms are severe, persistent, worsening, or feel urgent, seek professional medical care immediately. You can also use the Find Medical Centres Near You feature on a remedy page to locate nearby care.',
   },
   {
     question: 'Where does the research come from?',
-    answer: 'Our remedy database is built from NIH studies, PubMed meta-analyses, WHO guidelines, and established OTC, lifestyle, natural, and Ayurveda references. Each remedy card links to its source research.',
+    answer: 'Remzy systematically uses five main source types: peer-reviewed journal articles indexed in PubMed; systematic reviews from the Cochrane Library; clinical guidelines and evidence summaries from NICE (the UK National Institute for Health and Care Excellence); clinical and evidence guidance from the World Health Organization through WHO IRIS and WHO eLENA; and public-health guidance from the US Centers for Disease Control and Prevention (CDC). Every remedy in the current database must have at least one linked research record. The Remedy Detail page shows the research title, publication or organization, summary, evidence type, and external source link. Remzy labels traditional-use remedies separately and does not describe them as clinically proven when clinical evidence has not been established.',
   },
   {
     question: 'How are remedies personalized to me?',
-    answer: 'When you complete the onboarding questionnaire, we use your common conditions, allergies, and treatment preferences to prioritize relevant remedies and flag ones that may not suit you.',
+    answer: 'When you complete the health-profile questionnaire, Remzy uses the conditions, allergies, age information, and treatment preferences you provide to rank relevant options and filter remedies with identified conflicts. If you skip the questionnaire or leave it incomplete, Remzy has less context about you, so your results and safety filtering will be less personalized and may be less accurate for your needs.',
   },
   {
     question: 'Is my health data private?',
-    answer: 'Yes. Your allergy and condition data is stored securely in our database and never sold. We do not share personally identifiable information with third parties. Your search queries may be processed through AI services (Google Gemini) to improve search accuracy — this processing is anonymized and not linked to your identity. You can delete your account and all associated data at any time from your Profile page.',
+    answer: 'Your account and health-profile information is stored through Supabase and protected by authenticated, user-specific access controls. Remzy does not sell your personal data. For complex or ambiguous searches, the symptom text you enter may be sent to Google Gemini through a server-side service to help interpret the query; it is not sent with your Remzy identity. If you use Remzy as a guest, profile information is kept in your browser. See the Privacy Policy for full details or to request deletion of your data.',
   },
   {
     question: 'How do I save a remedy?',
-    answer: 'Tap the heart icon on any remedy card or on the Remedy Detail page. If you are signed in, it saves to Favorites. If not, you can quick-save it with your email and finish creating an account later.',
+    answer: 'Tap the heart icon on a remedy card or on the Remedy Detail page. You must be signed in to add or remove a remedy from Favorites; if you are not signed in, Remzy will take you to account registration. Your favorites are linked to your account and available from the Saved page whenever you sign in.',
   },
   {
     question: 'What do the warning badges mean?',
-    answer: 'If a remedy contains an ingredient that matches an allergy you reported during onboarding, a yellow warning badge appears on that card. This does not mean you cannot use the remedy - it means you should review the ingredients carefully and consult a doctor if unsure.',
+    answer: 'Use this safety-badge key: Green “Safe” or “Generally Safe” means Remzy found no known conflict with the health-profile information you provided. Yellow “Check,” “Allergy conflict detected,” or “Check with a professional first” means the remedy may conflict with a reported allergy, condition, or child-safety rule and should be reviewed with a qualified medical professional before use. Red “Not Recommended” means Remzy identified a stronger allergy or child-safety conflict and the remedy should be avoided unless a qualified medical professional specifically advises otherwise. These automated badges depend on the completeness of your profile and do not guarantee that a remedy is safe. Evidence badges—High, Moderate, Limited, Supportive Care, and Traditional Use—describe the level or type of supporting evidence, not personal safety.',
   },
   {
     question: 'Which countries is Remzy available in?',
-    answer: 'Remzy is available globally. Remedy content is in English. We include both Western OTC medicine, lifestyle care, natural remedies, and Ayurveda to serve users across different cultural health contexts.',
+    answer: 'Remzy is available globally, and its current content is in English. The current remedy catalog is organized into three categories: OTC treatments, natural remedies, and lifestyle care. Availability, product names, and medical guidance can vary by country, so check local instructions and consult a qualified medical professional when needed.',
   },
 ];
