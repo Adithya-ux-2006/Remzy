@@ -1,0 +1,51 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://remzy.app/schemas/study-assessment.schema.json",
+  "title": "Remzy study-level assessment",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["publicationId", "claimId", "pico", "studyDesign", "applicability", "riskOfBias", "benefits", "harms", "decision", "reviewedBy", "reviewedAt"],
+  "properties": {
+    "publicationId": { "type": "string", "minLength": 1 },
+    "claimId": { "type": "string", "minLength": 1 },
+    "pico": {
+      "type": "object",
+      "required": ["population", "intervention", "comparator", "outcomes"],
+      "properties": {
+        "population": { "type": "string", "minLength": 1 },
+        "intervention": { "type": "string", "minLength": 1 },
+        "comparator": { "type": "string" },
+        "outcomes": { "type": "array", "minItems": 1, "items": { "type": "string" } }
+      }
+    },
+    "studyDesign": { "enum": ["guideline", "systematic-review", "meta-analysis", "randomized-trial", "non-randomized-study", "safety-guidance", "other"] },
+    "sampleSize": { "type": ["integer", "null"], "minimum": 1 },
+    "followUp": { "type": ["string", "null"] },
+    "applicability": {
+      "type": "object",
+      "required": ["population", "intervention", "outcome", "overall"],
+      "properties": {
+        "population": { "enum": ["exact", "partial", "indirect", "mismatch"] },
+        "intervention": { "enum": ["exact", "partial", "indirect", "mismatch"] },
+        "outcome": { "enum": ["exact", "partial", "indirect", "mismatch"] },
+        "overall": { "enum": ["exact", "mostly-applicable", "indirect", "mismatch"] }
+      }
+    },
+    "riskOfBias": {
+      "type": "object",
+      "required": ["tool", "overall", "notes"],
+      "properties": {
+        "tool": { "enum": ["RoB-2", "ROBINS-I", "AMSTAR-2", "AGREE-II", "authority-guidance", "not-applicable"] },
+        "overall": { "enum": ["low", "some-concerns", "high", "critical", "not-applicable"] },
+        "notes": { "type": "array", "items": { "type": "string" } }
+      }
+    },
+    "benefits": { "type": "array", "items": { "type": "object", "required": ["outcome", "finding"], "properties": { "outcome": { "type": "string" }, "finding": { "type": "string" }, "effectEstimate": { "type": ["string", "null"] }, "precision": { "type": ["string", "null"] } } },
+    "harms": { "type": "array", "items": { "type": "object", "required": ["outcome", "finding"], "properties": { "outcome": { "type": "string" }, "finding": { "type": "string" }, "effectEstimate": { "type": ["string", "null"] } } },
+    "fundingAndConflicts": { "type": ["string", "null"] },
+    "decision": { "enum": ["include", "exclude", "await-full-text", "await-clarification"] },
+    "exclusionReason": { "type": ["string", "null"] },
+    "reviewedBy": { "type": "string", "minLength": 1 },
+    "reviewedAt": { "type": "string", "format": "date" }
+  }
+}

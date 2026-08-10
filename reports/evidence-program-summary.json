@@ -1,0 +1,44 @@
+{
+  "generatedAt": "2026-08-10T17:35:51.693Z",
+  "publicationWarning": "Candidate discovery and AI pre-review are not clinical approval.",
+  "catalogue": {
+    "remedies": 87,
+    "mappedSymptoms": 76,
+    "claims": 141,
+    "researchBackedClaims": 0,
+    "researchBackedSymptoms": 0,
+    "claimsNeedingReview": 141,
+    "targetSymptoms": 500,
+    "remainingSymptomsToTarget": 500
+  },
+  "discovery": {
+    "claimsQueued": 141,
+    "candidatesRetrieved": 471,
+    "claimsWithAtLeastThreeCandidates": 52,
+    "claimsWithFewerThanThreeCandidates": 89,
+    "deterministicTriage": {
+      "possible-mismatch": 87,
+      "possible-direct-match": 238,
+      "manual-review-required": 141,
+      "priority-exclusion-review": 5
+    }
+  },
+  "aiPrereview": {
+    "packetStatuses": {
+      "skipped-no-abstract": 80,
+      "completed-needs-human-review": 20,
+      "deferred-quota": 41
+    },
+    "candidatesAssessed": 87,
+    "automaticApprovals": 0
+  },
+  "remainingGates": [
+    "Retrieve and assess full text where abstracts are missing or insufficient",
+    "Add independent guideline and safety-authority sources",
+    "Extract effect estimates, uncertainty, adverse events, and funding",
+    "Complete study-level risk-of-bias assessment",
+    "Complete body-of-evidence certainty assessment",
+    "Obtain qualified clinical approval and second review for high-risk claims",
+    "Stage and review 399 additional symptoms before public expansion"
+  ]
+}

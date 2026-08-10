@@ -1,0 +1,33 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://remzy.app/schemas/body-of-evidence.schema.json",
+  "title": "Remzy body-of-evidence decision",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["claimId", "includedPublicationIds", "independentOrganizations", "grade", "benefitHarmBalance", "recommendationStatus", "clinicalApprover", "approvedAt", "nextReviewAt"],
+  "properties": {
+    "claimId": { "type": "string", "minLength": 1 },
+    "includedPublicationIds": { "type": "array", "minItems": 3, "uniqueItems": true, "items": { "type": "string" } },
+    "independentOrganizations": { "type": "array", "minItems": 2, "uniqueItems": true, "items": { "type": "string" } },
+    "grade": {
+      "type": "object",
+      "required": ["certainty", "riskOfBias", "inconsistency", "indirectness", "imprecision", "publicationBias", "justification"],
+      "properties": {
+        "certainty": { "enum": ["high", "moderate", "low", "very-low"] },
+        "riskOfBias": { "enum": ["not-serious", "serious", "very-serious"] },
+        "inconsistency": { "enum": ["not-serious", "serious", "very-serious", "not-assessable"] },
+        "indirectness": { "enum": ["not-serious", "serious", "very-serious"] },
+        "imprecision": { "enum": ["not-serious", "serious", "very-serious"] },
+        "publicationBias": { "enum": ["undetected", "suspected", "strongly-suspected", "not-assessable"] },
+        "justification": { "type": "string", "minLength": 1 }
+      }
+    },
+    "benefitHarmBalance": { "enum": ["favours-intervention", "probably-favours-intervention", "uncertain", "probably-favours-comparator", "favours-comparator"] },
+    "approvedClaimText": { "type": "string", "minLength": 1 },
+    "recommendationStatus": { "enum": ["guideline-recommended", "may-be-considered", "uncertain-evidence", "supportive-care", "traditional-use", "not-supported", "professional-supervision-required"] },
+    "clinicalApprover": { "type": "string", "minLength": 1 },
+    "secondReviewer": { "type": ["string", "null"] },
+    "approvedAt": { "type": "string", "format": "date" },
+    "nextReviewAt": { "type": "string", "format": "date" }
+  }
+}

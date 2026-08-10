@@ -1,0 +1,71 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://remzy.app/schemas/evidence-claim.schema.json",
+  "title": "Remzy claim-level evidence assessment",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "claimId", "remedyId", "symptomId", "population", "intervention",
+    "outcomes", "claimText", "sources", "certainty", "safetyReviewed",
+    "reviewStatus", "reviewedAt", "reviewedBy"
+  ],
+  "properties": {
+    "claimId": { "type": "string", "pattern": "^[a-z0-9_-]+$" },
+    "remedyId": { "type": "string", "minLength": 1 },
+    "symptomId": { "type": "string", "minLength": 1 },
+    "population": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["diagnosis", "ageGroup", "sex"],
+      "properties": {
+        "diagnosis": { "type": "string", "minLength": 1 },
+        "ageGroup": { "type": "string", "minLength": 1 },
+        "sex": { "enum": ["any", "female", "male", "condition-specific"] },
+        "setting": { "type": "string" },
+        "exclusions": { "type": "array", "items": { "type": "string" }, "uniqueItems": true }
+      }
+    },
+    "intervention": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["name"],
+      "properties": {
+        "name": { "type": "string", "minLength": 1 },
+        "formulation": { "type": "string" },
+        "dose": { "type": "string" },
+        "duration": { "type": "string" },
+        "delivery": { "type": "string" },
+        "coInterventions": { "type": "array", "items": { "type": "string" }, "uniqueItems": true }
+      }
+    },
+    "comparators": { "type": "array", "items": { "type": "string" }, "uniqueItems": true },
+    "outcomes": { "type": "array", "minItems": 1, "items": { "type": "string", "minLength": 1 }, "uniqueItems": true },
+    "claimText": { "type": "string", "minLength": 1 },
+    "sources": {
+      "type": "array",
+      "minItems": 3,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["url", "organization", "publicationId", "evidenceType", "applicability", "benefitOrSafety", "reviewNote"],
+        "properties": {
+          "url": { "type": "string", "format": "uri", "pattern": "^https://" },
+          "organization": { "type": "string", "minLength": 1 },
+          "publicationId": { "type": "string", "minLength": 1 },
+          "evidenceType": { "enum": ["guideline", "systematic-review", "meta-analysis", "randomized-trial", "non-randomized-study", "safety-guidance", "traditional-literature"] },
+          "applicability": { "enum": ["exact", "mostly-applicable", "indirect", "mismatch"] },
+          "benefitOrSafety": { "enum": ["benefit", "safety", "both"] },
+          "reviewNote": { "type": "string", "minLength": 1 },
+          "riskOfBias": { "enum": ["low", "some-concerns", "high", "not-applicable", "unassessed"] }
+        }
+      }
+    },
+    "certainty": { "enum": ["high", "moderate", "low", "very-low", "unrated"] },
+    "safetyReviewed": { "type": "boolean" },
+    "reviewStatus": { "enum": ["approved", "needs-review", "quarantined"] },
+    "reviewedAt": { "type": "string", "format": "date" },
+    "reviewedBy": { "type": "string", "minLength": 1 },
+    "secondReviewer": { "type": "string" },
+    "limitations": { "type": "array", "items": { "type": "string" }, "uniqueItems": true }
+  }
+}
