@@ -1,7 +1,7 @@
 import { useState, useMemo } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
-import { ShieldCheck, Stethoscope, GraduationCap, Search, ArrowRight } from 'lucide-react';
-import { FAQAccordion } from '../components/ui/FAQAccordion';
+import { ShieldCheck, Stethoscope, Globe, Search, ArrowRight } from 'lucide-react';
+import { AccordionSection } from '../components/ui/AccordionSection';
 import { Modal } from '../components/ui/Modal';
 import { QuestionnaireFlow } from '../components/onboarding/QuestionnaireFlow';
 import { PageWrapper } from '../components/layout';
@@ -112,27 +112,27 @@ export function Landing() {
             />
             <Feature
               icon={Stethoscope}
-              title="4 Treatment Approaches"
+              title="3 Treatment Approaches"
               description="Filter by Natural, OTC, or Lifestyle remedies."
             />
             <Feature
-              icon={GraduationCap}
+              icon={Globe}
               title="Fast & Accessible"
-              description="Cost-effective, accessible, and fast-acting solutions for anyone, anywhere."
+              description="Free of cost, accessible and available for all."
             />
           </div>
         </div>
       </section>
 
-      <section className="bg-card px-6 py-16">
-        <div className="max-w-2xl mx-auto text-center">
-          <h2 className="text-heading font-semibold text-ink">Frequently Asked Questions</h2>
-          <p className="mt-2 text-ink-muted">
-            Everything you need to know before your first search.
-          </p>
-          <div className="mt-8 text-left">
-            <FAQAccordion items={FAQ_ITEMS} />
-          </div>
+      <section className="bg-card py-16">
+        <div className="max-w-2xl mx-auto px-6">
+          <AccordionSection
+            title="About Remzy"
+            subtitle="The health platform behind your search."
+            lead="Remzy is a health platform designed to provide evidence-backed information about common health concerns and remedies. Always consult a certified medical professional for serious health concerns."
+            items={FAQ_ITEMS.slice(0, 3)}
+            bordered
+          />
         </div>
       </section>
 
