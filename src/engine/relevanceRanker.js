@@ -238,6 +238,7 @@ export function rankRemedies(remedies, concerns, symptomRemediesMap, options = {
     const knowledge = knowledgeCtx.find(k => k.id === symptomId);
 
     const curatedEntries = symptomRemediesMap?.[symptomId] || [];
+    const hasCuratedEntries = curatedEntries.length > 0;
     const processed = new Set();
 
     // Phase 1: Process catalogued entries (from symptom_remedies table)
@@ -283,7 +284,7 @@ export function rankRemedies(remedies, concerns, symptomRemediesMap, options = {
     }
 
     // Phase 2: Process remedies linked via primary/secondary arrays (local fallback)
-    for (const remedy of remedies) {
+    for (const remedy of hasCuratedEntries ? [] : remedies) {
       if (processed.has(remedy.id)) continue;
 
       const tier = classifyRelationship(remedy, symptomId);
@@ -326,7 +327,7 @@ export function rankRemedies(remedies, concerns, symptomRemediesMap, options = {
     }
 
     // Phase 3: Supportive remedies from related symptoms
-    if (knowledge) {
+    if (knowledge && !hasCuratedEntries) {
       for (const related of knowledge.relatedSymptoms) {
         const relatedEntries = symptomRemediesMap?.[related.id] || [];
         for (const entry of relatedEntries) {

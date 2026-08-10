@@ -146,6 +146,14 @@ function mergeSymptomRemedies(primary = {}, fallback = {}) {
   return merged;
 }
 
+function mergeBackendSymptomMappings(primary = {}, fallback = {}) {
+  const merged = { ...fallback };
+  for (const [symptomId, backendItems] of Object.entries(primary || {})) {
+    if (backendItems?.length) merged[symptomId] = backendItems;
+  }
+  return merged;
+}
+
 function buildPopularityMap(rows) {
   const map = {};
   for (const row of rows || []) {
@@ -194,7 +202,7 @@ async function enrichWithLocalCatalog(catalog, approvedEvidenceMap = {}) {
   return {
     symptoms: mergeById(catalog.symptoms, local.symptoms),
     remedies,
-    symptomRemedies: mergeSymptomRemedies(catalog.symptomRemedies, local.symptomRemedies),
+    symptomRemedies: mergeBackendSymptomMappings(catalog.symptomRemedies, local.symptomRemedies),
   };
 }
 

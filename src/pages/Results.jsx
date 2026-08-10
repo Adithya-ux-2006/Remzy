@@ -1,6 +1,6 @@
 import { useEffect, useMemo, useState } from 'react';
 import { useNavigate, useSearchParams, Link, useLocation } from 'react-router-dom';
-import { ArrowLeft, AlertTriangle, Heart, ChevronDown, ShieldCheck } from 'lucide-react';
+import { ArrowLeft, AlertTriangle, Heart, ShieldCheck } from 'lucide-react';
 import { cn } from '../utils/cn';
 import { PageWrapper } from '../components/layout';
 
@@ -155,7 +155,6 @@ export function Results() {
   const symptomParam = searchParams.get('symptom');
   const queryParam = searchParams.get('q') || '';
 
-  const [showAllAlternatives, setShowAllAlternatives] = useState(false);
   const [geminiInterpretation, setGeminiInterpretation] = useState(
     location.state?.geminiInterpretation || null
   );
@@ -340,7 +339,7 @@ export function Results() {
       ...(grouped.bestMatches || []),
       ...(grouped.additionalOptions || []),
       ...(grouped.supportive || []),
-    ].filter(Boolean).filter(r => isRemedyDisplayable(r));
+    ].filter(Boolean).filter(r => isRemedyDisplayable(r, { allowUnverified: true, allowUnknown: true }));
     return all.slice(0, 3);
   }, [grouped]);
 
@@ -355,12 +354,12 @@ export function Results() {
       ...(grouped.bestMatches || []),
       ...(grouped.additionalOptions || []),
       ...(grouped.supportive || []),
-    ].filter((r) => !highlightedIds.has(r.id) && isRemedyDisplayable(r));
+    ].filter((r) => !highlightedIds.has(r.id) && isRemedyDisplayable(r, { allowUnverified: true, allowUnknown: true }));
   }, [grouped, highlightedIds]);
 
   const hasResults = highlightedRemedies.length > 0 || allAlternatives.length > 0;
 
-  const visibleAlternatives = showAllAlternatives ? allAlternatives : allAlternatives.slice(0, 5);
+  const visibleAlternatives = allAlternatives;
 
   const handleChildSafeToggle = async (newValue) => {
     if (newValue === activeIsChildSafe) return;
@@ -499,14 +498,6 @@ export function Results() {
                   <h2 className="text-section-heading font-bold text-ink mb-1">Other Remedies</h2>
                   <p className="text-sm text-ink-muted">Excellent alternatives if you need another option.</p>
                 </div>
-                {allAlternatives.length > 5 && !showAllAlternatives && (
-                  <button
-                    onClick={() => setShowAllAlternatives(true)}
-                    className="hidden md:inline-flex text-sm font-semibold text-primary hover:text-primary-dark transition-colors shrink-0"
-                  >
-                    Show all
-                  </button>
-                )}
               </div>
 
               <div className="bg-card rounded-2xl border border-border overflow-hidden">
@@ -526,15 +517,6 @@ export function Results() {
 
               </div>
 
-              {!showAllAlternatives && allAlternatives.length > 5 && (
-                <button
-                  onClick={() => setShowAllAlternatives(true)}
-                  className="mt-4 flex items-center gap-1.5 text-sm font-semibold text-primary hover:text-primary-dark transition-colors mx-auto md:hidden"
-                >
-                  Show all {allAlternatives.length} alternatives
-                  <ChevronDown className="w-4 h-4" />
-                </button>
-              )}
             </div>
           )}
 
