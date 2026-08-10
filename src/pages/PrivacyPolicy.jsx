@@ -40,6 +40,7 @@ export function PrivacyPolicy() {
           <ul className="list-disc pl-5 mt-2 space-y-1">
             <li><strong>Supabase:</strong> Database hosting and authentication</li>
             <li><strong>Netlify:</strong> Website hosting and serverless functions</li>
+            <li><strong>Google:</strong> Optional account authentication when you choose Continue with Google</li>
             <li><strong>Google Gemini:</strong> AI-powered search interpretation (server-side only)</li>
           </ul>
         </section>

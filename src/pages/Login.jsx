@@ -3,6 +3,7 @@ import { Link, useNavigate } from 'react-router-dom';
 import { Loader2 } from 'lucide-react';
 import { PageWrapper } from '../components/layout';
 import { PasswordInput } from '../components/ui/PasswordInput';
+import { AuthDivider, GoogleAuthButton } from '../components/ui/GoogleAuthButton';
 import { useAuthStore } from '../store/authStore';
 
 export function Login() {
@@ -11,6 +12,8 @@ export function Login() {
   const [errorMessage, setErrorMessage] = useState('');
   const login = useAuthStore(state => state.login);
   const isLoading = useAuthStore(state => state.isLoading);
+  const isOAuthLoading = useAuthStore(state => state.isOAuthLoading);
+  const loginWithGoogle = useAuthStore(state => state.loginWithGoogle);
   const navigate = useNavigate();
 
   const isFormValid = email.trim() !== '' && password.trim() !== '';
@@ -30,6 +33,12 @@ export function Login() {
     setErrorMessage(result.error?.message || 'Unable to sign in.');
   };
 
+  const handleGoogleLogin = async () => {
+    setErrorMessage('');
+    const result = await loginWithGoogle();
+    if (!result.success) setErrorMessage(result.error?.message || 'Unable to connect to Google.');
+  };
+
   return (
     <PageWrapper className="min-h-screen flex flex-col items-center justify-center p-6">
       <div className="w-full max-w-md">
@@ -42,6 +51,10 @@ export function Login() {
         </div>
 
         <div className="bg-card rounded-3xl shadow-xl p-8 border border-ink/5">
+          <div className="space-y-4 pb-5">
+            <GoogleAuthButton isLoading={isOAuthLoading} onClick={handleGoogleLogin} />
+            <AuthDivider />
+          </div>
           <form onSubmit={handleSubmit} className="space-y-5">
             <div>
               <label className="block text-sm font-medium text-ink mb-1" htmlFor="email">Email address</label>
@@ -72,7 +85,7 @@ export function Login() {
 
             <button
               type="submit"
-              disabled={!isFormValid || isLoading}
+              disabled={!isFormValid || isLoading || isOAuthLoading}
               className="w-full py-3.5 bg-primary text-white rounded-xl font-bold shadow-glow hover:bg-primary-dark transition-all disabled:opacity-70 disabled:cursor-not-allowed flex items-center justify-center"
             >
               {isLoading ? <Loader2 className="w-5 h-5 animate-spin" /> : 'Sign In'}

@@ -4,6 +4,7 @@ import { Loader2 } from 'lucide-react';
 import { PageWrapper } from '../components/layout';
 import { AssistedPasswordConfirmation } from '../components/ui/AssistedPasswordConfirmation';
 import { PasswordInput } from '../components/ui/PasswordInput';
+import { AuthDivider, GoogleAuthButton } from '../components/ui/GoogleAuthButton';
 import { useAuthStore } from '../store/authStore';
 
 export function Register() {
@@ -19,6 +20,8 @@ export function Register() {
   const [successMessage, setSuccessMessage] = useState('');
   const register = useAuthStore(state => state.register);
   const isLoading = useAuthStore(state => state.isLoading);
+  const isOAuthLoading = useAuthStore(state => state.isOAuthLoading);
+  const loginWithGoogle = useAuthStore(state => state.loginWithGoogle);
   const navigate = useNavigate();
   const nameInputRef = useRef(null);
   const emailInputRef = useRef(null);
@@ -70,6 +73,13 @@ export function Register() {
     setErrorMessage(result.error?.message || 'Unable to create account.');
   };
 
+  const handleGoogleRegistration = async () => {
+    setErrorMessage('');
+    setSuccessMessage('');
+    const result = await loginWithGoogle();
+    if (!result.success) setErrorMessage(result.error?.message || 'Unable to connect to Google.');
+  };
+
   return (
     <PageWrapper className="min-h-screen flex flex-col items-center justify-center p-6 py-12">
       <div className="w-full max-w-md">
@@ -82,6 +92,10 @@ export function Register() {
         </div>
 
         <div className="bg-card rounded-3xl shadow-xl p-8 border border-ink/5">
+          <div className="space-y-4 pb-5">
+            <GoogleAuthButton isLoading={isOAuthLoading} onClick={handleGoogleRegistration} />
+            <AuthDivider />
+          </div>
           <form onSubmit={handleSubmit} className="space-y-4">
             <div>
               <label className="block text-sm font-medium text-ink mb-1" htmlFor="name">Full Name</label>
@@ -143,7 +157,7 @@ export function Register() {
 
             <button
               type="submit"
-              disabled={!isFormValid || isLoading}
+              disabled={!isFormValid || isLoading || isOAuthLoading}
               className="w-full mt-2 py-3.5 bg-primary text-white rounded-xl font-bold shadow-glow hover:bg-primary-dark transition-all disabled:opacity-70 disabled:cursor-not-allowed flex items-center justify-center"
             >
               {isLoading ? <Loader2 className="w-5 h-5 animate-spin" /> : 'Register'}

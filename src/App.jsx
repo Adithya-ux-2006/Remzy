@@ -15,6 +15,7 @@ import { QuickScheduleModal } from './components/ui/QuickScheduleModal';
 const Landing = lazy(() => import('./pages/Landing').then(m => ({ default: m.Landing })));
 const Login = lazy(() => import('./pages/Login').then(m => ({ default: m.Login })));
 const Register = lazy(() => import('./pages/Register').then(m => ({ default: m.Register })));
+const AuthCallback = lazy(() => import('./pages/AuthCallback').then(m => ({ default: m.AuthCallback })));
 const Dashboard = lazy(() => import('./pages/Dashboard').then(m => ({ default: m.Dashboard })));
 const SymptomSearch = lazy(() => import('./pages/SymptomSearch').then(m => ({ default: m.SymptomSearch })));
 const Results = lazy(() => import('./pages/Results').then(m => ({ default: m.Results })));
@@ -53,7 +54,7 @@ function AuthEnforcer({ children }) {
     return null;
   }
 
-  const publicAuthPaths = ['/login', '/register', '/onboarding'];
+  const publicAuthPaths = ['/login', '/register', '/auth/callback', '/onboarding'];
   const isPublicAuthPath = publicAuthPaths.includes(location.pathname);
 
   if (isAuthenticated && !isPublicAuthPath && needsOnboardingProfile(user)) {
@@ -98,6 +99,7 @@ function AppRoutes() {
         <Route path="/" element={<Page><Landing /></Page>} />
         <Route path="/login" element={<Page><Login /></Page>} />
         <Route path="/register" element={<Page><Register /></Page>} />
+        <Route path="/auth/callback" element={<Page><AuthCallback /></Page>} />
         <Route path="/search" element={<Page><SymptomSearch /></Page>} />
         <Route path="/results" element={<Page><Results /></Page>} />
         <Route path="/remedy/:id" element={<Page><RemedyDetail /></Page>} />

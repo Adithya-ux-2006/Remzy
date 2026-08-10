@@ -15,6 +15,29 @@ export function needsOnboardingProfile(user) {
   return !hasCompletedOnboarding || (!hasGender && !hasConditions && !hasAllergies);
 }
 
+const OAUTH_RETURN_PATH_KEY = 'remzy_oauth_return_path';
+
+function getSafeReturnPath(path) {
+  if (typeof path !== 'string' || !path.startsWith('/') || path.startsWith('//')) {
+    return '/dashboard';
+  }
+
+  const authOnlyPaths = ['/login', '/register', '/auth/callback'];
+  return authOnlyPaths.includes(path) ? '/dashboard' : path;
+}
+
+function rememberOAuthReturnPath(path) {
+  if (typeof window === 'undefined') return;
+  window.sessionStorage.setItem(OAUTH_RETURN_PATH_KEY, getSafeReturnPath(path));
+}
+
+function consumeOAuthReturnPath() {
+  if (typeof window === 'undefined') return '/dashboard';
+  const path = getSafeReturnPath(window.sessionStorage.getItem(OAUTH_RETURN_PATH_KEY));
+  window.sessionStorage.removeItem(OAUTH_RETURN_PATH_KEY);
+  return path;
+}
+
 async function importQuickSavedFavorites(userId) {
   const quickSaves = getQuickSaves();
   const remedyIds = quickSaves?.remedyIds || [];
@@ -119,13 +142,14 @@ const buildUser = async (session) => {
     .maybeSingle();
 
   const metadata = session.user.user_metadata || {};
+  const metadataName = metadata.name || metadata.full_name || '';
 
   if (error) throw error;
 
   return {
     ...session.user,
     ...profile,
-    name: profile?.name || metadata.name || '',
+    name: profile?.name || metadataName,
     university_email: profile?.university_email || metadata.university_email || '',
     university_name: profile?.university_name || metadata.university_name || '',
     current_year: profile?.current_year || metadata.current_year || '',
@@ -138,9 +162,32 @@ const buildUser = async (session) => {
     is_admin: profile?.is_admin ?? false,
     notify_nearby_launch: profile?.notify_nearby_launch ?? false,
     search_count: profile?.search_count ?? 0,
-    avatar: metadata.avatar || getInitials(profile?.name || metadata.name || ''),
+    avatar: metadata.avatar || metadata.avatar_url || getInitials(profile?.name || metadataName),
   };
 };
+
+async function completeAuthenticatedSession(session) {
+  if (!session?.user) throw new Error('Google sign-in did not return a valid session.');
+
+  const metadata = session.user.user_metadata || {};
+  const metadataName = metadata.name || metadata.full_name || '';
+  const initialUser = await buildUser(session);
+
+  if (metadataName && (!initialUser.name || initialUser.name === 'Student')) {
+    await updateUserProfileRow(session.user.id, { name: metadataName });
+  }
+
+  await importQuickSavedFavorites(session.user.id);
+
+  let user = await buildUser(session);
+  const migratedUpdates = await migrateGuestProfileIfNeeded(user);
+  if (migratedUpdates) user = { ...user, ...migratedUpdates };
+
+  const { useFavoritesStore } = await import('./favoritesStore');
+  await useFavoritesStore.getState().fetchFavorites();
+
+  return user;
+}
 
 export const useAuthStore = create((set, get) => ({
   user: null,
@@ -148,6 +195,7 @@ export const useAuthStore = create((set, get) => ({
   isLoading: true,
   isInitialized: false,
   authSubscription: null,
+  isOAuthLoading: false,
 
   checkSession: async () => {
     try {
@@ -214,6 +262,55 @@ export const useAuthStore = create((set, get) => ({
       return { success: false, error };
     } finally {
       set({ isLoading: false });
+    }
+  },
+
+  loginWithGoogle: async ({ returnTo = '/dashboard' } = {}) => {
+    set({ isOAuthLoading: true });
+    try {
+      rememberOAuthReturnPath(returnTo);
+      const redirectTo = new URL('/auth/callback', window.location.origin).toString();
+      const { data, error } = await supabase.auth.signInWithOAuth({
+        provider: 'google',
+        options: {
+          redirectTo,
+        },
+      });
+
+      if (error) throw error;
+      return { success: true, url: data.url };
+    } catch (error) {
+      console.error('Google login error:', error);
+      if (typeof window !== 'undefined') window.sessionStorage.removeItem(OAUTH_RETURN_PATH_KEY);
+      set({ isOAuthLoading: false });
+      return { success: false, error };
+    }
+  },
+
+  completeOAuthLogin: async () => {
+    set({ isOAuthLoading: true });
+    try {
+      const { data: { session }, error } = await supabase.auth.getSession();
+      if (error) throw error;
+
+      const user = await completeAuthenticatedSession(session);
+      set({
+        user,
+        isAuthenticated: true,
+        isInitialized: true,
+        isLoading: false,
+        isOAuthLoading: false,
+      });
+
+      return {
+        success: true,
+        destination: needsOnboardingProfile(user) ? '/onboarding' : consumeOAuthReturnPath(),
+      };
+    } catch (error) {
+      console.error('Google callback error:', error);
+      if (typeof window !== 'undefined') window.sessionStorage.removeItem(OAUTH_RETURN_PATH_KEY);
+      set({ isOAuthLoading: false });
+      return { success: false, error };
     }
   },
 
