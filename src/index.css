@@ -38,13 +38,13 @@
     --background: 155 40% 95%;
     --foreground: 155 20% 14%;
 
-    --card: 152 30% 98% / 0.55;
+    --card: 0 0% 100%;
     --card-foreground: 155 20% 14%;
 
-    --surface: 155 20% 97% / 0.4;
-    --surface-raised: 152 30% 99% / 0.7;
+    --surface: 155 20% 97%;
+    --surface-raised: 0 0% 100%;
 
-    --popover: 152 30% 98% / 0.7;
+    --popover: 0 0% 100%;
     --popover-foreground: 155 20% 14%;
 
     --modal: 152 30% 98%;
