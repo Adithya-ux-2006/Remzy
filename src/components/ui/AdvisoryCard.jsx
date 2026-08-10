@@ -31,21 +31,21 @@ export function AdvisoryCard({ title, message, subtitle, subMessage, className }
     >
       {title && <SectionHeader label={title} />}
       {Array.isArray(message) ? (
-        <ul className="mt-2 space-y-2.5">
+        <ul className="mt-2 space-y-2.5 pl-[34px]">
           {message.map((item, i) => (
             <li key={i} className="flex items-start gap-2.5 text-sm text-ink-muted leading-relaxed">
-              <span aria-hidden className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-current" />
+              <span aria-hidden className="mt-[8px] h-1.5 w-1.5 shrink-0 rounded-full bg-current" />
               <span>{item}</span>
             </li>
           ))}
         </ul>
       ) : message ? (
-        <p className="mt-2 text-sm text-ink-muted leading-relaxed">{message}</p>
+        <p className="mt-2 pl-[34px] text-sm text-ink-muted leading-relaxed">{message}</p>
       ) : null}
       {subtitle && subMessage && (
         <div className="mt-6 pt-5 border-t border-warning/15">
           <SectionHeader label={subtitle} icon={Pill} />
-          <p className="mt-2 text-sm text-ink-muted leading-relaxed">{subMessage}</p>
+          <p className="mt-2 pl-[34px] text-sm text-ink-muted leading-relaxed">{subMessage}</p>
         </div>
       )}
     </motion.div>
