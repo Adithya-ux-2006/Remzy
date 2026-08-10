@@ -171,6 +171,10 @@ export function getEvidenceDetails(remedy) {
 export function computeEvidenceScore(remedy) {
   if (!remedy) return 0;
 
+  // Identified sources remain useful to inspect, but they must not increase
+  // the evidence score until the claim-level review is approved.
+  if (remedy._evidenceBackendAuthoritative && remedy.evidenceBackendStatus !== 'approved') return 0;
+
   const details = getEvidenceDetails(remedy);
 
   if (details.real === 0) {

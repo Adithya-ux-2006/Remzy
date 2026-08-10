@@ -189,16 +189,40 @@ function buildApprovedEvidenceMap(rows) {
   return map;
 }
 
+function dedupeEvidenceSources(sources = []) {
+  const seen = new Set();
+  return sources.filter((source) => {
+    const key = source?.url || `${source?.title || ''}__${source?.journal || ''}`;
+    if (!key || seen.has(key)) return false;
+    seen.add(key);
+    return true;
+  });
+}
+
 async function enrichWithLocalCatalog(catalog, approvedEvidenceMap = {}) {
   const local = await loadLocalCatalog();
   const remedies = mergeRemedyFields(catalog.remedies, local.remedies)
-    .map((remedy) => ({
-      ...remedy,
-      researchPapers: approvedEvidenceMap[remedy.id] || [],
-      researchLinks: [],
-      evidenceBackendStatus: approvedEvidenceMap[remedy.id]?.length ? 'approved' : 'needs-review',
-      _evidenceBackendAuthoritative: true,
-    }));
+    .map((remedy) => {
+      const approvedSources = approvedEvidenceMap[remedy.id] || [];
+      const identifiedSources = dedupeEvidenceSources([
+        ...(remedy.researchPapers || []),
+        ...(remedy.researchLinks || []),
+      ]).map((source) => ({
+        ...source,
+        verificationStatus: source.verificationStatus || 'source-identified',
+        claimReviewStatus: 'needs-review',
+      }));
+      const sources = approvedSources.length ? approvedSources : identifiedSources;
+      return {
+        ...remedy,
+        researchPapers: sources,
+        researchLinks: [],
+        evidenceBackendStatus: approvedSources.length
+          ? 'approved'
+          : sources.length ? 'needs-review' : 'no-sources',
+        _evidenceBackendAuthoritative: true,
+      };
+    });
   return {
     symptoms: mergeById(catalog.symptoms, local.symptoms),
     remedies,
@@ -286,13 +310,23 @@ export const useCatalogStore = create((set, get) => ({
       const local = await loadLocalCatalog();
       set({
         ...local,
-        remedies: local.remedies.map((remedy) => ({
-          ...remedy,
-          researchPapers: [],
-          researchLinks: [],
-          evidenceBackendStatus: 'unavailable',
-          _evidenceBackendAuthoritative: true,
-        })),
+        remedies: local.remedies.map((remedy) => {
+          const sources = dedupeEvidenceSources([
+            ...(remedy.researchPapers || []),
+            ...(remedy.researchLinks || []),
+          ]).map((source) => ({
+            ...source,
+            verificationStatus: source.verificationStatus || 'source-identified',
+            claimReviewStatus: 'needs-review',
+          }));
+          return {
+            ...remedy,
+            researchPapers: sources,
+            researchLinks: [],
+            evidenceBackendStatus: sources.length ? 'needs-review' : 'no-sources',
+            _evidenceBackendAuthoritative: true,
+          };
+        }),
         popularityMap: {},
         error,
         isLoading: false,

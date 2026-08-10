@@ -39,7 +39,7 @@ export function Landing() {
           </h1>
 
           <p className="text-lg text-ink-muted max-w-2xl mx-auto leading-relaxed">
-            No sign up needed. Search symptoms and explore remedies based on published research.
+            No sign up needed. Search symptoms, explore mapped remedies, and inspect linked sources with their review status.
           </p>
 
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4 pt-2">
@@ -64,9 +64,9 @@ export function Landing() {
 
       <section className="px-6 pb-10">
         <div className="mx-auto grid max-w-lg grid-cols-3 gap-3">
-          <StatCard value="30+" label="Remedies" />
+          <StatCard value="117" label="Remedies" />
           <StatCard value="4" label="Remedy Types" />
-          <StatCard value="60+" label="Research Papers" />
+          <StatCard value="60+" label="Linked Sources" />
         </div>
       </section>
 
@@ -107,8 +107,8 @@ export function Landing() {
           <div className="grid md:grid-cols-3 gap-10">
             <Feature
               icon={ShieldCheck}
-              title="Based on Research"
-              description="Remedies reference published studies and clinical literature. Always informational, not medical advice."
+              title="Transparent Evidence Status"
+              description="Linked sources are labeled as claim-reviewed or still under relevance review. A citation alone is not proof."
             />
             <Feature
               icon={Stethoscope}
@@ -129,7 +129,7 @@ export function Landing() {
           <AccordionSection
             title="About Remzy"
             subtitle="The health platform behind your search."
-            lead="Remzy is a health platform designed to provide evidence-backed information about common health concerns and remedies. Always consult a certified medical professional for serious health concerns."
+            lead="Remzy is a health information platform that maps common concerns to remedies and shows the review status of linked sources. Always consult a certified medical professional for serious health concerns."
             items={FAQ_ITEMS.slice(0, 3)}
             bordered
           />

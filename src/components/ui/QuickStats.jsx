@@ -10,7 +10,9 @@ function getSafetyColor(score, hasConflicts) {
   return 'text-danger';
 }
 
-function getEvidenceText(score) {
+function getEvidenceText(score, remedy) {
+  const sourceCount = (remedy.researchPapers?.length || 0) + (remedy.researchLinks?.length || 0);
+  if (remedy.evidenceBackendStatus === 'needs-review' && sourceCount > 0) return `${sourceCount} linked`;
   if (score >= 7) return '3+ sources';
   if (score >= 6) return '2 sources';
   if (score > 0) return '1 source';
@@ -72,7 +74,7 @@ function StatColumn({ icon: Icon, iconBg, iconColor, value, label, subLabel, sub
 export function QuickStats({ remedy, isSafe, evidenceScore, safetyScore, className }) {
   const safetyText = getSafetyText(safetyScore, !isSafe);
   const safetyColor = getSafetyColor(safetyScore, !isSafe);
-  const evidenceText = getEvidenceText(evidenceScore);
+  const evidenceText = getEvidenceText(evidenceScore, remedy);
   const safetySubLabel = isSafe ? 'Safe for you' : 'Potential conflict — check with a professional';
 
   return (
@@ -108,7 +110,7 @@ export function QuickStats({ remedy, isSafe, evidenceScore, safetyScore, classNa
         iconBg="bg-primary/10"
         iconColor="text-primary"
         value={evidenceText}
-        label="Supporting info"
+        label={remedy.evidenceBackendStatus === 'needs-review' ? 'Sources under review' : 'Supporting info'}
         ariaLabel={`Supporting information: ${evidenceText}`}
         delay={0.08}
         isLast={false}

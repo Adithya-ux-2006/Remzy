@@ -52,7 +52,7 @@ export function AltRemedyRow({ remedy, evidenceScore, isChildSafe, showDivider =
         </div>
 
         <div className="flex items-center justify-center">
-          <EvidenceLabel score={evidenceScore} tier={remedy.evidenceTier} note={remedy.evidenceNote} size="sm" />
+          <EvidenceLabel score={evidenceScore} tier={remedy.evidenceTier} note={remedy.evidenceNote} status={remedy.evidenceBackendStatus} sourceCount={(remedy.researchPapers?.length || 0) + (remedy.researchLinks?.length || 0)} size="sm" />
         </div>
 
         <div className="flex items-center justify-center gap-1">
@@ -90,7 +90,7 @@ export function AltRemedyRow({ remedy, evidenceScore, isChildSafe, showDivider =
               </span>
             )}
             <SafetyBadge remedy={remedy} isChildSafe={isChildSafe} compact />
-            <EvidenceLabel score={evidenceScore} tier={remedy.evidenceTier} note={remedy.evidenceNote} size="sm" />
+            <EvidenceLabel score={evidenceScore} tier={remedy.evidenceTier} note={remedy.evidenceNote} status={remedy.evidenceBackendStatus} sourceCount={(remedy.researchPapers?.length || 0) + (remedy.researchLinks?.length || 0)} size="sm" />
           </div>
         </div>
 

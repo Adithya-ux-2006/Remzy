@@ -66,7 +66,7 @@ export const TREATMENT_PREFERENCES = [
 export const FAQ_ITEMS = [
   {
     question: 'Are these remedies safe to use?',
-    answer: 'Every remedy listed on Remzy has supporting research linked in our database, and we clearly label the strength of that evidence. Remedies based mainly on traditional use are identified separately because their clinical evidence may be limited or not established. Remzy is for information only and is not a substitute for medical advice. Consult a qualified medical professional before starting a treatment, especially if you have a health condition, take medication, are pregnant, or are unsure whether it is safe for you.',
+    answer: 'Remzy shows linked research or guidance where a source has been identified and clearly separates claim-reviewed evidence from sources whose relevance is still under review. Not every remedy has established clinical evidence. Traditional and supportive approaches are labeled separately. Remzy is informational only and is not a substitute for medical advice. Consult a qualified medical professional before starting treatment, especially if you have a health condition, take medication, are pregnant, or are unsure whether it is safe for you.',
   },
   {
     question: 'Can I use Remzy instead of seeing a doctor?',

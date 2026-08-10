@@ -11,7 +11,9 @@ import { RemedyImage } from './RemedyImage';
 import { useFavoritesStore } from '../../store/favoritesStore';
 import { useAuthStore } from '../../store/authStore';
 
-function getEvidenceText(score, tier) {
+function getEvidenceText(score, tier, remedy) {
+  const sourceCount = (remedy.researchPapers?.length || 0) + (remedy.researchLinks?.length || 0);
+  if (remedy.evidenceBackendStatus === 'needs-review' && sourceCount > 0) return `${sourceCount} linked`;
   if (tier === 'traditional') return 'Traditional';
   if (tier === 'supportive') return 'Supportive';
   if (score >= 7) return 'High';
@@ -26,6 +28,7 @@ function generateReasons(remedy, evidenceScore, safetyScore) {
   else if (remedy.evidenceTier === 'supportive') reasons.push('Supportive care only');
   else if (evidenceScore >= 7) reasons.push('Three or more linked sources');
   else if (evidenceScore > 0) reasons.push('Linked research source');
+  else if (remedy.evidenceBackendStatus === 'needs-review') reasons.push('Source relevance under review');
   if (safetyScore >= 85) reasons.push('Very low risk');
   else if (safetyScore >= 60) reasons.push('Well tolerated');
   if (remedy.timeToEffect?.match(/immediate|minute/i)) reasons.push('Fast acting');
@@ -102,9 +105,9 @@ export function HighlightedRemedyCard({ remedy, isSafe, evidenceScore, safetySco
             </div>
             <div className="flex flex-col items-center text-center">
               <div className="flex items-center gap-1 mb-0.5">
-                <span className="text-xs font-semibold text-ink">{getEvidenceText(evidenceScore, remedy.evidenceTier)}</span>
+                <span className="text-xs font-semibold text-ink">{getEvidenceText(evidenceScore, remedy.evidenceTier, remedy)}</span>
               </div>
-              <span className="text-[10px] text-ink-muted">Supporting info</span>
+              <span className="text-[10px] text-ink-muted">{remedy.evidenceBackendStatus === 'needs-review' ? 'Sources under review' : 'Supporting info'}</span>
             </div>
           </div>
 

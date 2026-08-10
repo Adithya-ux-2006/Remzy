@@ -103,7 +103,14 @@ export function RemedyDetail() {
 
   const researchLinks = useMemo(() => {
     if (!remedy) return [];
-    return remedy.researchPapers || remedy.researchLinks || [];
+    const sources = [...(remedy.researchPapers || []), ...(remedy.researchLinks || [])];
+    const seen = new Set();
+    return sources.filter((source) => {
+      const key = source?.url || `${source?.title || ''}__${source?.journal || ''}`;
+      if (!key || seen.has(key)) return false;
+      seen.add(key);
+      return true;
+    });
   }, [remedy]);
 
   const evidenceScore = useMemo(() => {
@@ -290,17 +297,19 @@ export function RemedyDetail() {
                 {researchLinks.length > 0 && (
                   <span className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full text-xs font-semibold bg-evidence/10 text-evidence">
                     <BookOpen className="w-3.5 h-3.5" />
-                    {hasGuidance ? 'Guideline-Referenced' : 'Research-Referenced'}
+                    {remedy.evidenceBackendStatus === 'approved'
+                      ? hasGuidance ? 'Guideline-Referenced' : 'Claim Reviewed'
+                      : 'Relevance Under Review'}
                   </span>
                 )}
               </div>
             </div>
             <p className="text-sm text-ink-muted mb-5">
               {researchLinks.length > 0
-                ? hasGuidance
-                  ? `${researchLinks.length} named clinical or public-health ${researchLinks.length === 1 ? 'source is' : 'sources are'} linked below. Relevance and certainty depend on the population, intervention, and outcome studied.`
-                  : `${researchLinks.length} peer-reviewed ${researchLinks.length === 1 ? 'source is' : 'sources are'} linked below. A citation does not by itself prove that a remedy works for every person or use.`
-                : remedy.evidenceNote || 'No published studies indexed yet'}
+                ? remedy.evidenceBackendStatus === 'approved'
+                  ? `${researchLinks.length} claim-reviewed ${researchLinks.length === 1 ? 'source is' : 'sources are'} linked below. Applicability still depends on the individual and the studied use.`
+                  : `${researchLinks.length} identified ${researchLinks.length === 1 ? 'source is' : 'sources are'} linked below for transparency. The remedy-symptom match has not yet completed clinical review, so these links are not proof that this remedy works for this use.`
+                : remedy.evidenceNote || 'No source has been indexed for this remedy yet.'}
             </p>
           </Reveal>
           {researchLinks.length > 0 && (

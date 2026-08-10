@@ -68,6 +68,11 @@ export function EvidenceCard({ source, onTrackClick, delay = 0, className }) {
                   Metadata manually reviewed
                 </span>
               )}
+              {source.claimReviewStatus === 'needs-review' && (
+                <span className="inline-flex items-center text-[10px] font-medium text-warning bg-warning/10 rounded-full px-1.5 py-0.5">
+                  Claim relevance under review
+                </span>
+              )}
               {source.year && (
                 <span className="text-[11px] text-ink-subtle font-medium">{source.year}</span>
               )}
@@ -78,7 +83,7 @@ export function EvidenceCard({ source, onTrackClick, delay = 0, className }) {
             )}
             {source.keyFinding && (
               <p className="text-sm text-ink leading-relaxed line-clamp-2">
-                <span className="font-medium">Remzy applicability note: </span>{source.keyFinding}
+                <span className="font-medium">Source note: </span>{source.keyFinding}
               </p>
             )}
             {source.label && !source.keyFinding && (
