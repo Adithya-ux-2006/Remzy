@@ -5,7 +5,7 @@ import {
 } from 'lucide-react';
 import { cn } from '../utils/cn';
 import { PageWrapper } from '../components/layout';
-import { FAQAccordion } from '../components/ui/FAQAccordion';
+import { AccordionSection } from '../components/ui/AccordionSection';
 import { useAuthStore } from '../store/authStore';
 import { useGuestProfileStore } from '../store/guestProfileStore';
 import { getInitials } from '../utils/mappers';
@@ -301,7 +301,11 @@ export function Profile() {
           </div>
 
           {/* FAQ */}
-          <FaqSection />
+          <AccordionSection
+            title="Frequently Asked Questions"
+            subtitle="Everything you need to know before your first search."
+            items={FAQ_ITEMS}
+          />
         </div>
       </PageWrapper>
     );
@@ -644,7 +648,11 @@ export function Profile() {
         </section>
 
         {/* ── FAQ ── */}
-        <FaqSection />
+        <AccordionSection
+          title="Frequently Asked Questions"
+          subtitle="Everything you need to know before your first search."
+          items={FAQ_ITEMS}
+        />
 
         {/* ── Sign Out ── */}
         <button
@@ -656,20 +664,6 @@ export function Profile() {
 
       </div>
     </PageWrapper>
-  );
-}
-
-function FaqSection() {
-  return (
-    <section className="bg-card rounded-2xl shadow-sm border border-border/60 overflow-hidden">
-      <div className="p-5 border-b border-border/60">
-        <h2 className="font-bold text-lg text-ink">Frequently Asked Questions</h2>
-        <p className="text-xs text-ink-muted mt-1">Everything you need to know before your first search.</p>
-      </div>
-      <div className="p-5">
-        <FAQAccordion items={FAQ_ITEMS} />
-      </div>
-    </section>
   );
 }
 
