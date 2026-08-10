@@ -136,18 +136,7 @@ function LightModeBackground() {
   );
 }
 
-/** Dark-mode ambient background: renders the dark Jade Sky variant behind every page. */
-function DarkModeBackground() {
-  const { resolvedTheme } = useContext(ThemeContext);
-
-  if (resolvedTheme !== 'dark') return null;
-
-  return (
-    <div aria-hidden="true" className="pointer-events-none fixed inset-0 -z-10">
-      <GradientBackground dark className="h-full w-full" />
-    </div>
-  );
-}
+/** Dark mode uses the solid `--background` token — no ambient gradient overlay. */
 
 function App() {
   const initialize = useAuthStore((state) => state.initialize);
@@ -226,7 +215,6 @@ function App() {
   return (
     <ThemeProvider>
       <LightModeBackground />
-      <DarkModeBackground />
       <BrowserRouter>
         <ErrorBoundary>
           <div className="flex flex-col min-h-screen transition-colors duration-250">
