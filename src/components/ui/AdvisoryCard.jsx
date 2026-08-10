@@ -1,4 +1,5 @@
 import { motion, useReducedMotion } from 'framer-motion';
+import { AlertTriangle } from 'lucide-react';
 import { cn } from '../../utils/cn';
 
 export function AdvisoryCard({ title, message, className }) {
@@ -12,13 +13,19 @@ export function AdvisoryCard({ title, message, className }) {
       transition={{ duration: 0.35, ease: 'easeOut' }}
       role="alert"
       className={cn(
-        'rounded-2xl p-5',
-        'bg-warning/[0.06]',
+        'rounded-2xl border border-warning/20 bg-warning-light p-5',
         'transition-shadow duration-200 hover:shadow-lg',
         className
       )}
     >
-      {title && <p className="font-semibold text-ink text-sm mb-1">{title}</p>}
+      {title && (
+        <div className="flex items-center gap-2 mb-1">
+          <div className="w-5 h-5 rounded-full bg-warning/10 flex items-center justify-center shrink-0">
+            <AlertTriangle className="w-3 h-3 text-warning" />
+          </div>
+          <p className="font-semibold text-ink text-sm">{title}</p>
+        </div>
+      )}
       {Array.isArray(message) ? (
         <ul className="mt-1.5 space-y-2.5">
           {message.map((item, i) => (
