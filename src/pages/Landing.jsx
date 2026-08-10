@@ -1,6 +1,6 @@
 import { useState, useMemo } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
-import { ShieldCheck, Stethoscope, GraduationCap, Search, ArrowRight } from 'lucide-react';
+import { ShieldCheck, Stethoscope, GraduationCap, Search, ArrowRight, ChevronDown } from 'lucide-react';
 import { FAQAccordion } from '../components/ui/FAQAccordion';
 import { Modal } from '../components/ui/Modal';
 import { QuestionnaireFlow } from '../components/onboarding/QuestionnaireFlow';
@@ -17,6 +17,7 @@ export function Landing() {
   const symptoms = useCatalogStore((state) => state.symptoms);
   const navigate = useNavigate();
   const [isQuestionnaireOpen, setIsQuestionnaireOpen] = useState(false);
+  const [expandedSection, setExpandedSection] = useState(null);
   const updateGuestProfile = useGuestProfileStore((state) => state.updateProfile);
 
   const quickSymptoms = useMemo(
@@ -124,14 +125,26 @@ export function Landing() {
         </div>
       </section>
 
-      <section className="bg-card px-6 py-16">
-        <div className="max-w-2xl mx-auto text-center">
-          <h2 className="text-heading font-semibold text-ink">Frequently Asked Questions</h2>
-          <p className="mt-2 text-ink-muted">
-            Everything you need to know before your first search.
-          </p>
-          <div className="mt-8 text-left">
-            <FAQAccordion items={FAQ_ITEMS} />
+      <section className="px-6 py-16">
+        <div className="max-w-2xl mx-auto">
+          <div className="bg-card rounded-2xl shadow-sm border border-border/60 overflow-hidden">
+            <button
+              aria-expanded={expandedSection === 'about'}
+              className="w-full p-5 flex justify-between items-center text-left"
+              onClick={() => setExpandedSection(expandedSection === 'about' ? null : 'about')}
+            >
+              <span className="font-bold text-lg text-ink">About Remzy</span>
+              <ChevronDown className={`w-5 h-5 text-ink-muted transition-transform ${expandedSection === 'about' ? 'rotate-180' : ''}`} />
+            </button>
+            {expandedSection === 'about' && (
+              <div className="p-5 pt-0 text-sm text-ink-muted leading-relaxed border-t border-border/60">
+                <p className="mb-4">
+                  Remzy is a health platform designed to provide evidence-backed information about common health concerns and remedies.
+                  Always consult a certified medical professional for serious health concerns.
+                </p>
+                <FAQAccordion items={FAQ_ITEMS.slice(0, 3)} />
+              </div>
+            )}
           </div>
         </div>
       </section>

@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { useNavigate, Link } from 'react-router-dom';
 import {
-  LogOut, ChevronDown, User, Shield, Pencil, X, Check
+  LogOut, User, Shield, Pencil, X, Check
 } from 'lucide-react';
 import { cn } from '../utils/cn';
 import { PageWrapper } from '../components/layout';
@@ -96,7 +96,6 @@ export function Profile() {
 
   const [isEditing, setIsEditing] = useState(false);
   const [isEditingHealth, setIsEditingHealth] = useState(false);
-  const [expandedSection, setExpandedSection] = useState(null);
   const [healthForm, setHealthForm] = useState({
     selectedConditions: [],
     selectedAllergies: [],
@@ -301,26 +300,8 @@ export function Profile() {
             </div>
           </div>
 
-          {/* About Accordion */}
-          <div className="bg-card rounded-2xl shadow-sm border border-border overflow-hidden">
-            <button
-              aria-expanded={expandedSection === 'about'}
-              className="w-full p-5 flex justify-between items-center text-left"
-              onClick={() => setExpandedSection(expandedSection === 'about' ? null : 'about')}
-            >
-              <span className="font-bold text-lg text-ink">About Remzy</span>
-              <ChevronDown className={`w-5 h-5 text-ink-muted transition-transform ${expandedSection === 'about' ? 'rotate-180' : ''}`} />
-            </button>
-            {expandedSection === 'about' && (
-              <div className="p-5 pt-0 text-sm text-ink-muted leading-relaxed border-t border-border">
-                <p className="mb-4">
-                  Remzy is a health platform designed to provide evidence-backed information about common health concerns and remedies.
-                  Always consult a certified medical professional for serious health concerns.
-                </p>
-                <FAQAccordion items={FAQ_ITEMS.slice(0, 3)} />
-              </div>
-            )}
-          </div>
+          {/* FAQ */}
+          <FaqSection />
         </div>
       </PageWrapper>
     );
@@ -662,26 +643,8 @@ export function Profile() {
           </div>
         </section>
 
-        {/* ── About Remzy Accordion ── */}
-        <section className="bg-card rounded-2xl shadow-sm border border-border/60 overflow-hidden">
-          <button
-            aria-expanded={expandedSection === 'about'}
-            className="w-full p-5 flex justify-between items-center text-left"
-            onClick={() => setExpandedSection(expandedSection === 'about' ? null : 'about')}
-          >
-            <span className="font-bold text-lg text-ink">About Remzy</span>
-            <ChevronDown className={`w-5 h-5 text-ink-muted transition-transform ${expandedSection === 'about' ? 'rotate-180' : ''}`} />
-          </button>
-          {expandedSection === 'about' && (
-            <div className="p-5 pt-0 text-sm text-ink-muted leading-relaxed border-t border-border/60">
-              <p className="mb-4">
-                Remzy is a health platform designed to provide evidence-backed information about common health concerns and remedies.
-                Your profile, favorites, and remedy schedules are synced through Supabase. Always consult a certified medical professional for serious health concerns.
-              </p>
-              <FAQAccordion items={FAQ_ITEMS.slice(0, 3)} />
-            </div>
-          )}
-        </section>
+        {/* ── FAQ ── */}
+        <FaqSection />
 
         {/* ── Sign Out ── */}
         <button
@@ -693,6 +656,20 @@ export function Profile() {
 
       </div>
     </PageWrapper>
+  );
+}
+
+function FaqSection() {
+  return (
+    <section className="bg-card rounded-2xl shadow-sm border border-border/60 overflow-hidden">
+      <div className="p-5 border-b border-border/60">
+        <h2 className="font-bold text-lg text-ink">Frequently Asked Questions</h2>
+        <p className="text-xs text-ink-muted mt-1">Everything you need to know before your first search.</p>
+      </div>
+      <div className="p-5">
+        <FAQAccordion items={FAQ_ITEMS} />
+      </div>
+    </section>
   );
 }
 
