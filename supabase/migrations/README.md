@@ -16,6 +16,7 @@ Run these in order in the Supabase SQL Editor when setting up a new environment.
 | 026_merge_ibuprofen_duplicate.sql | Rename canonical Ibuprofen row to "Ibuprofen (Advil / Motrin)" |
 | 027_strip_parenthetical_titles.sql | Remove parenthetical text from all remedy titles |
 | 028_add_remedy_taglines.sql | Add short display taglines for compact list rows |
+| 20260810174433_add_evidence_review_backend.sql | Add the secured evidence review workflow and approved-only public view |
 
 New changes: always create the next numbered file and add a row to this table.
 Never modify existing migration files.

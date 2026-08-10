@@ -128,12 +128,12 @@ function mergeRemedyFields(primary = [], fallback = []) {
       childSafetyNote: fallbackItem.childSafetyNote ?? primaryItem.childSafetyNote,
       evidenceTier: primaryItem.evidenceTier ?? fallbackItem.evidenceTier,
       evidenceNote: primaryItem.evidenceNote || fallbackItem.evidenceNote,
-      researchPapers: primaryItem.researchPapers?.length
+      researchPapers: primaryItem._evidenceBackendAuthoritative
         ? primaryItem.researchPapers
-        : fallbackItem.researchPapers,
-      researchLinks: primaryItem.researchLinks?.length
+        : (primaryItem.researchPapers?.length ? primaryItem.researchPapers : fallbackItem.researchPapers),
+      researchLinks: primaryItem._evidenceBackendAuthoritative
         ? primaryItem.researchLinks
-        : fallbackItem.researchLinks,
+        : (primaryItem.researchLinks?.length ? primaryItem.researchLinks : fallbackItem.researchLinks),
     };
   });
 
@@ -164,11 +164,44 @@ function buildPopularityMap(rows) {
   return map;
 }
 
-async function enrichWithLocalCatalog(catalog) {
+function buildApprovedEvidenceMap(rows) {
+  const map = {};
+  for (const row of rows || []) {
+    if (!map[row.remedy_id]) map[row.remedy_id] = [];
+    map[row.remedy_id].push({
+      title: row.title,
+      journal: row.journal,
+      year: row.publication_year,
+      url: row.url,
+      sourceDatabase: row.source_database,
+      sourceOrganization: row.source_organization,
+      evidenceType: row.evidence_type,
+      verificationStatus: 'full-text-reviewed',
+      keyFinding: row.review_note || row.claim_text,
+      applicability: row.overall_applicability,
+      certainty: row.certainty,
+      recommendationStatus: row.recommendation_status,
+      riskOfBias: row.risk_of_bias,
+      limitations: row.limitations || [],
+      nextReviewAt: row.next_review_at,
+    });
+  }
+  return map;
+}
+
+async function enrichWithLocalCatalog(catalog, approvedEvidenceMap = {}) {
   const local = await loadLocalCatalog();
+  const remedies = filterEvidenceReviewedRemedies(mergeRemedyFields(catalog.remedies, local.remedies))
+    .map((remedy) => ({
+      ...remedy,
+      researchPapers: approvedEvidenceMap[remedy.id] || [],
+      researchLinks: [],
+      evidenceBackendStatus: approvedEvidenceMap[remedy.id]?.length ? 'approved' : 'needs-review',
+      _evidenceBackendAuthoritative: true,
+    }));
   return {
     symptoms: mergeById(catalog.symptoms, local.symptoms),
-    remedies: filterEvidenceReviewedRemedies(mergeRemedyFields(catalog.remedies, local.remedies)),
+    remedies,
     symptomRemedies: mergeSymptomRemedies(catalog.symptomRemedies, local.symptomRemedies),
   };
 }
@@ -191,16 +224,19 @@ export const useCatalogStore = create((set, get) => ({
       const [
         { data: symptoms, error: symptomsError },
         { data: remedies, error: remediesError },
+        { data: approvedEvidence, error: approvedEvidenceError },
       ] = await Promise.all([
         supabase.from('symptoms').select('*').order('label'),
         supabase
           .from('remedies')
           .select('*, remedy_symptoms(symptom_id, match_strength), research_papers(title, journal, url, key_findings)')
           .order('name'),
+        supabase.from('approved_remedy_evidence').select('*'),
       ]);
 
       if (symptomsError) throw symptomsError;
       if (remediesError) throw remediesError;
+      if (approvedEvidenceError) throw approvedEvidenceError;
 
       let symptomRemediesData = {};
       try {
@@ -237,7 +273,7 @@ export const useCatalogStore = create((set, get) => ({
         })),
         remedies: (remedies || []).map(mapRemedy),
         symptomRemedies: symptomRemediesData,
-      });
+      }, buildApprovedEvidenceMap(approvedEvidence));
 
       set({
         ...enriched,
@@ -250,6 +286,13 @@ export const useCatalogStore = create((set, get) => ({
       const local = await loadLocalCatalog();
       set({
         ...local,
+        remedies: filterEvidenceReviewedRemedies(local.remedies).map((remedy) => ({
+          ...remedy,
+          researchPapers: [],
+          researchLinks: [],
+          evidenceBackendStatus: 'unavailable',
+          _evidenceBackendAuthoritative: true,
+        })),
         popularityMap: {},
         error,
         isLoading: false,
