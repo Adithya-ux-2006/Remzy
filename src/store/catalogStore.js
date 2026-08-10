@@ -8,7 +8,6 @@ import { applyLegacyBatch4 } from '../data/legacyRemedyBatch4';
 import { applyLegacyBatch5 } from '../data/legacyRemedyBatch5';
 import { applyLegacyEvidenceTierOverlay } from '../data/legacyEvidenceTierOverlay';
 import { applyMultiSourceRemedyBatch1 } from '../data/multiSourceRemedyBatch1';
-import { filterEvidenceReviewedRemedies } from '../data/evidenceReview';
 
 function buildSymptomRemediesMap(rows) {
   const map = {};
@@ -74,9 +73,23 @@ async function loadLocalCatalog() {
     import('../data/localCatalog'),
   ]);
 
-  const allRemedies = filterEvidenceReviewedRemedies(
-    applyMultiSourceRemedyBatch1([...REMEDIES, ...applyLegacyEvidenceTierOverlay(applyLegacyBatch5(applyLegacyBatch4(applyLegacyBatch3(applyLegacyBatch2(applyLegacyBatch1(LOCAL_REMEDIES))))))])
+  // Evidence review controls which citations may be displayed. It must never
+  // remove a remedy from the catalog.
+  const legacyRemedies = applyLegacyEvidenceTierOverlay(
+    applyLegacyBatch5(
+      applyLegacyBatch4(
+        applyLegacyBatch3(
+          applyLegacyBatch2(
+            applyLegacyBatch1(LOCAL_REMEDIES),
+          ),
+        ),
+      ),
+    ),
   );
+  const allRemedies = applyMultiSourceRemedyBatch1([
+    ...REMEDIES,
+    ...legacyRemedies,
+  ]);
 
   const localSymptomRemedies = buildLocalSymptomRemedies(allRemedies);
 
@@ -191,7 +204,7 @@ function buildApprovedEvidenceMap(rows) {
 
 async function enrichWithLocalCatalog(catalog, approvedEvidenceMap = {}) {
   const local = await loadLocalCatalog();
-  const remedies = filterEvidenceReviewedRemedies(mergeRemedyFields(catalog.remedies, local.remedies))
+  const remedies = mergeRemedyFields(catalog.remedies, local.remedies)
     .map((remedy) => ({
       ...remedy,
       researchPapers: approvedEvidenceMap[remedy.id] || [],
@@ -286,7 +299,7 @@ export const useCatalogStore = create((set, get) => ({
       const local = await loadLocalCatalog();
       set({
         ...local,
-        remedies: filterEvidenceReviewedRemedies(local.remedies).map((remedy) => ({
+        remedies: local.remedies.map((remedy) => ({
           ...remedy,
           researchPapers: [],
           researchLinks: [],
