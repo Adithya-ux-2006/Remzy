@@ -3,7 +3,7 @@ import { AnimatePresence, motion } from 'framer-motion';
 import { ChevronDown } from 'lucide-react';
 import { cn } from '../../utils/cn';
 
-export function FAQAccordion({ items }) {
+export function FAQAccordion({ items, bordered = false }) {
   const [openIndex, setOpenIndex] = useState(0);
 
   return (
@@ -12,7 +12,10 @@ export function FAQAccordion({ items }) {
         const isOpen = openIndex === index;
 
         return (
-          <div key={item.question} className="overflow-hidden rounded-2xl bg-card shadow-soft">
+          <div
+            key={item.question}
+            className={cn('overflow-hidden rounded-2xl bg-card shadow-soft', bordered && 'border border-border/60')}
+          >
             <button
               type="button"
               onClick={() => setOpenIndex(isOpen ? -1 : index)}

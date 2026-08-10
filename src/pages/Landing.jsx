@@ -124,13 +124,14 @@ export function Landing() {
         </div>
       </section>
 
-      <section className="px-6 py-16">
-        <div className="max-w-2xl mx-auto">
+      <section className="bg-card py-16">
+        <div className="max-w-2xl mx-auto px-6">
           <AccordionSection
             title="About Remzy"
             subtitle="The health platform behind your search."
             lead="Remzy is a health platform designed to provide evidence-backed information about common health concerns and remedies. Always consult a certified medical professional for serious health concerns."
             items={FAQ_ITEMS.slice(0, 3)}
+            bordered
           />
         </div>
       </section>
