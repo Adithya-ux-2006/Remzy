@@ -207,7 +207,10 @@ export function RemedyDetail() {
         {remedy.warnings && (
           <section className="mb-12 md:mb-16">
             <Reveal>
-              <h2 className="section-title mb-5">Health Alert</h2>
+              <div className="mb-5">
+                <h2 className="section-title mb-2">Health Alert</h2>
+                <div className="h-1 w-12 rounded-full bg-warning" />
+              </div>
             </Reveal>
             <Reveal delay={0.08}>
               <AdvisoryCard
