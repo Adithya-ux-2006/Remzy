@@ -2,9 +2,9 @@ import { useEffect, useRef, useState } from 'react';
 import { Link, useNavigate, useSearchParams } from 'react-router-dom';
 import { Loader2 } from 'lucide-react';
 import { PageWrapper } from '../components/layout';
+import { AssistedPasswordConfirmation } from '../components/ui/AssistedPasswordConfirmation';
 import { PasswordInput } from '../components/ui/PasswordInput';
 import { useAuthStore } from '../store/authStore';
-import { cn } from '../utils/cn';
 
 export function Register() {
   const [searchParams] = useSearchParams();
@@ -128,17 +128,15 @@ export function Register() {
 
             <div>
               <label className="block text-sm font-medium text-ink mb-1" htmlFor="confirmPassword">Confirm Password</label>
-              <PasswordInput
+              <AssistedPasswordConfirmation
                 id="confirmPassword"
                 name="confirmPassword"
+                password={formData.password}
                 value={formData.confirmPassword}
                 onChange={handleChange}
-                className={cn(
-                  'w-full px-4 py-3 border rounded-xl focus:outline-none focus:ring-2 focus:ring-primary/20 transition-all',
-                  formData.confirmPassword && formData.password !== formData.confirmPassword
-                    ? 'border-red-300 focus:border-red-400'
-                    : 'border-ink/10 focus:border-primary'
-                )}
+                placeholder="Confirm your password"
+                aria-describedby="confirmPasswordStatus"
+                autoComplete="new-password"
                 required
               />
             </div>
