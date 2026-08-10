@@ -9,9 +9,9 @@ function generateReasons(remedy, evidenceScore, safetyScore) {
     reasons.push('Fast acting');
   }
   if (evidenceScore >= 7) {
-    reasons.push('High quality evidence');
-  } else if (evidenceScore >= 4) {
-    reasons.push('Supported by clinical research');
+    reasons.push('Three or more linked sources');
+  } else if (evidenceScore > 0) {
+    reasons.push('Linked research source');
   }
   if (safetyScore >= 85) {
     reasons.push('Very low risk');

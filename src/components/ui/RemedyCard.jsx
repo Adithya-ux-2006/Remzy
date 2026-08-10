@@ -9,6 +9,7 @@ import { RatingStars } from './RatingStars';
 import { AllergyBadge } from './AllergyBadge';
 import { useFavoritesStore } from '../../store/favoritesStore';
 import { useAuthStore } from '../../store/authStore';
+import { getEvidenceText } from '../../utils/evidence';
 
 export function RemedyCard({ remedy, className, featured, variant, isSafe = true }) {
   const resolvedVariant = featured ? 'featured' : (variant || 'default');
@@ -61,7 +62,7 @@ export function RemedyCard({ remedy, className, featured, variant, isSafe = true
           <div className="flex items-center gap-2 text-xs text-ink-muted">
             {remedy._evidenceScore != null && (
               <span className="bg-primary/10 text-primary font-semibold px-1.5 py-0.5 rounded-md">
-                E{remedy._evidenceScore}/10
+                {getEvidenceText(remedy._evidenceScore)}
               </span>
             )}
             {remedy.timeToEffect && (
@@ -177,8 +178,8 @@ export function RemedyCard({ remedy, className, featured, variant, isSafe = true
             <span className="bg-surface px-2 py-0.5 rounded-md">{remedy.cost}</span>
           )}
           {remedy._evidenceScore ? (
-            <span className="text-primary font-medium" title="Evidence level">
-              E{remedy._evidenceScore}/10
+            <span className="text-primary font-medium" title="Linked research sources">
+              {getEvidenceText(remedy._evidenceScore)}
             </span>
           ) : null}
         </div>

@@ -249,7 +249,9 @@ export function rankRemedies(remedies, concerns, symptomRemediesMap, options = {
       const tier = classifyRelationship(remedy, symptomId);
       const safetyScore = computeSafetyScore(remedy);
       const penalty = computeUserContextPenalty(remedy, userContext);
-      const evidenceScore = remedy.evidenceTier ? computeEvidenceScore(remedy) : (entry.evidenceScore || 0);
+      // Never expose or rank by legacy hand-entered evidence scores. Derive the
+      // value from the citations that are actually attached at runtime.
+      const evidenceScore = computeEvidenceScore(remedy);
 
       const baseScore = tier === REMEDY_TIER.DIRECT
         ? computeDirectScore(evidenceScore, entry.priorityRank)

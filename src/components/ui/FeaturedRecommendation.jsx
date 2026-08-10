@@ -3,6 +3,7 @@ import { motion } from 'framer-motion';
 import { Clock, Star, ShieldCheck, FileText } from 'lucide-react';
 import { cn } from '../../utils/cn';
 import { CategoryBadge } from './CategoryBadge';
+import { getEvidenceText } from '../../utils/evidence';
 
 export function FeaturedRecommendation({ remedy, evidenceScore, isSafe, safetyWarnings, className }) {
   if (!remedy) return null;
@@ -46,7 +47,7 @@ export function FeaturedRecommendation({ remedy, evidenceScore, isSafe, safetyWa
           {evidenceScore != null && (
             <span className="flex items-center gap-1.5 bg-card px-3 py-1.5 rounded-xl font-semibold text-primary">
               <FileText className="w-3.5 h-3.5" />
-              Evidence {evidenceScore}/10
+              {getEvidenceText(evidenceScore)}
             </span>
           )}
         </div>

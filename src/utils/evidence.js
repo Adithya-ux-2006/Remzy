@@ -158,7 +158,7 @@ export function getEvidenceDetails(remedy) {
  * Scoring (PubMed and Google Scholar citations count equally):
  * - 0: no citations
  * - 1: has citations but none verifiable (UNVERIFIED)
- * - 4: 1 real citation
+ * - 2: 1 real citation
  * - 6: 2 real citations
  * - 7: 3 real citations
  * - 8: 4+ real citations
@@ -184,7 +184,7 @@ export function computeEvidenceScore(remedy) {
   if (details.real >= 4) return 8;
   if (details.real >= 3) return 7;
   if (details.real >= 2) return 6;
-  return 4;
+  return 2;
 }
 
 /**
@@ -195,9 +195,9 @@ export function computeEvidenceScore(remedy) {
  */
 export function getEvidenceLevel(score) {
   if (score == null || score === 0) return null;
-  if (score >= 7) return { text: 'High Evidence', color: 'bg-success/10 text-success' };
-  if (score >= 4) return { text: 'Moderate Evidence', color: 'bg-warning/10 text-warning' };
-  if (score > 0) return { text: 'Limited Evidence', color: 'bg-ink-muted/10 text-ink-muted' };
+  if (score >= 7) return { text: '3+ Linked Sources', color: 'bg-success/10 text-success' };
+  if (score >= 6) return { text: '2 Linked Sources', color: 'bg-warning/10 text-warning' };
+  if (score > 0) return { text: '1 Linked Source', color: 'bg-ink-muted/10 text-ink-muted' };
   return null;
 }
 
@@ -208,9 +208,9 @@ export function getEvidenceLevel(score) {
  * @returns {string} Short label
  */
 export function getEvidenceText(score) {
-  if (score >= 7) return 'High';
-  if (score >= 4) return 'Moderate';
-  if (score > 0) return 'Limited';
+  if (score >= 7) return '3+ sources';
+  if (score >= 6) return '2 sources';
+  if (score > 0) return '1 source';
   return '—';
 }
 

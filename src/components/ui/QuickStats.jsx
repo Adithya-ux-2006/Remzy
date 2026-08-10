@@ -11,9 +11,9 @@ function getSafetyColor(score, hasConflicts) {
 }
 
 function getEvidenceText(score) {
-  if (score >= 7) return 'High';
-  if (score >= 4) return 'Moderate';
-  if (score > 0) return 'Limited';
+  if (score >= 7) return '3+ sources';
+  if (score >= 6) return '2 sources';
+  if (score > 0) return '1 source';
   return '—';
 }
 

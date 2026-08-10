@@ -5,9 +5,9 @@ function getEvidenceLevel(score, tier) {
   if (tier === 'traditional') return { text: 'Traditional Use', color: 'bg-purple-500/10 text-purple-700 dark:text-purple-300' };
   if (tier === 'supportive') return { text: 'Supportive Care', color: 'bg-sky-500/10 text-sky-700 dark:text-sky-300' };
   if (score == null || score === 0) return null;
-  if (score >= 7) return { text: 'High Evidence', color: 'bg-success/10 text-success' };
-  if (score >= 4) return { text: 'Moderate Evidence', color: 'bg-warning/10 text-warning' };
-  return { text: 'Limited Evidence', color: 'bg-ink-muted/10 text-ink-muted' };
+  if (score >= 7) return { text: '3+ Linked Sources', color: 'bg-success/10 text-success' };
+  if (score >= 6) return { text: '2 Linked Sources', color: 'bg-warning/10 text-warning' };
+  return { text: '1 Linked Source', color: 'bg-ink-muted/10 text-ink-muted' };
 }
 
 export function EvidenceLabel({ score, tier, note, size = 'md', className }) {

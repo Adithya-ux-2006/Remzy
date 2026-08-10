@@ -8,6 +8,7 @@ import { applyLegacyBatch4 } from '../data/legacyRemedyBatch4';
 import { applyLegacyBatch5 } from '../data/legacyRemedyBatch5';
 import { applyLegacyEvidenceTierOverlay } from '../data/legacyEvidenceTierOverlay';
 import { applyMultiSourceRemedyBatch1 } from '../data/multiSourceRemedyBatch1';
+import { filterEvidenceReviewedRemedies } from '../data/evidenceReview';
 
 function buildSymptomRemediesMap(rows) {
   const map = {};
@@ -73,7 +74,9 @@ async function loadLocalCatalog() {
     import('../data/localCatalog'),
   ]);
 
-  const allRemedies = applyMultiSourceRemedyBatch1([...REMEDIES, ...applyLegacyEvidenceTierOverlay(applyLegacyBatch5(applyLegacyBatch4(applyLegacyBatch3(applyLegacyBatch2(applyLegacyBatch1(LOCAL_REMEDIES))))))]);
+  const allRemedies = filterEvidenceReviewedRemedies(
+    applyMultiSourceRemedyBatch1([...REMEDIES, ...applyLegacyEvidenceTierOverlay(applyLegacyBatch5(applyLegacyBatch4(applyLegacyBatch3(applyLegacyBatch2(applyLegacyBatch1(LOCAL_REMEDIES))))))])
+  );
 
   const localSymptomRemedies = buildLocalSymptomRemedies(allRemedies);
 
@@ -165,7 +168,7 @@ async function enrichWithLocalCatalog(catalog) {
   const local = await loadLocalCatalog();
   return {
     symptoms: mergeById(catalog.symptoms, local.symptoms),
-    remedies: mergeRemedyFields(catalog.remedies, local.remedies),
+    remedies: filterEvidenceReviewedRemedies(mergeRemedyFields(catalog.remedies, local.remedies)),
     symptomRemedies: mergeSymptomRemedies(catalog.symptomRemedies, local.symptomRemedies),
   };
 }

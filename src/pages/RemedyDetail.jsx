@@ -23,6 +23,7 @@ import { cn } from '../utils/cn';
 import { trackRemedyEvent } from '../utils/analytics';
 import { getMedicalCareWarnings } from '../data/symptoms';
 import { computeEvidenceScore } from '../utils/evidence';
+import { parseHowToUseSteps } from '../utils/howToUse';
 
 const CATEGORY_BENEFITS = {
   Natural: [
@@ -81,12 +82,7 @@ export function RemedyDetail() {
   }, [remedy?.id]);
 
   const howToUseSteps = useMemo(() => {
-    if (!remedy?.howToUse) return [];
-    return remedy.howToUse
-      .split('\n')
-      .map(step => step.replace(/^\d+\.\s*/, ''))
-      .filter(Boolean)
-      .slice(0, 3);
+    return parseHowToUseSteps(remedy?.howToUse);
   }, [remedy]);
 
   const benefits = useMemo(() => {
@@ -283,7 +279,7 @@ export function RemedyDetail() {
                 {researchLinks.length > 0 ? (
                   <span className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full text-xs font-semibold bg-evidence-light text-evidence">
                     <BookOpen className="w-3.5 h-3.5" />
-                    {evidenceScore >= 7 ? 'High Quality' : evidenceScore >= 4 ? 'Moderate' : 'Some'}
+                    {researchLinks.length} linked {researchLinks.length === 1 ? 'source' : 'sources'}
                   </span>
                 ) : (
                   <span className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full text-xs font-semibold bg-ink-muted/10 text-ink-muted">
@@ -302,8 +298,8 @@ export function RemedyDetail() {
             <p className="text-sm text-ink-muted mb-5">
               {researchLinks.length > 0
                 ? hasGuidance
-                  ? `Supported by ${researchLinks.length} named clinical or public-health ${researchLinks.length === 1 ? 'source' : 'sources'}`
-                  : `Based on ${researchLinks.length} peer-reviewed ${researchLinks.length === 1 ? 'study' : 'studies'}`
+                  ? `${researchLinks.length} named clinical or public-health ${researchLinks.length === 1 ? 'source is' : 'sources are'} linked below. Relevance and certainty depend on the population, intervention, and outcome studied.`
+                  : `${researchLinks.length} peer-reviewed ${researchLinks.length === 1 ? 'source is' : 'sources are'} linked below. A citation does not by itself prove that a remedy works for every person or use.`
                 : remedy.evidenceNote || 'No published studies indexed yet'}
             </p>
           </Reveal>

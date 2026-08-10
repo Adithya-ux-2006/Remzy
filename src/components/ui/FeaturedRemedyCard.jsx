@@ -22,9 +22,9 @@ function generateReasons(remedy, evidenceScore, safetyScore) {
   } else if (remedy.evidenceTier === 'supportive') {
     reasons.push('Supportive care; not a proven treatment');
   } else if (evidenceScore >= 7) {
-    reasons.push('High quality evidence');
-  } else if (evidenceScore >= 4) {
-    reasons.push('Supported by clinical research');
+    reasons.push('Three or more linked sources');
+  } else if (evidenceScore > 0) {
+    reasons.push('Linked research source');
   }
   if (safetyScore >= 85) {
     reasons.push('Very low risk');

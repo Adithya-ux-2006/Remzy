@@ -10,6 +10,7 @@ import { applyLegacyBatch4 } from '../src/data/legacyRemedyBatch4.js';
 import { applyLegacyBatch5 } from '../src/data/legacyRemedyBatch5.js';
 import { applyLegacyEvidenceTierOverlay } from '../src/data/legacyEvidenceTierOverlay.js';
 import { applyMultiSourceRemedyBatch1 } from '../src/data/multiSourceRemedyBatch1.js';
+import { filterEvidenceReviewedRemedies } from '../src/data/evidenceReview.js';
 
 const args = new Map(process.argv.slice(2).map((arg) => {
   const [key, ...rest] = arg.replace(/^--/, '').split('=');
@@ -73,10 +74,10 @@ async function fetchChecked(url) {
   } finally { clearTimeout(timer); }
 }
 
-let remedies = scope === 'primary'
+let remedies = filterEvidenceReviewedRemedies(scope === 'primary'
   ? REMEDIES.map((remedy) => ({ ...remedy, _source: 'primary' }))
   : applyMultiSourceRemedyBatch1([...REMEDIES.map((remedy) => ({ ...remedy, _source: 'primary' })), ...applyLegacyEvidenceTierOverlay(applyLegacyBatch5(applyLegacyBatch4(applyLegacyBatch3(applyLegacyBatch2(applyLegacyBatch1(LOCAL_REMEDIES)))))).map((remedy) => ({ ...remedy, _source: 'localCatalog' }))])
-    .filter((remedy, index, all) => all.findIndex((candidate) => candidate.id === remedy.id) === index);
+    .filter((remedy, index, all) => all.findIndex((candidate) => candidate.id === remedy.id) === index));
 if (args.get('ids')) {
   const ids = new Set(String(args.get('ids')).split(',').filter(Boolean));
   remedies = remedies.filter((remedy) => ids.has(remedy.id));

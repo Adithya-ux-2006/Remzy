@@ -2,6 +2,7 @@ import { motion } from 'framer-motion';
 import { Search, ArrowDown, ShieldCheck, AlertTriangle, Sparkles, Clock } from 'lucide-react';
 import { cn } from '../../utils/cn';
 import { CategoryBadge } from './CategoryBadge';
+import { getEvidenceText } from '../../utils/evidence';
 
 const CAUSES = {
   back_pain: ['Muscle Strain', 'Poor Posture', 'Sedentary Lifestyle', 'Heavy Lifting'],
@@ -176,7 +177,7 @@ export function SymptomInterpreter({
                 <CategoryBadge category={topRemedy.category} />
                 {evidenceScore != null && (
                   <span className="text-[10px] font-semibold text-primary bg-primary/10 px-1.5 py-0.5 rounded">
-                    E{evidenceScore}/10
+                    {getEvidenceText(evidenceScore)}
                   </span>
                 )}
               </div>

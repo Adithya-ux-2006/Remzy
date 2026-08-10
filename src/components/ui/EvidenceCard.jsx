@@ -64,7 +64,9 @@ export function EvidenceCard({ source, onTrackClick, delay = 0, className }) {
             </div>
             {source.title && <p className="text-sm font-semibold text-ink mb-1 line-clamp-2">{source.title}</p>}
             {source.keyFinding && (
-              <p className="text-sm text-ink leading-relaxed line-clamp-2">&ldquo;{source.keyFinding}&rdquo;</p>
+              <p className="text-sm text-ink leading-relaxed line-clamp-2">
+                <span className="font-medium">What this source studied: </span>{source.keyFinding}
+              </p>
             )}
             {source.label && !source.keyFinding && (
               <p className="text-sm text-ink line-clamp-2">{source.label}</p>

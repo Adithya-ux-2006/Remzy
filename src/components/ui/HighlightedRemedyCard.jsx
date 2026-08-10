@@ -24,8 +24,8 @@ function generateReasons(remedy, evidenceScore, safetyScore) {
   const reasons = [];
   if (remedy.evidenceTier === 'traditional') reasons.push('Traditional use; evidence not established');
   else if (remedy.evidenceTier === 'supportive') reasons.push('Supportive care only');
-  else if (evidenceScore >= 7) reasons.push('High quality evidence');
-  else if (evidenceScore >= 4) reasons.push('Supported by research');
+  else if (evidenceScore >= 7) reasons.push('Three or more linked sources');
+  else if (evidenceScore > 0) reasons.push('Linked research source');
   if (safetyScore >= 85) reasons.push('Very low risk');
   else if (safetyScore >= 60) reasons.push('Well tolerated');
   if (remedy.timeToEffect?.match(/immediate|minute/i)) reasons.push('Fast acting');
