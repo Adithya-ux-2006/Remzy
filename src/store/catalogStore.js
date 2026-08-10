@@ -1,13 +1,6 @@
 import { create } from 'zustand';
 import { supabase } from '../lib/supabase';
 import { mapRemedy } from '../utils/mappers';
-import { applyLegacyBatch1 } from '../data/legacyRemedyBatch1';
-import { applyLegacyBatch2 } from '../data/legacyRemedyBatch2';
-import { applyLegacyBatch3 } from '../data/legacyRemedyBatch3';
-import { applyLegacyBatch4 } from '../data/legacyRemedyBatch4';
-import { applyLegacyBatch5 } from '../data/legacyRemedyBatch5';
-import { applyLegacyEvidenceTierOverlay } from '../data/legacyEvidenceTierOverlay';
-import { applyMultiSourceRemedyBatch1 } from '../data/multiSourceRemedyBatch1';
 
 function buildSymptomRemediesMap(rows) {
   const map = {};
@@ -67,29 +60,15 @@ function buildLocalSymptomRemedies(remedies = []) {
 }
 
 async function loadLocalCatalog() {
-  const [{ SYMPTOMS }, { REMEDIES }, { LOCAL_REMEDIES, LOCAL_SYMPTOM_REMEDIES }] = await Promise.all([
+  const [{ SYMPTOMS }, { LOCAL_SYMPTOM_REMEDIES }, { buildRuntimeRemedies }] = await Promise.all([
     import('../data/symptoms'),
-    import('../data/remedies'),
     import('../data/localCatalog'),
+    import('../data/runtimeCatalog'),
   ]);
 
   // Evidence review controls which citations may be displayed. It must never
   // remove a remedy from the catalog.
-  const legacyRemedies = applyLegacyEvidenceTierOverlay(
-    applyLegacyBatch5(
-      applyLegacyBatch4(
-        applyLegacyBatch3(
-          applyLegacyBatch2(
-            applyLegacyBatch1(LOCAL_REMEDIES),
-          ),
-        ),
-      ),
-    ),
-  );
-  const allRemedies = applyMultiSourceRemedyBatch1([
-    ...REMEDIES,
-    ...legacyRemedies,
-  ]);
+  const allRemedies = buildRuntimeRemedies();
 
   const localSymptomRemedies = buildLocalSymptomRemedies(allRemedies);
 

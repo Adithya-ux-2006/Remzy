@@ -35,6 +35,8 @@
     ,"content:prereview-all": "node scripts/ai-semantic-prereview.mjs --input=reports/evidence-review-all-claims.json"
     ,"content:summary": "node scripts/evidence-program-summary.mjs"
     ,"content:sync-backend": "node scripts/sync-evidence-backend.mjs"
+    ,"catalog:sync-backend": "node scripts/sync-catalog-backend.mjs"
+    ,"catalog:verify-public": "node scripts/verify-public-catalog.mjs"
     ,"content:gate": "npm run content:verify-citations && npm run content:verify-sources -- --no-http && npm run content:audit-integration && npm run content:audit-semantic && npm run content:audit-expansion"
     ,"content:verify-sources": "node scripts/evidence-source-pipeline.mjs"
     ,"content:sync-evidence": "node scripts/evidence-source-pipeline.mjs --write"
