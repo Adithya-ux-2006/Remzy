@@ -1,6 +1,6 @@
 import { useState, useMemo } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
-import { ShieldCheck, Stethoscope, GraduationCap, Search, ArrowRight } from 'lucide-react';
+import { ShieldCheck, Stethoscope, Globe, Search, ArrowRight } from 'lucide-react';
 import { AccordionSection } from '../components/ui/AccordionSection';
 import { Modal } from '../components/ui/Modal';
 import { QuestionnaireFlow } from '../components/onboarding/QuestionnaireFlow';
@@ -112,13 +112,13 @@ export function Landing() {
             />
             <Feature
               icon={Stethoscope}
-              title="4 Treatment Approaches"
+              title="3 Treatment Approaches"
               description="Filter by Natural, OTC, or Lifestyle remedies."
             />
             <Feature
-              icon={GraduationCap}
+              icon={Globe}
               title="Fast & Accessible"
-              description="Cost-effective, accessible, and fast-acting solutions for anyone, anywhere."
+              description="Free of cost, accessible and available for all."
             />
           </div>
         </div>
