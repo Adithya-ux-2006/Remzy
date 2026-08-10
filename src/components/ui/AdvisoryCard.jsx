@@ -2,7 +2,18 @@ import { motion, useReducedMotion } from 'framer-motion';
 import { AlertTriangle } from 'lucide-react';
 import { cn } from '../../utils/cn';
 
-export function AdvisoryCard({ title, message, className }) {
+function SectionHeader({ label }) {
+  return (
+    <div className="flex items-center gap-2 mb-1">
+      <div className="w-5 h-5 rounded-full bg-warning/10 flex items-center justify-center shrink-0">
+        <AlertTriangle className="w-3 h-3 text-warning" />
+      </div>
+      <p className="font-semibold text-ink text-sm">{label}</p>
+    </div>
+  );
+}
+
+export function AdvisoryCard({ title, message, subtitle, subMessage, className }) {
   const reduced = useReducedMotion();
 
   return (
@@ -18,14 +29,7 @@ export function AdvisoryCard({ title, message, className }) {
         className
       )}
     >
-      {title && (
-        <div className="flex items-center gap-2 mb-1">
-          <div className="w-5 h-5 rounded-full bg-warning/10 flex items-center justify-center shrink-0">
-            <AlertTriangle className="w-3 h-3 text-warning" />
-          </div>
-          <p className="font-semibold text-ink text-sm">{title}</p>
-        </div>
-      )}
+      {title && <SectionHeader label={title} />}
       {Array.isArray(message) ? (
         <ul className="mt-1.5 space-y-2.5">
           {message.map((item, i) => (
@@ -38,6 +42,12 @@ export function AdvisoryCard({ title, message, className }) {
       ) : message ? (
         <p className="text-sm text-ink-muted leading-relaxed">{message}</p>
       ) : null}
+      {subtitle && subMessage && (
+        <div className="mt-5">
+          <SectionHeader label={subtitle} />
+          <p className="text-sm text-ink-muted leading-relaxed">{subMessage}</p>
+        </div>
+      )}
     </motion.div>
   );
 }

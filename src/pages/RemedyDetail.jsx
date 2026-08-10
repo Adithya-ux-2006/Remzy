@@ -1,6 +1,6 @@
 import { useEffect, useMemo, useState } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
-import { ArrowLeft, BookOpen, ChevronRight, AlertTriangle } from 'lucide-react';
+import { ArrowLeft, BookOpen, ChevronRight } from 'lucide-react';
 import { FavoriteHeart } from '../components/ui/FavoriteHeart';
 import { ScheduleQuickAdd } from '../components/ui/ScheduleQuickAdd';
 import { PageWrapper } from '../components/layout';
@@ -44,6 +44,8 @@ const CATEGORY_BENEFITS = {
 
 const EVIDENCE_SHOW_LIMIT = 4;
 
+const MEDICINE_INFO_MESSAGE = 'This medicine may not be suitable for everyone. Check with a pharmacist or doctor if you have high blood pressure, heart problems, take other medicines, are pregnant, or are unsure.';
+
 export function RemedyDetail() {
   const { id } = useParams();
   const navigate = useNavigate();
@@ -65,6 +67,7 @@ export function RemedyDetail() {
   const activeIsChildSafe = isAuthenticated ? userIsChildSafe : guestIsChildSafe;
 
   const remedy = remedies.find(r => r.id === id);
+  const isOtc = remedy?.category === 'OTC';
   const favorite = useFavoritesStore((state) => (remedy ? state.isFavorite(remedy.id) : false));
 
   const isSafe = useMemo(() => {
@@ -210,6 +213,8 @@ export function RemedyDetail() {
               <AdvisoryCard
                 title="Important"
                 message={remedy.warnings}
+                subtitle={isOtc ? 'Medicine Information' : undefined}
+                subMessage={isOtc ? MEDICINE_INFO_MESSAGE : undefined}
               />
             </Reveal>
           </section>
@@ -265,24 +270,6 @@ export function RemedyDetail() {
           <div className="mb-12 md:mb-16">
             <NearbyShops remedyName={remedy.name} />
           </div>
-        )}
-
-        {remedy.category === 'OTC' && (
-          <section className="mb-12 md:mb-16">
-            <Reveal>
-              <div className="rounded-2xl border border-warning/20 bg-warning/5 p-5">
-                <div className="flex items-start gap-3">
-                  <AlertTriangle className="w-5 h-5 text-warning shrink-0 mt-0.5" />
-                  <div>
-                    <p className="font-semibold text-ink text-sm mb-1">Medicine information</p>
-                    <p className="text-sm text-ink-muted leading-relaxed">
-                      This medicine may not be suitable for everyone. Check with a pharmacist or doctor if you have high blood pressure, heart problems, take other medicines, are pregnant, or are unsure.
-                    </p>
-                  </div>
-                </div>
-              </div>
-            </Reveal>
-          </section>
         )}
 
         <section className="mb-12 md:mb-16">
