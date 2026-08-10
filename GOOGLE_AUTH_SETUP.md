@@ -8,7 +8,7 @@ Create a **Web application** OAuth client for Remzy with only the `openid`, emai
 
 Authorized JavaScript origins:
 
-- `https://remzy.netlify.app`
+- `https://remzyy.netlify.app`
 - `http://localhost:5173`
 
 Authorized redirect URI:
@@ -23,11 +23,11 @@ For project `rbnscuuujybrhhsggdof`:
 
 1. Open **Authentication → Providers → Google**.
 2. Enable Google and paste the Client ID and Client Secret.
-3. Under **Authentication → URL Configuration**, set the Site URL to `https://remzy.netlify.app`.
+3. Under **Authentication → URL Configuration**, set the Site URL to `https://remzyy.netlify.app`.
 4. Add these redirect URLs:
-   - `https://remzy.netlify.app/auth/callback`
+   - `https://remzyy.netlify.app/auth/callback`
    - `http://localhost:5173/auth/callback`
-   - `https://**--remzy.netlify.app/auth/callback` for Netlify previews
+   - `https://**--remzyy.netlify.app/auth/callback` for Netlify previews
 
 ## 3. Automated verification
 

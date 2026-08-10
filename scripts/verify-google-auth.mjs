@@ -43,7 +43,7 @@ console.log(`Supabase callback URL: ${callbackUrl}`);
 console.log(`Google provider: ${googleEnabled ? 'enabled' : 'disabled'}`);
 console.log('Required app redirects:');
 console.log('  http://localhost:5173/auth/callback');
-console.log('  https://remzy.netlify.app/auth/callback');
+console.log('  https://remzyy.netlify.app/auth/callback');
 
 if (!googleEnabled) {
   console.error('Google authentication is not enabled in the linked Supabase project.');

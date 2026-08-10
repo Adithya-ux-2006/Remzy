@@ -55,7 +55,7 @@ const DEFAULT_ORIGINS = [
   'https://cura-health.vercel.app',
   'https://cura-health-git-main.vercel.app',
   'https://cura-health.netlify.app',
-  'https://cura-health.netlify.app',
+  'https://remzyy.netlify.app',
   'http://localhost:5173',
   'http://localhost:3000',
 ];
