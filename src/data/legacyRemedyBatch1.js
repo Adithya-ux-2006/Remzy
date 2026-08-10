@@ -23,7 +23,7 @@ export const LEGACY_BATCH_1_OVERRIDES = {
     childSafetyNote: 'Do not use high-dose zinc lozenges in children without clinician guidance.',
     ingredients: ['zinc acetate or zinc gluconate'], allergen_tags: [], contraindications: ['zinc allergy'],
     shortDescription: 'May shorten a cold by about two days, but certainty is low and adverse effects are common.',
-    warnings: 'Follow the label for a short course. Stop for significant nausea. Never use intranasal zinc products.',
+    warnings: ['Follow the label for a short course.', 'Stop for significant nausea.', 'Never use intranasal zinc products.'],
     researchPapers: [paper('Zinc for prevention and treatment of the common cold', 'Cochrane Database Syst Rev', 'Low-certainty evidence suggests zinc used during a cold may shorten its duration; non-serious adverse effects may increase.', '38719213')],
   },
   rem_c05: {
