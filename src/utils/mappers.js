@@ -1,3 +1,6 @@
+import { applyGeneratedEvidenceMetadata } from '../data/generatedEvidenceMetadata';
+import { normalizeEvidenceSource } from './evidenceSources';
+
 const PLAIN_LANGUAGE_REPLACEMENTS = [
   [/\u00e2[\u20ac\ufffd][\u201d\u201c\u2013\u2014]/g, '-'],
   [/\u00e2[\u20ac\ufffd]\u00a6/g, '...'],
@@ -124,15 +127,15 @@ export function mapRemedy(remedy) {
     childSafetyNote: remedy.child_safety_note ?? remedy.childSafetyNote ?? '',
     evidenceTier: remedy.evidence_tier ?? remedy.evidenceTier,
     evidenceNote: simplifyRemedyLanguage(remedy.evidence_note ?? remedy.evidenceNote ?? ''),
-    researchPapers: remedy.research_papers?.map((paper) => ({
+    researchPapers: (remedy.research_papers?.map((paper) => ({
       title: paper.title,
       journal: paper.journal,
       url: paper.url,
       keyFinding: simplifyRemedyLanguage(paper.key_findings ?? paper.key_finding ?? paper.keyFinding),
       sourceDatabase: paper.source_database ?? paper.sourceDatabase,
       evidenceType: paper.evidence_type ?? paper.evidenceType,
-    })) || remedy.researchPapers || [],
-    researchLinks: remedy.researchLinks || [],
+    })) || remedy.researchPapers || []).map((source) => normalizeEvidenceSource(applyGeneratedEvidenceMetadata(source))),
+    researchLinks: (remedy.researchLinks || []).map((source) => normalizeEvidenceSource(applyGeneratedEvidenceMetadata(source))),
   };
 }
 

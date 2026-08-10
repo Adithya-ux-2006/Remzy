@@ -53,9 +53,19 @@ export function EvidenceCard({ source, onTrackClick, delay = 0, className }) {
                 <BookOpen className="w-3.5 h-3.5 shrink-0" />
                 {source.sourceDatabase || source.journal || source.label || 'Clinical Research'}
               </span>
-              {source.evidenceType && !source.evidenceType.includes('guideline') && !source.evidenceType.includes('guidance') && !source.evidenceType.includes('summary') && (
+              {source.isPeerReviewedIndex && (
                 <span className="inline-flex items-center text-[10px] font-medium text-evidence/60 bg-evidence/5 rounded-full px-1.5 py-0.5">
-                  Peer-reviewed
+                  Peer-reviewed index
+                </span>
+              )}
+              {source.verificationStatus === 'bibliographic-verified' && (
+                <span className="inline-flex items-center text-[10px] font-medium text-success bg-success/10 rounded-full px-1.5 py-0.5">
+                  Source metadata checked
+                </span>
+              )}
+              {source.verificationStatus === 'manual-metadata-reviewed' && (
+                <span className="inline-flex items-center text-[10px] font-medium text-warning bg-warning/10 rounded-full px-1.5 py-0.5">
+                  Metadata manually reviewed
                 </span>
               )}
               {source.year && (
@@ -63,9 +73,12 @@ export function EvidenceCard({ source, onTrackClick, delay = 0, className }) {
               )}
             </div>
             {source.title && <p className="text-sm font-semibold text-ink mb-1 line-clamp-2">{source.title}</p>}
+            {source.sourceOrganization && (
+              <p className="text-xs text-ink-muted mb-1">Published or maintained by {source.sourceOrganization}</p>
+            )}
             {source.keyFinding && (
               <p className="text-sm text-ink leading-relaxed line-clamp-2">
-                <span className="font-medium">What this source studied: </span>{source.keyFinding}
+                <span className="font-medium">Remzy applicability note: </span>{source.keyFinding}
               </p>
             )}
             {source.label && !source.keyFinding && (

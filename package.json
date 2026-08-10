@@ -24,7 +24,9 @@
     ,"content:verify-citations": "node scripts/verify-citations.js"
     ,"content:verify-primary": "node scripts/verify-citations.js --scope=primary"
     ,"content:audit-integration": "node scripts/remedy-integration-audit.mjs"
-    ,"content:gate": "npm run content:verify-citations && npm run content:audit-integration"
+    ,"content:gate": "npm run content:verify-citations && npm run content:verify-sources -- --no-http && npm run content:audit-integration"
+    ,"content:verify-sources": "node scripts/evidence-source-pipeline.mjs"
+    ,"content:sync-evidence": "node scripts/evidence-source-pipeline.mjs --write"
     ,"auth:verify-google": "node scripts/verify-google-auth.mjs"
   },
   "dependencies": {
