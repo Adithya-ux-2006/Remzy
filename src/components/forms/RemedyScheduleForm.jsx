@@ -1,6 +1,7 @@
 import { useState, useMemo } from 'react';
 import { Search, Heart, X } from 'lucide-react';
 import { cn } from '../../utils/cn';
+import { CATEGORY_LABELS } from '../../constants/categoryIcons';
 
 const DAYS = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
 
@@ -135,7 +136,7 @@ export function RemedyScheduleForm({ remedies, favorites, initialData, onSubmit,
                     <Heart className={cn("w-4 h-4 shrink-0", favoriteIds.has(r.id) ? "text-primary" : "text-ink-muted")} fill={favoriteIds.has(r.id) ? "currentColor" : "none"} />
                     <div className="min-w-0">
                       <p className="text-sm font-medium text-ink truncate">{r.name}</p>
-                      <p className="text-xs text-ink-muted">{r.category}</p>
+                      <p className="text-xs text-ink-muted">{CATEGORY_LABELS[r.category] || r.category}</p>
                     </div>
                   </button>
                 ))

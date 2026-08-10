@@ -6,6 +6,7 @@ import {
   LayoutGrid, TrendingUp, Calendar
 } from 'lucide-react';
 import { cn } from '../utils/cn';
+import { CATEGORY_LABELS } from '../constants/categoryIcons';
 import { PageWrapper } from '../components/layout';
 import { SavedRemedyCard } from '../components/ui/SavedRemedyCard';
 import { HeroIllustration } from '../components/ui/HeroIllustration';
@@ -251,7 +252,7 @@ export function Favorites() {
                         : 'bg-surface text-ink-muted border border-border/60 hover:border-border hover:text-ink'
                     )}
                   >
-                    {cat}
+                    {CATEGORY_LABELS[cat] || cat}
                   </button>
                 );
               })}
