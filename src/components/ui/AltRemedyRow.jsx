@@ -12,9 +12,8 @@ import { useAuthStore } from '../../store/authStore';
 export function AltRemedyRow({ remedy, evidenceScore, isChildSafe, showDivider = true, className }) {
   const navigate = useNavigate();
   const toggleFavorite = useFavoritesStore((s) => s.toggleFavorite);
-  const isFavorite = useFavoritesStore((s) => s.isFavorite);
+  const favorited = useFavoritesStore((s) => s.favorites.some((favorite) => favorite.id === remedy.id));
   const isAuthenticated = useAuthStore((s) => s.isAuthenticated);
-  const favorited = isFavorite(remedy.id);
 
   const handleFavorite = (e) => {
     e.preventDefault();

@@ -7,12 +7,17 @@ import { trackRemedyEvent } from '../utils/analytics';
 export const useFavoritesStore = create((set, get) => ({
   favorites: [],
   isLoading: false,
+  pendingIds: new Set(),
+  error: null,
 
   fetchFavorites: async () => {
     const user = useAuthStore.getState().user;
-    if (!user) return;
+    if (!user) {
+      set({ favorites: [], isLoading: false });
+      return;
+    }
     
-    set({ isLoading: true });
+    set({ isLoading: true, error: null });
     try {
       // We fetch favorite records and join with remedies
       const { data, error } = await supabase
@@ -30,17 +35,25 @@ export const useFavoritesStore = create((set, get) => ({
           return remedy;
         })
         .filter(Boolean);
+      // Ignore a response that belongs to a session which has since changed.
+      if (useAuthStore.getState().user?.id !== user.id) return;
       set({ favorites: remedies.sort((a, b) => new Date(b._savedAt) - new Date(a._savedAt)) });
     } catch (error) {
       console.error('Error fetching favorites:', error);
+      if (useAuthStore.getState().user?.id === user.id) set({ error });
     } finally {
-      set({ isLoading: false });
+      if (useAuthStore.getState().user?.id === user.id) set({ isLoading: false });
     }
   },
 
   addFavorite: async (remedy) => {
     const user = useAuthStore.getState().user;
-    if (!user) return;
+    if (!user || get().pendingIds.has(remedy.id)) return false;
+
+    set((state) => ({
+      pendingIds: new Set(state.pendingIds).add(remedy.id),
+      error: null,
+    }));
 
     // Optimistic update
     const { favorites } = get();
@@ -52,7 +65,10 @@ export const useFavoritesStore = create((set, get) => ({
     try {
       const { error } = await supabase
         .from('favorites')
-        .insert({ user_id: user.id, remedy_id: remedy.id });
+        .upsert(
+          { user_id: user.id, remedy_id: remedy.id },
+          { onConflict: 'user_id,remedy_id', ignoreDuplicates: true }
+        );
          
       if (error) throw error;
 
@@ -61,16 +77,31 @@ export const useFavoritesStore = create((set, get) => ({
         eventType: 'saved',
         metadata: { method: 'favorites' },
       }).catch(() => {});
+      return true;
     } catch (error) {
       console.error('Error adding favorite:', error);
-      // Revert optimistic update
-      set({ favorites: favorites.filter(f => f.id !== remedy.id) });
+      set((state) => ({
+        favorites: state.favorites.filter(f => f.id !== remedy.id),
+        error,
+      }));
+      return false;
+    } finally {
+      set((state) => {
+        const pendingIds = new Set(state.pendingIds);
+        pendingIds.delete(remedy.id);
+        return { pendingIds };
+      });
     }
   },
 
   removeFavorite: async (id) => {
     const user = useAuthStore.getState().user;
-    if (!user) return;
+    if (!user || get().pendingIds.has(id)) return false;
+
+    set((state) => ({
+      pendingIds: new Set(state.pendingIds).add(id),
+      error: null,
+    }));
 
     // Optimistic update
     const { favorites } = get();
@@ -83,10 +114,18 @@ export const useFavoritesStore = create((set, get) => ({
         .match({ user_id: user.id, remedy_id: id });
         
       if (error) throw error;
+      return true;
     } catch (error) {
       console.error('Error removing favorite:', error);
-      // Revert optimistic update by re-fetching
-      get().fetchFavorites();
+      set({ error });
+      await get().fetchFavorites();
+      return false;
+    } finally {
+      set((state) => {
+        const pendingIds = new Set(state.pendingIds);
+        pendingIds.delete(id);
+        return { pendingIds };
+      });
     }
   },
 
@@ -94,13 +133,13 @@ export const useFavoritesStore = create((set, get) => ({
     return get().favorites.some(f => f.id === id);
   },
 
-  clear: () => set({ favorites: [] }),
+  clear: () => set({ favorites: [], pendingIds: new Set(), error: null, isLoading: false }),
 
-  toggleFavorite: (remedy) => {
+  toggleFavorite: async (remedy) => {
+    if (!remedy?.id || get().pendingIds.has(remedy.id)) return false;
     if (get().isFavorite(remedy.id)) {
-      get().removeFavorite(remedy.id);
-    } else {
-      get().addFavorite(remedy);
+      return get().removeFavorite(remedy.id);
     }
+    return get().addFavorite(remedy);
   }
 }));

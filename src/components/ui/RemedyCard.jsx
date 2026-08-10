@@ -15,9 +15,8 @@ export function RemedyCard({ remedy, className, featured, variant, isSafe = true
   const resolvedVariant = featured ? 'featured' : (variant || 'default');
   const navigate = useNavigate();
   const toggleFavorite = useFavoritesStore((s) => s.toggleFavorite);
-  const isFavorite = useFavoritesStore((s) => s.isFavorite);
+  const favorited = useFavoritesStore((s) => s.favorites.some((favorite) => favorite.id === remedy.id));
   const isAuthenticated = useAuthStore((s) => s.isAuthenticated);
-  const favorited = isFavorite(remedy.id);
 
   const handleFavorite = (e) => {
     e.preventDefault();
