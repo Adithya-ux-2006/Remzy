@@ -7,15 +7,6 @@ function formatDistance(meters) {
   return `${(meters / 1000).toFixed(1)}km`;
 }
 
-function DistanceSkeleton() {
-  return (
-    <span className="inline-flex items-center gap-1 text-xs text-ink-muted">
-      <Navigation className="w-3 h-3" />
-      <span className="h-3 w-8 rounded bg-surface animate-pulse" />
-    </span>
-  );
-}
-
 export function FeaturedPharmacy({ shop, className }) {
   if (!shop) return null;
   const mapsUrl = `https://www.google.com/maps/search/?api=1&query=${shop.lat},${shop.lon}`;
@@ -45,13 +36,11 @@ export function FeaturedPharmacy({ shop, className }) {
           <p className="font-semibold text-ink truncate">{shop.name}</p>
           <p className="text-sm text-ink-muted truncate">{shop.address}</p>
           <div className="flex items-center gap-3 mt-1.5">
-            {distanceText ? (
+            {distanceText && (
               <span className="flex items-center gap-1 text-xs text-ink-muted">
                 <Navigation className="w-3 h-3" />
                 {distanceText}
               </span>
-            ) : (
-              <DistanceSkeleton />
             )}
             <span className={cn(
               'text-xs font-medium',
@@ -100,13 +89,11 @@ export function PharmacyCard({ shop, className }) {
         <p className="text-sm font-medium text-ink truncate">{shop.name}</p>
         <p className="text-xs text-ink-muted truncate">{shop.address}</p>
         <div className="flex items-center gap-3 mt-1">
-          {distanceText ? (
+          {distanceText && (
             <span className="flex items-center gap-1 text-xs text-ink-muted">
               <Navigation className="w-3 h-3" />
               {distanceText}
             </span>
-          ) : (
-            <DistanceSkeleton />
           )}
           <span className={cn(
             'text-xs font-medium',
