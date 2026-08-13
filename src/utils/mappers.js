@@ -94,20 +94,27 @@ export function mapRemedy(remedy) {
 
   const symptomItems = remedy.remedy_symptoms || [];
   const allSymptoms = symptomItems.map((item) => item.symptom_id);
-  const primarySymptoms = symptomItems
+  const primaryFromItems = symptomItems
     .filter((item) => !item.match_strength || item.match_strength === 'primary')
     .map((item) => item.symptom_id);
-  const secondarySymptoms = symptomItems
+  const secondaryFromItems = symptomItems
     .filter((item) => item.match_strength === 'secondary')
     .map((item) => item.symptom_id);
+
+  const primarySymptoms = primaryFromItems.length > 0
+    ? primaryFromItems
+    : (remedy.primarySymptoms?.length ? remedy.primarySymptoms : (allSymptoms.length > 0 ? allSymptoms : (remedy.symptoms || [])));
+  const secondarySymptoms = secondaryFromItems.length > 0
+    ? secondaryFromItems
+    : (remedy.secondarySymptoms || []);
 
   return {
     id: remedy.id,
     name: remedy.name,
     category: normalizeCategory(remedy.category),
-    symptoms: allSymptoms.length > 0 ? allSymptoms : (remedy.symptoms || []),
-    primarySymptoms: primarySymptoms.length > 0 ? primarySymptoms : (allSymptoms.length > 0 ? allSymptoms : (remedy.symptoms || [])),
-    secondarySymptoms: secondarySymptoms.length > 0 ? secondarySymptoms : [],
+    symptoms: allSymptoms.length > 0 ? allSymptoms : (remedy.symptoms || remedy.primarySymptoms || []),
+    primarySymptoms,
+    secondarySymptoms,
     rating: remedy.rating,
     reviewCount: remedy.review_count ?? remedy.reviewCount,
     tagline: simplifyRemedyLanguage(remedy.tagline ?? ''),

@@ -70,7 +70,9 @@ async function loadLocalCatalog() {
   // remove a remedy from the catalog.
   const allRemedies = buildRuntimeRemedies();
 
-  const localSymptomRemedies = buildLocalSymptomRemedies(allRemedies);
+  const dedupedRemedies = allRemedies.filter((remedy, index, all) => all.findIndex((candidate) => candidate.id === remedy.id) === index);
+
+  const localSymptomRemedies = buildLocalSymptomRemedies(dedupedRemedies);
 
   const mergedSymptomRemedies = mergeSymptomRemedies(localSymptomRemedies, LOCAL_SYMPTOM_REMEDIES);
 
@@ -81,7 +83,7 @@ async function loadLocalCatalog() {
       emoji: s.emoji,
       color: s.color,
     })),
-    remedies: allRemedies.map(mapRemedy),
+    remedies: dedupedRemedies.map(mapRemedy),
     symptomRemedies: mergedSymptomRemedies,
   };
 }
