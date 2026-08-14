@@ -66,27 +66,27 @@ export const TREATMENT_PREFERENCES = [
 export const ABOUT_REMZY_ITEMS = [
   {
     question: 'Our Mission',
-    answer: 'Remzy exists to help people understand their symptoms and explore evidence-informed options with clear, honest labeling — without ever replacing professional care. The goal is health information that is easy to navigate, so you can go into a conversation with a doctor better informed, not less cautious.',
+    answer: 'Understanding what\'s happening with your body should come before deciding what to do about it. Remzy labels remedies honestly — distinguishing what\'s backed by research from what\'s a traditional or supportive approach — so you can bring real questions to a doctor\'s appointment, not just a search result.',
   },
   {
-    question: 'Why We Built Remzy',
-    answer: 'Health information online is often overwhelming, unsourced, or hard to trust. We built Remzy to make it easier to see what is backed by published research and what is not — so the choices you make about your health are grounded in something you can actually verify.',
+    question: 'Why We Built It',
+    answer: 'Searching a symptom online often means sorting through pages with no clear sourcing, or content designed to alarm rather than inform. Remzy was built to close that gap: a place where the reasoning behind a suggestion is visible, and the decision is still yours to make.',
   },
   {
     question: 'Our Values',
-    answer: 'Evidence comes first, and we are honest about what is and is not well-supported. We avoid fear-based framing, label uncertainty plainly, and try to keep the information clear enough that it is useful whether or not you have a medical background.',
+    answer: 'We would rather state plainly that a remedy is unproven than present it as more credible than it is. Remzy avoids fear-based framing and vague reassurance in favor of information presented clearly, regardless of the reader\'s medical background.',
   },
   {
-    question: 'How We Review Evidence',
-    answer: 'Remzy distinguishes peer-reviewed clinical research and established guidance from traditional and supportive approaches, and is explicit when something lacks established evidence rather than presenting it as equally validated. Sources are labeled so you can see what kind of support a claim actually has.',
+    question: 'How We Review',
+    answer: 'Not every remedy on Remzy is supported by the same kind of evidence. Some are grounded in peer-reviewed clinical research; others reflect traditional or supportive practices with less formal study behind them. Each is labeled accordingly, rather than presented as equivalent.',
   },
   {
-    question: 'Who Remzy Is For',
-    answer: 'Remzy is for anyone trying to understand a symptom and their options before deciding next steps. It is not a replacement for diagnosis or treatment — it is a starting point for more informed conversations with a doctor.',
+    question: 'Who It\'s For',
+    answer: 'Remzy is intended for anyone trying to understand a symptom and its possible next steps. It does not diagnose or treat — it is meant to support a more informed conversation with a medical professional, not replace one.',
   },
   {
-    question: 'What\'s Next / Roadmap',
-    answer: 'Looking ahead, we want to expand symptom coverage, keep refining how evidence is reviewed and labeled, and improve personalization so the information you see fits your situation better.',
+    question: 'What\'s Next',
+    answer: 'Future work will focus on expanding symptom coverage, refining how evidence is reviewed and labeled, and improving how closely results reflect an individual\'s specific situation.',
   },
 ];
 
