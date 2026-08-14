@@ -72,6 +72,22 @@ export const ABOUT_REMZY_ITEMS = [
     question: 'Why We Built Remzy',
     answer: 'Health information online is often overwhelming, unsourced, or hard to trust. We built Remzy to make it easier to see what is backed by published research and what is not — so the choices you make about your health are grounded in something you can actually verify.',
   },
+  {
+    question: 'Our Values',
+    answer: 'Evidence comes first, and we are honest about what is and is not well-supported. We avoid fear-based framing, label uncertainty plainly, and try to keep the information clear enough that it is useful whether or not you have a medical background.',
+  },
+  {
+    question: 'How We Review Evidence',
+    answer: 'Remzy distinguishes peer-reviewed clinical research and established guidance from traditional and supportive approaches, and is explicit when something lacks established evidence rather than presenting it as equally validated. Sources are labeled so you can see what kind of support a claim actually has.',
+  },
+  {
+    question: 'Who Remzy Is For',
+    answer: 'Remzy is for anyone trying to understand a symptom and their options before deciding next steps. It is not a replacement for diagnosis or treatment — it is a starting point for more informed conversations with a doctor.',
+  },
+  {
+    question: 'What\'s Next / Roadmap',
+    answer: 'Looking ahead, we want to expand symptom coverage, keep refining how evidence is reviewed and labeled, and improve personalization so the information you see fits your situation better.',
+  },
 ];
 
 export const FAQ_ITEMS = [
