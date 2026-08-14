@@ -81,10 +81,6 @@ export const ABOUT_REMZY_ITEMS = [
     ],
   },
   {
-    question: 'How We Review',
-    answer: 'Not every remedy on Remzy is supported by the same kind of evidence. Some are grounded in peer-reviewed clinical research; others reflect traditional or supportive practices with less formal study behind them. Each is labeled accordingly, rather than presented as equivalent.',
-  },
-  {
     question: 'Who It\'s For',
     answer: "Remzy is for anyone looking to explore their options before deciding what to do next, no matter their background, income, or familiarity with health topics. We're working to make healthcare more affordable, more accessible, and more honest, especially in the gaps where professional care is out of reach.",
   },
