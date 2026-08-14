@@ -15,6 +15,7 @@ import { trackSearchEvent } from '../utils/analytics';
 
 export function Landing() {
   const symptoms = useCatalogStore((state) => state.symptoms);
+  const remedies = useCatalogStore((state) => state.remedies);
   const navigate = useNavigate();
   const [isQuestionnaireOpen, setIsQuestionnaireOpen] = useState(false);
   const updateGuestProfile = useGuestProfileStore((state) => state.updateProfile);
@@ -62,9 +63,9 @@ export function Landing() {
         </div>
       </section>
 
-      <section className="px-6 pb-10">
+<section className="px-6 pb-10">
         <div className="mx-auto grid max-w-lg grid-cols-3 gap-3">
-          <StatCard value="117" label="Remedies" />
+          <StatCard value={remedies.length} label="Remedies" />
           <StatCard value="4" label="Remedy Types" />
           <StatCard value="60+" label="Linked Sources" />
         </div>
