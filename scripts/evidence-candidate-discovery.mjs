@@ -10,6 +10,7 @@ import { applyLegacyBatch4 } from '../src/data/legacyRemedyBatch4.js';
 import { applyLegacyBatch5 } from '../src/data/legacyRemedyBatch5.js';
 import { applyLegacyEvidenceTierOverlay } from '../src/data/legacyEvidenceTierOverlay.js';
 import { applyMultiSourceRemedyBatch1 } from '../src/data/multiSourceRemedyBatch1.js';
+import { applyAllRemedyBatches } from '../src/data/remedyBatches/index.js';
 import { filterEvidenceReviewedRemedies } from '../src/data/evidenceReview.js';
 import { classifyEvidenceSource, EVIDENCE_SOURCE_POLICY } from '../src/utils/evidenceSources.js';
 
@@ -23,6 +24,9 @@ const output = resolve(String(args.get('output') || 'reports/evidence-review-bat
 const noHttp = args.has('no-http');
 const timeoutMs = 20_000;
 
+const SCRAPINGBEE_API_KEY = process.env.SCRAPINGBEE_API_KEY || '';
+const SCHOLAR_QUOTA = { total: 250, used: 0 };
+
 const HIGH_RISK_SYMPTOMS = new Set([
   'asthma', 'uti', 'kidney_stone', 'testicular_pain', 'pelvic_pain', 'sleep_apnea',
   'neuropathy', 'palpitations', 'anemia', 'fever', 'allergic_reaction', 'edema',
@@ -31,7 +35,7 @@ const HIGH_RISK_SYMPTOMS = new Set([
 function runtimeRemedies() {
   const legacy = applyLegacyEvidenceTierOverlay(applyLegacyBatch5(applyLegacyBatch4(applyLegacyBatch3(applyLegacyBatch2(applyLegacyBatch1(LOCAL_REMEDIES))))));
   return filterEvidenceReviewedRemedies(
-    applyMultiSourceRemedyBatch1([...REMEDIES, ...legacy])
+    applyAllRemedyBatches(applyMultiSourceRemedyBatch1([...REMEDIES, ...legacy]))
       .filter((remedy, index, all) => all.findIndex((candidate) => candidate.id === remedy.id) === index)
   );
 }
@@ -131,6 +135,50 @@ async function discoverEuropePmc(intervention, condition) {
   }));
 }
 
+async function discoverGoogleScholar(intervention, condition) {
+  if (!SCRAPINGBEE_API_KEY) return [];
+  if (SCRAPINGBEE_API_KEY.length < 10) return [];
+  if (SCHOLAR_QUOTA.used >= SCHOLAR_QUOTA.total) {
+    console.warn(`  Google Scholar quota exhausted (${SCHOLAR_QUOTA.used}/${SCHOLAR_QUOTA.total}), skipping.`);
+    return [];
+  }
+  const query = `${intervention} ${condition} clinical trial OR systematic review OR meta-analysis`;
+  const url = new URL('https://app.scrapingbee.com/api/v1/');
+  url.search = new URLSearchParams({
+    api_key: SCRAPINGBEE_API_KEY,
+    search: 'google_scholar',
+    q: query,
+    country_code: 'us',
+    language: 'en',
+    as_ylo: '2015',
+  }).toString();
+  try {
+    const response = await fetchJson(url.toString());
+    SCHOLAR_QUOTA.used++;
+    const results = response.organic_results || [];
+    return results.slice(0, perSource).map((result) => {
+      const pmidMatch = result.snippet?.match(/PMID:\s*(\d+)/i) || result.link?.match(/pubmed\.ncbi\.nlm\.nih\.gov\/(\d+)/);
+      const pmid = pmidMatch?.[1] || null;
+      const doiMatch = result.snippet?.match(/doi[:\s]+(10\.\d{4,}\/\S+)/i) || result.link?.match(/doi\.org\/(10\.\d{4,}\/\S+)/);
+      const doi = doiMatch?.[1] || null;
+      return {
+        retrievalSource: 'Google Scholar (ScrapingBee)',
+        publicationId: pmid ? `pmid:${pmid}` : doi ? `doi:${doi}` : `scholar:${result.position || 'unknown'}`,
+        pmid, doi: doi || null,
+        url: pmid ? `https://pubmed.ncbi.nlm.nih.gov/${pmid}/` : result.link || result.pdf_link || null,
+        title: result.title || null,
+        journal: result.publication_info?.split?.(',')[0] || result.publication_info || null,
+        year: result.publication_info?.match?.(/\d{4}/)?.[0] || null,
+        publicationTypes: [], semanticStatus: 'unassessed',
+        citedByCount: result.cited_by?.value ?? null,
+      };
+    });
+  } catch (error) {
+    console.warn(`  Google Scholar retrieval failed: ${error.message}`);
+    return [];
+  }
+}
+
 function deduplicate(candidates) {
   const seen = new Map();
   for (const candidate of candidates) {
@@ -164,10 +212,11 @@ for (const { remedy, symptomId, priority } of claims) {
     const results = await Promise.allSettled([
       discoverPubMed(intervention, condition),
       discoverEuropePmc(intervention, condition),
+      discoverGoogleScholar(intervention, condition),
     ]);
     for (const [index, result] of results.entries()) {
       if (result.status === 'fulfilled') discovered.push(...result.value);
-      else retrievalErrors.push(`${index === 0 ? 'PubMed' : 'Europe PMC'}: ${result.reason.message}`);
+      else retrievalErrors.push(`${['PubMed', 'Europe PMC', 'Google Scholar'][index]}: ${result.reason.message}`);
     }
   }
   packets.push({
@@ -181,7 +230,7 @@ for (const { remedy, symptomId, priority } of claims) {
       comparators: ['requires review'], outcomes: ['requires extraction from displayed claim and sources'],
     },
     safetyDraft: { warnings: remedy.warnings || [], contraindications: remedy.contraindications || [], status: 'needs-review' },
-    searchStrategy: { intervention, condition, sources: ['NCBI PubMed', 'Europe PMC', 'existing guideline/public-health links'] },
+    searchStrategy: { intervention, condition, sources: ['NCBI PubMed', 'Europe PMC', 'Google Scholar (ScrapingBee)', 'existing guideline/public-health links'] },
     candidates: deduplicate([...existingSources(remedy), ...discovered]),
     retrievalErrors,
     reviewerChecklist: [
@@ -201,7 +250,7 @@ const report = {
   status: 'CANDIDATES_ONLY_NOT_APPROVED_FOR_PUBLICATION',
   batchSize: packets.length,
   methodology: {
-    sourcesQueried: noHttp ? [] : ['NCBI PubMed E-utilities', 'Europe PMC REST API'],
+    sourcesQueried: noHttp ? [] : ['NCBI PubMed E-utilities', 'Europe PMC REST API', 'Google Scholar (ScrapingBee API)'],
     existingTrustedSourcesIncluded: true,
     automaticApproval: false,
     note: 'Database indexes are discovery systems, not independent evidence-producing organizations.',
@@ -212,3 +261,4 @@ mkdirSync(dirname(output), { recursive: true });
 writeFileSync(output, `${JSON.stringify(report, null, 2)}\n`);
 console.log(`Evidence discovery: wrote ${packets.length} needs-review packets to ${output}.`);
 console.log(`Candidates found: ${packets.reduce((sum, packet) => sum + packet.candidates.length, 0)}; retrieval errors: ${packets.reduce((sum, packet) => sum + packet.retrievalErrors.length, 0)}.`);
+if (SCRAPINGBEE_API_KEY) console.log(`Google Scholar quota: ${SCHOLAR_QUOTA.used}/${SCHOLAR_QUOTA.total} requests used.`);

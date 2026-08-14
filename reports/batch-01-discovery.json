@@ -1,0 +1,1098 @@
+{
+  "generatedAt": "2026-08-14T08:06:40.352Z",
+  "status": "CANDIDATES_ONLY_NOT_APPROVED_FOR_PUBLICATION",
+  "batchSize": 10,
+  "methodology": {
+    "sourcesQueried": [
+      "NCBI PubMed E-utilities",
+      "Europe PMC REST API",
+      "Google Scholar (ScrapingBee API)"
+    ],
+    "existingTrustedSourcesIncluded": true,
+    "automaticApproval": false,
+    "note": "Database indexes are discovery systems, not independent evidence-producing organizations."
+  },
+  "packets": [
+    {
+      "claimId": "rem_006__allergic_reaction",
+      "priority": 170,
+      "reviewStatus": "needs-review",
+      "proposedClaim": "Blocks histamine release to reduce sneezing and runny nose from allergies.",
+      "picoDraft": {
+        "population": {
+          "diagnosis": "allergic reaction",
+          "ageGroup": "requires age-specific review",
+          "sex": "requires review"
+        },
+        "intervention": {
+          "name": "cetirizine hydrochloride",
+          "formulation": "cetirizine hydrochloride, cellulose",
+          "dose": "requires review",
+          "duration": "requires review"
+        },
+        "comparators": [
+          "requires review"
+        ],
+        "outcomes": [
+          "requires extraction from displayed claim and sources"
+        ]
+      },
+      "safetyDraft": {
+        "warnings": [
+          "May cause mild drowsiness in some users.",
+          "Avoid alcohol."
+        ],
+        "contraindications": [
+          "kidney disease"
+        ],
+        "status": "needs-review"
+      },
+      "searchStrategy": {
+        "intervention": "cetirizine hydrochloride",
+        "condition": "allergic reaction",
+        "sources": [
+          "NCBI PubMed",
+          "Europe PMC",
+          "Google Scholar (ScrapingBee)",
+          "existing guideline/public-health links"
+        ]
+      },
+      "candidates": [
+        {
+          "retrievalSource": "existing-catalogue",
+          "url": "https://pubmed.ncbi.nlm.nih.gov/41707943/",
+          "title": "J Allergy Clin Immunol Pract",
+          "organization": "US National Library of Medicine",
+          "evidenceType": null,
+          "semanticStatus": "unassessed",
+          "evidenceClass": "other",
+          "triageStatus": "possible-mismatch",
+          "triageFlags": [
+            "intervention-not-confirmed-in-retrieved-text",
+            "condition-not-confirmed-in-retrieved-text"
+          ]
+        }
+      ],
+      "retrievalErrors": [],
+      "reviewerChecklist": [
+        "Confirm population, diagnosis, sex, age, and setting",
+        "Confirm exact intervention, formulation, dose, duration, and co-interventions",
+        "Confirm comparator and patient-important outcomes",
+        "Extract effect estimate, uncertainty, adverse events, and limitations",
+        "Assess risk of bias and applicability",
+        "Reject duplicate indexes of the same publication",
+        "Add independent guideline and safety sources where available"
+      ],
+      "triageSummary": {
+        "possible-mismatch": 1
+      }
+    },
+    {
+      "claimId": "rem_fv01__fever",
+      "priority": 170,
+      "reviewStatus": "needs-review",
+      "proposedClaim": "First-line antipyretic for reducing fever and associated discomfort in adults and children.",
+      "picoDraft": {
+        "population": {
+          "diagnosis": "fever",
+          "ageGroup": "requires age-specific review",
+          "sex": "requires review"
+        },
+        "intervention": {
+          "name": "acetaminophen",
+          "formulation": "acetaminophen",
+          "dose": "requires review",
+          "duration": "requires review"
+        },
+        "comparators": [
+          "requires review"
+        ],
+        "outcomes": [
+          "requires extraction from displayed claim and sources"
+        ]
+      },
+      "safetyDraft": {
+        "warnings": [
+          "Do not exceed recommended dose.",
+          "Risk of liver damage with overdose.",
+          "Avoid alcohol.",
+          "Do not use with other acetaminophen-containing products."
+        ],
+        "contraindications": [
+          "liver disease",
+          "severe alcohol use"
+        ],
+        "status": "needs-review"
+      },
+      "searchStrategy": {
+        "intervention": "acetaminophen",
+        "condition": "fever",
+        "sources": [
+          "NCBI PubMed",
+          "Europe PMC",
+          "Google Scholar (ScrapingBee)",
+          "existing guideline/public-health links"
+        ]
+      },
+      "candidates": [
+        {
+          "retrievalSource": "existing-catalogue",
+          "url": "https://pubmed.ncbi.nlm.nih.gov/33966545/",
+          "title": "J Clin Pharm Ther",
+          "organization": "US National Library of Medicine",
+          "evidenceType": null,
+          "semanticStatus": "unassessed",
+          "evidenceClass": "other",
+          "triageStatus": "possible-mismatch",
+          "triageFlags": [
+            "intervention-not-confirmed-in-retrieved-text",
+            "condition-not-confirmed-in-retrieved-text"
+          ]
+        },
+        {
+          "retrievalSource": "NCBI PubMed",
+          "publicationId": "pmid:33125495",
+          "pmid": "33125495",
+          "doi": "10.1001/jamanetworkopen.2020.22398",
+          "url": "https://pubmed.ncbi.nlm.nih.gov/33125495/",
+          "title": "Comparison of Acetaminophen (Paracetamol) With Ibuprofen for Treatment of Fever or Pain in Children Younger Than 2 Years: A Systematic Review and Meta-analysis.",
+          "journal": "JAMA network open",
+          "year": "2020",
+          "publicationTypes": [
+            "Journal Article",
+            "Meta-Analysis",
+            "Research Support, Non-U.S. Gov't",
+            "Systematic Review"
+          ],
+          "semanticStatus": "unassessed",
+          "evidenceClass": "higher-level",
+          "triageStatus": "possible-direct-match",
+          "triageFlags": [
+            "abstract-not-retrieved"
+          ]
+        },
+        {
+          "retrievalSource": "NCBI PubMed",
+          "publicationId": "pmid:40804730",
+          "pmid": "40804730",
+          "doi": "10.1186/s12940-025-01208-0",
+          "url": "https://pubmed.ncbi.nlm.nih.gov/40804730/",
+          "title": "Evaluation of the evidence on acetaminophen use and neurodevelopmental disorders using the Navigation Guide methodology.",
+          "journal": "Environmental health : a global access science source",
+          "year": "2025",
+          "publicationTypes": [
+            "Journal Article",
+            "Systematic Review"
+          ],
+          "semanticStatus": "unassessed",
+          "evidenceClass": "higher-level",
+          "triageStatus": "manual-review-required",
+          "triageFlags": [
+            "condition-not-confirmed-in-retrieved-text",
+            "abstract-not-retrieved"
+          ]
+        },
+        {
+          "retrievalSource": "NCBI PubMed",
+          "publicationId": "pmid:30798778",
+          "pmid": "30798778",
+          "doi": "10.1177/0194599818801757",
+          "url": "https://pubmed.ncbi.nlm.nih.gov/30798778/",
+          "title": "Clinical Practice Guideline: Tonsillectomy in Children (Update).",
+          "journal": "Otolaryngology--head and neck surgery : official journal of American Academy of Otolaryngology-Head and Neck Surgery",
+          "year": "2019",
+          "publicationTypes": [
+            "Journal Article",
+            "Practice Guideline",
+            "Research Support, Non-U.S. Gov't"
+          ],
+          "semanticStatus": "unassessed",
+          "evidenceClass": "higher-level",
+          "triageStatus": "possible-mismatch",
+          "triageFlags": [
+            "intervention-not-confirmed-in-retrieved-text",
+            "condition-not-confirmed-in-retrieved-text",
+            "abstract-not-retrieved"
+          ]
+        },
+        {
+          "retrievalSource": "Europe PMC",
+          "publicationId": "pmid:42118325",
+          "pmid": "42118325",
+          "doi": "10.1007/s10072-026-09090-5",
+          "url": "https://pubmed.ncbi.nlm.nih.gov/42118325/",
+          "title": "Oral antipyretics for fatigue alleviation and exercise enhancement in adults with multiple sclerosis: a systematic review and meta-analysis.",
+          "journal": null,
+          "year": "2026",
+          "publicationTypes": [
+            "Meta-Analysis",
+            "Systematic Review",
+            "Journal Article"
+          ],
+          "abstract": "<h4>Aims</h4>This review aims to explore the potential role of oral antipyretics (aspirin (ASA)/ acetaminophen), commonly known for fever and pain control, in managing fatigue, temperature regulation, and exercise capacity in patients with Multiple Sclerosis (MS), with a focus on nursing implications for symptom management.<h4>Design</h4>A systematic review of existing clinical studies assessing the effects of aspirin/ acetaminophen on MS-related fatigue, thermoregulation, and exercise performance.<h4>Data sources</h4>Electronic databases including Cochrane Central Register of Controlled Trials (CENTRAL), EMBASE, PubMed, Scopus, Web of Science, Wiley, Google Scholar, and ClinicalTrials.gov were searched up to March 2024.<h4>Review methods</h4>Quality assessment was conducted using the Cochrane risk of bias tool 2. to evaluate the methodological rigor of included studies. Outcomes analyzed included clinically assessed fatigue scores, exercise endurance, and post-exercise thermoregulation, with attention to potential risks associated with aspirin use.<h4>Results</h4>After assessment of 57 reports for eligibility, only seven studies met inclusion criteria; results indicated that aspirin pretreatment significantly improved Time to Exhaustion (TTE) in heat-sensitive MS patients (p = 0.013), though one study reported no significant effect. Aspirin reduced post-exercise temperature rise by 56%, but this was not statistically significant in one trial (p = 0.178), while another showed significant reductions (p = 0.002).<h4>Conclusion</h4>Aspirin and acetaminophen may offer benefits in alleviating fatigue, enhancing thermoregulation, and improving exercise endurance in MS patients. These findings suggest that nurses should consider the potential role of aspirin in symptom management, with further research needed to confirm efficacy and safety.<h4>Impact</h4>This review highlights a potential adjunct therapy for nurses to incorporate into comprehensive MS care, emphasizing symptom control and quality of life improvements.<h4>Patient or public contribution</h4>Not applicable.<h4>Trial registration</h4>This review is PROSPERO registered having ID CRD420251000875.",
+          "citedByCount": 0,
+          "semanticStatus": "unassessed",
+          "evidenceClass": "higher-level",
+          "triageStatus": "possible-direct-match",
+          "triageFlags": []
+        },
+        {
+          "retrievalSource": "Europe PMC",
+          "publicationId": "pmid:41615881",
+          "pmid": "41615881",
+          "doi": "10.1093/humrep/deaf253",
+          "url": "https://pubmed.ncbi.nlm.nih.gov/41615881/",
+          "title": "Association between in utero exposure to acetaminophen and external genital tract malformations in boys and girls: a systematic review and meta-analysis.",
+          "journal": null,
+          "year": "2026",
+          "publicationTypes": [
+            "Meta-Analysis",
+            "Systematic Review",
+            "Journal Article"
+          ],
+          "abstract": "<h4>Study question</h4>Is the use of acetaminophen during pregnancy associated with external genital tract malformations in boys and girls?<h4>Summary answer</h4>This meta-analysis found no evidence linking in utero acetaminophen exposure to external genital malformations in boys but further research focusing on girls and considering relevant confounding factors is needed.<h4>What is known already</h4>Acetaminophen is widely used by pregnant women, but findings are conflicting regarding a possible increased risk of genital malformations in the offspring of both sexes.<h4>Study design, size, duration</h4>In this systematic review and meta-analysis, we searched MEDLINE, EMBASE, Cochrane Central Register of Controlled Trials, International Clinical Trials Registry Platform, ClinicalTrials.gov on 18 April 2024, and subsequently updated the search on 20 September 2025 for randomized controlled trials and observational studies. This meta-analysis included randomized controlled trials and observational studies focusing on the association between in utero exposure to acetaminophen, with no restriction on publication dates and languages.<h4>Participants/materials, setting, methods</h4>Two reviewers independently screened studies, extracted data, and assessed risk of bias. The two primary outcomes were a composite endpoint including cryptorchidism, hypospadias, and penile hypoplasia in boys, and a composite outcome including clitoral enlargement, labial fusion, vulvar malformations, and rectovaginal fistula in girls. Secondary outcomes included individual genital malformations and differences in anogenital distance (AGD). GRADE was used to evaluate the level of certainty.<h4>Main results and the role of chance</h4>Ten observational studies were included. Regarding boys, meta-analysis of the predefined primary outcome could not be performed as no studies reported penile hypoplasia. Another composite endpoint including cryptorchidism and/or hypospadias was reconstructed and no significant association was found with acetaminophen, pooled crude odds ratio (OR) 1.27 [95% CI (0.18, 8.94), studies = 2, participants = 155 362, I2=79%, phet=0.03, random-effects model (REM)]. No significant association was found for cryptorchidism or hypospadias separately based on adjusted estimates with pooled OR of 1.02 [95% CI (0.78, 1.35), studies = 3, participants = 155 852, I2=32%, phet=0.23, REM] and 1.02 [95% CI (0.89, 1.17), studies = 3, participants = 159 572, I2=40%, phet=0.19, REM], respectively. No significant difference was found for short AGD. No meta-analysis was possible for girls for any of the predefined outcomes due to lack of data. The level of certainty was low to very low.<h4>Limitations, reasons for caution</h4>The predefined primary outcomes in boys and girls could not be fully evaluated. Small study effects could not be assessed as the number of included studies was limited. There was significant heterogeneity in the reporting of results and information regarding maternal characteristics was lacking. Lastly, all included studies had a serious or critical risk of bias due to the limited control of confounding factors and the level of certainty was low to very low.<h4>Wider implications of the findings</h4>Acetaminophen remains an indispensable medication and abstaining from pain and fever treatment during pregnancy may have harmful effects on the developing fetus. Further research on external genital malformation risks following in utero exposure to acetaminophen should be directed toward developing validated and robust drug-exposure and outcome assessment tools, that control for confounding factors and confounding by indication.<h4>Study funding/competing interest(s)</h4>No funding was used to conduct this study. No relationship or activity could appear to have influenced the submitted work.<h4>Registration number</h4>CRD42024536483, available from: https://www.crd.york.ac.uk/prospero/display_record.php?ID=CRD42024536483.",
+          "citedByCount": 0,
+          "semanticStatus": "unassessed",
+          "evidenceClass": "higher-level",
+          "triageStatus": "possible-direct-match",
+          "triageFlags": []
+        },
+        {
+          "retrievalSource": "Europe PMC",
+          "publicationId": "pmid:41733151",
+          "pmid": "41733151",
+          "doi": "10.3238/arztebl.m2026.0002",
+          "url": "https://pubmed.ncbi.nlm.nih.gov/41733151/",
+          "title": "Clinical Practice Guideline: The Outpatient Management of Fever in Children and Adolescents.",
+          "journal": null,
+          "year": "2026",
+          "publicationTypes": [
+            "research-article",
+            "Practice Guideline",
+            "Journal Article"
+          ],
+          "abstract": "<h4>Background</h4>Fever is one of the more common symptoms in children and adolescents, accounting for 20%-40% of all pediatric office visits and ca. 30% of all pediatric contacts with the emergency medical services. The present clinical practice guideline concerns the management of fever of acute onset in otherwise healthy children and adolescents in the outpatient setting.<h4>Methods</h4>A systematic literature search was conducted, with evaluation according to SIGN and GRADE.<h4>Results</h4>For neonates and infants under the age of 3 months, the body temperature should be measured rectally with a digital thermometer. From the age of 1 year onward, it can be measured with an infrared tympanic thermometer (sensitivity 77%, specificity 98%). For infants under the age of 3 months, temperatures above 40°C are associated with an elevated risk of severe bacterial infection (OR 6.3, 95% confidence interval [4.44; 8.95]); in older children, the height of the fever has little prognostic significance (p = 0.11). The decision whether to lower the fever by medical means should be based exclusively on the degree of suffering and impairment of the child. Antipyretic agents should not be given routinely. Parents and other carers should be educated about fever as a normal defense reaction of the body and should be made acquainted with the warning signs (impaired consciousness, cutaneous hemorrhage, dehydration, capillary refill time longer than 3 seconds). Children whose degree of suffering and impairment from fever calls for treatment can be given acetaminophen (10 to 15 mg/kg BW in each individual dose, no more than 4 times per day) or ibuprofen (10 mg/kg BW in each individual dose, no more than 3 times per day).<h4>Conclusion</h4>This evidence-based clinical practice guideline establishes a differentiated, symptom-oriented approach to the outpatient management of fever and emphasizes the education of parents and other carers so that the unnecessary administration of antipyretic drugs can be avoided.",
+          "citedByCount": 0,
+          "semanticStatus": "unassessed",
+          "evidenceClass": "higher-level",
+          "triageStatus": "possible-direct-match",
+          "triageFlags": []
+        }
+      ],
+      "retrievalErrors": [],
+      "reviewerChecklist": [
+        "Confirm population, diagnosis, sex, age, and setting",
+        "Confirm exact intervention, formulation, dose, duration, and co-interventions",
+        "Confirm comparator and patient-important outcomes",
+        "Extract effect estimate, uncertainty, adverse events, and limitations",
+        "Assess risk of bias and applicability",
+        "Reject duplicate indexes of the same publication",
+        "Add independent guideline and safety sources where available"
+      ],
+      "triageSummary": {
+        "possible-mismatch": 2,
+        "possible-direct-match": 4,
+        "manual-review-required": 1
+      }
+    },
+    {
+      "claimId": "rem_009__kidney_stone",
+      "priority": 130,
+      "reviewStatus": "needs-review",
+      "proposedClaim": "Helps prevent UTIs by stopping bacteria from adhering to urinary tract walls.",
+      "picoDraft": {
+        "population": {
+          "diagnosis": "kidney stone",
+          "ageGroup": "requires age-specific review",
+          "sex": "requires review"
+        },
+        "intervention": {
+          "name": "cranberry extract",
+          "formulation": "cranberry extract, vitamin C, cellulose",
+          "dose": "requires review",
+          "duration": "requires review"
+        },
+        "comparators": [
+          "requires review"
+        ],
+        "outcomes": [
+          "requires extraction from displayed claim and sources"
+        ]
+      },
+      "safetyDraft": {
+        "warnings": [
+          "Does not treat active bacterial infections.",
+          "Seek medical treatment for active UTI."
+        ],
+        "contraindications": [
+          "blood thinners"
+        ],
+        "status": "needs-review"
+      },
+      "searchStrategy": {
+        "intervention": "cranberry extract",
+        "condition": "kidney stone",
+        "sources": [
+          "NCBI PubMed",
+          "Europe PMC",
+          "Google Scholar (ScrapingBee)",
+          "existing guideline/public-health links"
+        ]
+      },
+      "candidates": [
+        {
+          "retrievalSource": "existing-catalogue",
+          "url": "https://pubmed.ncbi.nlm.nih.gov/39030132/",
+          "title": "Cranberry for UTI Prevention",
+          "organization": "US National Library of Medicine",
+          "evidenceType": null,
+          "semanticStatus": "unassessed",
+          "evidenceClass": "other",
+          "triageStatus": "manual-review-required",
+          "triageFlags": [
+            "condition-not-confirmed-in-retrieved-text"
+          ]
+        }
+      ],
+      "retrievalErrors": [],
+      "reviewerChecklist": [
+        "Confirm population, diagnosis, sex, age, and setting",
+        "Confirm exact intervention, formulation, dose, duration, and co-interventions",
+        "Confirm comparator and patient-important outcomes",
+        "Extract effect estimate, uncertainty, adverse events, and limitations",
+        "Assess risk of bias and applicability",
+        "Reject duplicate indexes of the same publication",
+        "Add independent guideline and safety sources where available"
+      ],
+      "triageSummary": {
+        "manual-review-required": 1
+      }
+    },
+    {
+      "claimId": "rem_009__uti",
+      "priority": 130,
+      "reviewStatus": "needs-review",
+      "proposedClaim": "Helps prevent UTIs by stopping bacteria from adhering to urinary tract walls.",
+      "picoDraft": {
+        "population": {
+          "diagnosis": "uti",
+          "ageGroup": "requires age-specific review",
+          "sex": "requires review"
+        },
+        "intervention": {
+          "name": "cranberry extract",
+          "formulation": "cranberry extract, vitamin C, cellulose",
+          "dose": "requires review",
+          "duration": "requires review"
+        },
+        "comparators": [
+          "requires review"
+        ],
+        "outcomes": [
+          "requires extraction from displayed claim and sources"
+        ]
+      },
+      "safetyDraft": {
+        "warnings": [
+          "Does not treat active bacterial infections.",
+          "Seek medical treatment for active UTI."
+        ],
+        "contraindications": [
+          "blood thinners"
+        ],
+        "status": "needs-review"
+      },
+      "searchStrategy": {
+        "intervention": "cranberry extract",
+        "condition": "uti",
+        "sources": [
+          "NCBI PubMed",
+          "Europe PMC",
+          "Google Scholar (ScrapingBee)",
+          "existing guideline/public-health links"
+        ]
+      },
+      "candidates": [
+        {
+          "retrievalSource": "existing-catalogue",
+          "url": "https://pubmed.ncbi.nlm.nih.gov/39030132/",
+          "title": "Cranberry for UTI Prevention",
+          "organization": "US National Library of Medicine",
+          "evidenceType": null,
+          "semanticStatus": "unassessed",
+          "evidenceClass": "other",
+          "triageStatus": "possible-direct-match",
+          "triageFlags": []
+        },
+        {
+          "retrievalSource": "NCBI PubMed",
+          "publicationId": "pmid:27314247",
+          "pmid": "27314247",
+          "doi": "10.1007/s11255-016-1342-8",
+          "url": "https://pubmed.ncbi.nlm.nih.gov/27314247/",
+          "title": "Effect of oral cranberry extract (standardized proanthocyanidin-A) in patients with recurrent UTI by pathogenic E. coli: a randomized placebo-controlled clinical research study.",
+          "journal": "International urology and nephrology",
+          "year": "2016",
+          "publicationTypes": [
+            "Journal Article",
+            "Randomized Controlled Trial"
+          ],
+          "semanticStatus": "unassessed",
+          "evidenceClass": "trial",
+          "triageStatus": "possible-direct-match",
+          "triageFlags": [
+            "abstract-not-retrieved"
+          ]
+        },
+        {
+          "retrievalSource": "NCBI PubMed",
+          "publicationId": "pmid:25882919",
+          "pmid": "25882919",
+          "doi": "10.1016/j.ajog.2015.04.003",
+          "url": "https://pubmed.ncbi.nlm.nih.gov/25882919/",
+          "title": "Cranberry juice capsules and urinary tract infection after surgery: results of a randomized trial.",
+          "journal": "American journal of obstetrics and gynecology",
+          "year": "2015",
+          "publicationTypes": [
+            "Journal Article",
+            "Randomized Controlled Trial",
+            "Research Support, N.I.H., Extramural",
+            "Research Support, Non-U.S. Gov't"
+          ],
+          "semanticStatus": "unassessed",
+          "evidenceClass": "trial",
+          "triageStatus": "manual-review-required",
+          "triageFlags": [
+            "condition-not-confirmed-in-retrieved-text",
+            "abstract-not-retrieved"
+          ]
+        },
+        {
+          "retrievalSource": "NCBI PubMed,Europe PMC",
+          "publicationId": "pmid:33619202",
+          "pmid": "33619202",
+          "doi": "10.1136/bmjopen-2020-046791",
+          "url": "https://pubmed.ncbi.nlm.nih.gov/33619202/",
+          "title": "Does cranberry extract reduce antibiotic use for symptoms of acute uncomplicated urinary tract infections (CUTI)? A feasibility randomised trial.",
+          "journal": "BMJ open",
+          "year": "2021",
+          "publicationTypes": [
+            "Research Support, Non-U.S. Gov't",
+            "research-article",
+            "Randomized Controlled Trial",
+            "Journal Article"
+          ],
+          "semanticStatus": "unassessed",
+          "abstract": "<h4>Objectives</h4>To determine the feasibility of conducting a randomised trial of the effectiveness of cranberry extract in reducing antibiotic use by women with symptoms of acute, uncomplicated urinary tract infection (UTI).<h4>Design</h4>Open-label feasibility randomised parallel group trial.<h4>Setting</h4>Four general practices in Oxfordshire.<h4>Participants</h4>Women aged 18 years and above presenting to general practice with symptoms of acute, uncomplicated UTI.<h4>Interventions</h4>Women were randomly assigned using Research Electronic Data Capture in a 1:1:1 ratio to: (1) immediate antibiotics alone (n=15); (2) immediate antibiotics and immediate cranberry capsules for up to 7 days (n=15); or (3) immediate cranberry capsules and delayed antibiotics for self-initiation in case of non-improvement or worsening of symptoms (n=16).<h4>Primary and secondary outcome measures</h4>The primary outcome measures were: rate of recruitment of participants; numbers lost to follow-up; proportion of electronic diaries completed by participants; and acceptability of the intervention and study procedures to participants and recruiters. Secondary outcomes included an exploration of differences in symptom burden and antibiotic use between groups.<h4>Results</h4>Four general practitioner practices (100%) were opened and recruited participants between 1 July and 2 December 2019, with nine study participants recruited per month on average. 68.7% (46/67) of eligible participants were randomised (target 45) with a mean age of 48.4 years (SD 19.9, range 18-81). 89.1% (41/46) of diaries contained some participant entered data and 69.6% (32/46) were fully complete. Three participants (6.5%) were lost to follow-up and two (4.4%) withdrew. Of women randomly assigned to take antibiotics alone (controls), one-third of respondents reported consuming cranberry products (33.3%, 4/12). There were no serious adverse events.<h4>Conclusions</h4>It appears feasible to conduct a randomised trial of the use of cranberry extract in the treatment of acute, uncomplicated UTI in general practice.<h4>Trial registration number</h4>ISRCTN Registry (ID: 10399299).",
+          "citedByCount": 6,
+          "evidenceClass": "trial",
+          "triageStatus": "possible-direct-match",
+          "triageFlags": []
+        },
+        {
+          "retrievalSource": "Europe PMC",
+          "publicationId": "pmid:38999860",
+          "pmid": "38999860",
+          "doi": "10.3390/nu16132113",
+          "url": "https://pubmed.ncbi.nlm.nih.gov/38999860/",
+          "title": "Supplementation with Highly Standardized Cranberry Extract Phytosome Achieved the Modulation of Urinary Tract Infection Episodes in Diabetic Postmenopausal Women Taking SGLT-2 Inhibitors: A RCT Study.",
+          "journal": null,
+          "year": "2024",
+          "publicationTypes": [
+            "research-article",
+            "Randomized Controlled Trial",
+            "Journal Article"
+          ],
+          "abstract": "Urinary tract infections (UTIs) are the most common bacterial infections in postmenopausal women, and women with diabetes are possibly at a higher risk. The aim of this study is to evaluate the potential benefit on the prevention of UTI episodes, assessed by urinalysis and urine culture (primary outcome) after two, four and six months, of daily oral dietary supplement (120 mg highly standardized cranberry extract phytosome), compared to placebo, in diabetic postmenopausal women taking SGLT-2 inhibitors. Forty-six subjects (mean age 72.45 ± 1.76) completed the study (23 placebo/23 supplement). Considering UTI episodes, during the six-month supplementation period, an increase of 1.321 (95% CI: -0.322; 2.9650) was observed in the placebo group, while it remained at a steady value of 0.393 (95% CI: -4.230; 5.016) in the supplemented group. Regarding UTI episodes, in both groups, interaction between times for supplementation was statistically significant (<i>p</i> = 0.001). In particular, at follow-up 4, 9% of the placebo group showed infection versus only 3% with cranberry supplementation. Glycaemia and glycated hemoglobin values (secondary outcomes) were not modified at the end of six months with respect to the basal values in both groups, as expected. While in terms of quality of life per the SF-12 health questionnaire, there were no differences between the two groups, an improvement in SF-12 quality of life was observed in both groups (six months vs. basal). In conclusion, highly standardized cranberry extract phytosome supplementation reduced UTI recurrence.",
+          "citedByCount": 7,
+          "semanticStatus": "unassessed",
+          "evidenceClass": "trial",
+          "triageStatus": "possible-direct-match",
+          "triageFlags": []
+        },
+        {
+          "retrievalSource": "Europe PMC",
+          "publicationId": "pmid:29716563",
+          "pmid": "29716563",
+          "doi": "10.1186/s12894-018-0342-7",
+          "url": "https://pubmed.ncbi.nlm.nih.gov/29716563/",
+          "title": "Standardised high dose versus low dose cranberry Proanthocyanidin extracts for the prevention of recurrent urinary tract infection in healthy women [PACCANN]: a double blind randomised controlled trial protocol.",
+          "journal": null,
+          "year": "2018",
+          "publicationTypes": [
+            "Comparative Study",
+            "research-article",
+            "Randomized Controlled Trial",
+            "Journal Article"
+          ],
+          "abstract": "<h4>Background</h4>Urinary tract infections (UTIs) are amongst the most common bacterial infections affecting women. Although antibiotics are the treatment of choice for UTI, cranberry derived products have been used for many years to prevent UTIs, with limited evidence as to their efficacy. Our objective is to assess the efficacy of a cranberry extract capsule standardized in A-type linkage proanthocyanidins (PACs) for the prevention of recurrent urinary tract infection.<h4>Methods</h4>We will perform a 1:1 randomized, controlled, double blind clinical trial in women aged 18 years or more who present ≥2 UTIs in 6 months or ≥ 3 UTIs in 12 months. One hundred and forty-eight women will be recruited and randomized in two groups to either receive an optimal dose of cranberry extract quantified and standardized in PACs (2 × 18.5 mg PACs per day) or a control dose (2 × 1 mg PACs per day). The primary outcome for the trial is the mean number of new symptomatic UTIs in women during a 6-month intervention period. Secondary outcomes are: (1) To evaluate the mean number of new symptomatic UTIs with pyuria as demonstrated by a positive leucocyte esterase test; (2) To detect the mean number of new symptomatic culture-confirmed UTIs; (3) To quantify urinary PACs metabolites in women who take a daily dose of 37 mg PACs per day compared to women who take a daily dose of 2 mg per day for 6 months; (4) To characterize women who present recurrent UTI based on known risk factors for recurrent UTI; (5) To describe the side effects of daily intake of cranberry extract containing 37 mg PACs compared to 2 mg PACs. This report provides comprehensive methodological data for this randomized controlled trial.<h4>Discussion</h4>The results of this trial will inform urologists, gynaecologists, family physicians and other healthcare professionals caring for healthy women with recurrent UTI, as to the benefits of daily use of an optimal dose of cranberry extract for the prevention of recurrent UTI.<h4>Trial registration</h4>Clinicaltrials.gov, identifier: NCT02572895 October 8th 2015.",
+          "citedByCount": 19,
+          "semanticStatus": "unassessed",
+          "evidenceClass": "trial",
+          "triageStatus": "possible-direct-match",
+          "triageFlags": []
+        }
+      ],
+      "retrievalErrors": [],
+      "reviewerChecklist": [
+        "Confirm population, diagnosis, sex, age, and setting",
+        "Confirm exact intervention, formulation, dose, duration, and co-interventions",
+        "Confirm comparator and patient-important outcomes",
+        "Extract effect estimate, uncertainty, adverse events, and limitations",
+        "Assess risk of bias and applicability",
+        "Reject duplicate indexes of the same publication",
+        "Add independent guideline and safety sources where available"
+      ],
+      "triageSummary": {
+        "possible-direct-match": 5,
+        "manual-review-required": 1
+      }
+    },
+    {
+      "claimId": "rem_011__uti",
+      "priority": 130,
+      "reviewStatus": "needs-review",
+      "proposedClaim": "Beneficial bacteria that restore microbial balance for digestive and vaginal health.",
+      "picoDraft": {
+        "population": {
+          "diagnosis": "uti",
+          "ageGroup": "requires age-specific review",
+          "sex": "requires review"
+        },
+        "intervention": {
+          "name": "lactobacillus acidophilus",
+          "formulation": "lactobacillus acidophilus, bifidobacterium lactis",
+          "dose": "requires review",
+          "duration": "requires review"
+        },
+        "comparators": [
+          "requires review"
+        ],
+        "outcomes": [
+          "requires extraction from displayed claim and sources"
+        ]
+      },
+      "safetyDraft": {
+        "warnings": [
+          "May cause initial bloating as microbiome adjusts."
+        ],
+        "contraindications": [
+          "immunocompromised"
+        ],
+        "status": "needs-review"
+      },
+      "searchStrategy": {
+        "intervention": "lactobacillus acidophilus",
+        "condition": "uti",
+        "sources": [
+          "NCBI PubMed",
+          "Europe PMC",
+          "Google Scholar (ScrapingBee)",
+          "existing guideline/public-health links"
+        ]
+      },
+      "candidates": [
+        {
+          "retrievalSource": "existing-catalogue",
+          "url": "https://pubmed.ncbi.nlm.nih.gov/38999862/",
+          "title": "Nutrients",
+          "organization": "US National Library of Medicine",
+          "evidenceType": null,
+          "semanticStatus": "unassessed",
+          "evidenceClass": "other",
+          "triageStatus": "possible-mismatch",
+          "triageFlags": [
+            "intervention-not-confirmed-in-retrieved-text",
+            "condition-not-confirmed-in-retrieved-text"
+          ]
+        },
+        {
+          "retrievalSource": "NCBI PubMed,Europe PMC",
+          "publicationId": "pmid:40864416",
+          "pmid": "40864416",
+          "doi": "10.1007/s12602-025-10719-8",
+          "url": "https://pubmed.ncbi.nlm.nih.gov/40864416/",
+          "title": "The Effect of Lactobacillus Acidophilus (La5) on the Incidence of Urinary Tract Infection in the Puerperium: A Randomized Placebo-Controlled Trial.",
+          "journal": "Probiotics and antimicrobial proteins",
+          "year": "2026",
+          "publicationTypes": [
+            "Randomized Controlled Trial",
+            "Journal Article"
+          ],
+          "semanticStatus": "unassessed",
+          "abstract": "This study aimed to evaluate the effect of the probiotic on the incidence of urinary tract infections (UTIs) during the postpartum period (primary outcome) and quality of life, breastfeeding performance, infant growth, and adverse effects (secondary outcomes). This double-blind, randomized, controlled trial was conducted in Tabriz-Iran. A total of 234 eligible women were randomly assigned to either the probiotic group or the placebo group using block randomization. The intervention group received a 500-mg capsule containing 2 × 10<sup>9</sup> CFU of Lactobacillus acidophilus once daily for 8 weeks, while the control group received a 500-mg capsule containing regular corn starch with the same dosing schedule. A urine culture test was performed 8 weeks after the start of the intervention to assess the incidence of UTI. Quality of life was evaluated before and after the intervention. Other outcomes, including breastfeeding performance and infant growth, were assessed at the end of the intervention. The incidence of UTIs in the probiotic group was significantly lower than in the placebo group at the 2-month follow-up after the intervention (adjusted odds ratio, 0.41; 95%confidence interval, 0.17 to 0.93; p = 0.033). A statistically significant difference between groups was noted in the overall quality of life score (p = 0.003) and the mental health domain (p = 0.004). There was no statistically significant difference between groups regarding the mean breastfeeding performance score (p = 0.335) and infant growth (p = 0.493). Our results supported the hypothesis that probiotics can effectively reduce the incidence of UTIs. Further studies are recommended to reach definitive conclusions.Trial registration: Iranian Registry of Clinical Trials (IRCT): IRCT20120718010324N81. Date of registration: 1 March 2024; URL: https://irct.behdasht.gov.ir/user/trial/73821/view ; Date of first registration: 1 March 2024.",
+          "citedByCount": 1,
+          "evidenceClass": "trial",
+          "triageStatus": "possible-direct-match",
+          "triageFlags": []
+        },
+        {
+          "retrievalSource": "NCBI PubMed,Europe PMC",
+          "publicationId": "pmid:31100124",
+          "pmid": "31100124",
+          "doi": "10.1093/jpids/piz025",
+          "url": "https://pubmed.ncbi.nlm.nih.gov/31100124/",
+          "title": "Efficacy of Probiotic Prophylaxis After The First Febrile Urinary Tract Infection in Children With Normal Urinary Tracts.",
+          "journal": "Journal of the Pediatric Infectious Diseases Society",
+          "year": "2020",
+          "publicationTypes": [
+            "Comparative Study",
+            "Equivalence Trial",
+            "Multicenter Study",
+            "Randomized Controlled Trial",
+            "Journal Article"
+          ],
+          "semanticStatus": "unassessed",
+          "abstract": "<h4>Background</h4>Growing antibiotic resistance and debates over their efficacy for urinary tract infection (UTI) recurrence warrants studying nonantibiotic prophylaxis for preventing UTI recurrences.<h4>Methods</h4>We randomly assigned 181 children, aged 4 months to 5 years, with a normal urinary tract after recovery from their first febrile UTI in a 1:1 ratio to receive a probiotic mixture of Lactobacillus acidophilus, Lactobacillus rhamnosus, Bifidobacterium bifidum, and Bifidobacterium lactis (n = 91) or placebo (n = 90) for a total of 18 months of therapy. The primary objective was to show the superiority of probiotic prophylaxis to placebo. The primary end point was composite cure (UTI-free survival) at 18 months, and the secondary end point was the median time to first UTI recurrence.<h4>Results</h4>The probiotics were superior to placebo with respect to the primary efficacy end point. At 18 months, composite cure was observed in 96.7% (3 of 91) of the patients in the probiotic group and 83.3% (15 of 90) of those in the placebo group (P = .02). The median time to the first incidence of UTI recurrence was 3.5 months (range, 1-4 months) and 6.5 months (range, 2-14 months) in the probiotic and placebo groups, respectively (P = .04). The main microorganism that caused recurrent UTI was Escherichia coli, followed by Klebsiella pneumoniae, and these results were not significantly different between the 2 groups. We found no specific adverse events among the participants who received the probiotic mixture during the course of therapy.<h4>Conclusions</h4>The probiotics were more effective than placebo at reducing the risk of recurrent UTI in children with a normal urinary tract after their first episode of febrile UTI.",
+          "citedByCount": 25,
+          "evidenceClass": "trial",
+          "triageStatus": "possible-direct-match",
+          "triageFlags": []
+        },
+        {
+          "retrievalSource": "NCBI PubMed,Europe PMC",
+          "publicationId": "pmid:17530295",
+          "pmid": "17530295",
+          "doi": "10.1007/s00467-007-0507-1",
+          "url": "https://pubmed.ncbi.nlm.nih.gov/17530295/",
+          "title": "Probiotics prophylaxis in children with persistent primary vesicoureteral reflux.",
+          "journal": "Pediatric nephrology (Berlin, Germany)",
+          "year": "2007",
+          "publicationTypes": [
+            "Comparative Study",
+            "Randomized Controlled Trial",
+            "Journal Article"
+          ],
+          "semanticStatus": "unassessed",
+          "abstract": "Probiotics, beneficial living microorganisms, have been proven to be effective in preventing gastrointestinal infections, but their effect in preventing urinary tract infection (UTI) is inconclusive. A prospective randomized controlled study was done to compare the preventive effect of probiotics with conventional antibiotics in children with persistent primary vesicoureteral reflux (VUR). One hundred twenty children who had had persistent primary VUR after antibiotic prophylaxis for 1 year were randomly allocated into a probiotics (Lactobacillus acidophilus 10(8) CFU/g 1 g b.i.d., n = 60) or an antibiotics (trimethoprim/sulfamethoxazole 2/10 mg/kg h.s., n = 60) prophylaxis group during the second year of follow-up. The incidence of recurrent UTI was 18.3% (11/60) in the probiotics group, which was not different from 21.6%(13/60) in the antibiotic group (P = 0.926). The causative organisms of recurrent UTI were not significantly different between the two groups (P = 0.938). Even after stratification by VUR grade, age, gender, phimosis, voiding dysfunction and renal scar, the incidence of recurrent UTI did not differ significantly between the two groups (P > 0.05). The development of new renal scar was not significantly different between the two groups (P > 0.05). In conclusion, probiotics prophylaxis was as effective as antibiotic prophylaxis in children with persistent primary VUR.",
+          "citedByCount": 52,
+          "evidenceClass": "trial",
+          "triageStatus": "possible-direct-match",
+          "triageFlags": []
+        }
+      ],
+      "retrievalErrors": [],
+      "reviewerChecklist": [
+        "Confirm population, diagnosis, sex, age, and setting",
+        "Confirm exact intervention, formulation, dose, duration, and co-interventions",
+        "Confirm comparator and patient-important outcomes",
+        "Extract effect estimate, uncertainty, adverse events, and limitations",
+        "Assess risk of bias and applicability",
+        "Reject duplicate indexes of the same publication",
+        "Add independent guideline and safety sources where available"
+      ],
+      "triageSummary": {
+        "possible-mismatch": 1,
+        "possible-direct-match": 3
+      }
+    },
+    {
+      "claimId": "rem_036__palpitations",
+      "priority": 130,
+      "reviewStatus": "needs-review",
+      "proposedClaim": "Omega-3 fatty acids that reduce inflammation for joint and heart health.",
+      "picoDraft": {
+        "population": {
+          "diagnosis": "palpitations",
+          "ageGroup": "requires age-specific review",
+          "sex": "requires review"
+        },
+        "intervention": {
+          "name": "fish oil",
+          "formulation": "fish oil (anchovy, sardine), vitamin E",
+          "dose": "requires review",
+          "duration": "requires review"
+        },
+        "comparators": [
+          "requires review"
+        ],
+        "outcomes": [
+          "requires extraction from displayed claim and sources"
+        ]
+      },
+      "safetyDraft": {
+        "warnings": [
+          "May cause fishy burps.",
+          "High doses increase bleeding risk."
+        ],
+        "contraindications": [
+          "blood thinners (high doses)"
+        ],
+        "status": "needs-review"
+      },
+      "searchStrategy": {
+        "intervention": "fish oil",
+        "condition": "palpitations",
+        "sources": [
+          "NCBI PubMed",
+          "Europe PMC",
+          "Google Scholar (ScrapingBee)",
+          "existing guideline/public-health links"
+        ]
+      },
+      "candidates": [
+        {
+          "retrievalSource": "existing-catalogue",
+          "url": "https://pubmed.ncbi.nlm.nih.gov/8003055/",
+          "title": "Arthritis Rheum",
+          "organization": "US National Library of Medicine",
+          "evidenceType": null,
+          "semanticStatus": "unassessed",
+          "evidenceClass": "other",
+          "triageStatus": "possible-mismatch",
+          "triageFlags": [
+            "intervention-not-confirmed-in-retrieved-text",
+            "condition-not-confirmed-in-retrieved-text"
+          ]
+        },
+        {
+          "retrievalSource": "NCBI PubMed,Europe PMC",
+          "publicationId": "pmid:35084374",
+          "pmid": "35084374",
+          "doi": "10.1097/gme.0000000000001897",
+          "url": "https://pubmed.ncbi.nlm.nih.gov/35084374/",
+          "title": "MsFLASH analysis of diurnal salivary cortisol and palpitations in peri- and postmenopausal women.",
+          "journal": "Menopause (New York, N.Y.)",
+          "year": "2021",
+          "publicationTypes": [
+            "Research Support, Non-U.S. Gov't",
+            "research-article",
+            "Randomized Controlled Trial",
+            "Journal Article",
+            "Research Support, N.I.H., Extramural"
+          ],
+          "semanticStatus": "unassessed",
+          "abstract": "<h4>Objective</h4>To evaluate the relationship between diurnal salivary cortisol patterns and distress from heart palpitations in midlife women.<h4>Methods</h4>We analyzed baseline data from 293 women who were eligible for a 3 × 2 factorial trial of exercise or yoga versus routine activity, and omega-3 fish oil versus placebo for vasomotor symptoms. Women self-collected salivary cortisol using swabs at four time points over 2 consecutive days and reported distress from heart racing or pounding during the past 2 weeks using a single item. Sample description and covariate data included demographics, clinical data, vasomotor symptom frequency from daily diaries, medication use, and validated questionnaires on depression, stress, and insomnia (Patient Health Questionnaire-8, Perceived Stress Scale, and Insomnia Severity index). Data were analyzed using descriptive statistics, chi-square and t tests, and repeated measure linear regression models.<h4>Results</h4>Participants were on average 54.6 (SD = 3.6) years old, most were White (67%) postmenopausal (84%), and 26% reported distress related to palpitations. In adjusted models, the morning (wake plus 30-min) geometric mean daily salivary cortisol concentrations were significantly more blunted in those with distress from palpitations compared with those without distress (P ≤ 0.03). When all covariates were controlled, distress from palpitations was the sole significant predictor of wake plus 30-minute cortisol (-0.25 [-0.45 to -0.04], P = 0.02).<h4>Conclusions</h4>Palpitations among midlife women may be associated with blunted morning cortisol, and this relationship is not explained by demographics, clinical variables, vasomotor symptoms, medications, depression, stress, or insomnia.",
+          "citedByCount": 2,
+          "evidenceClass": "trial",
+          "triageStatus": "possible-direct-match",
+          "triageFlags": []
+        },
+        {
+          "retrievalSource": "NCBI PubMed,Europe PMC",
+          "publicationId": "pmid:29282085",
+          "pmid": "29282085",
+          "doi": "10.1186/s12944-017-0617-0",
+          "url": "https://pubmed.ncbi.nlm.nih.gov/29282085/",
+          "title": "Effects of 12-week supplementation of marine Omega-3 PUFA-based formulation Omega3Q10 in older adults with prehypertension and/or elevated blood cholesterol.",
+          "journal": "Lipids in health and disease",
+          "year": "2017",
+          "publicationTypes": [
+            "research-article",
+            "Randomized Controlled Trial",
+            "Journal Article"
+          ],
+          "semanticStatus": "unassessed",
+          "abstract": "<h4>Backgrounds</h4>To study the effects of supplementation of a marine omega-3 poly-unsaturated fatty acids (n3-PUFA) formulation (Omega3Q10) in older adults with hypertension and/or hypercholesterolemia.<h4>Methods</h4>A total of 97 people were enrolled to receive 12-week supplementation of either Omega3Q10 (n = 48) or soybean oil (n = 49). Total cholesterol (TC), low density lipoprotein cholesterol (LDL-C), high density lipoprotein cholesterol (HDL-C), and hypertension-related symptoms were determined before and after the supplementation.<h4>Results</h4>There were no baseline differences between the two groups. Omega3Q10 supplementation significantly reduced diastolic blood pressure (DBP) (from 81.6 ± 5.3 mmHg to 79.3 ± 5.2 mmHg, P < 0.05). Blood concentrations of TC and LDL-C decreased significantly and blood HDL-C level increased significantly after 12 weeks of Omega3Q10 (5.5 ± 0.7 vs. 5.3 ± 0.5, P < 0.05; 3.7 ± 0.8 vs. 3.3 ± 0.6, P < 0.05; 1.2 ± 0.6 vs. 1.3 ± 0.5, P < 0.05, respectively) and soybean oil supplementation (5.7 ± 0.8 vs. 5.6 ± 0.7, P < 0.05; 3.6 ± 0.7 vs. 3.4 ± 0.8, P < 0.05; 1.0 ± 0.8 vs. 1.2 ± 0.7, P < 0.05, respectively) but no group differences were found. A significantly greater proportion of the people in the Omega3Q10 group became free from headache and palpitations & chest tightness symptoms after the 12-week supplementation compared to that of the soybean oil group (95.5% vs. 71.4%, P < 0.01; 95.8 vs. 75.5%, P < 0.01, respectively).<h4>Conclusion</h4>12-week supplementation of Fish oil-based PUFA appear to be more effective in improving DBP and hypertension-related symptoms than soybean oil in old adults with hypertension and hypercholesterolemia although both supplementation improved TC, LDL-C and HDL-C concentrations.",
+          "citedByCount": 18,
+          "evidenceClass": "trial",
+          "triageStatus": "possible-direct-match",
+          "triageFlags": []
+        }
+      ],
+      "retrievalErrors": [],
+      "reviewerChecklist": [
+        "Confirm population, diagnosis, sex, age, and setting",
+        "Confirm exact intervention, formulation, dose, duration, and co-interventions",
+        "Confirm comparator and patient-important outcomes",
+        "Extract effect estimate, uncertainty, adverse events, and limitations",
+        "Assess risk of bias and applicability",
+        "Reject duplicate indexes of the same publication",
+        "Add independent guideline and safety sources where available"
+      ],
+      "triageSummary": {
+        "possible-mismatch": 1,
+        "possible-direct-match": 2
+      }
+    },
+    {
+      "claimId": "rem_040__edema",
+      "priority": 130,
+      "reviewStatus": "needs-review",
+      "proposedClaim": "Elevating swollen limbs uses gravity to reduce fluid buildup.",
+      "picoDraft": {
+        "population": {
+          "diagnosis": "edema",
+          "ageGroup": "requires age-specific review",
+          "sex": "requires review"
+        },
+        "intervention": {
+          "name": "Leg Elevation",
+          "formulation": "requires review",
+          "dose": "requires review",
+          "duration": "requires review"
+        },
+        "comparators": [
+          "requires review"
+        ],
+        "outcomes": [
+          "requires extraction from displayed claim and sources"
+        ]
+      },
+      "safetyDraft": {
+        "warnings": [
+          "If swelling is sudden or in only one leg, seek immediate medical attention."
+        ],
+        "contraindications": [
+          "congestive heart failure (consult doctor)"
+        ],
+        "status": "needs-review"
+      },
+      "searchStrategy": {
+        "intervention": "Leg Elevation",
+        "condition": "edema",
+        "sources": [
+          "NCBI PubMed",
+          "Europe PMC",
+          "Google Scholar (ScrapingBee)",
+          "existing guideline/public-health links"
+        ]
+      },
+      "candidates": [
+        {
+          "retrievalSource": "existing-catalogue",
+          "url": "https://pubmed.ncbi.nlm.nih.gov/36205412/",
+          "title": "Elevation for Edema",
+          "organization": "US National Library of Medicine",
+          "evidenceType": null,
+          "semanticStatus": "unassessed",
+          "evidenceClass": "other",
+          "triageStatus": "possible-direct-match",
+          "triageFlags": []
+        }
+      ],
+      "retrievalErrors": [],
+      "reviewerChecklist": [
+        "Confirm population, diagnosis, sex, age, and setting",
+        "Confirm exact intervention, formulation, dose, duration, and co-interventions",
+        "Confirm comparator and patient-important outcomes",
+        "Extract effect estimate, uncertainty, adverse events, and limitations",
+        "Assess risk of bias and applicability",
+        "Reject duplicate indexes of the same publication",
+        "Add independent guideline and safety sources where available"
+      ],
+      "triageSummary": {
+        "possible-direct-match": 1
+      }
+    },
+    {
+      "claimId": "rem_016__pelvic_pain",
+      "priority": 120,
+      "reviewStatus": "needs-review",
+      "proposedClaim": "Gentle heat relaxes muscles and improves blood flow to reduce pain.",
+      "picoDraft": {
+        "population": {
+          "diagnosis": "pelvic pain",
+          "ageGroup": "requires age-specific review",
+          "sex": "requires review"
+        },
+        "intervention": {
+          "name": "Warm Compress",
+          "formulation": "requires review",
+          "dose": "requires review",
+          "duration": "requires review"
+        },
+        "comparators": [
+          "requires review"
+        ],
+        "outcomes": [
+          "requires extraction from displayed claim and sources"
+        ]
+      },
+      "safetyDraft": {
+        "warnings": [
+          "Do not use on broken skin or recent injuries with swelling."
+        ],
+        "contraindications": [],
+        "status": "needs-review"
+      },
+      "searchStrategy": {
+        "intervention": "Warm Compress",
+        "condition": "pelvic pain",
+        "sources": [
+          "NCBI PubMed",
+          "Europe PMC",
+          "Google Scholar (ScrapingBee)",
+          "existing guideline/public-health links"
+        ]
+      },
+      "candidates": [
+        {
+          "retrievalSource": "existing-catalogue",
+          "url": "https://pubmed.ncbi.nlm.nih.gov/42404251/",
+          "title": "Heat Therapy for Pain",
+          "organization": "US National Library of Medicine",
+          "evidenceType": null,
+          "semanticStatus": "unassessed",
+          "evidenceClass": "other",
+          "triageStatus": "manual-review-required",
+          "triageFlags": [
+            "intervention-not-confirmed-in-retrieved-text"
+          ]
+        }
+      ],
+      "retrievalErrors": [],
+      "reviewerChecklist": [
+        "Confirm population, diagnosis, sex, age, and setting",
+        "Confirm exact intervention, formulation, dose, duration, and co-interventions",
+        "Confirm comparator and patient-important outcomes",
+        "Extract effect estimate, uncertainty, adverse events, and limitations",
+        "Assess risk of bias and applicability",
+        "Reject duplicate indexes of the same publication",
+        "Add independent guideline and safety sources where available"
+      ],
+      "triageSummary": {
+        "manual-review-required": 1
+      }
+    },
+    {
+      "claimId": "rem_016__testicular_pain",
+      "priority": 120,
+      "reviewStatus": "needs-review",
+      "proposedClaim": "Gentle heat relaxes muscles and improves blood flow to reduce pain.",
+      "picoDraft": {
+        "population": {
+          "diagnosis": "testicular pain",
+          "ageGroup": "requires age-specific review",
+          "sex": "requires review"
+        },
+        "intervention": {
+          "name": "Warm Compress",
+          "formulation": "requires review",
+          "dose": "requires review",
+          "duration": "requires review"
+        },
+        "comparators": [
+          "requires review"
+        ],
+        "outcomes": [
+          "requires extraction from displayed claim and sources"
+        ]
+      },
+      "safetyDraft": {
+        "warnings": [
+          "Do not use on broken skin or recent injuries with swelling."
+        ],
+        "contraindications": [],
+        "status": "needs-review"
+      },
+      "searchStrategy": {
+        "intervention": "Warm Compress",
+        "condition": "testicular pain",
+        "sources": [
+          "NCBI PubMed",
+          "Europe PMC",
+          "Google Scholar (ScrapingBee)",
+          "existing guideline/public-health links"
+        ]
+      },
+      "candidates": [
+        {
+          "retrievalSource": "existing-catalogue",
+          "url": "https://pubmed.ncbi.nlm.nih.gov/42404251/",
+          "title": "Heat Therapy for Pain",
+          "organization": "US National Library of Medicine",
+          "evidenceType": null,
+          "semanticStatus": "unassessed",
+          "evidenceClass": "other",
+          "triageStatus": "manual-review-required",
+          "triageFlags": [
+            "intervention-not-confirmed-in-retrieved-text"
+          ]
+        }
+      ],
+      "retrievalErrors": [],
+      "reviewerChecklist": [
+        "Confirm population, diagnosis, sex, age, and setting",
+        "Confirm exact intervention, formulation, dose, duration, and co-interventions",
+        "Confirm comparator and patient-important outcomes",
+        "Extract effect estimate, uncertainty, adverse events, and limitations",
+        "Assess risk of bias and applicability",
+        "Reject duplicate indexes of the same publication",
+        "Add independent guideline and safety sources where available"
+      ],
+      "triageSummary": {
+        "manual-review-required": 1
+      }
+    },
+    {
+      "claimId": "rem_006__allergies",
+      "priority": 70,
+      "reviewStatus": "needs-review",
+      "proposedClaim": "Blocks histamine release to reduce sneezing and runny nose from allergies.",
+      "picoDraft": {
+        "population": {
+          "diagnosis": "allergies",
+          "ageGroup": "requires age-specific review",
+          "sex": "requires review"
+        },
+        "intervention": {
+          "name": "cetirizine hydrochloride",
+          "formulation": "cetirizine hydrochloride, cellulose",
+          "dose": "requires review",
+          "duration": "requires review"
+        },
+        "comparators": [
+          "requires review"
+        ],
+        "outcomes": [
+          "requires extraction from displayed claim and sources"
+        ]
+      },
+      "safetyDraft": {
+        "warnings": [
+          "May cause mild drowsiness in some users.",
+          "Avoid alcohol."
+        ],
+        "contraindications": [
+          "kidney disease"
+        ],
+        "status": "needs-review"
+      },
+      "searchStrategy": {
+        "intervention": "cetirizine hydrochloride",
+        "condition": "allergies",
+        "sources": [
+          "NCBI PubMed",
+          "Europe PMC",
+          "Google Scholar (ScrapingBee)",
+          "existing guideline/public-health links"
+        ]
+      },
+      "candidates": [
+        {
+          "retrievalSource": "existing-catalogue",
+          "url": "https://pubmed.ncbi.nlm.nih.gov/41707943/",
+          "title": "J Allergy Clin Immunol Pract",
+          "organization": "US National Library of Medicine",
+          "evidenceType": null,
+          "semanticStatus": "unassessed",
+          "evidenceClass": "other",
+          "triageStatus": "possible-mismatch",
+          "triageFlags": [
+            "intervention-not-confirmed-in-retrieved-text",
+            "condition-not-confirmed-in-retrieved-text"
+          ]
+        }
+      ],
+      "retrievalErrors": [],
+      "reviewerChecklist": [
+        "Confirm population, diagnosis, sex, age, and setting",
+        "Confirm exact intervention, formulation, dose, duration, and co-interventions",
+        "Confirm comparator and patient-important outcomes",
+        "Extract effect estimate, uncertainty, adverse events, and limitations",
+        "Assess risk of bias and applicability",
+        "Reject duplicate indexes of the same publication",
+        "Add independent guideline and safety sources where available"
+      ],
+      "triageSummary": {
+        "possible-mismatch": 1
+      }
+    }
+  ],
+  "triagedAt": "2026-08-14T08:06:55.743Z",
+  "triagePolicy": {
+    "automaticApproval": false,
+    "purpose": "Prioritize human review and obvious exclusion checks; lexical matches do not establish clinical applicability."
+  }
+}

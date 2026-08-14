@@ -10,6 +10,7 @@ import { applyLegacyBatch4 } from '../src/data/legacyRemedyBatch4.js';
 import { applyLegacyBatch5 } from '../src/data/legacyRemedyBatch5.js';
 import { applyLegacyEvidenceTierOverlay } from '../src/data/legacyEvidenceTierOverlay.js';
 import { applyMultiSourceRemedyBatch1 } from '../src/data/multiSourceRemedyBatch1.js';
+import { applyAllRemedyBatches } from '../src/data/remedyBatches/index.js';
 import { filterEvidenceReviewedRemedies } from '../src/data/evidenceReview.js';
 import { classifyEvidenceSource, EVIDENCE_SOURCE_POLICY } from '../src/utils/evidenceSources.js';
 import { GENERATED_EVIDENCE_METADATA } from '../src/data/generatedEvidenceMetadata.js';
@@ -26,7 +27,7 @@ const decodeHtml = (value = '') => value
 function runtimeRemedies() {
   const legacy = applyLegacyEvidenceTierOverlay(applyLegacyBatch5(applyLegacyBatch4(applyLegacyBatch3(applyLegacyBatch2(applyLegacyBatch1(LOCAL_REMEDIES))))));
   return filterEvidenceReviewedRemedies(
-    applyMultiSourceRemedyBatch1([...REMEDIES, ...legacy])
+    applyAllRemedyBatches(applyMultiSourceRemedyBatch1([...REMEDIES, ...legacy]))
       .filter((remedy, index, all) => all.findIndex((candidate) => candidate.id === remedy.id) === index)
   );
 }

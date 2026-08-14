@@ -44,7 +44,7 @@ test.describe('Favorites — Remedy Card Heart Button', () => {
   });
 
   test('heart button is visible on remedy detail page', async ({ page }) => {
-    await page.goto('/remedy/rem_c09');
+    await page.goto('/remedy/rem_001');
     await page.waitForLoadState('networkidle');
     await page.waitForTimeout(3000);
 

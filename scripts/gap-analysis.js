@@ -10,13 +10,14 @@ import { applyLegacyBatch4 } from '../src/data/legacyRemedyBatch4.js';
 import { applyLegacyBatch5 } from '../src/data/legacyRemedyBatch5.js';
 import { applyLegacyEvidenceTierOverlay } from '../src/data/legacyEvidenceTierOverlay.js';
 import { applyMultiSourceRemedyBatch1 } from '../src/data/multiSourceRemedyBatch1.js';
+import { applyAllRemedyBatches } from '../src/data/remedyBatches/index.js';
 
 const outputArg = process.argv.find((arg) => arg.startsWith('--output='))?.slice(9);
 const symptomCode = readFileSync(new URL('../src/data/symptoms.js', import.meta.url), 'utf8');
 const symptoms = [...symptomCode.matchAll(/\{\s*id:\s*'([^']+)'[\s\S]{0,300}?label:\s*'([^']+)'/g)]
   .map((match) => ({ id: match[1], label: match[2] }));
 const local = applyLegacyEvidenceTierOverlay(applyLegacyBatch5(applyLegacyBatch4(applyLegacyBatch3(applyLegacyBatch2(applyLegacyBatch1(LOCAL_REMEDIES))))));
-const remedies = applyMultiSourceRemedyBatch1([...REMEDIES, ...local])
+const remedies = applyAllRemedyBatches(applyMultiSourceRemedyBatch1([...REMEDIES, ...local]))
   .filter((remedy, index, all) => all.findIndex((candidate) => candidate.id === remedy.id) === index);
 
 const coverage = symptoms.map((symptom) => {
