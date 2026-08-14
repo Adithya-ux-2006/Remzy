@@ -63,6 +63,17 @@ export const TREATMENT_PREFERENCES = [
   { value: 'vegetarian_remedies', label: 'Vegetarian Only', emoji: '🥬', description: 'Only show remedies without animal-derived ingredients' },
 ];
 
+export const ABOUT_REMZY_ITEMS = [
+  {
+    question: 'Our Mission',
+    answer: 'Remzy exists to help people understand their symptoms and explore evidence-informed options with clear, honest labeling — without ever replacing professional care. The goal is health information that is easy to navigate, so you can go into a conversation with a doctor better informed, not less cautious.',
+  },
+  {
+    question: 'Why We Built Remzy',
+    answer: 'Health information online is often overwhelming, unsourced, or hard to trust. We built Remzy to make it easier to see what is backed by published research and what is not — so the choices you make about your health are grounded in something you can actually verify.',
+  },
+];
+
 export const FAQ_ITEMS = [
   {
     question: 'Are these remedies safe to use?',

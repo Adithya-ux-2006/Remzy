@@ -9,7 +9,7 @@ import { TrustBadges } from '../components/ui/TrustBadges';
 import { LegalFooter } from '../components/ui/LegalFooter';
 import { useCatalogStore } from '../store/catalogStore';
 import { POPULAR_SYMPTOM_IDS } from '../constants/symptoms';
-import { FAQ_ITEMS } from '../constants/onboarding';
+import { ABOUT_REMZY_ITEMS } from '../constants/onboarding';
 import { useGuestProfileStore } from '../store/guestProfileStore';
 import { trackSearchEvent } from '../utils/analytics';
 
@@ -131,7 +131,7 @@ export function Landing() {
             title="About Remzy"
             subtitle="The health platform behind your search."
             lead="Remzy is a health information platform that maps common concerns to remedies and shows the review status of linked sources. Always consult a certified medical professional for serious health concerns."
-            items={FAQ_ITEMS.slice(0, 3)}
+            items={ABOUT_REMZY_ITEMS}
             bordered
           />
         </div>
