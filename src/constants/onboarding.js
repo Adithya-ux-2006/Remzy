@@ -96,6 +96,10 @@ export const FAQ_ITEMS = [
     answer: 'Remzy shows linked research or guidance where a source has been identified and clearly separates claim-reviewed evidence from sources whose relevance is still under review. Not every remedy has established clinical evidence. Traditional and supportive approaches are labeled separately. Remzy is informational only and is not a substitute for medical advice. Consult a qualified medical professional before starting treatment, especially if you have a health condition, take medication, are pregnant, or are unsure whether it is safe for you.',
   },
   {
+    question: 'What\'s the difference between remedy categories?',
+    answer: 'Remedies are grouped into four categories: Natural, Lifestyle, OTC (Over the Counter), and TCM (Traditional Chinese Medicine). Each is labeled separately so you can see what kind of approach you are looking at.',
+  },
+  {
     question: 'Can I use Remzy instead of seeing a doctor?',
     answer: 'No. Remzy can help you explore remedy information, but it cannot diagnose you or replace a qualified medical professional. If your symptoms are severe, persistent, worsening, or feel urgent, seek professional medical care immediately. You can also use the Find Medical Centres Near You feature on a remedy page to locate nearby care.',
   },
@@ -108,12 +112,20 @@ export const FAQ_ITEMS = [
     answer: 'When you complete the health-profile questionnaire, Remzy uses the conditions, allergies, age information, and treatment preferences you provide to rank relevant options and filter remedies with identified conflicts. If you skip the questionnaire or leave it incomplete, Remzy has less context about you, so your results and safety filtering will be less personalized and may be less accurate for your needs.',
   },
   {
+    question: 'What is Child Safe Mode?',
+    answer: 'Child Safe Mode removes remedies that are not recommended for children from your results, so you can search more confidently on behalf of a child. Toggle it on from the search results page whenever needed. Remedies whose child safety has not been reviewed yet are not hidden — they show a caution badge instead.',
+  },
+  {
     question: 'Is my health data private?',
     answer: 'Your account and health-profile information is stored through Supabase and protected by authenticated, user-specific access controls. Remzy does not sell your personal data. For complex or ambiguous searches, the symptom text you enter may be sent to Google Gemini through a server-side service to help interpret the query; it is not sent with your Remzy identity. If you use Remzy as a guest, profile information is kept in your browser. See the Privacy Policy for full details or to request deletion of your data.',
   },
   {
     question: 'How do I save a remedy?',
     answer: 'Tap the heart icon on a remedy card or on the Remedy Detail page. You must be signed in to add or remove a remedy from Favorites; if you are not signed in, Remzy will take you to account registration. Your favorites are linked to your account and available from the Saved page whenever you sign in.',
+  },
+  {
+    question: 'How do Treatment Reminders work?',
+    answer: 'You can schedule reminders for any remedy directly from its detail page or card. Reminders show up on your Treatment Reminders dashboard, where you can track today\'s schedule, upcoming reminders, and what you\'ve already completed.',
   },
   {
     question: 'What do the warning badges mean?',
