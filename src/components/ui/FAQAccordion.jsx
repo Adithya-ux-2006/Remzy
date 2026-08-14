@@ -37,7 +37,18 @@ export function FAQAccordion({ items, bordered = false }) {
                   className="overflow-hidden"
                 >
                   <div className="border-t border-border px-5 py-4 text-sm leading-relaxed text-ink-muted">
-                    {item.answer}
+                    {Array.isArray(item.answer) ? (
+                      <ul className="space-y-2.5">
+                        {item.answer.map((line, i) => (
+                          <li key={i} className="flex items-start gap-2.5 leading-relaxed">
+                            <span aria-hidden className="mt-[8px] h-1.5 w-1.5 shrink-0 rounded-full bg-current" />
+                            <span>{line}</span>
+                          </li>
+                        ))}
+                      </ul>
+                    ) : (
+                      item.answer
+                    )}
                   </div>
                 </motion.div>
               ) : null}

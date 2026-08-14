@@ -66,15 +66,19 @@ export const TREATMENT_PREFERENCES = [
 export const ABOUT_REMZY_ITEMS = [
   {
     question: 'Our Mission',
-    answer: 'Understanding what\'s happening with your body should come before deciding what to do about it. Remzy labels remedies honestly — distinguishing what\'s backed by research from what\'s a traditional or supportive approach — so you can bring real questions to a doctor\'s appointment, not just a search result.',
+    answer: "Nobody feels their best when something's wrong and they're not sure what to do about it. That moment shouldn't feel so hard, so we built Remzy to make it easier. Remzy is your one stop healthcare assistant, there in your time of need with clear, honest answers when you're not sure what's wrong or what to do next. We're not here to replace a doctor, we're here for the moments in between, when professional care isn't available, isn't necessary yet, or is just out of reach. Trust isn't given, it's earned, one good answer at a time: research backed remedies, honest guidance, and nothing standing between you and feeling better.",
   },
   {
     question: 'Why We Built It',
-    answer: 'Searching a symptom online often means sorting through pages with no clear sourcing, or content designed to alarm rather than inform. Remzy was built to close that gap: a place where the reasoning behind a suggestion is visible, and the decision is still yours to make.',
+    answer: "Searching a symptom online can leave you with more questions than answers. We wanted something clearer: tell Remzy how you're feeling, and get back real options, natural, over-the-counter, and lifestyle, along with the reasoning behind each one. Save the remedies that work for you, set reminders to actually take them, and find nearby pharmacies or healthcare providers when you need more. No sign-up, no long forms, just clear answers and the tools to follow through. The decision is always yours. We just want to make it easier to make.",
   },
   {
     question: 'Our Values',
-    answer: 'We would rather state plainly that a remedy is unproven than present it as more credible than it is. Remzy avoids fear-based framing and vague reassurance in favor of information presented clearly, regardless of the reader\'s medical background.',
+    answer: [
+      'We keep information clear and honest, no fear-based framing, no vague reassurance, just what you need to know.',
+      "We're never biased. We don't promote one remedy or product over another, and we never take payment to rank something higher than it deserves.",
+      "We're upfront about what we don't know and where our information comes from, so you can always trace a suggestion back to its source.",
+    ],
   },
   {
     question: 'How We Review',
@@ -82,11 +86,11 @@ export const ABOUT_REMZY_ITEMS = [
   },
   {
     question: 'Who It\'s For',
-    answer: 'Remzy is intended for anyone trying to understand a symptom and its possible next steps. It does not diagnose or treat — it is meant to support a more informed conversation with a medical professional, not replace one.',
+    answer: "Remzy is for anyone looking to explore their options before deciding what to do next, no matter their background, income, or familiarity with health topics. We're working to make healthcare more affordable, more accessible, and more honest, especially in the gaps where professional care is out of reach.",
   },
   {
     question: 'What\'s Next',
-    answer: 'Future work will focus on expanding symptom coverage, refining how evidence is reviewed and labeled, and improving how closely results reflect an individual\'s specific situation.',
+    answer: "Future work will focus on expanding symptom coverage, refining how evidence is reviewed and labeled, and improving how closely results reflect an individual's specific situation. That includes accounting for age, building out our library of common symptoms, and adding an emergency alert for situations that need more than a remedy. We are also looking at region based medicine names, so what you see matches what's actually on the shelf near you, and more wellness content beyond symptom relief. Further down the road, we plan to integrate more cultural remedies, held to the same research backed standard as everything else on Remzy, and build toward a community where people have each other's backs when they're not feeling well.",
   },
 ];
 
