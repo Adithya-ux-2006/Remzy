@@ -381,11 +381,11 @@ function main() {
   const valid = deduped.filter(c => c.symptomCodes && c.symptomCodes.length > 0);
   console.log(`Candidates with valid symptom codes: ${valid.length}`);
 
-  const selected = selectBestPerSymptom(valid, 15);
+  const selected = selectBestPerSymptom(valid, 30);
   console.log(`Selected ${selected.length} candidates after prioritization\n`);
 
   // Build remedy objects
-  const counter = { value: 1000 }; // Start from rem_ing_1000 to avoid conflicts
+  const counter = { value: 2000 }; // Start from rem_ing_2000 to avoid conflicts with previous run
   const remedies = selected.map(c => buildRemedy(c, existingIds, counter));
   console.log(`Built ${remedies.length} remedy entries\n`);
 
