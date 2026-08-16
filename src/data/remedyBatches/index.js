@@ -32,6 +32,12 @@ import { applyRemedyBatch30 } from './remedyBatch30.js';
 import { applyRemedyBatch31 } from './remedyBatch31.js';
 import { applyRemedyBatch32 } from './remedyBatch32.js';
 import { applyRemedyBatch33 } from './remedyBatch33.js';
+import { applyRemedyBatch34 } from './remedyBatch34.js';
+import { applyRemedyBatch35 } from './remedyBatch35.js';
+import { applyRemedyBatch36 } from './remedyBatch36.js';
+import { applyRemedyBatch37 } from './remedyBatch37.js';
+import { applyRemedyBatch38 } from './remedyBatch38.js';
+import { applyRemedyBatch39 } from './remedyBatch39.js';
 
 const batchFns = [
   applyRemedyBatch1, applyRemedyBatch2, applyRemedyBatch3, applyRemedyBatch4,
@@ -42,7 +48,8 @@ const batchFns = [
   applyRemedyBatch21, applyRemedyBatch22, applyRemedyBatch23, applyRemedyBatch24,
   applyRemedyBatch25, applyRemedyBatch26, applyRemedyBatch27, applyRemedyBatch28,
   applyRemedyBatch29, applyRemedyBatch30, applyRemedyBatch31, applyRemedyBatch32,
-  applyRemedyBatch33,
+  applyRemedyBatch33, applyRemedyBatch34, applyRemedyBatch35, applyRemedyBatch36,
+  applyRemedyBatch37, applyRemedyBatch38, applyRemedyBatch39,
 ];
 
 export function applyAllRemedyBatches(remedies) {
