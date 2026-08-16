@@ -1,0 +1,1666 @@
+{
+  "generatedAt": "2026-08-14T16:10:47.511Z",
+  "symptoms": 101,
+  "remedies": 742,
+  "zeroCoverage": [],
+  "lowCoverage": [
+    {
+      "id": "chills",
+      "label": "Chills",
+      "count": 1,
+      "remedyIds": [
+        "rem_ms03"
+      ]
+    },
+    {
+      "id": "cold_sore",
+      "label": "Cold Sore",
+      "count": 1,
+      "remedyIds": [
+        "rem_cs01"
+      ]
+    },
+    {
+      "id": "elbow_pain",
+      "label": "Elbow Pain",
+      "count": 2,
+      "remedyIds": [
+        "rem_021",
+        "rem_gen1_14"
+      ]
+    },
+    {
+      "id": "eye_pain",
+      "label": "Eye Pain",
+      "count": 2,
+      "remedyIds": [
+        "rem_106",
+        "rem_gen9_02"
+      ]
+    },
+    {
+      "id": "prostate_issues",
+      "label": "Prostate Issues",
+      "count": 2,
+      "remedyIds": [
+        "rem_017",
+        "rem_045"
+      ]
+    },
+    {
+      "id": "sprain",
+      "label": "Sprain",
+      "count": 2,
+      "remedyIds": [
+        "rem_021",
+        "rem_gen1_33"
+      ]
+    },
+    {
+      "id": "testicular_pain",
+      "label": "Testicular Pain",
+      "count": 2,
+      "remedyIds": [
+        "rem_016",
+        "rem_gen9_07"
+      ]
+    },
+    {
+      "id": "yeast_infection",
+      "label": "Yeast Infection",
+      "count": 2,
+      "remedyIds": [
+        "rem_011",
+        "rem_012"
+      ]
+    }
+  ],
+  "coverage": [
+    {
+      "id": "chills",
+      "label": "Chills",
+      "count": 1,
+      "remedyIds": [
+        "rem_ms03"
+      ]
+    },
+    {
+      "id": "cold_sore",
+      "label": "Cold Sore",
+      "count": 1,
+      "remedyIds": [
+        "rem_cs01"
+      ]
+    },
+    {
+      "id": "elbow_pain",
+      "label": "Elbow Pain",
+      "count": 2,
+      "remedyIds": [
+        "rem_021",
+        "rem_gen1_14"
+      ]
+    },
+    {
+      "id": "eye_pain",
+      "label": "Eye Pain",
+      "count": 2,
+      "remedyIds": [
+        "rem_106",
+        "rem_gen9_02"
+      ]
+    },
+    {
+      "id": "prostate_issues",
+      "label": "Prostate Issues",
+      "count": 2,
+      "remedyIds": [
+        "rem_017",
+        "rem_045"
+      ]
+    },
+    {
+      "id": "sprain",
+      "label": "Sprain",
+      "count": 2,
+      "remedyIds": [
+        "rem_021",
+        "rem_gen1_33"
+      ]
+    },
+    {
+      "id": "testicular_pain",
+      "label": "Testicular Pain",
+      "count": 2,
+      "remedyIds": [
+        "rem_016",
+        "rem_gen9_07"
+      ]
+    },
+    {
+      "id": "yeast_infection",
+      "label": "Yeast Infection",
+      "count": 2,
+      "remedyIds": [
+        "rem_011",
+        "rem_012"
+      ]
+    },
+    {
+      "id": "back_pain",
+      "label": "Back Pain",
+      "count": 3,
+      "remedyIds": [
+        "rem_034",
+        "rem_bp02",
+        "rem_bp06"
+      ]
+    },
+    {
+      "id": "congestion",
+      "label": "Congestion",
+      "count": 3,
+      "remedyIds": [
+        "rem_006",
+        "rem_007",
+        "rem_c01"
+      ]
+    },
+    {
+      "id": "cough",
+      "label": "Cough",
+      "count": 3,
+      "remedyIds": [
+        "rem_008",
+        "rem_c01",
+        "rem_c05"
+      ]
+    },
+    {
+      "id": "diarrhea",
+      "label": "Diarrhea",
+      "count": 3,
+      "remedyIds": [
+        "rem_028",
+        "rem_dh01",
+        "rem_ms08"
+      ]
+    },
+    {
+      "id": "eczema",
+      "label": "Eczema",
+      "count": 3,
+      "remedyIds": [
+        "rem_023",
+        "rem_sr01",
+        "rem_sr05"
+      ]
+    },
+    {
+      "id": "endometriosis",
+      "label": "Endometriosis",
+      "count": 3,
+      "remedyIds": [
+        "rem_038",
+        "rem_gen9_01",
+        "rem_gen10_01"
+      ]
+    },
+    {
+      "id": "foot_pain",
+      "label": "Foot Pain",
+      "count": 3,
+      "remedyIds": [
+        "rem_040",
+        "rem_gen9_03",
+        "rem_gen9_04"
+      ]
+    },
+    {
+      "id": "hangover",
+      "label": "Hangover",
+      "count": 3,
+      "remedyIds": [
+        "rem_hg01",
+        "rem_ho01",
+        "rem_ho06"
+      ]
+    },
+    {
+      "id": "palpitations",
+      "label": "Heart Palpitations",
+      "count": 3,
+      "remedyIds": [
+        "rem_036",
+        "rem_037",
+        "rem_gen1_46"
+      ]
+    },
+    {
+      "id": "hemorrhoids",
+      "label": "Hemorrhoids",
+      "count": 3,
+      "remedyIds": [
+        "rem_028",
+        "rem_029",
+        "rem_gen1_47"
+      ]
+    },
+    {
+      "id": "indigestion",
+      "label": "Indigestion",
+      "count": 3,
+      "remedyIds": [
+        "rem_027",
+        "rem_030",
+        "rem_gen1_48"
+      ]
+    },
+    {
+      "id": "ibs",
+      "label": "Irritable Bowel (IBS)",
+      "count": 3,
+      "remedyIds": [
+        "rem_011",
+        "rem_028",
+        "rem_bg06"
+      ]
+    },
+    {
+      "id": "loss_of_appetite",
+      "label": "Loss of Appetite",
+      "count": 3,
+      "remedyIds": [
+        "rem_030",
+        "rem_gen1_24",
+        "rem_gen2_20"
+      ]
+    },
+    {
+      "id": "migraine",
+      "label": "Migraine",
+      "count": 3,
+      "remedyIds": [
+        "rem_mg01",
+        "rem_ms01",
+        "rem_ms02"
+      ]
+    },
+    {
+      "id": "painful_intercourse",
+      "label": "Painful Intercourse",
+      "count": 3,
+      "remedyIds": [
+        "rem_103",
+        "rem_104",
+        "rem_gen9_16"
+      ]
+    },
+    {
+      "id": "pelvic_pain",
+      "label": "Pelvic Pain",
+      "count": 3,
+      "remedyIds": [
+        "rem_016",
+        "rem_038",
+        "rem_045"
+      ]
+    },
+    {
+      "id": "poor_circulation",
+      "label": "Poor Circulation",
+      "count": 3,
+      "remedyIds": [
+        "rem_013",
+        "rem_031",
+        "rem_035"
+      ]
+    },
+    {
+      "id": "restless_leg",
+      "label": "Restless Legs",
+      "count": 3,
+      "remedyIds": [
+        "rem_026",
+        "rem_035",
+        "rem_041"
+      ]
+    },
+    {
+      "id": "sciatica",
+      "label": "Sciatica",
+      "count": 3,
+      "remedyIds": [
+        "rem_034",
+        "rem_gen1_31",
+        "rem_gen2_27"
+      ]
+    },
+    {
+      "id": "sunburn",
+      "label": "Sunburn",
+      "count": 3,
+      "remedyIds": [
+        "rem_022",
+        "rem_044",
+        "rem_gen9_17"
+      ]
+    },
+    {
+      "id": "toothache",
+      "label": "Toothache",
+      "count": 3,
+      "remedyIds": [
+        "rem_018",
+        "rem_gen9_08",
+        "rem_gen10_04"
+      ]
+    },
+    {
+      "id": "urinary_incontinence",
+      "label": "Urinary Incontinence",
+      "count": 3,
+      "remedyIds": [
+        "rem_045",
+        "rem_ms07",
+        "rem_ms10"
+      ]
+    },
+    {
+      "id": "uti",
+      "label": "Urinary Tract Infection",
+      "count": 3,
+      "remedyIds": [
+        "rem_009",
+        "rem_010",
+        "rem_011"
+      ]
+    },
+    {
+      "id": "vaginal_dryness",
+      "label": "Vaginal Dryness",
+      "count": 3,
+      "remedyIds": [
+        "rem_015",
+        "rem_104",
+        "rem_105"
+      ]
+    },
+    {
+      "id": "brain_fog",
+      "label": "Brain Fog",
+      "count": 4,
+      "remedyIds": [
+        "rem_031",
+        "rem_s05",
+        "rem_ft01",
+        "rem_ft06"
+      ]
+    },
+    {
+      "id": "eye_strain",
+      "label": "Eye Strain",
+      "count": 4,
+      "remedyIds": [
+        "rem_106",
+        "rem_es01",
+        "rem_es04",
+        "rem_ey06"
+      ]
+    },
+    {
+      "id": "hair_loss",
+      "label": "Hair Loss",
+      "count": 4,
+      "remedyIds": [
+        "rem_017",
+        "rem_026",
+        "rem_033",
+        "rem_039"
+      ]
+    },
+    {
+      "id": "hand_pain",
+      "label": "Hand Pain",
+      "count": 4,
+      "remedyIds": [
+        "rem_hd01",
+        "rem_gen1_19",
+        "rem_gen9_11",
+        "rem_gen10_07"
+      ]
+    },
+    {
+      "id": "hives",
+      "label": "Hives",
+      "count": 4,
+      "remedyIds": [
+        "rem_006",
+        "rem_023",
+        "rem_029",
+        "rem_sr02"
+      ]
+    },
+    {
+      "id": "insect_bite",
+      "label": "Insect Bite",
+      "count": 4,
+      "remedyIds": [
+        "rem_022",
+        "rem_024",
+        "rem_029",
+        "rem_044"
+      ]
+    },
+    {
+      "id": "joint_pain",
+      "label": "Joint Pain",
+      "count": 4,
+      "remedyIds": [
+        "rem_036",
+        "rem_kp01",
+        "rem_gen9_12",
+        "rem_gen10_08"
+      ]
+    },
+    {
+      "id": "low_energy",
+      "label": "Low Energy",
+      "count": 4,
+      "remedyIds": [
+        "rem_014",
+        "rem_026",
+        "rem_033",
+        "rem_037"
+      ]
+    },
+    {
+      "id": "low_libido",
+      "label": "Low Libido",
+      "count": 4,
+      "remedyIds": [
+        "rem_013",
+        "rem_014",
+        "rem_101",
+        "rem_102"
+      ]
+    },
+    {
+      "id": "minor_burn",
+      "label": "Minor Burn",
+      "count": 4,
+      "remedyIds": [
+        "rem_022",
+        "rem_044",
+        "rem_gen11_24",
+        "rem_gen12_24"
+      ]
+    },
+    {
+      "id": "nausea",
+      "label": "Nausea",
+      "count": 4,
+      "remedyIds": [
+        "rem_004",
+        "rem_030",
+        "rem_pc02",
+        "rem_n09"
+      ]
+    },
+    {
+      "id": "night_sweats",
+      "label": "Night Sweats",
+      "count": 4,
+      "remedyIds": [
+        "rem_042",
+        "rem_ms06",
+        "rem_gen9_15",
+        "rem_gen10_11"
+      ]
+    },
+    {
+      "id": "sore_throat",
+      "label": "Sore Throat",
+      "count": 4,
+      "remedyIds": [
+        "rem_019",
+        "rem_st01",
+        "rem_st03",
+        "rem_st05"
+      ]
+    },
+    {
+      "id": "stomach_ache",
+      "label": "Stomach Ache",
+      "count": 4,
+      "remedyIds": [
+        "rem_030",
+        "rem_gen11_06",
+        "rem_gen12_06",
+        "rem_gen13_06"
+      ]
+    },
+    {
+      "id": "wrist_pain",
+      "label": "Wrist Pain",
+      "count": 4,
+      "remedyIds": [
+        "rem_021",
+        "rem_hd01",
+        "rem_gen1_54",
+        "rem_gen2_44"
+      ]
+    },
+    {
+      "id": "bloating",
+      "label": "Bloating",
+      "count": 5,
+      "remedyIds": [
+        "rem_011",
+        "rem_bg01",
+        "rem_bg02",
+        "rem_bg05",
+        "rem_bg06"
+      ]
+    },
+    {
+      "id": "bruising",
+      "label": "Bruising",
+      "count": 5,
+      "remedyIds": [
+        "rem_021",
+        "rem_gen1_09",
+        "rem_gen1_10",
+        "rem_gen2_08",
+        "rem_gen2_09"
+      ]
+    },
+    {
+      "id": "cold",
+      "label": "Cold",
+      "count": 5,
+      "remedyIds": [
+        "rem_h04",
+        "rem_007",
+        "rem_c01",
+        "rem_c05",
+        "rem_st01"
+      ]
+    },
+    {
+      "id": "dry_skin",
+      "label": "Dry Skin",
+      "count": 5,
+      "remedyIds": [
+        "rem_015",
+        "rem_022",
+        "rem_023",
+        "rem_036",
+        "rem_sr05"
+      ]
+    },
+    {
+      "id": "gum_pain",
+      "label": "Gum Pain",
+      "count": 5,
+      "remedyIds": [
+        "rem_018",
+        "rem_019",
+        "rem_gen11_23",
+        "rem_gen12_23",
+        "rem_gen13_23"
+      ]
+    },
+    {
+      "id": "heartburn",
+      "label": "Heartburn",
+      "count": 5,
+      "remedyIds": [
+        "rem_027",
+        "rem_gen9_05",
+        "rem_gen9_06",
+        "rem_gen10_02",
+        "rem_gen10_03"
+      ]
+    },
+    {
+      "id": "muscle_pain",
+      "label": "Muscle Pain",
+      "count": 5,
+      "remedyIds": [
+        "rem_016",
+        "rem_gen1_25",
+        "rem_gen2_21",
+        "rem_gen3_17",
+        "rem_gen4_16"
+      ]
+    },
+    {
+      "id": "shoulder_pain",
+      "label": "Shoulder Pain",
+      "count": 5,
+      "remedyIds": [
+        "rem_np01",
+        "rem_sp01",
+        "rem_np07",
+        "rem_sp03",
+        "rem_sp07"
+      ]
+    },
+    {
+      "id": "allergies",
+      "label": "Allergies",
+      "count": 6,
+      "remedyIds": [
+        "rem_006",
+        "rem_007",
+        "rem_gen1_36",
+        "rem_gen2_31",
+        "rem_gen3_25",
+        "rem_gen4_24"
+      ]
+    },
+    {
+      "id": "bad_breath",
+      "label": "Bad Breath",
+      "count": 6,
+      "remedyIds": [
+        "rem_019",
+        "rem_024",
+        "rem_gen9_09",
+        "rem_gen9_10",
+        "rem_gen10_05",
+        "rem_gen10_06"
+      ]
+    },
+    {
+      "id": "headache",
+      "label": "Headache",
+      "count": 6,
+      "remedyIds": [
+        "rem_001",
+        "rem_h04",
+        "rem_004",
+        "rem_005",
+        "rem_mg01",
+        "rem_fv01"
+      ]
+    },
+    {
+      "id": "neck_pain",
+      "label": "Neck Pain",
+      "count": 6,
+      "remedyIds": [
+        "rem_np01",
+        "rem_np07",
+        "rem_gen9_13",
+        "rem_gen9_14",
+        "rem_gen10_09",
+        "rem_gen10_10"
+      ]
+    },
+    {
+      "id": "period_cramps",
+      "label": "Period Cramps",
+      "count": 6,
+      "remedyIds": [
+        "rem_016",
+        "rem_038",
+        "rem_pms01",
+        "rem_pc01",
+        "rem_pc02",
+        "rem_pc05"
+      ]
+    },
+    {
+      "id": "rosacea",
+      "label": "Rosacea",
+      "count": 6,
+      "remedyIds": [
+        "rem_rs01",
+        "rem_gen1_30",
+        "rem_gen2_26",
+        "rem_gen3_21",
+        "rem_gen4_20",
+        "rem_gen5_17"
+      ]
+    },
+    {
+      "id": "skin_rash",
+      "label": "Skin Rash",
+      "count": 6,
+      "remedyIds": [
+        "rem_012",
+        "rem_022",
+        "rem_023",
+        "rem_044",
+        "rem_sr01",
+        "rem_sr02"
+      ]
+    },
+    {
+      "id": "allergic_reaction",
+      "label": "Allergic Reaction",
+      "count": 7,
+      "remedyIds": [
+        "rem_006",
+        "rem_gen1_03",
+        "rem_gen1_04",
+        "rem_gen2_03",
+        "rem_gen3_03",
+        "rem_gen4_02",
+        "rem_gen5_02"
+      ]
+    },
+    {
+      "id": "pms",
+      "label": "PMS",
+      "count": 7,
+      "remedyIds": [
+        "rem_pms01",
+        "rem_gen1_27",
+        "rem_gen1_28",
+        "rem_gen2_23",
+        "rem_gen2_24",
+        "rem_gen3_19",
+        "rem_gen4_18"
+      ]
+    },
+    {
+      "id": "psoriasis",
+      "label": "Psoriasis",
+      "count": 7,
+      "remedyIds": [
+        "rem_023",
+        "rem_gen1_29",
+        "rem_gen2_25",
+        "rem_gen3_20",
+        "rem_gen4_19",
+        "rem_gen5_16",
+        "rem_gen6_14"
+      ]
+    },
+    {
+      "id": "fatigue",
+      "label": "Fatigue",
+      "count": 8,
+      "remedyIds": [
+        "rem_026",
+        "rem_033",
+        "rem_037",
+        "rem_101",
+        "rem_102",
+        "rem_s01",
+        "rem_ft01",
+        "rem_ft06"
+      ]
+    },
+    {
+      "id": "tmj_pain",
+      "label": "Jaw Pain",
+      "count": 8,
+      "remedyIds": [
+        "rem_020",
+        "rem_gen1_20",
+        "rem_gen2_16",
+        "rem_gen3_13",
+        "rem_gen4_12",
+        "rem_gen5_12",
+        "rem_gen6_10",
+        "rem_gen7_10"
+      ]
+    },
+    {
+      "id": "anxiety",
+      "label": "Anxious",
+      "count": 9,
+      "remedyIds": [
+        "rem_036",
+        "rem_bt01",
+        "rem_a01",
+        "rem_a02",
+        "rem_a05",
+        "rem_a08",
+        "rem_a09",
+        "rem_a10",
+        "rem_s10"
+      ]
+    },
+    {
+      "id": "breast_pain",
+      "label": "Breast Pain",
+      "count": 9,
+      "remedyIds": [
+        "rem_015",
+        "rem_016",
+        "rem_gen1_39",
+        "rem_gen2_33",
+        "rem_gen3_27",
+        "rem_gen4_26",
+        "rem_gen5_22",
+        "rem_gen6_19",
+        "rem_gen7_17"
+      ]
+    },
+    {
+      "id": "burnout",
+      "label": "Burnout",
+      "count": 9,
+      "remedyIds": [
+        "rem_bt01",
+        "rem_gen1_11",
+        "rem_gen2_10",
+        "rem_gen3_07",
+        "rem_gen4_06",
+        "rem_gen5_06",
+        "rem_gen6_04",
+        "rem_gen7_04",
+        "rem_gen8_04"
+      ]
+    },
+    {
+      "id": "insomnia",
+      "label": "Insomnia",
+      "count": 9,
+      "remedyIds": [
+        "rem_041",
+        "rem_042",
+        "rem_043",
+        "rem_i01",
+        "rem_i02",
+        "rem_i05",
+        "rem_s02",
+        "rem_i08",
+        "rem_i09"
+      ]
+    },
+    {
+      "id": "knee_pain",
+      "label": "Knee Pain",
+      "count": 9,
+      "remedyIds": [
+        "rem_kp01",
+        "rem_kp03",
+        "rem_gen1_49",
+        "rem_gen2_39",
+        "rem_gen3_33",
+        "rem_gen4_31",
+        "rem_gen5_27",
+        "rem_gen6_24",
+        "rem_gen7_22"
+      ]
+    },
+    {
+      "id": "leg_pain",
+      "label": "Leg Pain",
+      "count": 9,
+      "remedyIds": [
+        "rem_035",
+        "rem_gen1_23",
+        "rem_gen2_19",
+        "rem_gen3_16",
+        "rem_gen4_15",
+        "rem_gen5_14",
+        "rem_gen6_12",
+        "rem_gen7_11",
+        "rem_gen8_07"
+      ]
+    },
+    {
+      "id": "neuropathy",
+      "label": "Nerve Pain / Tingling",
+      "count": 9,
+      "remedyIds": [
+        "rem_033",
+        "rem_gen1_26",
+        "rem_gen2_22",
+        "rem_gen3_18",
+        "rem_gen4_17",
+        "rem_gen5_15",
+        "rem_gen6_13",
+        "rem_gen7_12",
+        "rem_gen8_08"
+      ]
+    },
+    {
+      "id": "sleep_apnea",
+      "label": "Sleep Apnea",
+      "count": 9,
+      "remedyIds": [
+        "rem_025",
+        "rem_gen1_32",
+        "rem_gen2_28",
+        "rem_gen3_22",
+        "rem_gen4_21",
+        "rem_gen5_18",
+        "rem_gen6_15",
+        "rem_gen7_13",
+        "rem_gen8_09"
+      ]
+    },
+    {
+      "id": "dehydration",
+      "label": "Dehydration",
+      "count": 10,
+      "remedyIds": [
+        "rem_dh01",
+        "rem_ho01",
+        "rem_gen1_42",
+        "rem_gen2_36",
+        "rem_gen3_30",
+        "rem_gen4_28",
+        "rem_gen5_24",
+        "rem_gen6_21",
+        "rem_gen7_19",
+        "rem_gen8_14"
+      ]
+    },
+    {
+      "id": "fever",
+      "label": "Fever",
+      "count": 10,
+      "remedyIds": [
+        "rem_fv01",
+        "rem_gen1_15",
+        "rem_gen1_16",
+        "rem_gen2_13",
+        "rem_gen3_10",
+        "rem_gen4_09",
+        "rem_gen5_09",
+        "rem_gen6_07",
+        "rem_gen7_07",
+        "rem_gen8_06"
+      ]
+    },
+    {
+      "id": "fungal_infection",
+      "label": "Fungal Infection",
+      "count": 10,
+      "remedyIds": [
+        "rem_012",
+        "rem_024",
+        "rem_gen1_45",
+        "rem_gen2_38",
+        "rem_gen3_32",
+        "rem_gen4_30",
+        "rem_gen5_26",
+        "rem_gen6_23",
+        "rem_gen7_21",
+        "rem_gen8_16"
+      ]
+    },
+    {
+      "id": "tinnitus",
+      "label": "Tinnitus",
+      "count": 10,
+      "remedyIds": [
+        "rem_031",
+        "rem_043",
+        "rem_gen1_52",
+        "rem_gen2_42",
+        "rem_gen3_36",
+        "rem_gen4_34",
+        "rem_gen5_30",
+        "rem_gen6_27",
+        "rem_gen7_25",
+        "rem_gen8_19"
+      ]
+    },
+    {
+      "id": "vertigo",
+      "label": "Vertigo",
+      "count": 10,
+      "remedyIds": [
+        "rem_031",
+        "rem_032",
+        "rem_gen1_53",
+        "rem_gen2_43",
+        "rem_gen3_37",
+        "rem_gen4_35",
+        "rem_gen5_31",
+        "rem_gen6_28",
+        "rem_gen7_26",
+        "rem_gen8_20"
+      ]
+    },
+    {
+      "id": "anemia",
+      "label": "Anemia",
+      "count": 11,
+      "remedyIds": [
+        "rem_026",
+        "rem_gen1_05",
+        "rem_gen1_06",
+        "rem_gen2_04",
+        "rem_gen2_05",
+        "rem_gen3_04",
+        "rem_gen4_03",
+        "rem_gen5_03",
+        "rem_gen6_02",
+        "rem_gen7_02",
+        "rem_gen8_02"
+      ]
+    },
+    {
+      "id": "arthritis",
+      "label": "Arthritis",
+      "count": 11,
+      "remedyIds": [
+        "rem_036",
+        "rem_kp03",
+        "rem_gen1_37",
+        "rem_gen1_38",
+        "rem_gen2_32",
+        "rem_gen3_26",
+        "rem_gen4_25",
+        "rem_gen5_21",
+        "rem_gen6_18",
+        "rem_gen7_16",
+        "rem_gen8_12"
+      ]
+    },
+    {
+      "id": "edema",
+      "label": "Edema",
+      "count": 11,
+      "remedyIds": [
+        "rem_035",
+        "rem_040",
+        "rem_gen1_43",
+        "rem_gen1_44",
+        "rem_gen2_37",
+        "rem_gen3_31",
+        "rem_gen4_29",
+        "rem_gen5_25",
+        "rem_gen6_22",
+        "rem_gen7_20",
+        "rem_gen8_15"
+      ]
+    },
+    {
+      "id": "kidney_stone",
+      "label": "Kidney Stone",
+      "count": 11,
+      "remedyIds": [
+        "rem_009",
+        "rem_gen1_21",
+        "rem_gen1_22",
+        "rem_gen2_17",
+        "rem_gen2_18",
+        "rem_gen3_14",
+        "rem_gen3_15",
+        "rem_gen4_13",
+        "rem_gen4_14",
+        "rem_gen5_13",
+        "rem_gen6_11"
+      ]
+    },
+    {
+      "id": "gerd",
+      "label": "Acid Reflux",
+      "count": 12,
+      "remedyIds": [
+        "rem_027",
+        "rem_gen1_01",
+        "rem_gen1_02",
+        "rem_gen2_01",
+        "rem_gen2_02",
+        "rem_gen3_01",
+        "rem_gen3_02",
+        "rem_gen4_01",
+        "rem_gen5_01",
+        "rem_gen6_01",
+        "rem_gen7_01",
+        "rem_gen8_01"
+      ]
+    },
+    {
+      "id": "erectile_difficulty",
+      "label": "Erectile Difficulty",
+      "count": 12,
+      "remedyIds": [
+        "rem_013",
+        "rem_103",
+        "rem_gen11_19",
+        "rem_gen12_19",
+        "rem_gen13_19",
+        "rem_gen14_16",
+        "rem_gen15_14",
+        "rem_gen16_14",
+        "rem_gen17_14",
+        "rem_gen18_14",
+        "rem_gen19_14",
+        "rem_gen20_13"
+      ]
+    },
+    {
+      "id": "constipation",
+      "label": "Constipation",
+      "count": 13,
+      "remedyIds": [
+        "rem_028",
+        "rem_bg05",
+        "rem_gen1_40",
+        "rem_gen1_41",
+        "rem_gen2_34",
+        "rem_gen2_35",
+        "rem_gen3_28",
+        "rem_gen3_29",
+        "rem_gen4_27",
+        "rem_gen5_23",
+        "rem_gen6_20",
+        "rem_gen7_18",
+        "rem_gen8_13"
+      ]
+    },
+    {
+      "id": "asthma",
+      "label": "Asthma",
+      "count": 14,
+      "remedyIds": [
+        "rem_008",
+        "rem_gen1_07",
+        "rem_gen1_08",
+        "rem_gen2_06",
+        "rem_gen2_07",
+        "rem_gen3_05",
+        "rem_gen3_06",
+        "rem_gen4_04",
+        "rem_gen4_05",
+        "rem_gen5_04",
+        "rem_gen5_05",
+        "rem_gen6_03",
+        "rem_gen7_03",
+        "rem_gen8_03"
+      ]
+    },
+    {
+      "id": "stress",
+      "label": "Stress",
+      "count": 14,
+      "remedyIds": [
+        "rem_001",
+        "rem_101",
+        "rem_103",
+        "rem_bt01",
+        "rem_a01",
+        "rem_a02",
+        "rem_a05",
+        "rem_s01",
+        "rem_s02",
+        "rem_s05",
+        "rem_a08",
+        "rem_a09",
+        "rem_a10",
+        "rem_s10"
+      ]
+    },
+    {
+      "id": "gas",
+      "label": "Gas",
+      "count": 15,
+      "remedyIds": [
+        "rem_011",
+        "rem_gen1_17",
+        "rem_gen1_18",
+        "rem_gen2_14",
+        "rem_gen2_15",
+        "rem_gen3_11",
+        "rem_gen3_12",
+        "rem_gen4_10",
+        "rem_gen4_11",
+        "rem_gen5_10",
+        "rem_gen5_11",
+        "rem_gen6_08",
+        "rem_gen6_09",
+        "rem_gen7_08",
+        "rem_gen7_09"
+      ]
+    },
+    {
+      "id": "dry_mouth",
+      "label": "Dry Mouth",
+      "count": 16,
+      "remedyIds": [
+        "rem_015",
+        "rem_gen1_12",
+        "rem_gen1_13",
+        "rem_gen2_11",
+        "rem_gen2_12",
+        "rem_gen3_08",
+        "rem_gen3_09",
+        "rem_gen4_07",
+        "rem_gen4_08",
+        "rem_gen5_07",
+        "rem_gen5_08",
+        "rem_gen6_05",
+        "rem_gen6_06",
+        "rem_gen7_05",
+        "rem_gen7_06",
+        "rem_gen8_05"
+      ]
+    },
+    {
+      "id": "acne",
+      "label": "Acne",
+      "count": 18,
+      "remedyIds": [
+        "rem_024",
+        "rem_ms05",
+        "rem_gen1_34",
+        "rem_gen1_35",
+        "rem_gen2_29",
+        "rem_gen2_30",
+        "rem_gen3_23",
+        "rem_gen3_24",
+        "rem_gen4_22",
+        "rem_gen4_23",
+        "rem_gen5_19",
+        "rem_gen5_20",
+        "rem_gen6_16",
+        "rem_gen6_17",
+        "rem_gen7_14",
+        "rem_gen7_15",
+        "rem_gen8_10",
+        "rem_gen8_11"
+      ]
+    },
+    {
+      "id": "menopause",
+      "label": "Menopause",
+      "count": 18,
+      "remedyIds": [
+        "rem_042",
+        "rem_ms06",
+        "rem_gen1_50",
+        "rem_gen1_51",
+        "rem_gen2_40",
+        "rem_gen2_41",
+        "rem_gen3_34",
+        "rem_gen3_35",
+        "rem_gen4_32",
+        "rem_gen4_33",
+        "rem_gen5_28",
+        "rem_gen5_29",
+        "rem_gen6_25",
+        "rem_gen6_26",
+        "rem_gen7_23",
+        "rem_gen7_24",
+        "rem_gen8_17",
+        "rem_gen8_18"
+      ]
+    },
+    {
+      "id": "swollen_lymph_nodes",
+      "label": "Swollen Lymph Nodes",
+      "count": 18,
+      "remedyIds": [
+        "rem_ms04",
+        "rem_gen11_07",
+        "rem_gen11_08",
+        "rem_gen12_07",
+        "rem_gen12_08",
+        "rem_gen13_07",
+        "rem_gen13_08",
+        "rem_gen14_05",
+        "rem_gen14_06",
+        "rem_gen15_05",
+        "rem_gen16_05",
+        "rem_gen17_05",
+        "rem_gen18_05",
+        "rem_gen19_05",
+        "rem_gen20_05",
+        "rem_gen21_05",
+        "rem_gen22_05",
+        "rem_gen23_05"
+      ]
+    },
+    {
+      "id": "sinus_pressure",
+      "label": "Sinus Pressure",
+      "count": 20,
+      "remedyIds": [
+        "rem_007",
+        "rem_gen11_04",
+        "rem_gen11_05",
+        "rem_gen12_04",
+        "rem_gen12_05",
+        "rem_gen13_04",
+        "rem_gen13_05",
+        "rem_gen14_04",
+        "rem_gen15_04",
+        "rem_gen16_04",
+        "rem_gen17_04",
+        "rem_gen18_04",
+        "rem_gen19_04",
+        "rem_gen20_04",
+        "rem_gen21_04",
+        "rem_gen22_04",
+        "rem_gen23_04",
+        "rem_gen24_04",
+        "rem_gen25_04",
+        "rem_gen26_04"
+      ]
+    },
+    {
+      "id": "canker_sore",
+      "label": "Canker Sore",
+      "count": 28,
+      "remedyIds": [
+        "rem_018",
+        "rem_019",
+        "rem_gen11_14",
+        "rem_gen11_15",
+        "rem_gen12_14",
+        "rem_gen12_15",
+        "rem_gen13_14",
+        "rem_gen13_15",
+        "rem_gen14_12",
+        "rem_gen15_10",
+        "rem_gen16_10",
+        "rem_gen17_10",
+        "rem_gen18_10",
+        "rem_gen19_10",
+        "rem_gen20_10",
+        "rem_gen21_10",
+        "rem_gen22_10",
+        "rem_gen23_09",
+        "rem_gen24_08",
+        "rem_gen25_08",
+        "rem_gen26_08",
+        "rem_gen27_07",
+        "rem_gen28_07",
+        "rem_gen29_07",
+        "rem_gen30_05",
+        "rem_gen31_03",
+        "rem_gen32_03",
+        "rem_gen33_03"
+      ]
+    },
+    {
+      "id": "teeth_grinding",
+      "label": "Teeth Grinding",
+      "count": 28,
+      "remedyIds": [
+        "rem_020",
+        "rem_gen11_09",
+        "rem_gen11_10",
+        "rem_gen12_09",
+        "rem_gen12_10",
+        "rem_gen13_09",
+        "rem_gen13_10",
+        "rem_gen14_07",
+        "rem_gen14_08",
+        "rem_gen15_06",
+        "rem_gen16_06",
+        "rem_gen17_06",
+        "rem_gen18_06",
+        "rem_gen19_06",
+        "rem_gen20_06",
+        "rem_gen21_06",
+        "rem_gen22_06",
+        "rem_gen23_06",
+        "rem_gen24_05",
+        "rem_gen25_05",
+        "rem_gen26_05",
+        "rem_gen27_04",
+        "rem_gen28_04",
+        "rem_gen29_04",
+        "rem_gen30_02",
+        "rem_gen31_01",
+        "rem_gen32_01",
+        "rem_gen33_01"
+      ]
+    },
+    {
+      "id": "ear_pain",
+      "label": "Ear Pain",
+      "count": 48,
+      "remedyIds": [
+        "rem_ep01",
+        "rem_ms09",
+        "rem_gen11_16",
+        "rem_gen11_17",
+        "rem_gen11_18",
+        "rem_gen12_16",
+        "rem_gen12_17",
+        "rem_gen12_18",
+        "rem_gen13_16",
+        "rem_gen13_17",
+        "rem_gen13_18",
+        "rem_gen14_13",
+        "rem_gen14_14",
+        "rem_gen14_15",
+        "rem_gen15_11",
+        "rem_gen15_12",
+        "rem_gen15_13",
+        "rem_gen16_11",
+        "rem_gen16_12",
+        "rem_gen16_13",
+        "rem_gen17_11",
+        "rem_gen17_12",
+        "rem_gen17_13",
+        "rem_gen18_11",
+        "rem_gen18_12",
+        "rem_gen18_13",
+        "rem_gen19_11",
+        "rem_gen19_12",
+        "rem_gen19_13",
+        "rem_gen20_11",
+        "rem_gen20_12",
+        "rem_gen21_11",
+        "rem_gen21_12",
+        "rem_gen22_11",
+        "rem_gen22_12",
+        "rem_gen23_10",
+        "rem_gen23_11",
+        "rem_gen24_09",
+        "rem_gen24_10",
+        "rem_gen25_09",
+        "rem_gen25_10",
+        "rem_gen26_09",
+        "rem_gen26_10",
+        "rem_gen27_08",
+        "rem_gen27_09",
+        "rem_gen28_08",
+        "rem_gen29_08",
+        "rem_gen30_06"
+      ]
+    },
+    {
+      "id": "ankle_pain",
+      "label": "Ankle Pain",
+      "count": 57,
+      "remedyIds": [
+        "rem_021",
+        "rem_040",
+        "rem_gen11_11",
+        "rem_gen11_12",
+        "rem_gen11_13",
+        "rem_gen12_11",
+        "rem_gen12_12",
+        "rem_gen12_13",
+        "rem_gen13_11",
+        "rem_gen13_12",
+        "rem_gen13_13",
+        "rem_gen14_09",
+        "rem_gen14_10",
+        "rem_gen14_11",
+        "rem_gen15_07",
+        "rem_gen15_08",
+        "rem_gen15_09",
+        "rem_gen16_07",
+        "rem_gen16_08",
+        "rem_gen16_09",
+        "rem_gen17_07",
+        "rem_gen17_08",
+        "rem_gen17_09",
+        "rem_gen18_07",
+        "rem_gen18_08",
+        "rem_gen18_09",
+        "rem_gen19_07",
+        "rem_gen19_08",
+        "rem_gen19_09",
+        "rem_gen20_07",
+        "rem_gen20_08",
+        "rem_gen20_09",
+        "rem_gen21_07",
+        "rem_gen21_08",
+        "rem_gen21_09",
+        "rem_gen22_07",
+        "rem_gen22_08",
+        "rem_gen22_09",
+        "rem_gen23_07",
+        "rem_gen23_08",
+        "rem_gen24_06",
+        "rem_gen24_07",
+        "rem_gen25_06",
+        "rem_gen25_07",
+        "rem_gen26_06",
+        "rem_gen26_07",
+        "rem_gen27_05",
+        "rem_gen27_06",
+        "rem_gen28_05",
+        "rem_gen28_06",
+        "rem_gen29_05",
+        "rem_gen29_06",
+        "rem_gen30_03",
+        "rem_gen30_04",
+        "rem_gen31_02",
+        "rem_gen32_02",
+        "rem_gen33_02"
+      ]
+    },
+    {
+      "id": "frequent_urination",
+      "label": "Frequent Urination",
+      "count": 58,
+      "remedyIds": [
+        "rem_017",
+        "rem_ms10",
+        "rem_gen11_20",
+        "rem_gen11_21",
+        "rem_gen11_22",
+        "rem_gen12_20",
+        "rem_gen12_21",
+        "rem_gen12_22",
+        "rem_gen13_20",
+        "rem_gen13_21",
+        "rem_gen13_22",
+        "rem_gen14_17",
+        "rem_gen14_18",
+        "rem_gen14_19",
+        "rem_gen15_15",
+        "rem_gen15_16",
+        "rem_gen15_17",
+        "rem_gen16_15",
+        "rem_gen16_16",
+        "rem_gen16_17",
+        "rem_gen17_15",
+        "rem_gen17_16",
+        "rem_gen17_17",
+        "rem_gen18_15",
+        "rem_gen18_16",
+        "rem_gen18_17",
+        "rem_gen19_15",
+        "rem_gen19_16",
+        "rem_gen19_17",
+        "rem_gen20_14",
+        "rem_gen20_15",
+        "rem_gen20_16",
+        "rem_gen21_13",
+        "rem_gen21_14",
+        "rem_gen22_13",
+        "rem_gen22_14",
+        "rem_gen23_12",
+        "rem_gen23_13",
+        "rem_gen24_11",
+        "rem_gen24_12",
+        "rem_gen25_11",
+        "rem_gen25_12",
+        "rem_gen26_11",
+        "rem_gen26_12",
+        "rem_gen27_10",
+        "rem_gen27_11",
+        "rem_gen28_09",
+        "rem_gen28_10",
+        "rem_gen29_09",
+        "rem_gen29_10",
+        "rem_gen30_07",
+        "rem_gen30_08",
+        "rem_gen31_04",
+        "rem_gen31_05",
+        "rem_gen32_04",
+        "rem_gen32_05",
+        "rem_gen33_04",
+        "rem_gen33_05"
+      ]
+    },
+    {
+      "id": "hip_pain",
+      "label": "Hip Pain",
+      "count": 59,
+      "remedyIds": [
+        "rem_034",
+        "rem_gen11_01",
+        "rem_gen11_02",
+        "rem_gen11_03",
+        "rem_gen12_01",
+        "rem_gen12_02",
+        "rem_gen12_03",
+        "rem_gen13_01",
+        "rem_gen13_02",
+        "rem_gen13_03",
+        "rem_gen14_01",
+        "rem_gen14_02",
+        "rem_gen14_03",
+        "rem_gen15_01",
+        "rem_gen15_02",
+        "rem_gen15_03",
+        "rem_gen16_01",
+        "rem_gen16_02",
+        "rem_gen16_03",
+        "rem_gen17_01",
+        "rem_gen17_02",
+        "rem_gen17_03",
+        "rem_gen18_01",
+        "rem_gen18_02",
+        "rem_gen18_03",
+        "rem_gen19_01",
+        "rem_gen19_02",
+        "rem_gen19_03",
+        "rem_gen20_01",
+        "rem_gen20_02",
+        "rem_gen20_03",
+        "rem_gen21_01",
+        "rem_gen21_02",
+        "rem_gen21_03",
+        "rem_gen22_01",
+        "rem_gen22_02",
+        "rem_gen22_03",
+        "rem_gen23_01",
+        "rem_gen23_02",
+        "rem_gen23_03",
+        "rem_gen24_01",
+        "rem_gen24_02",
+        "rem_gen24_03",
+        "rem_gen25_01",
+        "rem_gen25_02",
+        "rem_gen25_03",
+        "rem_gen26_01",
+        "rem_gen26_02",
+        "rem_gen26_03",
+        "rem_gen27_01",
+        "rem_gen27_02",
+        "rem_gen27_03",
+        "rem_gen28_01",
+        "rem_gen28_02",
+        "rem_gen28_03",
+        "rem_gen29_01",
+        "rem_gen29_02",
+        "rem_gen29_03",
+        "rem_gen30_01"
+      ]
+    }
+  ]
+}

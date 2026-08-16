@@ -38,6 +38,15 @@ import { applyRemedyBatch36 } from './remedyBatch36.js';
 import { applyRemedyBatch37 } from './remedyBatch37.js';
 import { applyRemedyBatch38 } from './remedyBatch38.js';
 import { applyRemedyBatch39 } from './remedyBatch39.js';
+import { applyRemedyBatch40 } from './remedyBatch40.js';
+import { applyRemedyBatch41 } from './remedyBatch41.js';
+import { applyRemedyBatch42 } from './remedyBatch42.js';
+import { applyRemedyBatch43 } from './remedyBatch43.js';
+import { applyRemedyBatch44 } from './remedyBatch44.js';
+import { applyRemedyBatch45 } from './remedyBatch45.js';
+import { applyRemedyBatch46 } from './remedyBatch46.js';
+import { applyRemedyBatch47 } from './remedyBatch47.js';
+import { applyRemedyBatch48 } from './remedyBatch48.js';
 
 const batchFns = [
   applyRemedyBatch1, applyRemedyBatch2, applyRemedyBatch3, applyRemedyBatch4,
@@ -50,6 +59,15 @@ const batchFns = [
   applyRemedyBatch29, applyRemedyBatch30, applyRemedyBatch31, applyRemedyBatch32,
   applyRemedyBatch33, applyRemedyBatch34, applyRemedyBatch35, applyRemedyBatch36,
   applyRemedyBatch37, applyRemedyBatch38, applyRemedyBatch39,
+  applyRemedyBatch40,
+  applyRemedyBatch41,
+  applyRemedyBatch42,
+  applyRemedyBatch43,
+  applyRemedyBatch44,
+  applyRemedyBatch45,
+  applyRemedyBatch46,
+  applyRemedyBatch47,
+  applyRemedyBatch48,
 ];
 
 export function applyAllRemedyBatches(remedies) {
