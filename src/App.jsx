@@ -1,6 +1,6 @@
 import { BrowserRouter, Routes, Route, Navigate, useLocation } from 'react-router-dom';
 import { Suspense, lazy, useEffect, useRef, useState } from 'react';
-import { Navbar, BottomNav, AppDock, AdminGuard } from './components/layout';
+import { Navbar, BottomNav } from './components/layout';
 import { ThemeProvider } from './context/ThemeProvider';
 
 import { needsOnboardingProfile, useAuthStore } from './store/authStore';
@@ -9,7 +9,11 @@ import { useRemedyScheduleStore } from './store/remedyScheduleStore';
 import { useCatalogStore } from './store/catalogStore';
 import { LoadingSkeleton } from './components/ui/LoadingSkeleton';
 import { ErrorBoundary } from './components/ui/ErrorBoundary';
-import { QuickScheduleModal } from './components/ui/QuickScheduleModal';
+
+// Lazy-loaded layout components (not needed on every page)
+const AppDock = lazy(() => import('./components/layout/AppDock').then(m => ({ default: m.AppDock })));
+const AdminGuard = lazy(() => import('./components/layout/AdminGuard').then(m => ({ default: m.AdminGuard })));
+const QuickScheduleModal = lazy(() => import('./components/ui/QuickScheduleModal').then(m => ({ default: m.QuickScheduleModal })));
 
 // Pages — lazy-loaded for code splitting
 const Landing = lazy(() => import('./pages/Landing').then(m => ({ default: m.Landing })));
@@ -151,7 +155,14 @@ function App() {
       setBootstrapped(true);
     });
 
-    fetchCatalog();
+    // Defer catalog fetch to post-paint so initial render isn't blocked.
+    // The catalog loads the 2.3MB runtime data + runs Supabase queries.
+    const scheduleIdle = typeof requestIdleCallback === 'function'
+      ? requestIdleCallback
+      : (cb) => setTimeout(cb, 0);
+    const idleId = scheduleIdle(() => {
+      fetchCatalog();
+    });
 
     const timeoutId = setTimeout(() => {
       if (!bootstrappedRef.current) {
@@ -163,6 +174,7 @@ function App() {
 
     return () => {
       clearTimeout(timeoutId);
+      if (typeof cancelIdleCallback === 'function') cancelIdleCallback(idleId);
       dispose();
     };
   }, [fetchCatalog, initialize]);
@@ -208,8 +220,12 @@ function App() {
               <AppRoutes />
             </main>
             <BottomNav />
-            <AppDock />
-            <QuickScheduleModal />
+            <Suspense fallback={null}>
+              <AppDock />
+            </Suspense>
+            <Suspense fallback={null}>
+              <QuickScheduleModal />
+            </Suspense>
           </div>
         </ErrorBoundary>
       </BrowserRouter>
