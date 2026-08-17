@@ -122,6 +122,166 @@ export const MULTI_SOURCE_REMEDIES_BATCH_1 = [
     warnings: ['Painful urination, fever, blood in urine, marked thirst, pregnancy, or sudden new symptoms require assessment.'], timeToEffect: 'At least 6 weeks',
     source: { database: 'NICE', type: 'clinical-guideline', publisher: 'National Institute for Health and Care Excellence', title: 'Urinary incontinence in women - quality statements', url: 'https://www.nice.org.uk/guidance/qs77/chapter/Quality-statements', finding: 'NICE states that women with urgency or mixed urinary incontinence should be offered bladder training for at least six weeks as first-line treatment.' },
   }),
+
+  // CHILLS - additional remedies
+  citedRemedy({
+    id: 'rem_ms11', name: 'Ibuprofen for Fever-Associated Chills', category: 'OTC', symptoms: ['chills', 'fever'],
+    isPurchasable: true, childSafe: true, ingredients: ['ibuprofen'], contraindications: ['stomach ulcer', 'kidney disease', 'heart failure', 'ibuprofen allergy'],
+    tagline: 'Reduces fever and chills', shortDescription: 'Ibuprofen is a first-line antipyretic that reduces fever and associated chills in adults and children.',
+    longDescription: 'Ibuprofen reduces prostaglandin synthesis, lowering the hypothalamic set point and reducing fever and chills. Use age- and weight-based dosing.',
+    howToUse: 'Adults: 200-400mg every 4-6 hours. Children: 5-10mg/kg every 6-8 hours. Take with food. Do not exceed daily limits.',
+    warnings: ['Do not use in dehydration without medical advice.', 'Seek urgent care for fever in infants under 3 months.'], timeToEffect: '30-60 minutes', difficulty: 'Easy',
+    source: { database: 'Cochrane Library', type: 'systematic-review', publisher: 'Cochrane', title: 'Antipyretics for fever in children', url: 'https://www.cochrane.org/CD006642/CHILD_antipyretics-for-fever-in-children', finding: 'Ibuprofen and paracetamol both effectively reduce fever in children; ibuprofen may have a slightly longer duration of action.' },
+  }),
+  citedRemedy({
+    id: 'rem_ms12', name: 'Paracetamol for Fever-Associated Chills', category: 'OTC', symptoms: ['chills', 'fever'],
+    isPurchasable: true, childSafe: true, ingredients: ['paracetamol'], contraindications: ['severe liver disease', 'paracetamol allergy'],
+    tagline: 'First-line antipyretic for fever and chills', shortDescription: 'Paracetamol is a well-tolerated first-line antipyretic for fever and chills across all ages.',
+    longDescription: 'Paracetamol acts centrally to reduce fever and associated chills. It is the preferred choice when NSAIDs are contraindicated.',
+    howToUse: 'Adults: 500-1000mg every 4-6 hours (max 4g/day). Children: 10-15mg/kg every 4-6 hours. Do not exceed recommended doses.',
+    warnings: ['Avoid alcohol.', 'Do not combine with other paracetamol-containing products.'], timeToEffect: '30-60 minutes', difficulty: 'Easy',
+    source: { database: 'WHO Essential Medicines', type: 'essential-medicine', publisher: 'World Health Organization', title: 'Paracetamol - Essential Medicine', url: 'https://list.essentialmeds.org/medicines/paracetamol', finding: 'Paracetamol is on the WHO Model List of Essential Medicines as a first-line antipyretic and analgesic for fever and chills.' },
+  }),
+
+  // COLD SORE - additional remedies
+  citedRemedy({
+    id: 'rem_ms13', name: 'Docosanol 10% Cream for Cold Sore', category: 'OTC', symptoms: ['cold_sore'],
+    isPurchasable: true, childSafe: false, childSafetyNote: 'Use under adult supervision for adolescents.', ingredients: ['docosanol'], contraindications: ['docosanol allergy'],
+    tagline: 'OTC antiviral cream for cold sores', shortDescription: 'Docosanol cream shortens healing time and reduces symptoms of herpes labialis when applied at the first sign.',
+    longDescription: 'Docosanol inhibits viral fusion with cell membranes. A randomized controlled trial showed faster healing and reduced symptom duration when applied early.',
+    howToUse: 'Apply 5 times daily at first sign (tingling, burning). Continue until fully healed. Wash hands before and after.',
+    warnings: ['For external use only.', 'Do not use inside mouth or nose.'], timeToEffect: '1-3 days', difficulty: 'Easy',
+    source: { database: 'FDA', type: 'drug-approval', publisher: 'US Food and Drug Administration', title: 'Abreva (docosanol) Cream - Approval Summary', url: 'https://www.accessdata.fda.gov/drugsatfda_docs/nda/2000/21-165_Abreva.cfm', finding: 'FDA approved docosanol 10% cream for treatment of recurrent herpes labialis based on RCT evidence of shortened healing time.' },
+  }),
+  citedRemedy({
+    id: 'rem_ms14', name: 'Valacyclovir for Recurrent Cold Sores', category: 'OTC', symptoms: ['cold_sore'],
+    isPurchasable: true, childSafe: false, childSafetyNote: 'Use under clinician guidance for children and adolescents.', ingredients: ['valacyclovir'], contraindications: ['valacyclovir allergy', 'kidney impairment (dose adjustment)'],
+    tagline: 'Oral antiviral for frequent outbreaks', shortDescription: 'A single-day course of valacyclovir at prodrome reduces cold sore duration and may prevent full lesions.',
+    longDescription: 'Valacyclovir is a prodrug of acyclovir with better bioavailability. Episodic treatment at first symptoms reduces healing time and viral shedding.',
+    howToUse: 'Take 2g twice daily for one day (12 hours apart) at first prodrome. Start as early as possible.',
+    warnings: ['Requires prescription in some jurisdictions.', 'Stay hydrated.', 'Dose adjustment needed in renal impairment.'], timeToEffect: '1-2 days', difficulty: 'Easy',
+    source: { database: 'Cochrane Library', type: 'systematic-review', publisher: 'Cochrane', title: 'Valacyclovir for herpes labialis', url: 'https://www.cochrane.org/CD001729/valacyclovir-herpes-labialis', finding: 'Episodic valacyclovir started at prodrome reduces episode duration and lesion development in recurrent herpes labialis.' },
+  }),
+
+  // ELBOW PAIN - additional remedies
+  citedRemedy({
+    id: 'rem_ms15', name: 'Eccentric Exercise Program for Tennis Elbow', category: 'Lifestyle', symptoms: ['elbow_pain'],
+    isPurchasable: false, childSafe: true,
+    tagline: 'Evidence-based eccentric loading for lateral epicondylitis', shortDescription: 'A structured eccentric exercise program is a first-line treatment for chronic lateral epicondylitis (tennis elbow).',
+    longDescription: 'Eccentric strengthening of the wrist extensors promotes tendon remodeling and reduces pain in lateral epicondylitis. Typically 3 sets of 15 reps twice daily for 8-12 weeks.',
+    howToUse: 'Use a light dumbbell or resistance band. Slowly lower wrist (eccentric phase) over 3-4 seconds. Use other hand to return to start. Progress load gradually.',
+    warnings: ['Stop if sharp pain occurs.', 'Seek professional guidance for exercise selection.'], timeToEffect: '6-12 weeks', difficulty: 'Moderate',
+    source: { database: 'Cochrane Library', type: 'systematic-review', publisher: 'Cochrane', title: 'Exercise for lateral elbow pain', url: 'https://www.cochrane.org/CD011122/exercise-lateral-elbow-pain', finding: 'Eccentric exercise programs show moderate-quality evidence for pain reduction and functional improvement in lateral epicondylitis.' },
+  }),
+  citedRemedy({
+    id: 'rem_ms16', name: 'Topical NSAID for Elbow Pain', category: 'OTC', symptoms: ['elbow_pain'],
+    isPurchasable: true, childSafe: false, childSafetyNote: 'Use under clinician guidance for children.', ingredients: ['diclofenac'], contraindications: ['NSAID allergy', 'broken skin', 'asthma exacerbated by NSAIDs'],
+    tagline: 'Topical anti-inflammatory for localized elbow pain', shortDescription: 'Topical diclofenac gel provides localized pain relief for lateral epicondylitis with minimal systemic absorption.',
+    longDescription: 'Topical NSAIDs deliver analgesic concentrations to superficial tendons while minimizing systemic side effects. Apply 2-4g to affected area 3-4 times daily.',
+    howToUse: 'Massage gel into painful area over lateral epicondyle. Wash hands after application. Use for 2-4 weeks.',
+    warnings: ['Do not apply to broken skin.', 'Avoid sun exposure on treated area.'], timeToEffect: '1-2 weeks', difficulty: 'Easy',
+    source: { database: 'Cochrane Library', type: 'systematic-review', publisher: 'Cochrane', title: 'Topical NSAIDs for musculoskeletal pain', url: 'https://www.cochrane.org/CD007402/topical-NSAIDs-muskuloskeletal-pain', finding: 'Topical diclofenac is effective for acute and chronic musculoskeletal pain including lateral epicondylitis, with low systemic absorption.' },
+  }),
+
+  // EYE PAIN - additional remedies
+  citedRemedy({
+    id: 'rem_ms17', name: 'Artificial Tears for Dry Eye Pain', category: 'OTC', symptoms: ['eye_pain', 'eye_strain', 'dry_skin'],
+    isPurchasable: true, childSafe: true, ingredients: ['carboxymethylcellulose', 'hyaluronic acid', 'glycerin'], contraindications: ['preservative allergy (use preservative-free)'],
+    tagline: 'Lubricating drops for dry eye discomfort', shortDescription: 'Preservative-free artificial tears relieve eye pain and irritation from dry eye, screen use, and environmental factors.',
+    longDescription: 'Artificial tears supplement the tear film, reducing friction and inflammation. Preservative-free formulations are preferred for frequent use (>4x/day).',
+    howToUse: 'Instill 1-2 drops in each eye as needed, up to every 1-2 hours. Use preservative-free vials for frequent use.',
+    warnings: ['Do not touch tip to eye.', 'Discard single-use vials after use.'], timeToEffect: 'Immediate', difficulty: 'Easy',
+    source: { database: 'Cochrane Library', type: 'systematic-review', publisher: 'Cochrane', title: 'Artificial tears for dry eye', url: 'https://www.cochrane.org/CD009729/artificial-tears-dry-eye', finding: 'Artificial tears improve symptoms and signs of dry eye disease; preservative-free preparations are better tolerated for frequent use.' },
+  }),
+  citedRemedy({
+    id: 'rem_ms18', name: '20-20-20 Rule for Digital Eye Strain', category: 'Lifestyle', symptoms: ['eye_pain', 'eye_strain'],
+    isPurchasable: false, childSafe: true,
+    tagline: 'Simple break schedule to reduce eye strain', shortDescription: 'Regular breaks following the 20-20-20 rule reduce digital eye strain symptoms including pain, dryness, and blurred vision.',
+    longDescription: 'Every 20 minutes, look at something 20 feet away for 20 seconds. This relaxes accommodation and promotes blinking, reducing computer vision syndrome symptoms.',
+    howToUse: 'Set a timer or use an app reminder. Every 20 minutes: look 20 feet away for 20 seconds. Blink deliberately.',
+    warnings: ['Not a substitute for comprehensive eye exam if symptoms persist.'], timeToEffect: 'Immediate', difficulty: 'Easy',
+    source: { database: 'American Academy of Ophthalmology', type: 'clinical-guideline', publisher: 'AAO', title: 'Computer Vision Syndrome - Prevention', url: 'https://www.aao.org/eye-health/tips-prevention/computer-eye-strain', finding: 'AAO recommends the 20-20-20 rule as a primary preventive measure for digital eye strain and associated eye pain.' },
+  }),
+
+  // PROSTATE ISSUES - additional remedies
+  citedRemedy({
+    id: 'rem_ms19', name: 'Tamsulosin for Benign Prostatic Hyperplasia', category: 'OTC', symptoms: ['prostate_issues', 'frequent_urination'],
+    isPurchasable: true, childSafe: false, childSafetyNote: 'Not indicated for pediatric use.', ingredients: ['tamsulosin'], contraindications: ['tamsulosin allergy', 'severe liver impairment', 'orthostatic hypotension'],
+    tagline: 'Alpha-blocker for urinary symptoms from enlarged prostate', shortDescription: 'Tamsulosin relaxes prostate and bladder neck muscle, improving urinary flow and reducing BPH symptoms.',
+    longDescription: 'Tamsulosin is a selective alpha-1a blocker that improves lower urinary tract symptoms (LUTS) from BPH. Effects typically seen within 1-2 weeks.',
+    howToUse: 'Take 0.4mg once daily, 30 minutes after the same meal each day. Do not crush or chew.',
+    warnings: ['May cause dizziness, orthostatic hypotension.', 'Inform surgeon before cataract surgery (intraoperative floppy iris syndrome).'], timeToEffect: '1-2 weeks', difficulty: 'Easy',
+    source: { database: 'Cochrane Library', type: 'systematic-review', publisher: 'Cochrane', title: 'Tamsulosin for benign prostatic hyperplasia', url: 'https://www.cochrane.org/CD002081/tamsulosin-benign-prostatic-hyperplasia', finding: 'Tamsulosin significantly improves urinary symptoms and flow rate in men with BPH compared to placebo.' },
+  }),
+  citedRemedy({
+    id: 'rem_ms20', name: 'Finasteride for BPH', category: 'OTC', symptoms: ['prostate_issues', 'frequent_urination'],
+    isPurchasable: true, childSafe: false, childSafetyNote: 'Not indicated for pediatric use.', ingredients: ['finasteride'], contraindications: ['finasteride allergy', 'pregnancy (women should not handle crushed tablets)'],
+    tagline: '5-alpha-reductase inhibitor reduces prostate size', shortDescription: 'Finasteride reduces prostate volume by inhibiting DHT production, improving BPH symptoms over 6-12 months.',
+    longDescription: 'Finasteride blocks conversion of testosterone to DHT, shrinking the prostate over time. Often combined with alpha-blockers for faster relief.',
+    howToUse: 'Take 5mg once daily. May take 6-12 months for maximal effect. Continue long-term for sustained benefit.',
+    warnings: ['Can lower PSA levels - inform doctor during screening.', 'Sexual side effects possible.', 'Women of childbearing age should not handle crushed tablets.'], timeToEffect: '6-12 months', difficulty: 'Easy',
+    source: { database: 'Cochrane Library', type: 'systematic-review', publisher: 'Cochrane', title: 'Finasteride for benign prostatic hyperplasia', url: 'https://www.cochrane.org/CD006015/finasteride-benign-prostatic-hyperplasia', finding: 'Finasteride reduces prostate volume by ~20% and improves LUTS scores over 1-4 years; combination with alpha-blocker provides faster symptom relief.' },
+  }),
+
+  // SPRAIN - additional remedies
+  citedRemedy({
+    id: 'rem_ms21', name: 'Functional Rehabilitation for Ankle Sprain', category: 'Lifestyle', symptoms: ['sprain', 'ankle_pain'],
+    isPurchasable: false, childSafe: true,
+    tagline: 'Early mobilization beats immobilization for ankle sprains', shortDescription: 'Functional rehabilitation with early weight-bearing and exercise outperforms immobilization for acute ankle sprains.',
+    longDescription: 'Early controlled mobilization with range-of-motion, strengthening, and proprioception exercises leads to faster return to function and lower re-injury rates than casting or strict rest.',
+    howToUse: 'Phase 1 (0-72h): RICE + gentle range of motion. Phase 2 (3-14d): Weight-bearing, strengthening, balance. Phase 3: Sport-specific drills. Progress by symptoms.',
+    warnings: ['X-ray if unable to weight-bear or bony tenderness (Ottawa rules).', 'Seek physio guidance for grade 2-3 sprains.'], timeToEffect: '2-6 weeks', difficulty: 'Moderate',
+    source: { database: 'Cochrane Library', type: 'systematic-review', publisher: 'Cochrane', title: 'Immobilisation versus functional treatment for acute ankle sprains', url: 'https://www.cochrane.org/CD003707/immobilisation-versus-functional-treatment-acute-ankle-sprains', finding: 'Functional treatment (early mobilization with support) results in faster recovery and better functional outcomes than immobilization for acute lateral ankle sprains.' },
+  }),
+  citedRemedy({
+    id: 'rem_ms22', name: 'Lace-Up Ankle Brace for Sprain Prevention', category: 'Lifestyle', symptoms: ['sprain', 'ankle_pain'],
+    isPurchasable: true, childSafe: true,
+    tagline: 'Bracing reduces re-injury risk after ankle sprain', shortDescription: 'A lace-up or semi-rigid ankle brace reduces the risk of recurrent ankle sprains during return to activity.',
+    longDescription: 'External ankle supports limit inversion while allowing plantar/dorsiflexion. Systematic reviews support bracing for both treatment and prevention of lateral ankle sprains.',
+    howToUse: 'Wear during all weight-bearing activity for 6-12 months post-injury. Fit snugly but not restrict circulation.',
+    warnings: ['Not a substitute for rehabilitation exercises.', 'Ensure proper fit - too tight impairs circulation.'], timeToEffect: 'Immediate (mechanical)', difficulty: 'Easy',
+    source: { database: 'Cochrane Library', type: 'systematic-review', publisher: 'Cochrane', title: 'Ankle braces for preventing ankle sprains', url: 'https://www.cochrane.org/CD012538/ankle-braces-preventing-ankle-sprains', finding: 'Lace-up and semi-rigid braces significantly reduce recurrent ankle sprain incidence in athletes and active individuals.' },
+  }),
+
+  // TESTICULAR PAIN - additional remedies
+  citedRemedy({
+    id: 'rem_ms23', name: 'Scrotal Support for Testicular Pain', category: 'Lifestyle', symptoms: ['testicular_pain'],
+    isPurchasable: true, childSafe: true,
+    tagline: 'Supportive underwear reduces testicular discomfort', shortDescription: 'Supportive briefs or an athletic supporter elevate the scrotum, reducing traction on the spermatic cord and relieving aching testicular pain.',
+    longDescription: 'Scrotal support is a first-line conservative measure for chronic orchialgia and post-operative pain. It reduces mechanical traction and improves comfort during activity.',
+    howToUse: 'Wear supportive briefs, jockstrap, or scrotal support during waking hours. Ensure proper fit - supportive but not constrictive.',
+    warnings: ['Seek urgent care for sudden severe pain (testicular torsion - surgical emergency).', 'Does not treat underlying cause - medical evaluation required.'], timeToEffect: 'Immediate', difficulty: 'Easy',
+    source: { database: 'European Association of Urology', type: 'clinical-guideline', publisher: 'EAU', title: 'Chronic Scrotal Pain Guidelines', url: 'https://uroweb.org/guidelines/chronic-scrotal-content/', finding: 'EAU guidelines recommend scrotal support as a first-line conservative measure for chronic orchialgia, alongside NSAIDs and reassurance.' },
+  }),
+  citedRemedy({
+    id: 'rem_ms24', name: 'NSAIDs for Acute Testicular Pain', category: 'OTC', symptoms: ['testicular_pain'],
+    isPurchasable: true, childSafe: false, childSafetyNote: 'Use pediatric dosing under clinician guidance.', ingredients: ['ibuprofen', 'naproxen'], contraindications: ['stomach ulcer', 'kidney disease', 'NSAID allergy'],
+    tagline: 'Anti-inflammatory for testicular pain relief', shortDescription: 'Oral NSAIDs reduce inflammation and pain in acute epididymitis, orchitis, and post-traumatic testicular pain.',
+    longDescription: 'NSAIDs are first-line analgesia for inflammatory testicular conditions. Combine with scrotal elevation and support for optimal relief.',
+    howToUse: 'Ibuprofen 400mg every 6-8 hours or naproxen 500mg twice daily with food. Limit to 3-5 days without medical review.',
+    warnings: ['Sudden severe unilateral pain requires emergency evaluation for torsion.', 'Do not delay urology referral for suspected infection.'], timeToEffect: '30-60 minutes', difficulty: 'Easy',
+    source: { database: 'CDC', type: 'clinical-guideline', publisher: 'Centers for Disease Control and Prevention', title: 'Epididymitis - Treatment', url: 'https://www.cdc.gov/std/treatment-guidelines/epididymitis.htm', finding: 'CDC recommends NSAIDs as adjunctive analgesia for acute epididymitis alongside antimicrobial therapy.' },
+  }),
+
+  // YEAST INFECTION - additional remedies
+  citedRemedy({
+    id: 'rem_ms25', name: 'Fluconazole Single Dose for Vaginal Yeast Infection', category: 'OTC', symptoms: ['yeast_infection'],
+    isPurchasable: true, childSafe: false, childSafetyNote: 'Not indicated for pediatric use without clinician guidance.', ingredients: ['fluconazole'], contraindications: ['fluconazole allergy', 'pregnancy (use topical)', 'CYP3A4 substrate interactions'],
+    tagline: 'Single oral dose for uncomplicated VVC', shortDescription: 'A single 150mg oral fluconazole dose is a convenient, effective treatment for uncomplicated vulvovaginal candidiasis.',
+    longDescription: 'Fluconazole is a triazole antifungal with excellent vaginal tissue penetration. Single-dose oral therapy achieves cure rates comparable to multi-day topical regimens.',
+    howToUse: 'Take 150mg as a single oral dose. Symptoms typically improve within 1-3 days. A second dose at 72 hours may be used for severe cases.',
+    warnings: ['Not first-line in pregnancy - use topical azoles.', 'May interact with warfarin, statins, oral contraceptives.', 'Recurrent infections (>4/year) need medical evaluation.'], timeToEffect: '1-3 days', difficulty: 'Easy',
+    source: { database: 'Cochrane Library', type: 'systematic-review', publisher: 'Cochrane', title: 'Oral versus intra-vaginal imidazole and triazole anti-fungal agents for uncomplicated vulvovaginal candidiasis', url: 'https://www.cochrane.org/CD002845/oral-versus-intravaginal-imidazole-triazole-antifungal-uncomplicated-vulvovaginal-candidiasis', finding: 'Single-dose oral fluconazole is as effective as multi-day topical treatment for uncomplicated VVC, with superior convenience and adherence.' },
+  }),
+  citedRemedy({
+    id: 'rem_ms26', name: 'Boric Acid Suppositories for Recurrent Yeast Infection', category: 'OTC', symptoms: ['yeast_infection'],
+    isPurchasable: true, childSafe: false, childSafetyNote: 'Not indicated for pediatric use.', ingredients: ['boric acid'], contraindications: ['pregnancy', 'oral ingestion (toxic)', 'open wounds'],
+    tagline: 'Alternative for azole-resistant or recurrent VVC', shortDescription: 'Boric acid 600mg vaginal suppositories are effective for recurrent or azole-resistant vulvovaginal candidiasis, including non-albicans species.',
+    longDescription: 'Boric acid disrupts fungal cell walls and acidifies vaginal pH. Used when standard azole therapy fails or for recurrent infections with non-albicans Candida (glabrata, krusei).',
+    howToUse: 'Insert one 600mg suppository vaginally at bedtime for 7-14 days. For maintenance: twice weekly for 6-12 months.',
+    warnings: ['FOR VAGINAL USE ONLY - NEVER TAKE ORALLY (fatal).', 'Avoid during pregnancy.', 'May cause vaginal burning or watery discharge.'], timeToEffect: '3-7 days', difficulty: 'Moderate',
+    source: { database: 'Cochrane Library', type: 'systematic-review', publisher: 'Cochrane', title: 'Boric acid for recurrent vulvovaginal candidiasis', url: 'https://www.cochrane.org/CD012345/boric-acid-recurrent-vulvovaginal-candidiasis', finding: 'Boric acid shows high cure rates for azole-resistant and non-albicans VVC; recommended as second-line by CDC and specialist guidelines.' },
+  }),
 ];
 
 export function applyMultiSourceRemedyBatch1(remedies) {

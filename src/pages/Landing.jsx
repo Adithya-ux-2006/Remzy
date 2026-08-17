@@ -25,6 +25,20 @@ export function Landing() {
     [symptoms]
   );
 
+  const evidenceStats = useMemo(() => {
+    let claims = 0;
+    const sources = new Set();
+    for (const r of remedies) {
+      if (r.researchPapers) {
+        claims += r.researchPapers.length;
+        for (const p of r.researchPapers) {
+          if (p.url) sources.add(p.url);
+        }
+      }
+    }
+    return { claims, sourceCount: sources.size };
+  }, [remedies]);
+
   return (
     <PageWrapper className="min-h-screen flex flex-col">
       <section className="relative pt-24 pb-16 px-6 lg:px-8 overflow-hidden">
@@ -66,8 +80,8 @@ export function Landing() {
 <section className="px-6 pb-10">
         <div className="mx-auto grid max-w-lg grid-cols-3 gap-3">
           <StatCard value={remedies.length} label="Remedies" />
-          <StatCard value="4" label="Remedy Types" />
-          <StatCard value="60+" label="Linked Sources" />
+          <StatCard value={evidenceStats.claims} label="Evidence Claims" />
+          <StatCard value={`${evidenceStats.sourceCount.toLocaleString()}+`} label="Linked Sources" />
         </div>
       </section>
 
@@ -113,8 +127,8 @@ export function Landing() {
             />
             <Feature
               icon={Stethoscope}
-              title="3 Treatment Approaches"
-              description="Filter by Natural, OTC, or Lifestyle remedies."
+              title="Evidence-Backed Remedies"
+              description="Each remedy claim is assessed against clinical evidence with full source transparency."
             />
             <Feature
               icon={Globe}

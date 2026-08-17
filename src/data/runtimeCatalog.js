@@ -8,6 +8,7 @@ import { applyLegacyBatch5 } from './legacyRemedyBatch5.js';
 import { applyLegacyEvidenceTierOverlay } from './legacyEvidenceTierOverlay.js';
 import { applyMultiSourceRemedyBatch1 } from './multiSourceRemedyBatch1.js';
 import { applyAllRemedyBatches } from './remedyBatches/index.js';
+import { applyAdditionalEvidence } from './additionalEvidenceSources.js';
 
 export function buildRuntimeRemedies() {
   const legacyRemedies = applyLegacyEvidenceTierOverlay(
@@ -22,7 +23,7 @@ export function buildRuntimeRemedies() {
     ),
   );
 
-  const remedies = applyAllRemedyBatches(applyMultiSourceRemedyBatch1([...REMEDIES, ...legacyRemedies]));
+  const remedies = applyAdditionalEvidence(applyAllRemedyBatches(applyMultiSourceRemedyBatch1([...REMEDIES, ...legacyRemedies])));
 
   const seen = new Set();
   return remedies.filter((remedy) => {
