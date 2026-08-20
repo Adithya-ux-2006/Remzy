@@ -13,7 +13,7 @@ export function Navbar() {
         <div className="h-full px-4 md:px-6 grid grid-cols-[1fr_auto_1fr] items-center">
           <div />
           <Link to="/dashboard" className="flex items-center gap-2 justify-self-center">
-            <img src="/logo.png" alt="Remzy" className="w-10 h-10 rounded-lg object-contain shadow-glow" />
+            <img src="/logo.png" alt="Remzy" className="w-10 h-10 rounded-lg bg-primary object-cover shadow-glow" />
             <span className="text-xl font-bold text-ink tracking-tight">Remzy</span>
           </Link>
           <div className="flex items-center justify-self-end gap-2">
@@ -29,7 +29,7 @@ export function Navbar() {
       ) : (
         <div className="h-full max-w-5xl mx-auto px-4 md:px-6 flex items-center justify-between">
           <Link to="/" className="flex items-center gap-2 min-w-[44px] min-h-[44px] p-1.5">
-            <img src="/logo.png" alt="Remzy" className="w-8 h-8 rounded-lg object-contain shadow-glow" />
+            <img src="/logo.png" alt="Remzy" className="w-8 h-8 rounded-lg bg-primary object-cover shadow-glow" />
             <span className="font-bold text-xl text-ink">Remzy</span>
           </Link>
           <div className="hidden md:flex items-center gap-3">
