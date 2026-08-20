@@ -80,11 +80,12 @@ export function RemedyCard({ remedy, className, featured, variant, isSafe = true
       <motion.div
         whileHover={{ y: -4 }}
         transition={{ type: 'spring', stiffness: 200, damping: 20 }}
+        className="flex flex-col h-full"
       >
         <Link
           to={`/remedy/${remedy.id}`}
           className={cn(
-            'block bg-gradient-card rounded-3xl p-6 shadow-card hover:shadow-card-hover transition-shadow',
+            'flex flex-col h-full min-h-[280px] bg-gradient-card rounded-3xl p-6 shadow-card hover:shadow-card-hover transition-shadow',
             className
           )}
         >
@@ -106,6 +107,7 @@ export function RemedyCard({ remedy, className, featured, variant, isSafe = true
           </div>
           <h3 className="text-xl font-semibold text-ink mb-2">{remedy.name}</h3>
           <p className="text-ink-muted text-sm mb-4 line-clamp-2">{remedy.shortDescription}</p>
+          <div className="flex-1" />
           <div className="flex items-center gap-4 text-sm text-ink-muted">
             {remedy.timeToEffect && (
               <span className="flex items-center gap-1">
