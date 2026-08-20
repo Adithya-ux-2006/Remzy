@@ -1,13 +1,17 @@
-import { useMemo } from 'react';
+import { useMemo, useState, useEffect, useCallback, useRef } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
-import { Heart, Activity, ArrowRight, Sparkles, Shield, AlertTriangle } from 'lucide-react';
+import { Heart, Activity, ArrowRight, Sparkles, AlertTriangle, Bell, Clock, MapPin, Store } from 'lucide-react';
 import { PageWrapper } from '../components/layout';
 import { RemedyCard } from '../components/ui/RemedyCard';
+import { FeaturedPharmacy } from '../components/ui/PharmacyComponents';
 import { useAuthStore } from '../store/authStore';
 import { useFavoritesStore } from '../store/favoritesStore';
 import { useCatalogStore } from '../store/catalogStore';
+import { useRemedyScheduleStore } from '../store/remedyScheduleStore';
 import { useGuestProfileStore } from '../store/guestProfileStore';
-import { ALLERGIES, CONDITIONS } from '../constants/onboarding';
+import { CONDITIONS } from '../constants/onboarding';
+import { hasOccurrenceOnDate, getUpcomingOccurrences, formatTime } from '../utils/scheduleDates';
+import { getApiUrl } from '../utils/api';
 
 export function Dashboard() {
   const user = useAuthStore((state) => state.user);
@@ -15,14 +19,10 @@ export function Dashboard() {
   const symptoms = useCatalogStore((state) => state.symptoms);
   const remedies = useCatalogStore((state) => state.remedies);
   const isAuthenticated = useAuthStore((state) => state.isAuthenticated);
-  const guestAllergies = useGuestProfileStore((state) => state.known_allergies);
   const guestConditions = useGuestProfileStore((state) => state.common_conditions);
+  const schedules = useRemedyScheduleStore((state) => state.schedules);
   const navigate = useNavigate();
 
-  const activeAllergies = useMemo(
-    () => isAuthenticated ? (user?.known_allergies ?? []) : guestAllergies,
-    [isAuthenticated, user?.known_allergies, guestAllergies]
-  );
   const activeConditions = useMemo(
     () => isAuthenticated ? (user?.common_conditions ?? []) : guestConditions,
     [isAuthenticated, user?.common_conditions, guestConditions]
@@ -48,10 +48,18 @@ export function Dashboard() {
     [activeConditions]
   );
 
-  const selectedAllergyChips = useMemo(
-    () => ALLERGIES.filter((allergy) => activeAllergies.includes(allergy.value)),
-    [activeAllergies]
+  const today = useMemo(() => new Date(), []);
+
+  const todayCount = useMemo(
+    () => schedules.filter((s) => s.active && hasOccurrenceOnDate(s, today)).length,
+    [schedules, today]
   );
+
+  const nextReminder = useMemo(() => {
+    const active = schedules.filter((s) => s.active);
+    const upcoming = getUpcomingOccurrences(active, today, 1);
+    return upcoming[0] || null;
+  }, [schedules, today]);
 
   return (
     <PageWrapper className="min-h-screen pb-24 md:pb-16 pt-6 md:pt-10">
@@ -91,51 +99,10 @@ export function Dashboard() {
           <StatCard icon={Activity} value={user?.search_count ?? 0} label="Searches" />
         </div>
 
-        {/* Health Profile Card */}
-        {(activeConditions.length > 0 || activeAllergies.length > 0) && (
-          <section className="bg-card rounded-2xl shadow-soft border border-ink/5 p-5">
-            <div className="flex items-center justify-between mb-4">
-              <div className="flex items-center gap-2">
-                <Shield className="w-5 h-5 text-primary" />
-                <h2 className="font-bold text-ink">Health Profile</h2>
-              </div>
-              <Link
-                to="/profile"
-                className="text-sm font-semibold text-primary hover:text-primary-dark transition-colors"
-              >
-                Edit
-              </Link>
-            </div>
-            <div className="space-y-3">
-              {activeConditions.length > 0 && (
-                <div>
-                  <p className="text-xs font-semibold uppercase tracking-wider text-ink-muted mb-2">Conditions</p>
-                  <div className="flex flex-wrap gap-2">
-                    {selectedConditionChips.map((c) => (
-                      <span key={c.value} className="inline-flex items-center gap-1.5 rounded-full bg-primary/10 px-3 py-1.5 text-sm font-medium text-primary">
-                        <span>{c.emoji}</span>
-                        <span>{c.label}</span>
-                      </span>
-                    ))}
-                  </div>
-                </div>
-              )}
-              {activeAllergies.length > 0 && (
-                <div>
-                  <p className="text-xs font-semibold uppercase tracking-wider text-ink-muted mb-2">Allergies</p>
-                  <div className="flex flex-wrap gap-2">
-                    {selectedAllergyChips.map((a) => (
-                      <span key={a.value} className="inline-flex items-center gap-1.5 rounded-full bg-amber-50 border border-amber-200 px-3 py-1.5 text-sm font-medium text-amber-800">
-                        <span>{a.emoji}</span>
-                        <span>{a.label}</span>
-                      </span>
-                    ))}
-                  </div>
-                </div>
-              )}
-            </div>
-          </section>
-        )}
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+          <ReminderWidget todayCount={todayCount} nextReminder={nextReminder} />
+          <PharmacyWidget />
+        </div>
 
         <section>
           <div className="flex items-center justify-between mb-4">
@@ -241,6 +208,143 @@ function StatCard({ icon: Icon, value, label }) {
       </div>
       <span className="text-2xl font-bold text-ink">{value}</span>
       <span className="text-xs font-medium text-ink-muted uppercase tracking-wider">{label}</span>
+    </div>
+  );
+}
+
+function ReminderWidget({ todayCount, nextReminder }) {
+  return (
+    <div className="bg-card rounded-2xl shadow-soft border border-ink/5 p-5 flex flex-col justify-between">
+      <div className="flex items-center justify-between mb-3">
+        <div className="flex items-center gap-2">
+          <div className="w-9 h-9 rounded-xl bg-violet-500/10 flex items-center justify-center">
+            <Bell className="w-4.5 h-4.5 text-violet-500" />
+          </div>
+          <h3 className="font-bold text-ink">Reminders</h3>
+        </div>
+        <Link to="/reminders" className="text-xs font-semibold text-primary hover:text-primary-dark transition-colors">
+          View all
+        </Link>
+      </div>
+      {todayCount > 0 ? (
+        <div>
+          <p className="text-sm text-ink-muted mb-1">
+            <span className="font-semibold text-ink">{todayCount}</span> reminder{todayCount !== 1 ? 's' : ''} today
+          </p>
+          {nextReminder && (
+            <div className="flex items-center gap-2 text-sm text-ink-muted">
+              <Clock className="w-3.5 h-3.5" />
+              <span>
+                Next: <span className="font-medium text-ink">{nextReminder.schedule.remedy_name}</span> at{' '}
+                {formatTime(nextReminder.schedule.scheduled_time)}
+              </span>
+            </div>
+          )}
+        </div>
+      ) : (
+        <div>
+          <p className="text-sm text-ink-muted">No reminders scheduled</p>
+          <Link to="/reminders" className="text-sm text-primary font-medium hover:underline mt-1 inline-block">
+            Set one up &rarr;
+          </Link>
+        </div>
+      )}
+    </div>
+  );
+}
+
+function PharmacyWidget() {
+  const [shop, setShop] = useState(null);
+  const [loading, setLoading] = useState(false);
+  const [locationDenied, setLocationDenied] = useState(() => !navigator.geolocation);
+  const mountedRef = useRef(true);
+
+  useEffect(() => {
+    mountedRef.current = true;
+    return () => { mountedRef.current = false; };
+  }, []);
+
+  const fetchShop = useCallback(async (lat, lon) => {
+    if (!mountedRef.current) return;
+    setLoading(true);
+    try {
+      const res = await fetch(getApiUrl('/api/nearby-shops'), {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ lat, lon, radius: 5000, limit: 1 }),
+      });
+      const data = await res.json();
+      if (!res.ok) throw new Error(data.error || 'Failed to fetch');
+      if (mountedRef.current) setShop(data.shops?.[0] || null);
+    } catch {
+      if (mountedRef.current) setShop(null);
+    } finally {
+      if (mountedRef.current) setLoading(false);
+    }
+  }, []);
+
+  const requestLocation = useCallback(() => {
+    setLocationDenied(false);
+    navigator.geolocation.getCurrentPosition(
+      (pos) => fetchShop(pos.coords.latitude, pos.coords.longitude),
+      () => setLocationDenied(true),
+      { timeout: 10000, maximumAge: 300000 }
+    );
+  }, [fetchShop]);
+
+  useEffect(() => {
+    navigator.geolocation.getCurrentPosition(
+      (pos) => fetchShop(pos.coords.latitude, pos.coords.longitude),
+      () => setLocationDenied(true),
+      { timeout: 10000, maximumAge: 300000 }
+    );
+  }, [fetchShop]);
+
+  if (locationDenied) {
+    return (
+      <div className="bg-card rounded-2xl shadow-soft border border-ink/5 p-5 flex flex-col justify-between">
+        <div className="flex items-center gap-2 mb-3">
+          <div className="w-9 h-9 rounded-xl bg-emerald-500/10 flex items-center justify-center">
+            <MapPin className="w-4.5 h-4.5 text-emerald-500" />
+          </div>
+          <h3 className="font-bold text-ink">Nearby Pharmacy</h3>
+        </div>
+        <div className="text-center py-4">
+          <MapPin className="w-6 h-6 text-ink-muted mx-auto mb-2" />
+          <p className="text-sm text-ink-muted mb-2">Enable location to find pharmacies near you</p>
+          <button
+            type="button"
+            onClick={requestLocation}
+            className="text-sm text-primary font-medium hover:underline"
+          >
+            Try again
+          </button>
+        </div>
+      </div>
+    );
+  }
+
+  return (
+    <div className="bg-card rounded-2xl shadow-soft border border-ink/5 p-5 flex flex-col justify-between">
+      <div className="flex items-center gap-2 mb-3">
+        <div className="w-9 h-9 rounded-xl bg-emerald-500/10 flex items-center justify-center">
+          <MapPin className="w-4.5 h-4.5 text-emerald-500" />
+        </div>
+        <h3 className="font-bold text-ink">Nearby Pharmacy</h3>
+      </div>
+      {loading ? (
+        <div className="space-y-2 animate-pulse">
+          <div className="h-4 bg-surface rounded w-3/4" />
+          <div className="h-3 bg-surface rounded w-1/2" />
+        </div>
+      ) : shop ? (
+        <FeaturedPharmacy shop={shop} />
+      ) : (
+        <div className="text-center py-4">
+          <Store className="w-6 h-6 text-ink-muted mx-auto mb-2" />
+          <p className="text-sm text-ink-muted">No pharmacies found nearby</p>
+        </div>
+      )}
     </div>
   );
 }
