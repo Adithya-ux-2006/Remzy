@@ -36,10 +36,12 @@ export function Dashboard() {
     return 'Good evening';
   }, []);
 
-  const featuredRemedies = useMemo(
-    () => remedies.filter(r => r.isFeatured).slice(0, 6),
+  const lifestyleRemedies = useMemo(
+    () => remedies.filter(r => r.isFeatured && r.category === 'Lifestyle').slice(0, 3),
     [remedies]
   );
+
+  const recentlySaved = useMemo(() => favorites.slice(0, 3), [favorites]);
 
   const selectedConditionChips = useMemo(
     () => CONDITIONS.filter((condition) => activeConditions.includes(condition.value)),
@@ -177,16 +179,55 @@ export function Dashboard() {
           </div>
         </section>
 
-        {featuredRemedies.length > 0 && (
+        {lifestyleRemedies.length > 0 && (
           <section>
-            <h2 className="section-title">Featured Remedies</h2>
+            <div className="flex items-center justify-between mb-4">
+              <h2 className="section-title mb-0">Lifestyle Remedies</h2>
+              <Link to="/search" className="text-sm font-medium text-primary hover:text-primary-dark flex items-center gap-1 py-3 transition-colors">
+                View all <ArrowRight className="w-4 h-4" />
+              </Link>
+            </div>
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
-              {featuredRemedies.map((remedy) => (
+              {lifestyleRemedies.map((remedy) => (
                 <RemedyCard key={remedy.id} remedy={remedy} featured />
               ))}
             </div>
           </section>
         )}
+
+        <section>
+          <div className="flex items-center justify-between mb-4">
+            <h2 className="section-title mb-0">Recently Saved</h2>
+            {favorites.length > 0 && (
+              <Link to="/favorites" className="text-sm font-medium text-primary hover:text-primary-dark flex items-center gap-1 py-3 transition-colors">
+                View all <ArrowRight className="w-4 h-4" />
+              </Link>
+            )}
+          </div>
+          {recentlySaved.length > 0 ? (
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
+              {recentlySaved.map((remedy) => (
+                <RemedyCard key={remedy.id} remedy={remedy} featured />
+              ))}
+            </div>
+          ) : (
+            <div className="flex flex-col items-center justify-center text-center py-12 bg-card rounded-2xl border border-ink/5 shadow-soft">
+              <div className="w-14 h-14 rounded-2xl bg-emerald-500/10 flex items-center justify-center mb-4">
+                <Heart className="w-7 h-7 text-emerald-500" />
+              </div>
+              <h3 className="text-lg font-semibold text-ink mb-2">No Saved Remedies Yet</h3>
+              <p className="text-ink-muted max-w-sm mb-6 leading-relaxed text-sm">
+                Save remedies by tapping the heart icon while browsing.
+              </p>
+              <Link
+                to="/search"
+                className="inline-flex items-center gap-2 px-5 py-2.5 bg-primary text-white rounded-full text-sm font-medium hover:bg-primary-dark transition-colors shadow-glow"
+              >
+                Browse Remedies <span className="text-lg leading-none">&rarr;</span>
+              </Link>
+            </div>
+          )}
+        </section>
       </div>
     </PageWrapper>
   );
