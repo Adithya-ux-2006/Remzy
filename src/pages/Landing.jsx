@@ -2,6 +2,7 @@ import { useState, useMemo } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { ShieldCheck, Stethoscope, Globe, Search, ArrowRight } from 'lucide-react';
 import { AccordionSection } from '../components/ui/AccordionSection';
+import { AboutRemzy } from '../components/ui/AboutRemzy';
 import { Modal } from '../components/ui/Modal';
 import { QuestionnaireFlow } from '../components/onboarding/QuestionnaireFlow';
 import { PageWrapper } from '../components/layout';
@@ -9,7 +10,7 @@ import { TrustBadges } from '../components/ui/TrustBadges';
 import { LegalFooter } from '../components/ui/LegalFooter';
 import { useCatalogStore } from '../store/catalogStore';
 import { POPULAR_SYMPTOM_IDS } from '../constants/symptoms';
-import { ABOUT_REMZY_ITEMS, FAQ_ITEMS } from '../constants/onboarding';
+import { FAQ_ITEMS } from '../constants/onboarding';
 import { useGuestProfileStore } from '../store/guestProfileStore';
 import { trackSearchEvent } from '../utils/analytics';
 
@@ -139,17 +140,7 @@ export function Landing() {
         </div>
       </section>
 
-      <section className="bg-card py-16">
-        <div className="max-w-2xl mx-auto px-6">
-          <AccordionSection
-            title="About Remzy"
-            subtitle="The health platform behind your search."
-            lead="Remzy is a health information platform that maps common concerns to remedies and shows the review status of linked sources. Always consult a certified medical professional for serious health concerns."
-            items={ABOUT_REMZY_ITEMS}
-            bordered
-          />
-        </div>
-      </section>
+      <AboutRemzy />
 
       <section className="py-16">
         <div className="max-w-4xl mx-auto px-6">
