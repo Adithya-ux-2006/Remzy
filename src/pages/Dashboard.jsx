@@ -196,6 +196,7 @@ export function Dashboard() {
             subtitle="Everything you need to know about Remzy."
             items={FAQ_ITEMS}
             twoColumn
+            splitIndex={5}
           />
         </section>
       </div>

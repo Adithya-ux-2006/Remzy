@@ -158,6 +158,7 @@ export function Landing() {
             subtitle="Everything you need to know before your first search."
             items={FAQ_ITEMS}
             twoColumn
+            splitIndex={5}
           />
         </div>
       </section>
