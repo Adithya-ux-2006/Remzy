@@ -1,9 +1,8 @@
 import { useMemo, useState, useEffect, useCallback, useRef } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
-import { Heart, Activity, ArrowRight, Sparkles, AlertTriangle, Bell, Clock, MapPin, Store } from 'lucide-react';
+import { Heart, Activity, ArrowRight, Sparkles, AlertTriangle, Bell, Clock, MapPin, Building2, Navigation } from 'lucide-react';
 import { PageWrapper } from '../components/layout';
 import { RemedyCard } from '../components/ui/RemedyCard';
-import { FeaturedPharmacy } from '../components/ui/PharmacyComponents';
 import { AccordionSection } from '../components/ui/AccordionSection';
 import { useAuthStore } from '../store/authStore';
 import { useFavoritesStore } from '../store/favoritesStore';
@@ -11,8 +10,8 @@ import { useCatalogStore } from '../store/catalogStore';
 import { useRemedyScheduleStore } from '../store/remedyScheduleStore';
 import { useGuestProfileStore } from '../store/guestProfileStore';
 import { CONDITIONS, FAQ_ITEMS } from '../constants/onboarding';
-import { hasOccurrenceOnDate, getUpcomingOccurrences, formatTime } from '../utils/scheduleDates';
-import { getApiUrl } from '../utils/api';
+import { hasOccurrenceOnDate, formatTime } from '../utils/scheduleDates';
+import { searchNearbyCentres } from '../services/overpassService';
 
 export function Dashboard() {
   const user = useAuthStore((state) => state.user);
@@ -51,16 +50,10 @@ export function Dashboard() {
 
   const today = useMemo(() => new Date(), []);
 
-  const todayCount = useMemo(
-    () => schedules.filter((s) => s.active && hasOccurrenceOnDate(s, today)).length,
+  const todayReminders = useMemo(
+    () => schedules.filter((s) => s.active && hasOccurrenceOnDate(s, today)).sort((a, b) => (a.scheduled_time || '').localeCompare(b.scheduled_time || '')),
     [schedules, today]
   );
-
-  const nextReminder = useMemo(() => {
-    const active = schedules.filter((s) => s.active);
-    const upcoming = getUpcomingOccurrences(active, today, 1);
-    return upcoming[0] || null;
-  }, [schedules, today]);
 
   return (
     <PageWrapper className="min-h-screen pb-24 md:pb-16 pt-6 md:pt-10">
@@ -101,8 +94,8 @@ export function Dashboard() {
         </div>
 
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-          <ReminderWidget todayCount={todayCount} nextReminder={nextReminder} />
-          <PharmacyWidget />
+          <ReminderWidget reminders={todayReminders} />
+          <MedicalCentreWidget />
         </div>
 
         <section>
@@ -221,10 +214,16 @@ function StatCard({ icon: Icon, value, label }) {
   );
 }
 
-function ReminderWidget({ todayCount, nextReminder }) {
+const REMINDER_CAP = 3;
+
+function ReminderWidget({ reminders }) {
+  const count = reminders.length;
+  const visible = reminders.slice(0, REMINDER_CAP);
+  const overflow = count - REMINDER_CAP;
+
   return (
-    <div className="bg-card rounded-2xl shadow-soft border border-ink/5 p-5 flex flex-col justify-between">
-      <div className="flex items-center justify-between mb-3">
+    <div className="bg-card rounded-2xl shadow-soft border border-ink/5 p-5 flex flex-col">
+      <div className="flex items-center justify-between mb-4">
         <div className="flex items-center gap-2">
           <div className="w-9 h-9 rounded-xl bg-violet-500/10 flex items-center justify-center">
             <Bell className="w-4.5 h-4.5 text-violet-500" />
@@ -235,35 +234,57 @@ function ReminderWidget({ todayCount, nextReminder }) {
           View all
         </Link>
       </div>
-      {todayCount > 0 ? (
-        <div>
-          <p className="text-sm text-ink-muted mb-1">
-            <span className="font-semibold text-ink">{todayCount}</span> reminder{todayCount !== 1 ? 's' : ''} today
-          </p>
-          {nextReminder && (
-            <div className="flex items-center gap-2 text-sm text-ink-muted">
-              <Clock className="w-3.5 h-3.5" />
-              <span>
-                Next: <span className="font-medium text-ink">{nextReminder.schedule.remedy_name}</span> at{' '}
-                {formatTime(nextReminder.schedule.scheduled_time)}
-              </span>
-            </div>
-          )}
-        </div>
-      ) : (
-        <div>
-          <p className="text-sm text-ink-muted">No reminders scheduled</p>
-          <Link to="/reminders" className="text-sm text-primary font-medium hover:underline mt-1 inline-block">
+
+      {count === 0 ? (
+        <div className="flex-1 flex flex-col items-center justify-center text-center py-6">
+          <div className="w-10 h-10 rounded-xl bg-violet-500/10 flex items-center justify-center mb-3">
+            <Bell className="w-5 h-5 text-violet-400" />
+          </div>
+          <p className="text-sm text-ink-muted mb-1">No reminders today</p>
+          <Link to="/reminders" className="text-sm text-primary font-medium hover:underline">
             Set one up &rarr;
           </Link>
+        </div>
+      ) : (
+        <div className="flex-1 flex flex-col gap-2">
+          <p className="text-xs font-medium text-ink-muted mb-1">
+            {count} today
+          </p>
+          <ul className="space-y-2 flex-1">
+            {visible.map((reminder) => (
+              <li
+                key={reminder.id}
+                className="flex items-center gap-3 p-3 rounded-xl border border-border/60 bg-surface"
+              >
+                <div className="w-8 h-8 rounded-lg bg-violet-500/10 flex items-center justify-center shrink-0">
+                  <Clock className="w-4 h-4 text-violet-500" />
+                </div>
+                <div className="min-w-0 flex-1">
+                  <p className="font-semibold text-ink text-sm truncate">{reminder.remedy_name}</p>
+                  <p className="text-xs text-ink-muted">{formatTime(reminder.scheduled_time)}</p>
+                </div>
+              </li>
+            ))}
+          </ul>
+          {overflow > 0 && (
+            <Link to="/reminders" className="text-xs text-primary font-medium hover:underline text-center pt-1">
+              +{overflow} more
+            </Link>
+          )}
         </div>
       )}
     </div>
   );
 }
 
-function PharmacyWidget() {
-  const [shop, setShop] = useState(null);
+function formatDistanceKm(km) {
+  if (km == null) return null;
+  if (km < 1) return `${Math.round(km * 1000)} m`;
+  return `${km.toFixed(1)} km`;
+}
+
+function MedicalCentreWidget() {
+  const [centre, setCentre] = useState(null);
   const [loading, setLoading] = useState(false);
   const [locationDenied, setLocationDenied] = useState(() => !navigator.geolocation);
   const mountedRef = useRef(true);
@@ -273,20 +294,14 @@ function PharmacyWidget() {
     return () => { mountedRef.current = false; };
   }, []);
 
-  const fetchShop = useCallback(async (lat, lon) => {
+  const fetchCentre = useCallback(async (lat, lon) => {
     if (!mountedRef.current) return;
     setLoading(true);
     try {
-      const res = await fetch(getApiUrl('/api/nearby-shops'), {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ lat, lon, radius: 5000, limit: 1 }),
-      });
-      const data = await res.json();
-      if (!res.ok) throw new Error(data.error || 'Failed to fetch');
-      if (mountedRef.current) setShop(data.shops?.[0] || null);
+      const results = await searchNearbyCentres(lat, lon, 5);
+      if (mountedRef.current) setCentre(results?.[0] || null);
     } catch {
-      if (mountedRef.current) setShop(null);
+      if (mountedRef.current) setCentre(null);
     } finally {
       if (mountedRef.current) setLoading(false);
     }
@@ -295,32 +310,32 @@ function PharmacyWidget() {
   const requestLocation = useCallback(() => {
     setLocationDenied(false);
     navigator.geolocation.getCurrentPosition(
-      (pos) => fetchShop(pos.coords.latitude, pos.coords.longitude),
+      (pos) => fetchCentre(pos.coords.latitude, pos.coords.longitude),
       () => setLocationDenied(true),
       { timeout: 10000, maximumAge: 300000 }
     );
-  }, [fetchShop]);
+  }, [fetchCentre]);
 
   useEffect(() => {
     navigator.geolocation.getCurrentPosition(
-      (pos) => fetchShop(pos.coords.latitude, pos.coords.longitude),
+      (pos) => fetchCentre(pos.coords.latitude, pos.coords.longitude),
       () => setLocationDenied(true),
       { timeout: 10000, maximumAge: 300000 }
     );
-  }, [fetchShop]);
+  }, [fetchCentre]);
 
   if (locationDenied) {
     return (
-      <div className="bg-card rounded-2xl shadow-soft border border-ink/5 p-5 flex flex-col justify-between">
-        <div className="flex items-center gap-2 mb-3">
+      <div className="bg-card rounded-2xl shadow-soft border border-ink/5 p-5 flex flex-col">
+        <div className="flex items-center gap-2 mb-4">
           <div className="w-9 h-9 rounded-xl bg-emerald-500/10 flex items-center justify-center">
-            <MapPin className="w-4.5 h-4.5 text-emerald-500" />
+            <Building2 className="w-4.5 h-4.5 text-emerald-500" />
           </div>
-          <h3 className="font-bold text-ink">Nearby Pharmacy</h3>
+          <h3 className="font-bold text-ink">Medical Centre</h3>
         </div>
-        <div className="text-center py-4">
-          <MapPin className="w-6 h-6 text-ink-muted mx-auto mb-2" />
-          <p className="text-sm text-ink-muted mb-2">Enable location to find pharmacies near you</p>
+        <div className="flex-1 flex flex-col items-center justify-center text-center py-6">
+          <MapPin className="w-8 h-8 text-ink-muted mx-auto mb-3" />
+          <p className="text-sm text-ink-muted mb-2">Enable location to find medical centres near you</p>
           <button
             type="button"
             onClick={requestLocation}
@@ -334,24 +349,63 @@ function PharmacyWidget() {
   }
 
   return (
-    <div className="bg-card rounded-2xl shadow-soft border border-ink/5 p-5 flex flex-col justify-between">
-      <div className="flex items-center gap-2 mb-3">
+    <div className="bg-card rounded-2xl shadow-soft border border-ink/5 p-5 flex flex-col">
+      <div className="flex items-center gap-2 mb-4">
         <div className="w-9 h-9 rounded-xl bg-emerald-500/10 flex items-center justify-center">
-          <MapPin className="w-4.5 h-4.5 text-emerald-500" />
+          <Building2 className="w-4.5 h-4.5 text-emerald-500" />
         </div>
-        <h3 className="font-bold text-ink">Nearby Pharmacy</h3>
+        <h3 className="font-bold text-ink">Medical Centre</h3>
       </div>
+
       {loading ? (
-        <div className="space-y-2 animate-pulse">
+        <div className="flex-1 space-y-3 animate-pulse">
+          <div className="h-3 bg-surface rounded w-1/3" />
           <div className="h-4 bg-surface rounded w-3/4" />
           <div className="h-3 bg-surface rounded w-1/2" />
         </div>
-      ) : shop ? (
-        <FeaturedPharmacy shop={shop} />
+      ) : centre ? (
+        <div className="flex-1 flex flex-col">
+          <div className="flex items-center gap-2 mb-3">
+            <span className="inline-flex items-center gap-1 px-2.5 py-1 rounded-full text-[11px] font-semibold bg-success/10 text-success">
+              <MapPin className="w-3 h-3" />
+              Closest to You
+            </span>
+          </div>
+
+          <div className="flex items-start gap-3 mb-4">
+            <div className="w-10 h-10 rounded-xl bg-emerald-500/10 flex items-center justify-center shrink-0">
+              <Building2 className="w-5 h-5 text-emerald-500" />
+            </div>
+            <div className="flex-1 min-w-0">
+              <p className="font-semibold text-ink truncate">{centre.name}</p>
+              {centre.address && (
+                <p className="text-sm text-ink-muted truncate">{centre.address}</p>
+              )}
+              <div className="flex items-center gap-3 mt-1.5">
+                <span className="flex items-center gap-1 text-xs text-ink-muted">
+                  <Navigation className="w-3 h-3" />
+                  {formatDistanceKm(centre.distance)}
+                </span>
+                {centre.type && (
+                  <span className="text-xs font-medium text-primary">{centre.type}</span>
+                )}
+              </div>
+            </div>
+          </div>
+
+          <a
+            href={`https://www.google.com/maps/dir/?api=1&destination=${centre.lat},${centre.lon}`}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="mt-auto flex items-center justify-center w-full h-11 rounded-xl bg-primary text-white text-sm font-semibold shadow-glow transition-all duration-200 hover:bg-primary-dark hover:shadow-lg hover:-translate-y-0.5 active:scale-[0.98] active:shadow-md"
+          >
+            Get Directions
+          </a>
+        </div>
       ) : (
-        <div className="text-center py-4">
-          <Store className="w-6 h-6 text-ink-muted mx-auto mb-2" />
-          <p className="text-sm text-ink-muted">No pharmacies found nearby</p>
+        <div className="flex-1 flex flex-col items-center justify-center text-center py-6">
+          <Building2 className="w-8 h-8 text-ink-muted mx-auto mb-3" />
+          <p className="text-sm text-ink-muted">No medical centres found nearby</p>
         </div>
       )}
     </div>
