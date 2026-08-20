@@ -197,7 +197,7 @@ export function Dashboard() {
             items={FAQ_ITEMS}
             twoColumn
             leftItems={[FAQ_ITEMS[0], FAQ_ITEMS[2], FAQ_ITEMS[3], FAQ_ITEMS[7], FAQ_ITEMS[8]]}
-            rightItems={[FAQ_ITEMS[1], FAQ_ITEMS[4], FAQ_ITEMS[5], FAQ_ITEMS[6], FAQ_ITEMS[9], FAQ_ITEMS[10]]}
+            rightItems={[FAQ_ITEMS[1], FAQ_ITEMS[4], FAQ_ITEMS[5], FAQ_ITEMS[6], FAQ_ITEMS[9]]}
           />
         </section>
       </div>

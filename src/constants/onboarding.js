@@ -133,8 +133,4 @@ export const FAQ_ITEMS = [
     question: 'What do the warning badges mean?',
     answer: 'Use this safety-badge key: Green “Safe” or “Generally Safe” means Remzy found no known conflict with the health-profile information you provided. Yellow “Check,” “Allergy conflict detected,” or “Check with a professional first” means the remedy may conflict with a reported allergy, condition, or child-safety rule and should be reviewed with a qualified medical professional before use. Red “Not Recommended” means Remzy identified a stronger allergy or child-safety conflict and the remedy should be avoided unless a qualified medical professional specifically advises otherwise. These automated badges depend on the completeness of your profile and do not guarantee that a remedy is safe. Evidence badges report linked-source counts, Supportive Care, or Traditional Use; they do not grade clinical quality or personal safety.',
   },
-  {
-    question: 'Which countries is Remzy available in?',
-    answer: 'Remzy is available globally, and its current content is in English. The current remedy catalog is organized into three categories: OTC treatments, natural remedies, and lifestyle care. Availability, product names, and medical guidance can vary by country, so check local instructions and consult a qualified medical professional when needed.',
-  },
 ];
