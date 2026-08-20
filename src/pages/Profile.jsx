@@ -1,13 +1,15 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { useNavigate, Link } from 'react-router-dom';
 import {
-  LogOut, User, Shield, Pencil, X, Check
+  LogOut, User, Shield, Pencil, X, Check, Share2, Eye
 } from 'lucide-react';
 import { cn } from '../utils/cn';
 import { PageWrapper } from '../components/layout';
 import { AccordionSection } from '../components/ui/AccordionSection';
+import { ShareModal } from '../components/ui/ShareModal';
 import { useAuthStore } from '../store/authStore';
 import { useGuestProfileStore } from '../store/guestProfileStore';
+import { useProfileSharesStore } from '../store/profileSharesStore';
 import { getInitials } from '../utils/mappers';
 import { ALLERGIES, CONDITIONS, GENDER_OPTIONS, ABOUT_REMZY_ITEMS, getVisibleConditions, TREATMENT_PREFERENCES } from '../constants/onboarding';
 
@@ -96,6 +98,8 @@ export function Profile() {
 
   const [isEditing, setIsEditing] = useState(false);
   const [isEditingHealth, setIsEditingHealth] = useState(false);
+  const [isShareModalOpen, setIsShareModalOpen] = useState(false);
+  const [viewingShared, setViewingShared] = useState(null);
   const [healthForm, setHealthForm] = useState({
     selectedConditions: [],
     selectedAllergies: [],
@@ -120,6 +124,20 @@ export function Profile() {
     selectedConditions: user?.common_conditions ?? [],
     selectedAllergies: user?.known_allergies ?? [],
   });
+
+  const fetchShares = useProfileSharesStore((s) => s.fetchShares);
+  const fetchSharedProfiles = useProfileSharesStore((s) => s.fetchSharedProfiles);
+  const fetchPendingInvites = useProfileSharesStore((s) => s.fetchPendingInvites);
+  const sharedProfiles = useProfileSharesStore((s) => s.sharedProfiles);
+  const pendingInvites = useProfileSharesStore((s) => s.pendingInvites);
+  const acceptInvite = useProfileSharesStore((s) => s.acceptInvite);
+  const declineInvite = useProfileSharesStore((s) => s.declineInvite);
+
+  useEffect(() => {
+    fetchShares();
+    fetchSharedProfiles();
+    fetchPendingInvites();
+  }, [fetchShares, fetchSharedProfiles, fetchPendingInvites]);
 
   // Guest profile view
   if (!isAuthenticated) {
@@ -387,6 +405,64 @@ export function Profile() {
     <PageWrapper className="min-h-screen md:pb-12">
       <div className="max-w-5xl mx-auto px-5 md:px-8 pt-6 md:pt-8 space-y-6 md:space-y-8">
 
+        {/* ── Pending Invite Banner ── */}
+        {pendingInvites.length > 0 && pendingInvites.map((invite) => (
+          <div key={invite.id} className="bg-amber-50 border border-amber-200 rounded-2xl p-4 flex items-center justify-between gap-4">
+            <div>
+              <p className="font-semibold text-amber-900 text-sm">
+                {invite.users?.name || 'Someone'} shared their Health Profile with you
+              </p>
+              <p className="text-xs text-amber-700 mt-0.5">Accept to view their profile, saved remedies, and treatment reminders.</p>
+            </div>
+            <div className="flex gap-2 shrink-0">
+              <button
+                onClick={() => declineInvite(invite.id)}
+                className="px-3 py-1.5 rounded-xl text-sm font-medium border border-amber-300 text-amber-800 hover:bg-amber-100 transition-colors"
+              >
+                Decline
+              </button>
+              <button
+                onClick={() => acceptInvite(invite.id)}
+                className="px-3 py-1.5 rounded-xl text-sm font-semibold bg-primary text-white hover:bg-primary-dark transition-colors"
+              >
+                Accept
+              </button>
+            </div>
+          </div>
+        ))}
+
+        {/* ── Shared Profile Selector ── */}
+        {sharedProfiles.length > 0 && (
+          <div className="flex items-center gap-2 flex-wrap">
+            <span className="text-xs font-semibold uppercase tracking-wider text-ink-muted">Viewing:</span>
+            <button
+              onClick={() => setViewingShared(null)}
+              className={cn(
+                'px-3 py-1.5 rounded-full text-sm font-medium transition-colors',
+                !viewingShared ? 'bg-primary text-white' : 'bg-surface text-ink border border-border hover:bg-surface/80'
+              )}
+            >
+              My Profile
+            </button>
+            {sharedProfiles.map((sp) => (
+              <button
+                key={sp.shareId}
+                onClick={() => setViewingShared(sp)}
+                className={cn(
+                  'px-3 py-1.5 rounded-full text-sm font-medium transition-colors',
+                  viewingShared?.shareId === sp.shareId ? 'bg-primary text-white' : 'bg-surface text-ink border border-border hover:bg-surface/80'
+                )}
+              >
+                {sp.owner.name}'s Profile
+              </button>
+            ))}
+          </div>
+        )}
+
+        {viewingShared ? (
+          <SharedProfileView sharedProfile={viewingShared} />
+        ) : (
+          <>
         {/* ── Welcome Header Card ── */}
         <section className="relative overflow-hidden bg-card rounded-3xl border border-border/60 shadow-soft">
           <div className="absolute inset-0 bg-gradient-to-br from-emerald-500/8 via-emerald-500/5 to-transparent pointer-events-none" />
@@ -495,13 +571,22 @@ export function Profile() {
                 </button>
               </div>
             ) : (
-              <button
-                onClick={startEditingHealth}
-                className="flex items-center gap-1.5 text-sm font-semibold text-primary hover:text-primary-dark transition-colors"
-              >
-                <Pencil className="w-3.5 h-3.5" />
-                Edit
-              </button>
+              <div className="flex items-center gap-3">
+                <button
+                  onClick={() => setIsShareModalOpen(true)}
+                  className="flex items-center gap-1.5 text-sm font-semibold text-primary hover:text-primary-dark transition-colors"
+                >
+                  <Share2 className="w-3.5 h-3.5" />
+                  Share
+                </button>
+                <button
+                  onClick={startEditingHealth}
+                  className="flex items-center gap-1.5 text-sm font-semibold text-primary hover:text-primary-dark transition-colors"
+                >
+                  <Pencil className="w-3.5 h-3.5" />
+                  Edit
+                </button>
+              </div>
             )}
           </div>
 
@@ -654,6 +739,8 @@ export function Profile() {
             bordered
           />
         </section>
+          </>
+        )}
 
         {/* ── Sign Out ── */}
         <button
@@ -664,7 +751,112 @@ export function Profile() {
         </button>
 
       </div>
+
+      <ShareModal isOpen={isShareModalOpen} onClose={() => setIsShareModalOpen(false)} />
     </PageWrapper>
+  );
+}
+
+function SharedProfileView({ sharedProfile }) {
+  const { owner, favorites, schedules, sharedAt } = sharedProfile;
+
+  const ownerInitials = getInitials(owner.name);
+
+  return (
+    <>
+      {/* View-only banner */}
+      <div className="bg-blue-50 border border-blue-200 rounded-2xl p-4 flex items-center gap-3">
+        <Eye className="w-5 h-5 text-blue-600 shrink-0" />
+        <div>
+          <p className="font-semibold text-blue-900 text-sm">Viewing {owner.name}'s shared profile</p>
+          <p className="text-xs text-blue-700">This is a read-only view. Shared on {new Date(sharedAt).toLocaleDateString()}.</p>
+        </div>
+      </div>
+
+      {/* Owner header */}
+      <section className="relative overflow-hidden bg-card rounded-3xl border border-border/60 shadow-soft">
+        <div className="absolute inset-0 bg-gradient-to-br from-emerald-500/8 via-emerald-500/5 to-transparent pointer-events-none" />
+        <div className="relative p-6 md:p-8 flex flex-col md:flex-row items-center md:items-start gap-6">
+          <div className="shrink-0">
+            <div className="w-20 h-20 md:w-24 md:h-24 rounded-2xl bg-primary flex items-center justify-center text-2xl md:text-3xl font-bold text-white shadow-glow">
+              {ownerInitials}
+            </div>
+          </div>
+          <div className="flex-1 w-full text-center md:text-left">
+            <h1 className="text-2xl md:text-3xl font-bold text-ink">{owner.name}</h1>
+            <p className="text-ink-muted mt-1 capitalize">{owner.gender || 'Not specified'}</p>
+            <p className="text-sm text-ink-muted mt-1">Child Safe: {owner.is_child_safe ? 'Enabled' : 'Not enabled'}</p>
+          </div>
+        </div>
+      </section>
+
+      {/* Health Profile */}
+      <section className="bg-card rounded-2xl shadow-sm border border-border/60 overflow-hidden">
+        <div className="p-5 border-b border-border/60 flex items-center gap-2">
+          <Shield className="w-5 h-5 text-primary" />
+          <h2 className="font-bold text-lg text-ink">Health Profile</h2>
+        </div>
+        <div className="p-5 space-y-5">
+          <div className="space-y-2">
+            <p className="text-sm font-semibold text-ink">Health Conditions</p>
+            <PillGroup items={owner.common_conditions || []} getDisplay={getConditionDisplay} emptyLabel="No conditions selected" />
+          </div>
+          <div className="space-y-2">
+            <p className="text-sm font-semibold text-ink">Allergies & Sensitivities</p>
+            <PillGroup items={owner.known_allergies || []} getDisplay={getAllergyDisplay} emptyLabel="No allergies selected" />
+          </div>
+          <div className="space-y-2">
+            <p className="text-sm font-semibold text-ink">Treatment Preferences</p>
+            <PillGroup items={owner.treatment_prefs || []} getDisplay={(v) => { const p = TREATMENT_PREFERENCES.find((tp) => tp.value === v); return p ? { emoji: p.emoji, label: p.label } : { emoji: '○', label: v }; }} emptyLabel="No preferences selected" />
+          </div>
+        </div>
+      </section>
+
+      {/* Saved Remedies */}
+      <section className="bg-card rounded-2xl shadow-sm border border-border/60 overflow-hidden">
+        <div className="p-5 border-b border-border/60">
+          <h2 className="font-bold text-lg text-ink">Saved Remedies</h2>
+        </div>
+        <div className="p-5">
+          {favorites.length === 0 ? (
+            <p className="text-sm text-ink-muted">No saved remedies.</p>
+          ) : (
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+              {favorites.map((fav) => (
+                <div key={fav.id} className="p-3 rounded-xl bg-surface border border-border/50">
+                  <p className="text-sm font-medium text-ink">{fav.remedies?.name || 'Unknown remedy'}</p>
+                  {fav.remedies?.summary && <p className="text-xs text-ink-muted mt-1 line-clamp-2">{fav.remedies.summary}</p>}
+                </div>
+              ))}
+            </div>
+          )}
+        </div>
+      </section>
+
+      {/* Treatment Reminders */}
+      <section className="bg-card rounded-2xl shadow-sm border border-border/60 overflow-hidden">
+        <div className="p-5 border-b border-border/60">
+          <h2 className="font-bold text-lg text-ink">Treatment Reminders</h2>
+        </div>
+        <div className="p-5">
+          {schedules.length === 0 ? (
+            <p className="text-sm text-ink-muted">No scheduled reminders.</p>
+          ) : (
+            <div className="space-y-2">
+              {schedules.map((sch) => (
+                <div key={sch.id} className="p-3 rounded-xl bg-surface border border-border/50 flex items-center justify-between">
+                  <div>
+                    <p className="text-sm font-medium text-ink">{sch.remedy_name || sch.title || 'Reminder'}</p>
+                    <p className="text-xs text-ink-muted">{sch.scheduled_time ? new Date(sch.scheduled_time).toLocaleString() : ''}</p>
+                  </div>
+                  {sch.dosage && <span className="text-xs text-ink-muted">{sch.dosage}</span>}
+                </div>
+              ))}
+            </div>
+          )}
+        </div>
+      </section>
+    </>
   );
 }
 
