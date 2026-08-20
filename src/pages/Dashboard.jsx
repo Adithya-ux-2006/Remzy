@@ -4,12 +4,13 @@ import { Heart, Activity, ArrowRight, Sparkles, AlertTriangle, Bell, Clock, MapP
 import { PageWrapper } from '../components/layout';
 import { RemedyCard } from '../components/ui/RemedyCard';
 import { FeaturedPharmacy } from '../components/ui/PharmacyComponents';
+import { AccordionSection } from '../components/ui/AccordionSection';
 import { useAuthStore } from '../store/authStore';
 import { useFavoritesStore } from '../store/favoritesStore';
 import { useCatalogStore } from '../store/catalogStore';
 import { useRemedyScheduleStore } from '../store/remedyScheduleStore';
 import { useGuestProfileStore } from '../store/guestProfileStore';
-import { CONDITIONS } from '../constants/onboarding';
+import { CONDITIONS, FAQ_ITEMS } from '../constants/onboarding';
 import { hasOccurrenceOnDate, getUpcomingOccurrences, formatTime } from '../utils/scheduleDates';
 import { getApiUrl } from '../utils/api';
 
@@ -194,6 +195,14 @@ export function Dashboard() {
               </Link>
             </div>
           )}
+        </section>
+
+        <section>
+          <AccordionSection
+            title="Frequently Asked Questions"
+            subtitle="Everything you need to know about Remzy."
+            items={FAQ_ITEMS}
+          />
         </section>
       </div>
     </PageWrapper>

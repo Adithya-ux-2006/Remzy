@@ -5,11 +5,10 @@ import {
 } from 'lucide-react';
 import { cn } from '../utils/cn';
 import { PageWrapper } from '../components/layout';
-import { AccordionSection } from '../components/ui/AccordionSection';
 import { useAuthStore } from '../store/authStore';
 import { useGuestProfileStore } from '../store/guestProfileStore';
 import { getInitials } from '../utils/mappers';
-import { ALLERGIES, CONDITIONS, FAQ_ITEMS, GENDER_OPTIONS, getVisibleConditions, TREATMENT_PREFERENCES } from '../constants/onboarding';
+import { ALLERGIES, CONDITIONS, GENDER_OPTIONS, getVisibleConditions, TREATMENT_PREFERENCES } from '../constants/onboarding';
 
 const EMPTY_ARRAY = [];
 
@@ -302,12 +301,6 @@ export function Profile() {
             </div>
           </div>
 
-          {/* FAQ */}
-          <AccordionSection
-            title="Frequently Asked Questions"
-            subtitle="Everything you need to know before your first search."
-            items={FAQ_ITEMS}
-          />
         </div>
       </PageWrapper>
     );
@@ -650,13 +643,6 @@ export function Profile() {
             </div>
           </div>
         </section>
-
-        {/* ── FAQ ── */}
-        <AccordionSection
-          title="Frequently Asked Questions"
-          subtitle="Everything you need to know before your first search."
-          items={FAQ_ITEMS}
-        />
 
         {/* ── Sign Out ── */}
         <button

@@ -9,7 +9,7 @@ import { TrustBadges } from '../components/ui/TrustBadges';
 import { LegalFooter } from '../components/ui/LegalFooter';
 import { useCatalogStore } from '../store/catalogStore';
 import { POPULAR_SYMPTOM_IDS } from '../constants/symptoms';
-import { ABOUT_REMZY_ITEMS } from '../constants/onboarding';
+import { ABOUT_REMZY_ITEMS, FAQ_ITEMS } from '../constants/onboarding';
 import { useGuestProfileStore } from '../store/guestProfileStore';
 import { trackSearchEvent } from '../utils/analytics';
 
@@ -147,6 +147,16 @@ export function Landing() {
             lead="Remzy is a health information platform that maps common concerns to remedies and shows the review status of linked sources. Always consult a certified medical professional for serious health concerns."
             items={ABOUT_REMZY_ITEMS}
             bordered
+          />
+        </div>
+      </section>
+
+      <section className="py-16">
+        <div className="max-w-2xl mx-auto px-6">
+          <AccordionSection
+            title="Frequently Asked Questions"
+            subtitle="Everything you need to know before your first search."
+            items={FAQ_ITEMS}
           />
         </div>
       </section>
