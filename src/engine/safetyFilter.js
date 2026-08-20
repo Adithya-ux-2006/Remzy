@@ -117,13 +117,32 @@ function findTreatmentConflict(remedy, treatmentPrefs) {
 
   const name = (remedy.name || '').toLowerCase();
   const ingredients = (remedy.ingredients || []).map(i => i.toLowerCase());
+  const category = (remedy.category || '').toLowerCase();
+
+  // Prefer natural: filter out OTC remedies
+  if (treatmentPrefs.includes('prefer_natural')) {
+    if (category === 'otc' || category === 'over the counter') {
+      return 'prefer natural (OTC remedy)';
+    }
+  }
 
   // Avoid medication: filter out pharmaceuticals
   if (treatmentPrefs.includes('avoid_medication')) {
-    // Check for common pharmaceutical indicators
     const pharmaKeywords = ['ibuprofen', 'acetaminophen', 'aspirin', 'paracetamol', 'antihistamine', 'decongestant'];
     if (pharmaKeywords.some(kw => name.includes(kw) || ingredients.some(i => i.includes(kw)))) {
       return 'avoid medication (pharmaceutical ingredient)';
+    }
+  }
+
+  // Vegan: filter out all animal-derived and dairy/egg/honey products
+  if (treatmentPrefs.includes('vegan_remedies')) {
+    const nonVeganIngredients = ['gelatin', 'lanolin', 'collagen', 'chondroitin', 'glucosamine', 'fish oil', 'cod liver', 'shellfish', 'animal', 'lard', 'tallow', 'dairy', 'milk', 'whey', 'casein', 'lactose', 'eggs', 'egg', 'honey', 'beeswax', 'royal jelly', 'propolis'];
+    if (ingredients.some(i => nonVeganIngredients.some(nv => i.includes(nv)))) {
+      return 'vegan (animal-derived ingredient)';
+    }
+    const allergenTags = (remedy.allergen_tags || []).map(t => t.toLowerCase());
+    if (allergenTags.some(t => t.includes('animal') || t.includes('shellfish') || t.includes('fish') || t.includes('dairy') || t.includes('egg'))) {
+      return 'vegan (animal-derived allergen tag)';
     }
   }
 
@@ -133,7 +152,6 @@ function findTreatmentConflict(remedy, treatmentPrefs) {
     if (ingredients.some(i => animalDerived.some(ad => i.includes(ad)))) {
       return 'vegetarian only (animal-derived ingredient)';
     }
-    // Check allergen tags for animal products
     const allergenTags = (remedy.allergen_tags || []).map(t => t.toLowerCase());
     if (allergenTags.some(t => t.includes('animal') || t.includes('shellfish') || t.includes('fish'))) {
       return 'vegetarian only (animal-derived allergen tag)';

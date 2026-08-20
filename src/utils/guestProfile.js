@@ -93,11 +93,45 @@ export function getGuestConditions() {
   return getGuestProfile().common_conditions ?? [];
 }
 
-export function isRemedySafeForUser(remedy, { allergies, conditions, isChildSafe }) {
+export function isRemedySafeForUser(remedy, { allergies, conditions, isChildSafe, treatmentPrefs }) {
   if (remedyMatchesAllergies(remedy, allergies)) return false;
   if (remedyHasContraindication(remedy, conditions)) return false;
   if (getChildSafetyStatus(remedy, isChildSafe).isHardBlock) return false;
+  if (treatmentPrefs?.length && remedyHasTreatmentConflict(remedy, treatmentPrefs)) return false;
   return true;
+}
+
+function remedyHasTreatmentConflict(remedy, treatmentPrefs) {
+  if (!treatmentPrefs?.length || !remedy) return false;
+
+  const name = (remedy.name || '').toLowerCase();
+  const ingredients = (remedy.ingredients || []).map(i => i.toLowerCase());
+  const category = (remedy.category || '').toLowerCase();
+
+  if (treatmentPrefs.includes('prefer_natural')) {
+    if (category === 'otc' || category === 'over the counter') return true;
+  }
+
+  if (treatmentPrefs.includes('avoid_medication')) {
+    const pharmaKeywords = ['ibuprofen', 'acetaminophen', 'aspirin', 'paracetamol', 'antihistamine', 'decongestant'];
+    if (pharmaKeywords.some(kw => name.includes(kw) || ingredients.some(i => i.includes(kw)))) return true;
+  }
+
+  if (treatmentPrefs.includes('vegan_remedies')) {
+    const nonVeganIngredients = ['gelatin', 'lanolin', 'collagen', 'chondroitin', 'glucosamine', 'fish oil', 'cod liver', 'shellfish', 'animal', 'lard', 'tallow', 'dairy', 'milk', 'whey', 'casein', 'lactose', 'eggs', 'egg', 'honey', 'beeswax', 'royal jelly', 'propolis'];
+    if (ingredients.some(i => nonVeganIngredients.some(nv => i.includes(nv)))) return true;
+    const allergenTags = (remedy.allergen_tags || []).map(t => t.toLowerCase());
+    if (allergenTags.some(t => t.includes('animal') || t.includes('shellfish') || t.includes('fish') || t.includes('dairy') || t.includes('egg'))) return true;
+  }
+
+  if (treatmentPrefs.includes('vegetarian_remedies')) {
+    const animalDerived = ['gelatin', 'lanolin', 'collagen', 'chondroitin', 'glucosamine', 'fish oil', 'cod liver', 'shellfish', 'animal', 'lard', 'tallow'];
+    if (ingredients.some(i => animalDerived.some(ad => i.includes(ad)))) return true;
+    const allergenTags = (remedy.allergen_tags || []).map(t => t.toLowerCase());
+    if (allergenTags.some(t => t.includes('animal') || t.includes('shellfish') || t.includes('fish'))) return true;
+  }
+
+  return false;
 }
 
 export function getChildSafetyStatus(remedy, isChildSafe) {

@@ -60,12 +60,15 @@ export function RemedyDetail() {
   const userKnownAllergies = useAuthStore((state) => state.user?.known_allergies) ?? [];
   const userConditions = useAuthStore((state) => state.user?.common_conditions);
   const userIsChildSafe = useAuthStore((state) => state.user?.is_child_safe ?? false);
+  const userTreatmentPrefs = useAuthStore((state) => state.user?.treatment_prefs) ?? [];
   const guestAllergies = useGuestProfileStore((state) => state.known_allergies);
   const guestConditions = useGuestProfileStore((state) => state.common_conditions);
   const guestIsChildSafe = useGuestProfileStore((state) => state.is_child_safe ?? false);
+  const guestTreatmentPrefs = useGuestProfileStore((state) => state.treatment_prefs);
   const activeAllergies = isAuthenticated ? userKnownAllergies : guestAllergies;
   const activeConditions = isAuthenticated ? userConditions : guestConditions;
   const activeIsChildSafe = isAuthenticated ? userIsChildSafe : guestIsChildSafe;
+  const activeTreatmentPrefs = isAuthenticated ? userTreatmentPrefs : guestTreatmentPrefs;
 
   const remedy = remedies.find(r => r.id === id);
   const isOtc = remedy?.category === 'OTC';
@@ -73,8 +76,8 @@ export function RemedyDetail() {
 
   const isSafe = useMemo(() => {
     if (!remedy) return true;
-    return isRemedySafeForUser(remedy, { allergies: activeAllergies, conditions: activeConditions, isChildSafe: activeIsChildSafe });
-  }, [remedy, activeAllergies, activeConditions, activeIsChildSafe]);
+    return isRemedySafeForUser(remedy, { allergies: activeAllergies, conditions: activeConditions, isChildSafe: activeIsChildSafe, treatmentPrefs: activeTreatmentPrefs });
+  }, [remedy, activeAllergies, activeConditions, activeIsChildSafe, activeTreatmentPrefs]);
 
   useEffect(() => {
     if (!remedy?.id) return;

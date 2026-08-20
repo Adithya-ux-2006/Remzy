@@ -61,6 +61,8 @@ export const TREATMENT_PREFERENCES = [
   { value: 'prefer_natural', label: 'Prefer Natural Remedies', emoji: '🌿', description: 'Prioritize natural and herbal treatments over OTC medicine' },
   { value: 'avoid_medication', label: 'Avoid Medication', emoji: '💊', description: 'Minimize pharmaceutical interventions when possible' },
   { value: 'vegetarian_remedies', label: 'Vegetarian Only', emoji: '🥬', description: 'Only show remedies without animal-derived ingredients' },
+  { value: 'vegan_remedies', label: 'Vegan', emoji: '🌱', description: 'Only show plant-based remedies without any animal products' },
+  { value: 'no_preference', label: 'No Preference', emoji: '○', description: 'Show all remedies without dietary filtering' },
 ];
 
 export const ABOUT_REMZY_ITEMS = [

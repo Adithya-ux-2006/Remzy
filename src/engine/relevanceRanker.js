@@ -189,6 +189,15 @@ function computeUserContextPenalty(remedy, userContext) {
   if (treatmentPrefs?.length) {
     const name = (remedy.name || '').toLowerCase();
     const ingredients = (remedy.ingredients || []).map(i => i.toLowerCase());
+    const category = (remedy.category || '').toLowerCase();
+
+    // Prefer natural: penalize OTC remedies
+    if (treatmentPrefs.includes('prefer_natural')) {
+      if (category === 'otc' || category === 'over the counter') {
+        penalty += 20;
+        remedy._treatmentConflict = 'prefer natural (OTC remedy)';
+      }
+    }
 
     // Avoid medication: penalize pharmaceuticals
     if (treatmentPrefs.includes('avoid_medication')) {
@@ -196,6 +205,20 @@ function computeUserContextPenalty(remedy, userContext) {
       if (pharmaKeywords.some(kw => name.includes(kw) || ingredients.some(i => i.includes(kw)))) {
         penalty += 30;
         remedy._treatmentConflict = 'avoid medication (pharmaceutical ingredient)';
+      }
+    }
+
+    // Vegan: penalize all animal-derived and dairy/egg/honey products
+    if (treatmentPrefs.includes('vegan_remedies')) {
+      const nonVeganIngredients = ['gelatin', 'lanolin', 'collagen', 'chondroitin', 'glucosamine', 'fish oil', 'cod liver', 'shellfish', 'animal', 'lard', 'tallow', 'dairy', 'milk', 'whey', 'casein', 'lactose', 'eggs', 'egg', 'honey', 'beeswax', 'royal jelly', 'propolis'];
+      if (ingredients.some(i => nonVeganIngredients.some(nv => i.includes(nv)))) {
+        penalty += 25;
+        remedy._treatmentConflict = 'vegan (animal-derived ingredient)';
+      }
+      const allergenTags = (remedy.allergen_tags || []).map(t => t.toLowerCase());
+      if (allergenTags.some(t => t.includes('animal') || t.includes('shellfish') || t.includes('fish') || t.includes('dairy') || t.includes('egg'))) {
+        penalty += 25;
+        remedy._treatmentConflict = 'vegan (animal-derived allergen tag)';
       }
     }
 

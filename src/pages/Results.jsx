@@ -310,8 +310,8 @@ export function Results() {
   }, [isFreeTextSearch, freeTextQuery, symptomParam, isAuthenticated, incrementSearchCount]);
 
   const safeFilter = useMemo(
-    () => (remedy) => isRemedySafeForUser(remedy, { allergies: activeAllergies, conditions: activeConditions, isChildSafe: activeIsChildSafe }),
-    [activeAllergies, activeConditions, activeIsChildSafe]
+    () => (remedy) => isRemedySafeForUser(remedy, { allergies: activeAllergies, conditions: activeConditions, isChildSafe: activeIsChildSafe, treatmentPrefs: activeTreatmentPrefs }),
+    [activeAllergies, activeConditions, activeIsChildSafe, activeTreatmentPrefs]
   );
 
   const searchResult = useMemo(() => {

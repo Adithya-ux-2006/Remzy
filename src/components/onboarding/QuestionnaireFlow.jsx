@@ -54,14 +54,14 @@ export function QuestionnaireFlow({
   const progress = useMemo(() => stepIndex + 1, [stepIndex]);
 
   const handleNoneAwareToggle = (value, selectedValues, setSelectedValues) => {
-    if (value === 'none') {
-      setSelectedValues(selectedValues.includes('none') ? [] : ['none']);
+    if (value === 'none' || value === 'no_preference') {
+      setSelectedValues(selectedValues.includes(value) ? [] : [value]);
       return;
     }
 
     const nextValues = selectedValues.includes(value)
       ? selectedValues.filter((item) => item !== value)
-      : [...selectedValues.filter((item) => item !== 'none'), value];
+      : [...selectedValues.filter((item) => item !== 'none' && item !== 'no_preference'), value];
 
     setSelectedValues(nextValues);
   };

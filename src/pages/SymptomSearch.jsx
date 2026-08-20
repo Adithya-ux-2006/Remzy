@@ -75,8 +75,8 @@ export function SymptomSearch() {
   const matchedSymptomIds = symptomResolution.symptomIds;
 
   const safeFilter = useMemo(
-    () => (remedy) => isRemedySafeForUser(remedy, { allergies: activeAllergies, conditions: activeConditions, isChildSafe: activeIsChildSafe }),
-    [activeAllergies, activeConditions, activeIsChildSafe]
+    () => (remedy) => isRemedySafeForUser(remedy, { allergies: activeAllergies, conditions: activeConditions, isChildSafe: activeIsChildSafe, treatmentPrefs: activeTreatmentPrefs }),
+    [activeAllergies, activeConditions, activeIsChildSafe, activeTreatmentPrefs]
   );
 
   const symptomRankedResults = useMemo(() => {

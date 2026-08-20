@@ -271,7 +271,9 @@ export function Profile() {
                         onClick={() => {
                           const next = isSelected
                             ? guestEditForm.treatmentPrefs.filter(v => v !== option.value)
-                            : [...guestEditForm.treatmentPrefs, option.value];
+                            : option.value === 'no_preference'
+                              ? [option.value]
+                              : [...guestEditForm.treatmentPrefs.filter(v => v !== 'no_preference'), option.value];
                           setGuestEditForm({ ...guestEditForm, treatmentPrefs: next });
                         }}
                         className={isSelected ? 'rounded-full border border-forest bg-primary px-3 py-1.5 text-sm font-medium text-white' : 'rounded-full border border-border px-3 py-1.5 text-sm font-medium text-ink'}
@@ -620,7 +622,9 @@ export function Profile() {
                         onClick={() => {
                           const next = isSelected
                             ? healthForm.treatmentPrefs.filter(v => v !== option.value)
-                            : [...healthForm.treatmentPrefs, option.value];
+                            : option.value === 'no_preference'
+                              ? [option.value]
+                              : [...healthForm.treatmentPrefs.filter(v => v !== 'no_preference'), option.value];
                           setHealthForm({ ...healthForm, treatmentPrefs: next });
                         }}
                         className={isSelected
