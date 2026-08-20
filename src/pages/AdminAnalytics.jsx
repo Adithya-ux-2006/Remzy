@@ -90,7 +90,7 @@ export function AdminAnalytics() {
   }, [summary]);
 
   return (
-    <PageWrapper className="min-h-screen pb-24 md:pb-8 pt-6">
+    <PageWrapper className="min-h-screen md:pb-8 pt-6">
       <div className="mx-auto max-w-5xl px-6 space-y-8">
         <div>
           <div className="inline-flex items-center gap-2 rounded-full bg-card px-3 py-1 text-sm font-semibold text-primary shadow-sm">

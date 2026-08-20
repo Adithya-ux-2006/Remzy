@@ -148,7 +148,7 @@ export function Profile() {
     };
 
     return (
-      <PageWrapper className="min-h-screen pb-24 md:pb-8 pt-6">
+      <PageWrapper className="min-h-screen md:pb-8 pt-6">
         <div className="max-w-2xl mx-auto px-6 space-y-8">
           {/* Guest Profile Card */}
           <div className="bg-card rounded-3xl p-6 md:p-8 shadow-sm border border-border flex flex-col items-center gap-4 text-center">
@@ -384,7 +384,7 @@ export function Profile() {
   };
 
   return (
-    <PageWrapper className="min-h-screen pb-28 md:pb-12">
+    <PageWrapper className="min-h-screen md:pb-12">
       <div className="max-w-2xl mx-auto px-5 md:px-8 pt-6 md:pt-8 space-y-6 md:space-y-8">
 
         {/* ── Welcome Header Card ── */}

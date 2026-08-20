@@ -56,7 +56,7 @@ export function Dashboard() {
   );
 
   return (
-    <PageWrapper className="min-h-screen pb-24 md:pb-16 pt-6 md:pt-10">
+    <PageWrapper className="min-h-screen md:pb-16 pt-6 md:pt-10">
       <div className="max-w-5xl mx-auto px-6 space-y-10">
         <header>
           <div className="flex items-center gap-2 mb-1">

@@ -151,7 +151,7 @@ export function RemedyDetail() {
   }
 
   return (
-    <PageWrapper className="min-h-screen pb-28 md:pb-24">
+    <PageWrapper className="min-h-screen md:pb-24">
       <div className="sticky top-0 z-40 bg-bg/80 backdrop-blur-md border-b border-border">
         <div className="max-w-[800px] mx-auto px-5 md:px-8 h-14 flex items-center justify-between">
           <button

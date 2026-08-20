@@ -401,7 +401,7 @@ export function Results() {
   }
 
   return (
-    <PageWrapper className="min-h-screen pb-24 md:pb-16">
+    <PageWrapper className="min-h-screen md:pb-16">
       <div className="max-w-4xl mx-auto px-6 pt-8">
         <button
           onClick={() => navigate('/search')}

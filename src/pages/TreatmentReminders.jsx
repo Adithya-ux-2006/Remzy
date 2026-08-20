@@ -189,7 +189,7 @@ export function TreatmentReminders() {
   };
 
   return (
-    <PageWrapper className="min-h-screen pb-28 md:pb-12">
+    <PageWrapper className="min-h-screen md:pb-12">
       {/* Hero */}
       <section className="relative overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-br from-emerald-500/8 via-emerald-500/5 to-transparent pointer-events-none" />
