@@ -5,10 +5,11 @@ import {
 } from 'lucide-react';
 import { cn } from '../utils/cn';
 import { PageWrapper } from '../components/layout';
+import { AccordionSection } from '../components/ui/AccordionSection';
 import { useAuthStore } from '../store/authStore';
 import { useGuestProfileStore } from '../store/guestProfileStore';
 import { getInitials } from '../utils/mappers';
-import { ALLERGIES, CONDITIONS, GENDER_OPTIONS, getVisibleConditions, TREATMENT_PREFERENCES } from '../constants/onboarding';
+import { ALLERGIES, CONDITIONS, GENDER_OPTIONS, ABOUT_REMZY_ITEMS, getVisibleConditions, TREATMENT_PREFERENCES } from '../constants/onboarding';
 
 const EMPTY_ARRAY = [];
 
@@ -642,6 +643,16 @@ export function Profile() {
               )}
             </div>
           </div>
+        </section>
+
+        <section className="bg-card py-16 rounded-2xl">
+          <AccordionSection
+            title="About Remzy"
+            subtitle="The health platform behind your search."
+            lead="Remzy is a health information platform that maps common concerns to remedies and shows the review status of linked sources. Always consult a certified medical professional for serious health concerns."
+            items={ABOUT_REMZY_ITEMS}
+            bordered
+          />
         </section>
 
         {/* ── Sign Out ── */}
