@@ -158,7 +158,8 @@ export function Landing() {
             subtitle="Everything you need to know before your first search."
             items={FAQ_ITEMS}
             twoColumn
-            splitIndex={5}
+            leftItems={[FAQ_ITEMS[0], FAQ_ITEMS[2], FAQ_ITEMS[3], FAQ_ITEMS[7], FAQ_ITEMS[8]]}
+            rightItems={[FAQ_ITEMS[1], FAQ_ITEMS[4], FAQ_ITEMS[5], FAQ_ITEMS[6], FAQ_ITEMS[9], FAQ_ITEMS[10]]}
           />
         </div>
       </section>

@@ -1,10 +1,10 @@
 import { FAQAccordion } from './FAQAccordion';
 import { cn } from '../../utils/cn';
 
-export function AccordionSection({ title, subtitle, lead, items, bordered = false, className, twoColumn = false, splitIndex }) {
+export function AccordionSection({ title, subtitle, lead, items, bordered = false, className, twoColumn = false, leftItems, rightItems }) {
   if (twoColumn) {
-    const leftItems = items.slice(0, splitIndex);
-    const rightItems = items.slice(splitIndex);
+    const left = leftItems || [];
+    const right = rightItems || items;
 
     return (
       <div className={cn('text-center md:text-left', className)}>
@@ -13,14 +13,14 @@ export function AccordionSection({ title, subtitle, lead, items, bordered = fals
             <h2 className="text-heading font-semibold text-ink">{title}</h2>
             {subtitle && <p className="mt-2 text-ink-muted">{subtitle}</p>}
             {lead && <p className="mt-4 leading-relaxed text-ink-muted">{lead}</p>}
-            {leftItems.length > 0 && (
+            {left.length > 0 && (
               <div className="mt-6 md:mt-8 text-left">
-                <FAQAccordion items={leftItems} bordered={bordered} />
+                <FAQAccordion items={left} bordered={bordered} />
               </div>
             )}
           </div>
           <div className="text-left">
-            <FAQAccordion items={rightItems} bordered={bordered} />
+            <FAQAccordion items={right} bordered={bordered} />
           </div>
         </div>
       </div>
