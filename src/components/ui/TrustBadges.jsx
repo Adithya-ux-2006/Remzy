@@ -1,8 +1,8 @@
 import { ShieldCheck, Leaf, Heart } from 'lucide-react';
 
 const TRUST_ITEMS = [
-  { icon: ShieldCheck, label: 'Sources shown with review status.' },
-  { icon: Leaf, label: 'Always free. No hidden costs.' },
+  { icon: ShieldCheck, label: 'Data stays private.' },
+  { icon: Leaf, label: 'Always free, no hidden costs.' },
   { icon: Heart, label: 'Not a substitute for professional medical advice.' },
 ];
 

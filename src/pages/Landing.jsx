@@ -50,11 +50,11 @@ export function Landing() {
           <h1 className="text-4xl md:text-6xl font-bold text-ink tracking-tight">
             Understand your symptoms
             <br />
-            <span className="text-primary">find what may help.</span>
+            <span className="text-primary">get clear next steps.</span>
           </h1>
 
           <p className="text-lg text-ink-muted max-w-2xl mx-auto leading-relaxed">
-            No sign up needed. Search symptoms, explore mapped remedies, and inspect linked sources with their review status.
+            No sign-up needed. Search symptoms, save what works, set reminders, and find help nearby.
           </p>
 
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4 pt-2">
@@ -63,13 +63,13 @@ export function Landing() {
               onClick={() => setIsQuestionnaireOpen(true)}
               className="w-full sm:w-auto px-8 py-4 bg-primary text-white rounded-2xl font-bold text-lg hover:bg-primary-dark transition-all shadow-glow hover:shadow-lg"
             >
-              Get Started
+              Personalised Search
             </button>
             <Link
               to="/search"
               className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-8 py-4 bg-card text-ink rounded-2xl font-medium text-lg shadow-soft hover:shadow-card transition-all"
             >
-              Start Your Search <ArrowRight className="w-5 h-5" />
+              Quick Search <ArrowRight className="w-5 h-5" />
             </Link>
           </div>
 
