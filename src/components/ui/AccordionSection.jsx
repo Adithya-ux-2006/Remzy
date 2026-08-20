@@ -8,16 +8,13 @@ export function AccordionSection({ title, subtitle, lead, items, bordered = fals
 
     return (
       <div className={cn('text-center md:text-left', className)}>
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-10 md:gap-14 items-start">
-          <div>
-            <h2 className="text-heading font-semibold text-ink">{title}</h2>
-            {subtitle && <p className="mt-2 text-ink-muted">{subtitle}</p>}
-            {lead && <p className="mt-4 leading-relaxed text-ink-muted">{lead}</p>}
-            {left.length > 0 && (
-              <div className="mt-6 md:mt-8 text-left">
-                <FAQAccordion items={left} bordered={bordered} />
-              </div>
-            )}
+        <h2 className="text-heading font-semibold text-ink">{title}</h2>
+        {subtitle && <p className="mt-2 text-ink-muted">{subtitle}</p>}
+        {lead && <p className="mt-4 leading-relaxed text-ink-muted">{lead}</p>}
+
+        <div className="mt-8 grid grid-cols-1 md:grid-cols-2 gap-10 md:gap-14">
+          <div className="text-left">
+            {left.length > 0 && <FAQAccordion items={left} bordered={bordered} />}
           </div>
           <div className="text-left">
             <FAQAccordion items={right} bordered={bordered} />
