@@ -152,11 +152,12 @@ export function Landing() {
       </section>
 
       <section className="py-16">
-        <div className="max-w-2xl mx-auto px-6">
+        <div className="max-w-4xl mx-auto px-6">
           <AccordionSection
             title="Frequently Asked Questions"
             subtitle="Everything you need to know before your first search."
             items={FAQ_ITEMS}
+            twoColumn
           />
         </div>
       </section>

@@ -3,6 +3,28 @@ import { AnimatePresence, motion } from 'framer-motion';
 import { ChevronDown, CircleHelp } from 'lucide-react';
 import { cn } from '../../utils/cn';
 
+const charVariants = {
+  hidden: { opacity: 0, filter: 'blur(8px)' },
+  visible: { opacity: 1, filter: 'blur(0px)' },
+};
+
+function BlurredStagger({ text }) {
+  const chars = text.split('');
+  return (
+    <motion.span
+      initial="hidden"
+      animate="visible"
+      transition={{ staggerChildren: 0.02 }}
+    >
+      {chars.map((char, i) => (
+        <motion.span key={i} variants={charVariants} transition={{ duration: 0.3 }}>
+          {char}
+        </motion.span>
+      ))}
+    </motion.span>
+  );
+}
+
 export function FAQAccordion({ items, bordered = false }) {
   const [openIndex, setOpenIndex] = useState(0);
 
@@ -59,12 +81,12 @@ export function FAQAccordion({ items, bordered = false }) {
                         {item.answer.map((line, i) => (
                           <li key={i} className="flex items-start gap-2.5 leading-relaxed">
                             <span aria-hidden className="mt-[8px] h-1.5 w-1.5 shrink-0 rounded-full bg-primary/40" />
-                            <span>{line}</span>
+                            <span><BlurredStagger text={line} /></span>
                           </li>
                         ))}
                       </ul>
                     ) : (
-                      item.answer
+                      <BlurredStagger text={item.answer} />
                     )}
                   </div>
                 </motion.div>
