@@ -43,9 +43,7 @@ export function Landing() {
     <PageWrapper className="min-h-screen flex flex-col">
       <section className="relative pt-24 pb-16 px-6 lg:px-8 overflow-hidden">
         <div className="max-w-4xl mx-auto text-center space-y-8">
-          <div className="w-14 h-14 mx-auto rounded-2xl shadow-glow overflow-hidden bg-primary">
-            <img src="/logo.png" alt="Remzy" className="w-full h-full object-cover" />
-          </div>
+          <img src="/logo.png" alt="Remzy" className="w-14 h-14 mx-auto object-contain" />
 
           <h1 className="text-4xl md:text-6xl font-bold text-ink tracking-tight">
             Understand your symptoms
