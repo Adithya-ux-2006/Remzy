@@ -35,6 +35,8 @@
 
 @layer base {
   :root {
+    --bottom-nav-clearance: calc(6rem + env(safe-area-inset-bottom, 0px));
+
     --background: 155 55% 93%;
     --foreground: 155 20% 14%;
 

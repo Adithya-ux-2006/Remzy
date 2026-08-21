@@ -216,7 +216,7 @@ function App() {
         <ErrorBoundary>
           <div className="flex flex-col min-h-screen transition-colors duration-250">
             <Navbar />
-            <main className="flex-1 relative pb-24 md:pb-0">
+            <main className="flex-1 relative pb-[var(--bottom-nav-clearance)] md:pb-0">
               <AppRoutes />
             </main>
             <BottomNav />
