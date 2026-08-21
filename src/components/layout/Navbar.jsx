@@ -13,8 +13,8 @@ export function Navbar() {
         <div className="h-full px-4 md:px-6 grid grid-cols-[1fr_auto_1fr] items-center">
           <div />
           <Link to="/dashboard" className="flex items-center gap-2 justify-self-center">
-            <span className="w-10 h-10 rounded-xl bg-primary dark:bg-primary-tint shadow-glow flex items-center justify-center">
-              <img src="/logo.png" alt="Remzy" className="w-7 h-7 object-contain" />
+            <span className="w-10 h-10 rounded-xl bg-primary dark:bg-background shadow-glow flex items-center justify-center">
+              <img src="/logo.png" alt="Remzy" className="w-8 h-8 object-contain" />
             </span>
             <span className="text-xl font-bold text-ink tracking-tight">Remzy</span>
           </Link>
@@ -31,8 +31,8 @@ export function Navbar() {
       ) : (
         <div className="h-full max-w-5xl mx-auto px-4 md:px-6 flex items-center justify-between">
           <Link to="/" className="flex items-center gap-2 min-w-[44px] min-h-[44px] p-1.5">
-            <span className="w-8 h-8 rounded-lg bg-primary dark:bg-primary-tint shadow-glow flex items-center justify-center">
-              <img src="/logo.png" alt="Remzy" className="w-6 h-6 object-contain" />
+            <span className="w-8 h-8 rounded-lg bg-primary dark:bg-background shadow-glow flex items-center justify-center">
+              <img src="/logo.png" alt="Remzy" className="w-7 h-7 object-contain" />
             </span>
             <span className="font-bold text-xl text-ink">Remzy</span>
           </Link>
