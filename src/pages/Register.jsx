@@ -84,8 +84,8 @@ export function Register() {
     <PageWrapper className="min-h-screen flex flex-col items-center justify-center p-6 py-12">
       <div className="w-full max-w-md">
         <div className="text-center mb-8">
-          <Link to="/" className="inline-flex w-14 h-14 rounded-2xl overflow-hidden shadow-glow mb-4 bg-primary">
-            <img src="/logo.png" alt="Remzy" className="w-full h-full object-cover" />
+          <Link to="/" className="inline-block mb-4">
+            <img src="/logo.png" alt="Remzy" className="w-14 h-14 object-contain" />
           </Link>
           <h1 className="text-3xl font-bold text-ink">Create an account</h1>
           <p className="text-ink-muted mt-2">Join Remzy for targeted relief</p>
