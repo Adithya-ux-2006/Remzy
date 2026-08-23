@@ -1,4 +1,4 @@
-import { useEffect, useMemo, useState } from 'react';
+import { useEffect, useMemo, useState, lazy, Suspense } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import { ArrowLeft, BookOpen, ChevronRight } from 'lucide-react';
 import { FavoriteHeart } from '../components/ui/FavoriteHeart';
@@ -9,11 +9,8 @@ import { RemedyHero } from '../components/ui/RemedyHero';
 import { QuickStats } from '../components/ui/QuickStats';
 import { BenefitCard } from '../components/ui/BenefitCard';
 import { TimelineStep } from '../components/ui/TimelineStep';
-import { EvidenceCard } from '../components/ui/EvidenceCard';
 import { AdvisoryCard } from '../components/ui/AdvisoryCard';
 import { DoctorGuidance } from '../components/ui/DoctorGuidance';
-import { NearbyShops } from '../components/ui/NearbyShops';
-import { EnrichmentSection } from '../components/ui/ExternalDataBadge';
 import { Reveal } from '../components/ui/Reveal';
 import { useFavoritesStore } from '../store/favoritesStore';
 import { useCatalogStore } from '../store/catalogStore';
@@ -25,6 +22,10 @@ import { trackRemedyEvent } from '../utils/analytics';
 import { getMedicalCareWarnings } from '../data/symptoms';
 import { computeEvidenceScore } from '../utils/evidence';
 import { parseHowToUseSteps } from '../utils/howToUse';
+
+const EvidenceCard = lazy(() => import('../components/ui/EvidenceCard').then(m => ({ default: m.EvidenceCard })));
+const NearbyShops = lazy(() => import('../components/ui/NearbyShops').then(m => ({ default: m.NearbyShops })));
+const EnrichmentSection = lazy(() => import('../components/ui/ExternalDataBadge').then(m => ({ default: m.EnrichmentSection })));
 
 const CATEGORY_BENEFITS = {
   Natural: [
@@ -284,14 +285,18 @@ export function RemedyDetail() {
 
         {remedy.isPurchasable !== false && (
           <div className="mb-12 md:mb-16">
-            <NearbyShops remedyName={remedy.name} />
+            <Suspense fallback={<div className="h-40 rounded-2xl bg-card border border-border animate-pulse" />}>
+              <NearbyShops remedyName={remedy.name} />
+            </Suspense>
           </div>
         )}
 
         {enrichment && (
           <div className="mb-12 md:mb-16">
             <Reveal>
-              <EnrichmentSection enrichment={enrichment} />
+              <Suspense fallback={<div className="h-24 rounded-2xl bg-card border border-border animate-pulse" />}>
+                <EnrichmentSection enrichment={enrichment} />
+              </Suspense>
             </Reveal>
           </div>
         )}
@@ -333,14 +338,16 @@ export function RemedyDetail() {
           {researchLinks.length > 0 && (
             <>
               <div className="space-y-4">
-                {visibleEvidence.map((source, idx) => (
-                  <EvidenceCard
-                    key={idx}
-                    source={source}
-                    delay={idx * 0.06}
-                    onTrackClick={() => trackRemedyEvent({ remedyId: remedy.id, eventType: 'research_clicked', metadata: { url: source.url, label: source.journal || source.label } }).catch(() => {})}
-                  />
-                ))}
+                <Suspense fallback={<div className="space-y-4">{visibleEvidence.map((_, idx) => <div key={idx} className="h-24 rounded-2xl bg-card border border-border animate-pulse" />)}</div>}>
+                  {visibleEvidence.map((source, idx) => (
+                    <EvidenceCard
+                      key={idx}
+                      source={source}
+                      delay={idx * 0.06}
+                      onTrackClick={() => trackRemedyEvent({ remedyId: remedy.id, eventType: 'research_clicked', metadata: { url: source.url, label: source.journal || source.label } }).catch(() => {})}
+                    />
+                  ))}
+                </Suspense>
               </div>
               {!showAllEvidence && researchLinks.length > EVIDENCE_SHOW_LIMIT && (
                 <button

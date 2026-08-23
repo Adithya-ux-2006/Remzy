@@ -13,7 +13,6 @@ import { trackSearchEvent } from '../utils/analytics';
 import { isRemedySafeForUser } from '../utils/guestProfile';
 import { getRankedRemediesForSymptoms, isEmergencyQuery } from '../utils/symptomSearch';
 import { resolveQuery } from '../utils/symptomEngine';
-import { fetchGeminiInterpretation } from '../utils/geminiInterpreter';
 import { EMERGENCY_MESSAGE, EMERGENCY_ACTION } from '../constants/emergency';
 import { POPULAR_SYMPTOM_IDS, SYMPTOM_COLOR_CLASSES } from '../constants/symptoms';
 
@@ -109,6 +108,7 @@ export function SymptomSearch() {
     trackSearchEvent({ source: 'text', queryText: query }).catch(() => {});
 
     try {
+      const { fetchGeminiInterpretation } = await import('../utils/geminiInterpreter');
       const geminiInterp = await fetchGeminiInterpretation(query, symptoms);
       navigate(`/results?q=${encodeURIComponent(query)}`, {
         state: { geminiInterpretation: geminiInterp || null },

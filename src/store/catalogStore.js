@@ -66,14 +66,9 @@ async function loadLocalCatalog() {
     import('../data/runtimeCatalog'),
   ]);
 
-  // Evidence review controls which citations may be displayed. It must never
-  // remove a remedy from the catalog.
   const allRemedies = buildRuntimeRemedies();
-
   const dedupedRemedies = allRemedies.filter((remedy, index, all) => all.findIndex((candidate) => candidate.id === remedy.id) === index);
-
   const localSymptomRemedies = buildLocalSymptomRemedies(dedupedRemedies);
-
   const mergedSymptomRemedies = mergeSymptomRemedies(localSymptomRemedies, LOCAL_SYMPTOM_REMEDIES);
 
   return {
@@ -88,51 +83,11 @@ async function loadLocalCatalog() {
   };
 }
 
-function mergeById(primary = [], fallback = []) {
-  const seen = new Set(primary.map((item) => item.id));
-  return [
-    ...primary,
-    ...fallback.filter((item) => item?.id && !seen.has(item.id)),
-  ];
-}
-
-function mergeRemedyFields(primary = [], fallback = []) {
-  // Keep Supabase authoritative for existing records while retaining reviewed
-  // local remedies that have not been migrated yet.
-  const fallbackMapById = new Map(fallback.map(item => [item.id, item]));
-  const fallbackMapByName = new Map(fallback.map(item => [item.name.toLowerCase(), item]));
-  const matchedFallbackIds = new Set();
-  
-  const mergedPrimary = primary.map(primaryItem => {
-    // Try matching by ID first
-    let fallbackItem = fallbackMapById.get(primaryItem.id);
-    
-    // If not found by ID, try matching by name (case-insensitive) from local fallback.
-    if (!fallbackItem && primaryItem.name) {
-      fallbackItem = fallbackMapByName.get(primaryItem.name.toLowerCase());
-    }
-    
-    if (!fallbackItem) return primaryItem;
-    matchedFallbackIds.add(fallbackItem.id);
-    
-    return {
-      ...fallbackItem,
-      ...primaryItem,
-      childSafe: fallbackItem.childSafe ?? primaryItem.childSafe,
-      childSafetyNote: fallbackItem.childSafetyNote ?? primaryItem.childSafetyNote,
-      evidenceTier: primaryItem.evidenceTier ?? fallbackItem.evidenceTier,
-      evidenceNote: primaryItem.evidenceNote || fallbackItem.evidenceNote,
-      researchPapers: primaryItem._evidenceBackendAuthoritative
-        ? primaryItem.researchPapers
-        : (primaryItem.researchPapers?.length ? primaryItem.researchPapers : fallbackItem.researchPapers),
-      researchLinks: primaryItem._evidenceBackendAuthoritative
-        ? primaryItem.researchLinks
-        : (primaryItem.researchLinks?.length ? primaryItem.researchLinks : fallbackItem.researchLinks),
-    };
-  });
-
-  const localOnly = fallback.filter((item) => !matchedFallbackIds.has(item.id));
-  return [...mergedPrimary, ...localOnly];
+async function loadLocalMappingOnly() {
+  const [{ LOCAL_SYMPTOM_REMEDIES }] = await Promise.all([
+    import('../data/localCatalog'),
+  ]);
+  return LOCAL_SYMPTOM_REMEDIES;
 }
 
 function mergeSymptomRemedies(primary = {}, fallback = {}) {
@@ -215,33 +170,32 @@ function dedupeEvidenceSources(sources = []) {
 }
 
 async function enrichWithLocalCatalog(catalog, approvedEvidenceMap = {}) {
-  const local = await loadLocalCatalog();
-  const remedies = mergeRemedyFields(catalog.remedies, local.remedies)
-    .map((remedy) => {
-      const approvedSources = approvedEvidenceMap[remedy.id] || [];
-      const identifiedSources = dedupeEvidenceSources([
-        ...(remedy.researchPapers || []),
-        ...(remedy.researchLinks || []),
-      ]).map((source) => ({
-        ...source,
-        verificationStatus: source.verificationStatus || 'source-identified',
-        claimReviewStatus: 'needs-review',
-      }));
-      const sources = approvedSources.length ? approvedSources : identifiedSources;
-      return {
-        ...remedy,
-        researchPapers: sources,
-        researchLinks: [],
-        evidenceBackendStatus: approvedSources.length
-          ? 'approved'
-          : sources.length ? 'needs-review' : 'no-sources',
-        _evidenceBackendAuthoritative: true,
-      };
-    });
+  const LOCAL_SYMPTOM_REMEDIES = await loadLocalMappingOnly();
+  const remedies = (catalog.remedies || []).map((remedy) => {
+    const approvedSources = approvedEvidenceMap[remedy.id] || [];
+    const identifiedSources = dedupeEvidenceSources([
+      ...(remedy.researchPapers || []),
+      ...(remedy.researchLinks || []),
+    ]).map((source) => ({
+      ...source,
+      verificationStatus: source.verificationStatus || 'source-identified',
+      claimReviewStatus: 'needs-review',
+    }));
+    const sources = approvedSources.length ? approvedSources : identifiedSources;
+    return {
+      ...remedy,
+      researchPapers: sources,
+      researchLinks: [],
+      evidenceBackendStatus: approvedSources.length
+        ? 'approved'
+        : sources.length ? 'needs-review' : 'no-sources',
+      _evidenceBackendAuthoritative: true,
+    };
+  });
   return {
-    symptoms: mergeById(catalog.symptoms, local.symptoms),
+    symptoms: catalog.symptoms || [],
     remedies,
-    symptomRemedies: mergeBackendSymptomMappings(catalog.symptomRemedies, local.symptomRemedies),
+    symptomRemedies: mergeBackendSymptomMappings(catalog.symptomRemedies, LOCAL_SYMPTOM_REMEDIES),
   };
 }
 

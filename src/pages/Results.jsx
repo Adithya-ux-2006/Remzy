@@ -17,7 +17,6 @@ import { useGuestProfileStore } from '../store/guestProfileStore';
 import { isRemedySafeForUser } from '../utils/guestProfile';
 import { getRankedRemediesForSymptoms, isEmergencyQuery, resolveWithSemanticFallback } from '../utils/symptomSearch';
 import { resolveQuery } from '../utils/symptomEngine';
-import { fetchGeminiInterpretation } from '../utils/geminiInterpreter';
 import { trackSearchEvent } from '../utils/analytics';
 import { isRemedyDisplayable } from '../utils/evidence';
 
@@ -206,15 +205,17 @@ export function Results() {
 
     let cancelled = false;
 
-    fetchGeminiInterpretation(freeTextQuery, symptoms)
-      .then((interp) => {
-        if (!cancelled && interp) {
-          setGeminiInterpretation(interp);
-        }
-      })
-      .catch((err) => {
-        console.error('[GEMINI-RESULTS] Fallback fetch failed:', err?.message || err);
-      });
+    import('../utils/geminiInterpreter').then(({ fetchGeminiInterpretation }) => {
+      fetchGeminiInterpretation(freeTextQuery, symptoms)
+        .then((interp) => {
+          if (!cancelled && interp) {
+            setGeminiInterpretation(interp);
+          }
+        })
+        .catch((err) => {
+          console.error('[GEMINI-RESULTS] Fallback fetch failed:', err?.message || err);
+        });
+    });
 
     return () => { cancelled = true; };
   }, [isFreeTextSearch, freeTextQuery, symptoms, geminiInterpretation, hasStrongPhraseMatch]);
