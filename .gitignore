@@ -39,3 +39,4 @@ supabase/.temp/
 # Generated evidence discovery queues may contain third-party abstracts.
 # Regenerate locally with the content:discover-* scripts.
 reports/evidence-review-*.json
+reports/public-api-evidence-*.json

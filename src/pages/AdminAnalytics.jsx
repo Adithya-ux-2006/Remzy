@@ -1,8 +1,9 @@
 import { useEffect, useMemo, useState } from 'react';
-import { BarChart3, Heart, Search, ThumbsDown, ThumbsUp } from 'lucide-react';
+import { BarChart3, BookOpenCheck, ExternalLink, Heart, Search, ShieldAlert, ThumbsDown, ThumbsUp } from 'lucide-react';
 import { PageWrapper } from '../components/layout';
 import { useCatalogStore } from '../store/catalogStore';
 import { fetchAnalyticsSummary } from '../utils/analytics';
+import { fetchEvidenceAdminSummary } from '../utils/evidenceAdmin';
 
 function aggregateCounts(items, getKeys) {
   return items.reduce((accumulator, item) => {
@@ -27,19 +28,19 @@ export function AdminAnalytics() {
   const [summary, setSummary] = useState(null);
   const [isLoading, setIsLoading] = useState(true);
   const [errorMessage, setErrorMessage] = useState('');
+  const [evidenceSummary, setEvidenceSummary] = useState({ undercoveredSymptoms: [], reviewQueue: [] });
+  const [evidenceError, setEvidenceError] = useState('');
 
   useEffect(() => {
     let isMounted = true;
 
-    fetchAnalyticsSummary()
-      .then((data) => {
+    Promise.allSettled([fetchAnalyticsSummary(), fetchEvidenceAdminSummary()])
+      .then(([analyticsResult, evidenceResult]) => {
         if (!isMounted) return;
-        setSummary(data);
-        setIsLoading(false);
-      })
-      .catch((error) => {
-        if (!isMounted) return;
-        setErrorMessage(error.message || 'Unable to load analytics right now.');
+        if (analyticsResult.status === 'fulfilled') setSummary(analyticsResult.value);
+        else setErrorMessage(analyticsResult.reason?.message || 'Unable to load analytics right now.');
+        if (evidenceResult.status === 'fulfilled') setEvidenceSummary(evidenceResult.value);
+        else setEvidenceError(evidenceResult.reason?.message || 'Unable to load the evidence review queue.');
         setIsLoading(false);
       });
 
@@ -120,8 +121,86 @@ export function AdminAnalytics() {
             </div>
           </>
         ) : null}
+
+        {!isLoading ? (
+          <EvidenceReviewSection summary={evidenceSummary} errorMessage={evidenceError} />
+        ) : null}
       </div>
     </PageWrapper>
+  );
+}
+
+function EvidenceReviewSection({ summary, errorMessage }) {
+  const undercovered = summary?.undercoveredSymptoms || [];
+  const queue = summary?.reviewQueue || [];
+
+  return (
+    <section className="space-y-5" aria-labelledby="evidence-review-heading">
+      <div>
+        <div className="inline-flex items-center gap-2 rounded-full bg-amber-500/10 px-3 py-1 text-sm font-semibold text-amber-700 dark:text-amber-300">
+          <ShieldAlert className="h-4 w-4" />
+          Clinical review required
+        </div>
+        <h2 id="evidence-review-heading" className="mt-3 text-2xl font-extrabold text-ink">Evidence discovery queue</h2>
+        <p className="mt-2 text-sm text-ink-muted">
+          Crossref and OpenAlex candidates for symptoms with fewer than five remedies. These records are hidden from public evidence until reviewed and approved.
+        </p>
+      </div>
+
+      {errorMessage ? <p className="rounded-2xl bg-amber-50 px-4 py-3 text-sm text-amber-800 dark:bg-amber-950/30 dark:text-amber-200">{errorMessage}</p> : null}
+
+      {!errorMessage ? (
+        <>
+          <div className="grid gap-4 md:grid-cols-3">
+            <StatCard icon={ShieldAlert} label="Under-covered symptoms" value={undercovered.length} />
+            <StatCard icon={BookOpenCheck} label="Candidates awaiting review" value={queue.length} />
+            <StatCard icon={Search} label="Symptoms with candidates" value={new Set(queue.map((item) => item.symptom_id)).size} />
+          </div>
+
+          <div className="grid gap-6 xl:grid-cols-[0.8fr_1.2fr]">
+            <div className="rounded-2xl border border-border bg-card p-5 shadow-sm">
+              <h3 className="text-lg font-bold text-ink">Coverage below five remedies</h3>
+              <div className="mt-4 max-h-[30rem] space-y-2 overflow-y-auto pr-1">
+                {undercovered.map((item) => (
+                  <div key={item.symptom_id} className="flex items-center justify-between gap-4 rounded-xl bg-bg px-4 py-3">
+                    <div>
+                      <p className="text-sm font-semibold text-ink">{item.symptom_label}</p>
+                      <p className="text-xs text-ink-muted">{item.candidate_count} queued candidates</p>
+                    </div>
+                    <span className="rounded-full bg-primary/10 px-2.5 py-1 text-xs font-bold text-primary">{item.remedy_count}/5</span>
+                  </div>
+                ))}
+                {undercovered.length === 0 ? <p className="text-sm text-ink-muted">Every symptom has at least five mapped remedies.</p> : null}
+              </div>
+            </div>
+
+            <div className="rounded-2xl border border-border bg-card p-5 shadow-sm">
+              <h3 className="text-lg font-bold text-ink">Research candidates</h3>
+              <div className="mt-4 max-h-[30rem] space-y-3 overflow-y-auto pr-1">
+                {queue.map((item) => (
+                  <article key={`${item.claim_id}-${item.publication_id}`} className="rounded-xl border border-border bg-bg p-4">
+                    <div className="flex flex-wrap items-center gap-2 text-xs font-semibold">
+                      <span className="rounded-full bg-primary/10 px-2 py-1 text-primary">{item.symptom_label}</span>
+                      <span className="rounded-full bg-amber-500/10 px-2 py-1 text-amber-700 dark:text-amber-300">Needs review</span>
+                      <span className="text-ink-muted">{item.source_database}</span>
+                    </div>
+                    <p className="mt-2 text-sm font-bold text-ink">{item.remedy_name}</p>
+                    <p className="mt-1 text-sm text-ink-muted">{item.title}</p>
+                    <div className="mt-3 flex items-center justify-between gap-3 text-xs text-ink-muted">
+                      <span>{[item.journal, item.publication_year].filter(Boolean).join(' · ') || 'Metadata only'}</span>
+                      <a className="inline-flex items-center gap-1 font-semibold text-primary hover:underline" href={item.canonical_url} target="_blank" rel="noreferrer">
+                        Inspect source <ExternalLink className="h-3.5 w-3.5" />
+                      </a>
+                    </div>
+                  </article>
+                ))}
+                {queue.length === 0 ? <p className="text-sm text-ink-muted">No candidates are waiting for review.</p> : null}
+              </div>
+            </div>
+          </div>
+        </>
+      ) : null}
+    </section>
   );
 }
 

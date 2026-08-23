@@ -40,6 +40,8 @@
     "content:gate": "npm run content:verify-citations && npm run content:verify-sources -- --no-http && npm run content:audit-integration && npm run content:audit-semantic && npm run content:audit-expansion",
     "content:verify-sources": "node scripts/evidence-source-pipeline.mjs",
     "content:sync-evidence": "node scripts/evidence-source-pipeline.mjs --write",
+    "content:discover-undercovered": "node scripts/public-api-evidence-discovery.mjs",
+    "content:queue-undercovered": "node scripts/public-api-evidence-discovery.mjs --write",
     "auth:verify-google": "node scripts/verify-google-auth.mjs"
   },
   "dependencies": {

@@ -15,65 +15,135 @@ async function fetchJson(url, options = {}) {
 }
 
 const stubbornSymptoms = {
-  hip_pain: [
-    { intervention: 'hip pain', category: 'Lifestyle', tagline: 'Management options for hip pain' },
-    { intervention: 'trochanteric bursitis', category: 'Lifestyle', tagline: 'Treatment for outer hip pain' },
-    { intervention: 'hip arthritis', category: 'Lifestyle', tagline: 'Non-surgical management of hip arthritis' },
+  brain_fog: [
+    { intervention: 'cognitive training exercises', category: 'Lifestyle', tagline: 'Mental exercises for brain fog relief' },
+    { intervention: 'omega-3 brain health', category: 'Supplement', tagline: 'Fatty acids for cognitive function' },
+    { intervention: 'meditation for focus', category: 'Lifestyle', tagline: 'Mindfulness for mental clarity' },
+    { intervention: 'vitamin B12 supplementation', category: 'Supplement', tagline: 'A vitamin for cognitive support' },
   ],
-  sinus_pressure: [
-    { intervention: 'sinusitis', category: 'OTC', tagline: 'Treatment for acute and chronic sinusitis' },
-    { intervention: 'sinus drainage', category: 'Lifestyle', tagline: 'Techniques for sinus drainage' },
-    { intervention: 'nasal irrigation', category: 'OTC', tagline: 'Saline irrigation for sinus relief' },
+  eye_pain: [
+    { intervention: 'dry eye treatment', category: 'OTC', tagline: 'Treatment for dry eye related pain' },
+    { intervention: 'uveitis management', category: 'Prescription', tagline: 'Treatment for eye inflammation' },
+    { intervention: 'glaucoma management', category: 'Prescription', tagline: 'Treatment for elevated eye pressure' },
+  ],
+  eye_strain: [
+    { intervention: 'digital eye strain', category: 'Lifestyle', tagline: 'Management of computer vision syndrome' },
+    { intervention: 'computer vision syndrome', category: 'Lifestyle', tagline: 'Treatment for screen-related eye strain' },
+    { intervention: 'asthenopia treatment', category: 'Lifestyle', tagline: 'Treatment for eye fatigue' },
+  ],
+  ear_pain: [
+    { intervention: 'otitis media', category: 'OTC', tagline: 'Treatment for middle ear infection' },
+    { intervention: 'earache pain relief', category: 'OTC', tagline: 'Pain management for earache' },
+    { intervention: 'ear infection treatment', category: 'OTC', tagline: 'Treatment for bacterial ear infection' },
+  ],
+  period_cramps: [
+    { intervention: 'dysmenorrhea treatment', category: 'OTC', tagline: 'Treatment for painful menstruation' },
+    { intervention: 'menstrual cramp relief', category: 'OTC', tagline: 'Pain management for period cramps' },
+    { intervention: 'menstrual pain management', category: 'Lifestyle', tagline: 'Non-pharmaceutical pain relief' },
+    { intervention: 'primary dysmenorrhea', category: 'OTC', tagline: 'Treatment for menstrual pain' },
+  ],
+  skin_rash: [
+    { intervention: 'contact dermatitis treatment', category: 'OTC', tagline: 'Treatment for allergic skin reactions' },
+    { intervention: 'rash treatment topical', category: 'OTC', tagline: 'Topical treatment for skin rashes' },
+    { intervention: 'skin irritation relief', category: 'OTC', tagline: 'Relief for irritated skin' },
+    { intervention: 'dermatitis management', category: 'OTC', tagline: 'Management of inflammatory skin conditions' },
+  ],
+  dry_skin: [
+    { intervention: 'xerosis cutis treatment', category: 'OTC', tagline: 'Treatment for dry skin condition' },
+    { intervention: 'skin moisturizing therapy', category: 'OTC', tagline: 'Moisturizing treatment for dry skin' },
+    { intervention: 'keratosis treatment', category: 'OTC', tagline: 'Treatment for rough dry skin' },
   ],
   stomach_ache: [
     { intervention: 'functional abdominal pain', category: 'Lifestyle', tagline: 'Management of functional stomach pain' },
-    { intervention: 'irritable bowel syndrome', category: 'Lifestyle', tagline: 'Dietary management for IBS-related pain' },
-    { intervention: 'abdominal cramping', category: 'OTC', tagline: 'Relief for stomach cramps' },
+    { intervention: 'abdominal cramping relief', category: 'OTC', tagline: 'Relief for stomach cramps' },
+    { intervention: 'gastric pain management', category: 'Lifestyle', tagline: 'Dietary management for stomach pain' },
   ],
-  swollen_lymph_nodes: [
-    { intervention: 'lymph node swelling', category: 'Lifestyle', tagline: 'Care for swollen lymph nodes' },
-    { intervention: 'reactive lymphadenopathy', category: 'Lifestyle', tagline: 'Management of reactive node enlargement' },
-  ],
-  teeth_grinding: [
-    { intervention: 'temporomandibular disorder', category: 'Lifestyle', tagline: 'Treatment for jaw pain and grinding' },
-    { intervention: 'occlusal splint bruxism', category: 'Lifestyle', tagline: 'Dental appliance for teeth grinding' },
-    { intervention: 'myofascial pain temporomandibular', category: 'Lifestyle', tagline: 'Physical therapy for jaw pain' },
-  ],
-  ankle_pain: [
-    { intervention: 'ankle pain', category: 'Lifestyle', tagline: 'Management of ankle pain' },
-    { intervention: 'lateral ankle sprain', category: 'Lifestyle', tagline: 'Treatment for common ankle sprains' },
-    { intervention: 'Achilles tendinopathy', category: 'Lifestyle', tagline: 'Exercise-based treatment for Achilles pain' },
+  hangover: [
+    { intervention: 'hangover prevention strategies', category: 'Lifestyle', tagline: 'Prevention strategies for hangover' },
+    { intervention: 'alcohol recovery treatment', category: 'Lifestyle', tagline: 'Recovery treatment after alcohol consumption' },
+    { intervention: 'hangover symptom relief', category: 'OTC', tagline: 'Symptom relief for hangover' },
+    { intervention: 'alcohol detoxification support', category: 'Supplement', tagline: 'Support for alcohol metabolism' },
   ],
   canker_sore: [
-    { intervention: 'recurrent aphthous stomatitis', category: 'OTC', tagline: 'Treatment for recurring mouth ulcers' },
-    { intervention: 'oral ulcer', category: 'OTC', tagline: 'Management of painful oral ulcers' },
-    { intervention: 'mouth sore', category: 'OTC', tagline: 'Relief for painful mouth sores' },
-  ],
-  ear_pain: [
-    { intervention: 'ear pain', category: 'OTC', tagline: 'Treatment options for earache' },
-    { intervention: 'otitis externa', category: 'OTC', tagline: 'Treatment for swimmer\'s ear' },
-    { intervention: 'eustachian tube dysfunction', category: 'Lifestyle', tagline: 'Management of middle ear pressure' },
-  ],
-  erectile_difficulty: [
-    { intervention: 'erectile dysfunction', category: 'Prescription', tagline: 'Medical treatment for erectile dysfunction' },
-    { intervention: 'vascular erectile dysfunction', category: 'Lifestyle', tagline: 'Lifestyle changes for erectile function' },
-  ],
-  frequent_urination: [
-    { intervention: 'urinary frequency', category: 'Lifestyle', tagline: 'Management of frequent urination' },
-    { intervention: 'nocturia', category: 'Lifestyle', tagline: 'Treatment for nighttime urination' },
-    { intervention: 'urinary tract infection', category: 'OTC', tagline: 'Treatment for UTI-related frequency' },
+    { intervention: 'aphthous ulcer treatment', category: 'OTC', tagline: 'Treatment for mouth ulcers' },
+    { intervention: 'recurrent mouth ulcer', category: 'OTC', tagline: 'Management of recurring mouth sores' },
+    { intervention: 'oral ulcer pain relief', category: 'OTC', tagline: 'Pain relief for mouth ulcers' },
   ],
   gum_pain: [
-    { intervention: 'periodontitis', category: 'OTC', tagline: 'Treatment for gum disease' },
-    { intervention: 'gingival inflammation', category: 'OTC', tagline: 'Management of gum inflammation' },
+    { intervention: 'periodontitis treatment', category: 'OTC', tagline: 'Treatment for gum disease' },
+    { intervention: 'gingivitis treatment', category: 'OTC', tagline: 'Treatment for gum inflammation' },
+    { intervention: 'gum disease management', category: 'OTC', tagline: 'Management of periodontal disease' },
+  ],
+  cold_sore: [
+    { intervention: 'herpes labialis treatment', category: 'OTC', tagline: 'Treatment for cold sores' },
+    { intervention: 'oral herpes management', category: 'OTC', tagline: 'Management of oral herpes outbreaks' },
+    { intervention: 'cold sore prevention', category: 'OTC', tagline: 'Prevention strategies for cold sores' },
+  ],
+  ankle_pain: [
+    { intervention: 'ankle sprain recovery', category: 'Lifestyle', tagline: 'Recovery treatment for ankle sprains' },
+    { intervention: 'lateral ankle pain', category: 'Lifestyle', tagline: 'Treatment for outer ankle pain' },
+    { intervention: 'ankle tendinopathy', category: 'Lifestyle', tagline: 'Treatment for ankle tendon pain' },
+  ],
+  sunburn: [
+    { intervention: 'sunburn treatment topical', category: 'OTC', tagline: 'Topical treatment for sunburn' },
+    { intervention: 'UV burn treatment', category: 'OTC', tagline: 'Treatment for UV radiation burns' },
+    { intervention: 'sunburn pain relief', category: 'OTC', tagline: 'Pain relief for sunburn' },
+    { intervention: 'sunburn skin care', category: 'OTC', tagline: 'Skin care for sunburn recovery' },
+  ],
+  teeth_grinding: [
+    { intervention: 'bruxism treatment', category: 'Lifestyle', tagline: 'Treatment for teeth grinding' },
+    { intervention: 'nocturnal bruxism', category: 'Lifestyle', tagline: 'Nighttime teeth grinding treatment' },
+    { intervention: 'dental grinding management', category: 'Lifestyle', tagline: 'Management of dental grinding' },
+  ],
+  poor_circulation: [
+    { intervention: 'peripheral vascular disease', category: 'Lifestyle', tagline: 'Treatment for poor circulation' },
+    { intervention: 'circulatory improvement', category: 'Lifestyle', tagline: 'Improving blood circulation' },
+    { intervention: 'blood flow enhancement', category: 'Lifestyle', tagline: 'Enhancing blood flow naturally' },
+  ],
+  chills: [
+    { intervention: 'chills treatment', category: 'Lifestyle', tagline: 'Treatment for chills without fever' },
+    { intervention: 'cold sensation management', category: 'Lifestyle', tagline: 'Management of abnormal cold sensation' },
+    { intervention: 'rigor treatment', category: 'Lifestyle', tagline: 'Treatment for shivering and chills' },
+  ],
+  swollen_lymph_nodes: [
+    { intervention: 'lymphadenopathy treatment', category: 'Lifestyle', tagline: 'Treatment for swollen lymph nodes' },
+    { intervention: 'reactive lymph node swelling', category: 'Lifestyle', tagline: 'Management of reactive lymphadenopathy' },
+    { intervention: 'glandular swelling treatment', category: 'Lifestyle', tagline: 'Treatment for swollen glands' },
+  ],
+  low_libido: [
+    { intervention: 'sexual desire disorder', category: 'Lifestyle', tagline: 'Management of low sexual desire' },
+    { intervention: 'libido enhancement', category: 'Lifestyle', tagline: 'Strategies for libido improvement' },
+    { intervention: 'hyposexual desire treatment', category: 'Lifestyle', tagline: 'Treatment for reduced sexual desire' },
+  ],
+  erectile_difficulty: [
+    { intervention: 'erectile dysfunction treatment', category: 'Prescription', tagline: 'Treatment for erectile dysfunction' },
+    { intervention: 'male sexual dysfunction', category: 'Prescription', tagline: 'Management of male sexual dysfunction' },
+    { intervention: 'ED natural remedies', category: 'Lifestyle', tagline: 'Natural remedies for erectile function' },
+  ],
+  insect_bite: [
+    { intervention: 'insect bite treatment', category: 'OTC', tagline: 'Treatment for insect bites' },
+    { intervention: 'mosquito bite relief', category: 'OTC', tagline: 'Relief for mosquito bites' },
+    { intervention: 'bug bite treatment', category: 'OTC', tagline: 'Treatment for bug bites and stings' },
   ],
   minor_burn: [
-    { intervention: 'thermal burn', category: 'OTC', tagline: 'First aid for heat burns' },
-    { intervention: 'scald burn', category: 'OTC', tagline: 'Treatment for hot liquid burns' },
+    { intervention: 'first degree burn treatment', category: 'OTC', tagline: 'Treatment for first degree burns' },
+    { intervention: 'thermal burn first aid', category: 'OTC', tagline: 'First aid for thermal burns' },
+    { intervention: 'burn wound care', category: 'OTC', tagline: 'Wound care for minor burns' },
+  ],
+  yeast_infection: [
+    { intervention: 'candidiasis treatment', category: 'OTC', tagline: 'Treatment for yeast infections' },
+    { intervention: 'vaginal candidiasis', category: 'OTC', tagline: 'Treatment for vaginal yeast infection' },
+    { intervention: 'antifungal treatment', category: 'OTC', tagline: 'Antifungal treatment for candidiasis' },
   ],
   prostate_issues: [
-    { intervention: 'lower urinary tract symptoms', category: 'Prescription', tagline: 'Treatment for prostate-related urinary symptoms' },
-    { intervention: 'chronic prostatitis', category: 'Prescription', tagline: 'Management of chronic prostate inflammation' },
+    { intervention: 'benign prostatic hyperplasia', category: 'Prescription', tagline: 'Treatment for enlarged prostate' },
+    { intervention: 'prostatitis treatment', category: 'Prescription', tagline: 'Treatment for prostate inflammation' },
+    { intervention: 'prostate health management', category: 'Lifestyle', tagline: 'Management of prostate health' },
+  ],
+  testicular_pain: [
+    { intervention: 'testicular pain relief', category: 'Lifestyle', tagline: 'Relief for testicular discomfort' },
+    { intervention: 'scrotal pain management', category: 'Lifestyle', tagline: 'Management of scrotal pain' },
+    { intervention: 'orchitis treatment', category: 'Lifestyle', tagline: 'Treatment for testicular inflammation' },
   ],
 };
 
