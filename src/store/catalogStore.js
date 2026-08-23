@@ -90,6 +90,13 @@ async function loadLocalMappingOnly() {
   return LOCAL_SYMPTOM_REMEDIES;
 }
 
+async function loadLocalRemediesOnly() {
+  const [{ LOCAL_REMEDIES }] = await Promise.all([
+    import('../data/localCatalog'),
+  ]);
+  return LOCAL_REMEDIES;
+}
+
 function mergeSymptomRemedies(primary = {}, fallback = {}) {
   const merged = { ...primary };
 
@@ -170,8 +177,20 @@ function dedupeEvidenceSources(sources = []) {
 }
 
 async function enrichWithLocalCatalog(catalog, approvedEvidenceMap = {}) {
-  const LOCAL_SYMPTOM_REMEDIES = await loadLocalMappingOnly();
-  const remedies = (catalog.remedies || []).map((remedy) => {
+  const [LOCAL_SYMPTOM_REMEDIES, localRemedies] = await Promise.all([
+    loadLocalMappingOnly(),
+    loadLocalRemediesOnly(),
+  ]);
+
+  // Merge Supabase remedies with local-only remedies (local has research links Supabase may lack)
+  const supabaseIds = new Set((catalog.remedies || []).map((r) => r.id));
+  const localOnlyRemedies = (localRemedies || [])
+    .filter((r) => r?.id && !supabaseIds.has(r.id))
+    .map(mapRemedy);
+
+  const allRemedies = [...(catalog.remedies || []), ...localOnlyRemedies];
+
+  const remedies = allRemedies.map((remedy) => {
     const approvedSources = approvedEvidenceMap[remedy.id] || [];
     const identifiedSources = dedupeEvidenceSources([
       ...(remedy.researchPapers || []),
