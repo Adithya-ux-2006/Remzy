@@ -1,0 +1,900 @@
+{
+  "generatedAt": "2026-08-23T19:51:24.295Z",
+  "mode": "write",
+  "threshold": 5,
+  "targetSymptomCount": 30,
+  "packets": [
+    {
+      "symptom": {
+        "id": "burnout",
+        "label": "Burnout"
+      },
+      "currentRemedyCount": 1,
+      "clinicalTrialCount": 1,
+      "fdaDataCount": 0,
+      "clinicalTrials": [
+        {
+          "source": "ClinicalTrials.gov",
+          "nctId": "NCT04584268",
+          "title": "Longitudinal Mindfulness Intervention to Decrease Burnout in Medical Residents",
+          "status": "COMPLETED",
+          "phase": "NA",
+          "startDate": "2019-06-01",
+          "condition": "Burnout",
+          "intervention": "mindfulness, standard medical education",
+          "sponsor": "Washington University School of Medicine",
+          "url": "https://clinicaltrials.gov/study/NCT04584268",
+          "matchedRemedy": "Mindfulness-Based Stress Reduction",
+          "matchedRemedyId": "rem_bt01"
+        }
+      ],
+      "fdaData": []
+    },
+    {
+      "symptom": {
+        "id": "eye_pain",
+        "label": "Eye Pain"
+      },
+      "currentRemedyCount": 1,
+      "clinicalTrialCount": 0,
+      "fdaDataCount": 0,
+      "clinicalTrials": [],
+      "fdaData": []
+    },
+    {
+      "symptom": {
+        "id": "fever",
+        "label": "Fever"
+      },
+      "currentRemedyCount": 1,
+      "clinicalTrialCount": 2,
+      "fdaDataCount": 0,
+      "clinicalTrials": [
+        {
+          "source": "ClinicalTrials.gov",
+          "nctId": "NCT00493311",
+          "title": "Safety of Intravenous Acetaminophen Vs Placebo for the Treatment of Endotoxin-Induced Fever in Healthy Adult Males",
+          "status": "COMPLETED",
+          "phase": "PHASE3",
+          "startDate": "2007-06",
+          "condition": "Fever",
+          "intervention": "IV Placebo, IV Acetaminophen, Reference Standard Endotoxin (RSE)",
+          "sponsor": "Mallinckrodt",
+          "url": "https://clinicaltrials.gov/study/NCT00493311",
+          "matchedRemedy": "Acetaminophen (Paracetamol)",
+          "matchedRemedyId": "rem_fv01"
+        },
+        {
+          "source": "ClinicalTrials.gov",
+          "nctId": "NCT06061575",
+          "title": "Comparison of the Efficacy of Paracetamol and Ibuprofen in the Management of Fever in Sepsis Patients",
+          "status": "COMPLETED",
+          "phase": "PHASE4",
+          "startDate": "2023-10-31",
+          "condition": "Sepsis; Acetaminophen; Fever; Ibuprofen",
+          "intervention": "Acetaminophen, Ibuprofen",
+          "sponsor": "Ankara City Hospital Bilkent",
+          "url": "https://clinicaltrials.gov/study/NCT06061575",
+          "matchedRemedy": "Acetaminophen (Paracetamol)",
+          "matchedRemedyId": "rem_fv01"
+        }
+      ],
+      "fdaData": []
+    },
+    {
+      "symptom": {
+        "id": "gas",
+        "label": "Gas"
+      },
+      "currentRemedyCount": 1,
+      "clinicalTrialCount": 0,
+      "fdaDataCount": 0,
+      "clinicalTrials": [],
+      "fdaData": []
+    },
+    {
+      "symptom": {
+        "id": "heartburn",
+        "label": "Heartburn"
+      },
+      "currentRemedyCount": 1,
+      "clinicalTrialCount": 0,
+      "fdaDataCount": 0,
+      "clinicalTrials": [],
+      "fdaData": []
+    },
+    {
+      "symptom": {
+        "id": "leg_pain",
+        "label": "Leg Pain"
+      },
+      "currentRemedyCount": 1,
+      "clinicalTrialCount": 0,
+      "fdaDataCount": 0,
+      "clinicalTrials": [],
+      "fdaData": []
+    },
+    {
+      "symptom": {
+        "id": "muscle_pain",
+        "label": "Muscle Pain"
+      },
+      "currentRemedyCount": 1,
+      "clinicalTrialCount": 0,
+      "fdaDataCount": 0,
+      "clinicalTrials": [],
+      "fdaData": []
+    },
+    {
+      "symptom": {
+        "id": "pms",
+        "label": "PMS"
+      },
+      "currentRemedyCount": 1,
+      "clinicalTrialCount": 0,
+      "fdaDataCount": 0,
+      "clinicalTrials": [],
+      "fdaData": []
+    },
+    {
+      "symptom": {
+        "id": "sinus_pressure",
+        "label": "Sinus Pressure"
+      },
+      "currentRemedyCount": 1,
+      "clinicalTrialCount": 0,
+      "fdaDataCount": 0,
+      "clinicalTrials": [],
+      "fdaData": []
+    },
+    {
+      "symptom": {
+        "id": "stomach_ache",
+        "label": "Stomach Ache"
+      },
+      "currentRemedyCount": 1,
+      "clinicalTrialCount": 0,
+      "fdaDataCount": 0,
+      "clinicalTrials": [],
+      "fdaData": []
+    },
+    {
+      "symptom": {
+        "id": "acne",
+        "label": "Acne"
+      },
+      "currentRemedyCount": 2,
+      "clinicalTrialCount": 3,
+      "fdaDataCount": 0,
+      "clinicalTrials": [
+        {
+          "source": "ClinicalTrials.gov",
+          "nctId": "NCT05446402",
+          "title": "Investigation of the Tolerability of Two Facial Cleansing Routines for Mild to Moderate Acne",
+          "status": "COMPLETED",
+          "phase": "PHASE4",
+          "startDate": "2022-06-15",
+          "condition": "Acne",
+          "intervention": "Geologie Acne Regimen - one side of face, Proactive Acne Regimen - other side of face",
+          "sponsor": "Northwestern University",
+          "url": "https://clinicaltrials.gov/study/NCT05446402",
+          "matchedRemedy": "Salicylic Acid Cleanser for Mild Acne",
+          "matchedRemedyId": "rem_ms05"
+        },
+        {
+          "source": "ClinicalTrials.gov",
+          "nctId": "NCT01446237",
+          "title": "U0289-405: An Open-Label, 12-Week Study to Evaluate the Efficacy and Safety of the Acne System (Benzoyl Peroxide 2.5%, Salicylic Acid 0.5%) in Subjects With Acne",
+          "status": "COMPLETED",
+          "phase": "NA",
+          "startDate": "2011-06-01",
+          "condition": "Acne Vulgaris",
+          "intervention": "acne system - benzoyl peroxide 2.5%, Salicyclic Acid 0.5%",
+          "sponsor": "Stiefel, a GSK Company",
+          "url": "https://clinicaltrials.gov/study/NCT01446237",
+          "matchedRemedy": "Salicylic Acid Cleanser for Mild Acne",
+          "matchedRemedyId": "rem_ms05"
+        },
+        {
+          "source": "ClinicalTrials.gov",
+          "nctId": "NCT01657110",
+          "title": "Pilot Study to Evaluate Tea Tree Oil Gel for Facial Acne",
+          "status": "COMPLETED",
+          "phase": "PHASE2",
+          "startDate": "2012-12",
+          "condition": "Acne",
+          "intervention": "Tea tree oil",
+          "sponsor": "The University of Western Australia",
+          "url": "https://clinicaltrials.gov/study/NCT01657110",
+          "matchedRemedy": "Tea Tree Oil",
+          "matchedRemedyId": "rem_024"
+        }
+      ],
+      "fdaData": []
+    },
+    {
+      "symptom": {
+        "id": "constipation",
+        "label": "Constipation"
+      },
+      "currentRemedyCount": 2,
+      "clinicalTrialCount": 4,
+      "fdaDataCount": 0,
+      "clinicalTrials": [
+        {
+          "source": "ClinicalTrials.gov",
+          "nctId": "NCT06303011",
+          "title": "Abdominal Massage With TENS on Parasacral Versus Sacral Area on Symptom,Severity & QOL in Chronic Constipation Females.",
+          "status": "COMPLETED",
+          "phase": "NA",
+          "startDate": "2023-03-15",
+          "condition": "Constipation",
+          "intervention": "Transcutaneous Electrical Nerve Stimulator, TENS on para sacral area with Abdominal Massage",
+          "sponsor": "Riphah International University",
+          "url": "https://clinicaltrials.gov/study/NCT06303011",
+          "matchedRemedy": "Abdominal Self-Massage",
+          "matchedRemedyId": "rem_bg05"
+        },
+        {
+          "source": "ClinicalTrials.gov",
+          "nctId": "NCT06298331",
+          "title": "Investigation of the Additional Effects of Aerobic Exercise Training to Abdominal Massage in Functional Constipation",
+          "status": "RECRUITING",
+          "phase": "NA",
+          "startDate": "2024-03-15",
+          "condition": "Constipation",
+          "intervention": "Aerobic Exercise, Abdominal Massage, Patient Education",
+          "sponsor": "Hacettepe University",
+          "url": "https://clinicaltrials.gov/study/NCT06298331",
+          "matchedRemedy": "Abdominal Self-Massage",
+          "matchedRemedyId": "rem_bg05"
+        },
+        {
+          "source": "ClinicalTrials.gov",
+          "nctId": "NCT07352449",
+          "title": "Acute Effects of Abdominal Massage on Arterial Stiffness, Muscle Oxygenation and Exercise Capacity in Constipation",
+          "status": "COMPLETED",
+          "phase": "NA",
+          "startDate": "2024-06-01",
+          "condition": "Constipation; Arterial Stiffness; Muscle Oxygenation",
+          "intervention": "Abdominal massage, SphygmoCOR XCEL, Moxy Monitor",
+          "sponsor": "Gazi University",
+          "url": "https://clinicaltrials.gov/study/NCT07352449",
+          "matchedRemedy": "Abdominal Self-Massage",
+          "matchedRemedyId": "rem_bg05"
+        },
+        {
+          "source": "ClinicalTrials.gov",
+          "nctId": "NCT01288508",
+          "title": "Investigation of Supra Fiber in the Treatment of Adults With Constipation",
+          "status": "COMPLETED",
+          "phase": "NA",
+          "startDate": "2010-10",
+          "condition": "Constipation",
+          "intervention": "Supra Fiber, Psyllium",
+          "sponsor": "Augusta University",
+          "url": "https://clinicaltrials.gov/study/NCT01288508",
+          "matchedRemedy": "Psyllium Fiber Supplement",
+          "matchedRemedyId": "rem_028"
+        }
+      ],
+      "fdaData": []
+    },
+    {
+      "symptom": {
+        "id": "dehydration",
+        "label": "Dehydration"
+      },
+      "currentRemedyCount": 2,
+      "clinicalTrialCount": 0,
+      "fdaDataCount": 0,
+      "clinicalTrials": [],
+      "fdaData": []
+    },
+    {
+      "symptom": {
+        "id": "ear_pain",
+        "label": "Ear Pain"
+      },
+      "currentRemedyCount": 2,
+      "clinicalTrialCount": 0,
+      "fdaDataCount": 0,
+      "clinicalTrials": [],
+      "fdaData": []
+    },
+    {
+      "symptom": {
+        "id": "erectile_difficulty",
+        "label": "Erectile Difficulty"
+      },
+      "currentRemedyCount": 2,
+      "clinicalTrialCount": 0,
+      "fdaDataCount": 0,
+      "clinicalTrials": [],
+      "fdaData": []
+    },
+    {
+      "symptom": {
+        "id": "indigestion",
+        "label": "Indigestion"
+      },
+      "currentRemedyCount": 2,
+      "clinicalTrialCount": 0,
+      "fdaDataCount": 0,
+      "clinicalTrials": [],
+      "fdaData": []
+    },
+    {
+      "symptom": {
+        "id": "joint_pain",
+        "label": "Joint Pain"
+      },
+      "currentRemedyCount": 2,
+      "clinicalTrialCount": 6,
+      "fdaDataCount": 0,
+      "clinicalTrials": [
+        {
+          "source": "ClinicalTrials.gov",
+          "nctId": "NCT07475663",
+          "title": "Counterpain PXM Versus Diclofenac Versus Piroxicam",
+          "status": "COMPLETED",
+          "phase": "PHASE3",
+          "startDate": "2025-11-04",
+          "condition": "Ankle Sprain; Back Pain; Osteoarthritis (OA) of the Knee; Tennis Elbow; Runner's Knee",
+          "intervention": "Piroxicam plus Counterirritant (brand name Counterpain® PXM)., Diclofenac Sodium 10 mg (Brand Name Hotin® DCL), Piroxicam 0.5% (Brand name Pirofel® gel)",
+          "sponsor": "Taisho Pharmaceutical Indonesia",
+          "url": "https://clinicaltrials.gov/study/NCT07475663",
+          "matchedRemedy": "Topical Diclofenac Gel",
+          "matchedRemedyId": "rem_kp01"
+        },
+        {
+          "source": "ClinicalTrials.gov",
+          "nctId": "NCT07598994",
+          "title": "Topical Capsaicin Versus Diclofenac for Chronic Temporomandibular Joint-Related Pain",
+          "status": "COMPLETED",
+          "phase": "NA",
+          "startDate": "2025-08-28",
+          "condition": "Temporomandibular Disorders (TMD); Temporomandibular Pain",
+          "intervention": "Capsaicin Topical Cream, Diclofenac 1% Topical",
+          "sponsor": "Istanbul University",
+          "url": "https://clinicaltrials.gov/study/NCT07598994",
+          "matchedRemedy": "Topical Diclofenac Gel",
+          "matchedRemedyId": "rem_kp01"
+        },
+        {
+          "source": "ClinicalTrials.gov",
+          "nctId": "NCT05050448",
+          "title": "Comparative Usability Evaluation of Sustained Acoustic Medicine (SAM) Devices and Topical Gel for OA Knee Pain",
+          "status": "COMPLETED",
+          "phase": "PHASE1, PHASE2",
+          "startDate": "2021-08-01",
+          "condition": "Knee Osteoarthritis",
+          "intervention": "Sustained Acoustic Device with 2.5% Diclofenac Patch, 1% Diclofenac Topical Gel",
+          "sponsor": "ZetrOZ, Inc.",
+          "url": "https://clinicaltrials.gov/study/NCT05050448",
+          "matchedRemedy": "Topical Diclofenac Gel",
+          "matchedRemedyId": "rem_kp01"
+        },
+        {
+          "source": "ClinicalTrials.gov",
+          "nctId": "NCT01351805",
+          "title": "Vitamin D and Fish Oil for Autoimmune Disease, Inflammation and Knee Pain",
+          "status": "COMPLETED",
+          "phase": "NA",
+          "startDate": "2010-07",
+          "condition": "Autoimmune Diseases; Systemic Inflammatory Process; Knee Pain Chronic; Osteoarthritis; Rheumatoid Arthritis",
+          "intervention": "Fish Oil, Vitamin D, placebo pill",
+          "sponsor": "Brigham and Women's Hospital",
+          "url": "https://clinicaltrials.gov/study/NCT01351805",
+          "matchedRemedy": "Fish Oil",
+          "matchedRemedyId": "rem_036"
+        },
+        {
+          "source": "ClinicalTrials.gov",
+          "nctId": "NCT04215198",
+          "title": "NEM® + KD PUR® Fish Oil Versus Placebo in Exercised-induced Joint Pain, Stiffness, & Cartilage Turnover in Healthy Men & Women",
+          "status": "COMPLETED",
+          "phase": "NA",
+          "startDate": "2018-09-20",
+          "condition": "Exercise-induced Joint Pain; Exercise-induced Joint Stiffness; Exercise-induced Joint Cartilage Turnover",
+          "intervention": "Move3™ (NEM® brand eggshell membrane + KD PUR® brand fish oil), Placebo",
+          "sponsor": "ESM Technologies, LLC",
+          "url": "https://clinicaltrials.gov/study/NCT04215198",
+          "matchedRemedy": "Fish Oil",
+          "matchedRemedyId": "rem_036"
+        },
+        {
+          "source": "ClinicalTrials.gov",
+          "nctId": "NCT02774109",
+          "title": "The Effects of Fish Oil on Patients With Chronic Nonspecific Low Back Pain",
+          "status": "COMPLETED",
+          "phase": "NA",
+          "startDate": "2016-12",
+          "condition": "Chronic Low Back Pain",
+          "intervention": "Fish oil, Placebo, Hotpacking, Transcutaneous electrical nerve stimulation (TENS)",
+          "sponsor": "Chang Gung Memorial Hospital",
+          "url": "https://clinicaltrials.gov/study/NCT02774109",
+          "matchedRemedy": "Fish Oil",
+          "matchedRemedyId": "rem_036"
+        }
+      ],
+      "fdaData": []
+    },
+    {
+      "symptom": {
+        "id": "knee_pain",
+        "label": "Knee Pain"
+      },
+      "currentRemedyCount": 2,
+      "clinicalTrialCount": 12,
+      "fdaDataCount": 0,
+      "clinicalTrials": [
+        {
+          "source": "ClinicalTrials.gov",
+          "nctId": "NCT07475663",
+          "title": "Counterpain PXM Versus Diclofenac Versus Piroxicam",
+          "status": "COMPLETED",
+          "phase": "PHASE3",
+          "startDate": "2025-11-04",
+          "condition": "Ankle Sprain; Back Pain; Osteoarthritis (OA) of the Knee; Tennis Elbow; Runner's Knee",
+          "intervention": "Piroxicam plus Counterirritant (brand name Counterpain® PXM)., Diclofenac Sodium 10 mg (Brand Name Hotin® DCL), Piroxicam 0.5% (Brand name Pirofel® gel)",
+          "sponsor": "Taisho Pharmaceutical Indonesia",
+          "url": "https://clinicaltrials.gov/study/NCT07475663",
+          "matchedRemedy": "Topical Diclofenac Gel",
+          "matchedRemedyId": "rem_kp01"
+        },
+        {
+          "source": "ClinicalTrials.gov",
+          "nctId": "NCT00426621",
+          "title": "Efficacy and Safety of Diclofenac Sodium Gel (DSG) in Knee Osteoarthritis",
+          "status": "COMPLETED",
+          "phase": "PHASE3",
+          "startDate": "2006-11",
+          "condition": "Osteoarthritis of the Knee",
+          "intervention": "Diclofenac Sodium Gel, Placebo",
+          "sponsor": "Novartis",
+          "url": "https://clinicaltrials.gov/study/NCT00426621",
+          "matchedRemedy": "Topical Diclofenac Gel",
+          "matchedRemedyId": "rem_kp01"
+        },
+        {
+          "source": "ClinicalTrials.gov",
+          "nctId": "NCT03497039",
+          "title": "A Study to Characterize Diclofenac's Plasma and Knee Exposure After Application of Diclofenac Gel to the Knee of Subjects With Osteoarthritis That Have a Scheduled Arthroplasty",
+          "status": "COMPLETED",
+          "phase": "PHASE1",
+          "startDate": "2018-07-19",
+          "condition": "Pain",
+          "intervention": "Diclofenac Diethylamine (DDEA) gel, Placebo gel",
+          "sponsor": "GlaxoSmithKline",
+          "url": "https://clinicaltrials.gov/study/NCT03497039",
+          "matchedRemedy": "Topical Diclofenac Gel",
+          "matchedRemedyId": "rem_kp01"
+        },
+        {
+          "source": "ClinicalTrials.gov",
+          "nctId": "NCT02121002",
+          "title": "Study Comparing a Generic Diclofenac Sodium Topical Gel, 1% to Voltaren in the Treatment of Subjects With Osteoarthritis of the Knee",
+          "status": "COMPLETED",
+          "phase": "PHASE3",
+          "startDate": "2014-04",
+          "condition": "Osteoarthritis",
+          "intervention": "Diclofenac Sodium Topical Gel, 1%, Voltaren Topical Gel, 1%, Vehicle Diclofenac Sodium Topical Gel",
+          "sponsor": "Amneal Pharmaceuticals, LLC",
+          "url": "https://clinicaltrials.gov/study/NCT02121002",
+          "matchedRemedy": "Topical Diclofenac Gel",
+          "matchedRemedyId": "rem_kp01"
+        },
+        {
+          "source": "ClinicalTrials.gov",
+          "nctId": "NCT05050448",
+          "title": "Comparative Usability Evaluation of Sustained Acoustic Medicine (SAM) Devices and Topical Gel for OA Knee Pain",
+          "status": "COMPLETED",
+          "phase": "PHASE1, PHASE2",
+          "startDate": "2021-08-01",
+          "condition": "Knee Osteoarthritis",
+          "intervention": "Sustained Acoustic Device with 2.5% Diclofenac Patch, 1% Diclofenac Topical Gel",
+          "sponsor": "ZetrOZ, Inc.",
+          "url": "https://clinicaltrials.gov/study/NCT05050448",
+          "matchedRemedy": "Topical Diclofenac Gel",
+          "matchedRemedyId": "rem_kp01"
+        },
+        {
+          "source": "ClinicalTrials.gov",
+          "nctId": "NCT01119898",
+          "title": "Exploratory Study of PENNSAID Gel to Treat Symptoms of Knee Osteoarthritis",
+          "status": "COMPLETED",
+          "phase": "PHASE2",
+          "startDate": "2010-08-02",
+          "condition": "Osteoarthritis of the Knee",
+          "intervention": "PENNSAID Gel, Vehicle",
+          "sponsor": "Mallinckrodt",
+          "url": "https://clinicaltrials.gov/study/NCT01119898",
+          "matchedRemedy": "Topical Diclofenac Gel",
+          "matchedRemedyId": "rem_kp01"
+        },
+        {
+          "source": "ClinicalTrials.gov",
+          "nctId": "NCT07423182",
+          "title": "Effects of Carbon Dioxide Infrared Laser Moxibustion on Pain and Function in Knee Osteoarthritis",
+          "status": "ACTIVE_NOT_RECRUITING",
+          "phase": "NA",
+          "startDate": "2025-10-26",
+          "condition": "Knee Osteoarthritis",
+          "intervention": "Exercise Program for Knee Osteoarthritis, CO2 Infrared Laser Moxibustion (CILM)",
+          "sponsor": "University of Lahore",
+          "url": "https://clinicaltrials.gov/study/NCT07423182",
+          "matchedRemedy": "Supervised Quadriceps Strengthening for Knee Osteoarthritis",
+          "matchedRemedyId": "rem_kp03"
+        },
+        {
+          "source": "ClinicalTrials.gov",
+          "nctId": "NCT07302204",
+          "title": "Efficacy of Aerobic Exercise Versus Therapeutic Exercises on Exercise-induced Hypoalgesia in Knee Osteoarthritis",
+          "status": "RECRUITING",
+          "phase": "NA",
+          "startDate": "2026-02-20",
+          "condition": "Osteoarthritis of the Knee",
+          "intervention": "Aerobic Exercise, Therapeutic Exercise",
+          "sponsor": "University of Nove de Julho",
+          "url": "https://clinicaltrials.gov/study/NCT07302204",
+          "matchedRemedy": "Supervised Quadriceps Strengthening for Knee Osteoarthritis",
+          "matchedRemedyId": "rem_kp03"
+        },
+        {
+          "source": "ClinicalTrials.gov",
+          "nctId": "NCT01529398",
+          "title": "Sensorimotor Training Versus Resistance Training in Patients With Knee Osteoarthritis",
+          "status": "COMPLETED",
+          "phase": "PHASE2, PHASE3",
+          "startDate": "2008-03",
+          "condition": "Knee Osteoarthritis",
+          "intervention": "Sensorimotor training (SMT), Resistance training (RT), Control group (CG)",
+          "sponsor": "Federal University of São Paulo",
+          "url": "https://clinicaltrials.gov/study/NCT01529398",
+          "matchedRemedy": "Supervised Quadriceps Strengthening for Knee Osteoarthritis",
+          "matchedRemedyId": "rem_kp03"
+        },
+        {
+          "source": "ClinicalTrials.gov",
+          "nctId": "NCT05618015",
+          "title": "Comparison of the Supervised and Home-Based Progressive Resistant Training in Female Total Knee Arthroplasty Patients",
+          "status": "COMPLETED",
+          "phase": "NA",
+          "startDate": "2019-07-16",
+          "condition": "Total Knee Arthroplasty",
+          "intervention": "Supervised progressive resistance training, Home-based progressive resistance training",
+          "sponsor": "Pamukkale University",
+          "url": "https://clinicaltrials.gov/study/NCT05618015",
+          "matchedRemedy": "Supervised Quadriceps Strengthening for Knee Osteoarthritis",
+          "matchedRemedyId": "rem_kp03"
+        },
+        {
+          "source": "ClinicalTrials.gov",
+          "nctId": "NCT05138471",
+          "title": "Addition of Transcranial Direct Current Stimulation and Transcutaneous Electrical Nerve Stimulation to an Education and Exercise Program in Subjects With Chronic Pain Due to Knee Osteoarthritis",
+          "status": "COMPLETED",
+          "phase": "NA",
+          "startDate": "2021-11-17",
+          "condition": "Osteo Arthritis Knee; Chronic Pain",
+          "intervention": "transcranial direct current stimulation (tDCS), TENS, Exercise and General Education",
+          "sponsor": "Universidad de Murcia",
+          "url": "https://clinicaltrials.gov/study/NCT05138471",
+          "matchedRemedy": "Supervised Quadriceps Strengthening for Knee Osteoarthritis",
+          "matchedRemedyId": "rem_kp03"
+        },
+        {
+          "source": "ClinicalTrials.gov",
+          "nctId": "NCT07767812",
+          "title": "Effects of Motivational Interviewing on Pain Self-Efficacy and Exercise Behavior in Individuals With Knee Osteoarthritis",
+          "status": "RECRUITING",
+          "phase": "NA",
+          "startDate": "2026-02-01",
+          "condition": "Knee Arthritis Osteoarthritis",
+          "intervention": "Motivational Interviewing, Neuromuscular Exercise Program, Home Exercise Program",
+          "sponsor": "Kutahya Health Sciences University",
+          "url": "https://clinicaltrials.gov/study/NCT07767812",
+          "matchedRemedy": "Supervised Quadriceps Strengthening for Knee Osteoarthritis",
+          "matchedRemedyId": "rem_kp03"
+        }
+      ],
+      "fdaData": []
+    },
+    {
+      "symptom": {
+        "id": "menopause",
+        "label": "Menopause"
+      },
+      "currentRemedyCount": 2,
+      "clinicalTrialCount": 0,
+      "fdaDataCount": 0,
+      "clinicalTrials": [],
+      "fdaData": []
+    },
+    {
+      "symptom": {
+        "id": "neck_pain",
+        "label": "Neck Pain"
+      },
+      "currentRemedyCount": 2,
+      "clinicalTrialCount": 0,
+      "fdaDataCount": 0,
+      "clinicalTrials": [],
+      "fdaData": []
+    },
+    {
+      "symptom": {
+        "id": "painful_intercourse",
+        "label": "Painful Intercourse"
+      },
+      "currentRemedyCount": 2,
+      "clinicalTrialCount": 0,
+      "fdaDataCount": 0,
+      "clinicalTrials": [],
+      "fdaData": []
+    },
+    {
+      "symptom": {
+        "id": "back_pain",
+        "label": "Back Pain"
+      },
+      "currentRemedyCount": 3,
+      "clinicalTrialCount": 1,
+      "fdaDataCount": 0,
+      "clinicalTrials": [
+        {
+          "source": "ClinicalTrials.gov",
+          "nctId": "NCT07373808",
+          "title": "Efficacy of Sciatic Nerve Electrical Stimulation and Therapeutic Exercise in the Management of Low-back Related Leg Pain",
+          "status": "RECRUITING",
+          "phase": "NA",
+          "startDate": "2026-05-13",
+          "condition": "Sciatica",
+          "intervention": "Percutaneous Electrical Nerve Stimulation, Placebo Transcutaneous Electrical Nerve Stimulation, Transcutaneous Electrical Nerve Stimulation, Placebo Percutaneous Electrical Nerve Stimulation, Real Dry Needling (without Percutaneous Electrical Nerve Stimulation), Progressive Therapeutic Exercise Program",
+          "sponsor": "Universidad Complutense de Madrid",
+          "url": "https://clinicaltrials.gov/study/NCT07373808",
+          "matchedRemedy": "Buttock Stretch for Leg Pain",
+          "matchedRemedyId": "rem_034"
+        }
+      ],
+      "fdaData": []
+    },
+    {
+      "symptom": {
+        "id": "congestion",
+        "label": "Congestion"
+      },
+      "currentRemedyCount": 3,
+      "clinicalTrialCount": 0,
+      "fdaDataCount": 0,
+      "clinicalTrials": [],
+      "fdaData": []
+    },
+    {
+      "symptom": {
+        "id": "cough",
+        "label": "Cough"
+      },
+      "currentRemedyCount": 3,
+      "clinicalTrialCount": 0,
+      "fdaDataCount": 0,
+      "clinicalTrials": [],
+      "fdaData": []
+    },
+    {
+      "symptom": {
+        "id": "diarrhea",
+        "label": "Diarrhea"
+      },
+      "currentRemedyCount": 3,
+      "clinicalTrialCount": 4,
+      "fdaDataCount": 0,
+      "clinicalTrials": [
+        {
+          "source": "ClinicalTrials.gov",
+          "nctId": "NCT06444633",
+          "title": "The Impact of Pre-emptive Home Delivery of ORS + Zinc on Treatment for Child Diarrhea",
+          "status": "RECRUITING",
+          "phase": "NA",
+          "startDate": "2024-09-04",
+          "condition": "Diarrhea Toddler",
+          "intervention": "Community Sensitization + Household visit + Information + Free pre-emptive distribution of ORS+Zinc",
+          "sponsor": "RAND",
+          "url": "https://clinicaltrials.gov/study/NCT06444633",
+          "matchedRemedy": "Oral Rehydration Salts (ORS)",
+          "matchedRemedyId": "rem_dh01"
+        },
+        {
+          "source": "ClinicalTrials.gov",
+          "nctId": "NCT00490932",
+          "title": "New Hypo-Osmolar ORS (Recommended by WHO) for Routine Use in the Diarrhea Management- Surveillance Study for Adverse Effects",
+          "status": "COMPLETED",
+          "phase": "PHASE4",
+          "startDate": "2005-03",
+          "condition": "Diarrhea; Dysentery",
+          "intervention": "Hypo-osmolar ORS",
+          "sponsor": "Society for Applied Studies",
+          "url": "https://clinicaltrials.gov/study/NCT00490932",
+          "matchedRemedy": "Oral Rehydration Salts (ORS)",
+          "matchedRemedyId": "rem_dh01"
+        },
+        {
+          "source": "ClinicalTrials.gov",
+          "nctId": "NCT04335877",
+          "title": "Effect of Prompting the Supply of Zinc/LO-ORS Co-packs in the Private Sector Plus BCI on Childhood Diarrhea Treatment",
+          "status": "COMPLETED",
+          "phase": "NA",
+          "startDate": "2021-03-01",
+          "condition": "Diarrhea, Infantile",
+          "intervention": "Private sector component + modified BCC",
+          "sponsor": "Nutrition International",
+          "url": "https://clinicaltrials.gov/study/NCT04335877",
+          "matchedRemedy": "Zinc with ORS for Childhood Diarrhoea",
+          "matchedRemedyId": "rem_ms08"
+        },
+        {
+          "source": "ClinicalTrials.gov",
+          "nctId": "NCT01025583",
+          "title": "Oral Rehydration Solution With Zinc and Prebiotics in Acute Diarrhea",
+          "status": "COMPLETED",
+          "phase": "PHASE2, PHASE3",
+          "startDate": "2007-11",
+          "condition": "Diarrhea",
+          "intervention": "hypotonic oral rehydration solution, Hypotonic oral rehydration solution with Zn and prebiotics",
+          "sponsor": "Federico II University",
+          "url": "https://clinicaltrials.gov/study/NCT01025583",
+          "matchedRemedy": "Zinc with ORS for Childhood Diarrhoea",
+          "matchedRemedyId": "rem_ms08"
+        }
+      ],
+      "fdaData": []
+    },
+    {
+      "symptom": {
+        "id": "hangover",
+        "label": "Hangover"
+      },
+      "currentRemedyCount": 3,
+      "clinicalTrialCount": 1,
+      "fdaDataCount": 0,
+      "clinicalTrials": [
+        {
+          "source": "ClinicalTrials.gov",
+          "nctId": "NCT02541422",
+          "title": "Use of NAC in Alleviation of Hangover Symptoms",
+          "status": "COMPLETED",
+          "phase": "NA",
+          "startDate": "2015-08",
+          "condition": "Hangover Symptoms, NAC",
+          "intervention": "N Acetyl Cysteine, placebo",
+          "sponsor": "St. Luke's Hospital and Health Network, Pennsylvania",
+          "url": "https://clinicaltrials.gov/study/NCT02541422",
+          "matchedRemedy": "N-Acetylcysteine (NAC)",
+          "matchedRemedyId": "rem_hg01"
+        }
+      ],
+      "fdaData": []
+    },
+    {
+      "symptom": {
+        "id": "migraine",
+        "label": "Migraine"
+      },
+      "currentRemedyCount": 3,
+      "clinicalTrialCount": 3,
+      "fdaDataCount": 0,
+      "clinicalTrials": [
+        {
+          "source": "ClinicalTrials.gov",
+          "nctId": "NCT06245902",
+          "title": "An Acute Migraine Factorial Study",
+          "status": "COMPLETED",
+          "phase": "PHASE2",
+          "startDate": "2017-02-18",
+          "condition": "Migraine With or Without Aura",
+          "intervention": "Naltrexone and Acetaminophen, Naltrexone and Acetaminophen-High Dose, Naltrexone Alone (regular dose), Acetaminophen Alone, Matching Placebo",
+          "sponsor": "Allodynic Therapeutics, Inc",
+          "url": "https://clinicaltrials.gov/study/NCT06245902",
+          "matchedRemedy": "Paracetamol for an Acute Migraine",
+          "matchedRemedyId": "rem_ms02"
+        },
+        {
+          "source": "ClinicalTrials.gov",
+          "nctId": "NCT05989048",
+          "title": "A Study to Learn About Zavegepant as the Acute Treatment of Migraine in Asian Adults",
+          "status": "COMPLETED",
+          "phase": "PHASE3",
+          "startDate": "2023-11-29",
+          "condition": "Migraine",
+          "intervention": "Zavegepant, Placebo",
+          "sponsor": "Pfizer",
+          "url": "https://clinicaltrials.gov/study/NCT05989048",
+          "matchedRemedy": "Paracetamol for an Acute Migraine",
+          "matchedRemedyId": "rem_ms02"
+        },
+        {
+          "source": "ClinicalTrials.gov",
+          "nctId": "NCT05509400",
+          "title": "Efficacy and Tolerability of Rimegepant for the Acute Treatment of Migraine in Adults Unsuitable for Triptan Use",
+          "status": "COMPLETED",
+          "phase": "PHASE4",
+          "startDate": "2022-10-18",
+          "condition": "Migraine",
+          "intervention": "Rimegepant, Placebo, Rimegepant",
+          "sponsor": "Pfizer",
+          "url": "https://clinicaltrials.gov/study/NCT05509400",
+          "matchedRemedy": "Paracetamol for an Acute Migraine",
+          "matchedRemedyId": "rem_ms02"
+        }
+      ],
+      "fdaData": []
+    },
+    {
+      "symptom": {
+        "id": "vaginal_dryness",
+        "label": "Vaginal Dryness"
+      },
+      "currentRemedyCount": 3,
+      "clinicalTrialCount": 2,
+      "fdaDataCount": 0,
+      "clinicalTrials": [
+        {
+          "source": "ClinicalTrials.gov",
+          "nctId": "NCT05888116",
+          "title": "Efficacy and Safety of a Hyaluronic Acid-Based Vaginal Moisturizer Medical Device to Ease Symptoms of Vaginal Dryness",
+          "status": "COMPLETED",
+          "phase": "NA",
+          "startDate": "2023-05-23",
+          "condition": "Vaginal Disease",
+          "intervention": "Hidrante HA, Cumlaude Hidrante Interno®",
+          "sponsor": "Dermofarm, S.A.U",
+          "url": "https://clinicaltrials.gov/study/NCT05888116",
+          "matchedRemedy": "Vaginal Moisturizer",
+          "matchedRemedyId": "rem_105"
+        },
+        {
+          "source": "ClinicalTrials.gov",
+          "nctId": "NCT01738152",
+          "title": "Non-Hormonal Vaginal Moisturizer in Hormone-Receptor Positive Postmenopausal Cancer Survivors Experiencing Estrogen Deprivation Symptoms on Vulvovaginal Health",
+          "status": "COMPLETED",
+          "phase": "NA",
+          "startDate": "2012-11",
+          "condition": "Breast Cancer; Endometrial Cancer",
+          "intervention": "HLA vaginal gel (HyaloGYN®),, questionnaires",
+          "sponsor": "Memorial Sloan Kettering Cancer Center",
+          "url": "https://clinicaltrials.gov/study/NCT01738152",
+          "matchedRemedy": "Vaginal Moisturizer",
+          "matchedRemedyId": "rem_105"
+        }
+      ],
+      "fdaData": []
+    },
+    {
+      "symptom": {
+        "id": "brain_fog",
+        "label": "Brain Fog"
+      },
+      "currentRemedyCount": 4,
+      "clinicalTrialCount": 0,
+      "fdaDataCount": 0,
+      "clinicalTrials": [],
+      "fdaData": []
+    },
+    {
+      "symptom": {
+        "id": "eye_strain",
+        "label": "Eye Strain"
+      },
+      "currentRemedyCount": 4,
+      "clinicalTrialCount": 0,
+      "fdaDataCount": 0,
+      "clinicalTrials": [],
+      "fdaData": []
+    }
+  ],
+  "safeguards": [
+    "No claims auto-approved",
+    "All clinical trial links marked included=false",
+    "FDA data written to research_papers for display only"
+  ]
+}

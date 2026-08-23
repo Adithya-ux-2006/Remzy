@@ -1,0 +1,1874 @@
+{
+  "generatedAt": "2026-08-23T19:44:07.579Z",
+  "mode": "write",
+  "targetRemedyCount": 50,
+  "remediesWithNoEvidence": 54,
+  "totalLinksFound": 87,
+  "totalLinksWritten": 87,
+  "discoveries": [
+    {
+      "remedy": {
+        "id": "rem_c01",
+        "name": "Zinc Cold-Relief Lozenges"
+      },
+      "existingUrls": 0,
+      "searches": [
+        {
+          "symptom": "Cold",
+          "query": "Zinc Cold-Relief Lozenges Cold",
+          "totalResults": 5,
+          "matchingResults": 1,
+          "results": [
+            {
+              "source": "Europe PMC",
+              "url": "https://pubmed.ncbi.nlm.nih.gov/39935563/",
+              "title": "The Use and Safety of Cough and Cold Medications in the Pediatric Population.",
+              "journal": null,
+              "year": 2025,
+              "pmid": "39935563",
+              "isPeerReviewed": true
+            }
+          ]
+        },
+        {
+          "symptom": "Cough",
+          "query": "Zinc Cold-Relief Lozenges Cough",
+          "totalResults": 5,
+          "matchingResults": 1,
+          "results": [
+            {
+              "source": "Europe PMC",
+              "url": "https://pubmed.ncbi.nlm.nih.gov/39935563/",
+              "title": "The Use and Safety of Cough and Cold Medications in the Pediatric Population.",
+              "journal": null,
+              "year": 2025,
+              "pmid": "39935563",
+              "isPeerReviewed": true
+            }
+          ]
+        },
+        {
+          "symptom": "Congestion",
+          "query": "Zinc Cold-Relief Lozenges Congestion",
+          "totalResults": 9,
+          "matchingResults": 0,
+          "results": []
+        }
+      ],
+      "linksFound": 2,
+      "linksWritten": 2
+    },
+    {
+      "remedy": {
+        "id": "rem_c05",
+        "name": "Honey Lemon Warm Tea"
+      },
+      "existingUrls": 0,
+      "searches": [
+        {
+          "symptom": "Cough",
+          "query": "Honey Lemon Warm Tea Cough",
+          "totalResults": 5,
+          "matchingResults": 0,
+          "results": []
+        },
+        {
+          "symptom": "Cold",
+          "query": "Honey Lemon Warm Tea Cold",
+          "totalResults": 6,
+          "matchingResults": 0,
+          "results": []
+        }
+      ],
+      "linksFound": 0,
+      "linksWritten": 0
+    },
+    {
+      "remedy": {
+        "id": "rem_a02",
+        "name": "Ashwagandha Stress Relief Capsule"
+      },
+      "existingUrls": 0,
+      "searches": [
+        {
+          "symptom": "Stress",
+          "query": "Ashwagandha Stress Relief Capsule Stress",
+          "totalResults": 5,
+          "matchingResults": 3,
+          "results": [
+            {
+              "source": "Europe PMC",
+              "url": "https://pubmed.ncbi.nlm.nih.gov/41815853/",
+              "title": "A proprietary herbal extract of ashwagandha root for stress and anxiety in healthy adults: a randomized, double-blind, three-arm, placebo-controlled efficacy and safety study.",
+              "journal": null,
+              "year": 2026,
+              "pmid": "41815853",
+              "isPeerReviewed": true
+            },
+            {
+              "source": "Europe PMC",
+              "url": "https://pubmed.ncbi.nlm.nih.gov/40875185/",
+              "title": "A New Ashwagandha Formulation (Zenroot™) Alleviates Stress and Anxiety Symptoms While Improving Mood and Sleep Quality: A Randomized, Double-Blind, Placebo-Controlled Clinical Study.",
+              "journal": null,
+              "year": 2025,
+              "pmid": "40875185",
+              "isPeerReviewed": true
+            },
+            {
+              "source": "Europe PMC",
+              "url": "https://pubmed.ncbi.nlm.nih.gov/41635453/",
+              "title": "Efficacy and safety of Ashwagandha (&lt;i&gt;Withania somnifera&lt;/i&gt;) root extract on stress and weight management in adults: a prospective, randomized, double-blind, placebo-controlled study.",
+              "journal": null,
+              "year": 2025,
+              "pmid": "41635453",
+              "isPeerReviewed": true
+            }
+          ]
+        },
+        {
+          "symptom": "Anxious",
+          "query": "Ashwagandha Stress Relief Capsule Anxious",
+          "totalResults": 5,
+          "matchingResults": 0,
+          "results": []
+        }
+      ],
+      "linksFound": 3,
+      "linksWritten": 3
+    },
+    {
+      "remedy": {
+        "id": "rem_a05",
+        "name": "Slow Paced Breathing"
+      },
+      "existingUrls": 0,
+      "searches": [
+        {
+          "symptom": "Stress",
+          "query": "Slow Paced Breathing Stress",
+          "totalResults": 5,
+          "matchingResults": 1,
+          "results": [
+            {
+              "source": "PubMed",
+              "url": "https://pubmed.ncbi.nlm.nih.gov/42329208/",
+              "title": "Expiratory-Gated Transcutaneous Auricular Vagus Nerve Stimulation Combined With Slow Breathing in War-Related Traumatic Stress: A Pilot Study.",
+              "journal": "Neuromodulation : journal of the International Neuromodulation Society",
+              "year": 2026,
+              "pmid": "42329208",
+              "isPeerReviewed": true
+            }
+          ]
+        },
+        {
+          "symptom": "Anxious",
+          "query": "Slow Paced Breathing Anxious",
+          "totalResults": 5,
+          "matchingResults": 0,
+          "results": []
+        }
+      ],
+      "linksFound": 1,
+      "linksWritten": 1
+    },
+    {
+      "remedy": {
+        "id": "rem_i01",
+        "name": "Melatonin for Sleep Timing"
+      },
+      "existingUrls": 0,
+      "searches": [
+        {
+          "symptom": "Insomnia",
+          "query": "Melatonin for Sleep Timing Insomnia",
+          "totalResults": 5,
+          "matchingResults": 2,
+          "results": [
+            {
+              "source": "PubMed",
+              "url": "https://pubmed.ncbi.nlm.nih.gov/42539544/",
+              "title": "Circadian dimensions in insomnia disorder: mechanistic evidence, candidate phenotypes, and a phenotype-stratified research framework.",
+              "journal": "Frontiers in psychiatry",
+              "year": 2026,
+              "pmid": "42539544",
+              "isPeerReviewed": true
+            },
+            {
+              "source": "PubMed",
+              "url": "https://pubmed.ncbi.nlm.nih.gov/42496245/",
+              "title": "Melatonin in Clinical Practice: Grey Zones Between Chronobiology, Insomnia and Consumer Supplementation.",
+              "journal": "Clocks & sleep",
+              "year": 2026,
+              "pmid": "42496245",
+              "isPeerReviewed": true
+            }
+          ]
+        }
+      ],
+      "linksFound": 2,
+      "linksWritten": 2
+    },
+    {
+      "remedy": {
+        "id": "rem_i02",
+        "name": "Tart Cherry Juice"
+      },
+      "existingUrls": 0,
+      "searches": [
+        {
+          "symptom": "Insomnia",
+          "query": "Tart Cherry Juice Insomnia",
+          "totalResults": 8,
+          "matchingResults": 4,
+          "results": [
+            {
+              "source": "PubMed",
+              "url": "https://pubmed.ncbi.nlm.nih.gov/41901097/",
+              "title": "CherryZZZ: A Protocol for a Randomized, Double-Blind, Placebo-Controlled, Cross-Over Pilot Study Testing Tart Cherry Juice in Older Adults with Self-Reported Insomnia.",
+              "journal": "Nutrients",
+              "year": 2026,
+              "pmid": "41901097",
+              "isPeerReviewed": true
+            },
+            {
+              "source": "PubMed",
+              "url": "https://pubmed.ncbi.nlm.nih.gov/32521042/",
+              "title": "Efficacy, acceptability, and tolerability of all available treatments for insomnia in the elderly: a systematic review and network meta-analysis.",
+              "journal": "Acta psychiatrica Scandinavica",
+              "year": 2020,
+              "pmid": "32521042",
+              "isPeerReviewed": true
+            },
+            {
+              "source": "PubMed",
+              "url": "https://pubmed.ncbi.nlm.nih.gov/28901958/",
+              "title": "Pilot Study of the Tart Cherry Juice for the Treatment of Insomnia and Investigation of Mechanisms.",
+              "journal": "American journal of therapeutics",
+              "year": 2018,
+              "pmid": "28901958",
+              "isPeerReviewed": true
+            },
+            {
+              "source": "PubMed",
+              "url": "https://pubmed.ncbi.nlm.nih.gov/20438325/",
+              "title": "Effects of a tart cherry juice beverage on the sleep of older adults with insomnia: a pilot study.",
+              "journal": "Journal of medicinal food",
+              "year": 2010,
+              "pmid": "20438325",
+              "isPeerReviewed": true
+            }
+          ]
+        }
+      ],
+      "linksFound": 4,
+      "linksWritten": 4
+    },
+    {
+      "remedy": {
+        "id": "rem_i05",
+        "name": "Stimulus Control Routine"
+      },
+      "existingUrls": 0,
+      "searches": [
+        {
+          "symptom": "Insomnia",
+          "query": "Stimulus Control Routine Insomnia",
+          "totalResults": 5,
+          "matchingResults": 3,
+          "results": [
+            {
+              "source": "PubMed",
+              "url": "https://pubmed.ncbi.nlm.nih.gov/42050101/",
+              "title": "Reducing sleep medication via parallel delivery of clinical pharmacist-led deprescribing and clinician-supervised asynchronous CBT for insomnia: the SEDATIVE trial.",
+              "journal": "Journal of behavioral medicine",
+              "year": 2026,
+              "pmid": "42050101",
+              "isPeerReviewed": true
+            },
+            {
+              "source": "PubMed",
+              "url": "https://pubmed.ncbi.nlm.nih.gov/40341194/",
+              "title": "Efficacy of a Self-Guided Internet Intervention With Optional On-Demand Feedback Versus Digital Psychoeducation on Sleep Hygiene for University Students With Insomnia: Randomized Controlled Trial.",
+              "journal": "Journal of medical Internet research",
+              "year": 2025,
+              "pmid": "40341194",
+              "isPeerReviewed": true
+            },
+            {
+              "source": "PubMed",
+              "url": "https://pubmed.ncbi.nlm.nih.gov/39504928/",
+              "title": "Network meta-analysis examining efficacy of components of cognitive behavioural therapy for insomnia.",
+              "journal": "Clinical psychology review",
+              "year": 2024,
+              "pmid": "39504928",
+              "isPeerReviewed": true
+            }
+          ]
+        }
+      ],
+      "linksFound": 3,
+      "linksWritten": 3
+    },
+    {
+      "remedy": {
+        "id": "rem_ft01",
+        "name": "Light Walking Activity Break"
+      },
+      "existingUrls": 0,
+      "searches": [
+        {
+          "symptom": "Fatigue",
+          "query": "Light Walking Activity Break Fatigue",
+          "totalResults": 5,
+          "matchingResults": 0,
+          "results": []
+        },
+        {
+          "symptom": "Brain Fog",
+          "query": "Light Walking Activity Break Brain Fog",
+          "totalResults": 6,
+          "matchingResults": 0,
+          "results": []
+        }
+      ],
+      "linksFound": 0,
+      "linksWritten": 0
+    },
+    {
+      "remedy": {
+        "id": "rem_s01",
+        "name": "Rhodiola for Stress-Related Fatigue"
+      },
+      "existingUrls": 0,
+      "searches": [
+        {
+          "symptom": "Fatigue",
+          "query": "Rhodiola for Stress-Related Fatigue Fatigue",
+          "totalResults": 5,
+          "matchingResults": 1,
+          "results": [
+            {
+              "source": "PubMed",
+              "url": "https://pubmed.ncbi.nlm.nih.gov/41776177/",
+              "title": "Mechanism of Morchella polysaccharide in anti-fatigue: the role of the gut microbiota-metabolite axis in mice.",
+              "journal": "NPJ science of food",
+              "year": 2026,
+              "pmid": "41776177",
+              "isPeerReviewed": true
+            }
+          ]
+        },
+        {
+          "symptom": "Stress",
+          "query": "Rhodiola for Stress-Related Fatigue Stress",
+          "totalResults": 5,
+          "matchingResults": 0,
+          "results": []
+        }
+      ],
+      "linksFound": 1,
+      "linksWritten": 1
+    },
+    {
+      "remedy": {
+        "id": "rem_s05",
+        "name": "Ten-Minute Outdoor Walk"
+      },
+      "existingUrls": 0,
+      "searches": [
+        {
+          "symptom": "Stress",
+          "query": "Ten-Minute Outdoor Walk Stress",
+          "totalResults": 5,
+          "matchingResults": 0,
+          "results": []
+        },
+        {
+          "symptom": "Brain Fog",
+          "query": "Ten-Minute Outdoor Walk Brain Fog",
+          "totalResults": 5,
+          "matchingResults": 0,
+          "results": []
+        }
+      ],
+      "linksFound": 0,
+      "linksWritten": 0
+    },
+    {
+      "remedy": {
+        "id": "rem_bp02",
+        "name": "Gentle Yoga Mobility for Back Pain"
+      },
+      "existingUrls": 0,
+      "searches": [
+        {
+          "symptom": "Back Pain",
+          "query": "Gentle Yoga Mobility for Back Pain Back Pain",
+          "totalResults": 5,
+          "matchingResults": 2,
+          "results": [
+            {
+              "source": "Europe PMC",
+              "url": "https://pubmed.ncbi.nlm.nih.gov/41704964/",
+              "title": "Comparative Effects of Structured Yoga and Conventional Therapeutic Exercise on Pain and Disability in Chronic Mechanical Low Back Pain: A Short-Term Randomized Study.",
+              "journal": null,
+              "year": 2026,
+              "pmid": "41704964",
+              "isPeerReviewed": true
+            },
+            {
+              "source": "Europe PMC",
+              "url": "https://pubmed.ncbi.nlm.nih.gov/42080121/",
+              "title": "Myofascial pain in older adults: a geroscience-informed framework integrating precision geriatrics and digital therapeutics.",
+              "journal": null,
+              "year": 2026,
+              "pmid": "42080121",
+              "isPeerReviewed": true
+            }
+          ]
+        }
+      ],
+      "linksFound": 2,
+      "linksWritten": 2
+    },
+    {
+      "remedy": {
+        "id": "rem_st01",
+        "name": "Salt Water Gargle"
+      },
+      "existingUrls": 0,
+      "searches": [
+        {
+          "symptom": "Sore Throat",
+          "query": "Salt Water Gargle Sore Throat",
+          "totalResults": 6,
+          "matchingResults": 0,
+          "results": []
+        },
+        {
+          "symptom": "Cold",
+          "query": "Salt Water Gargle Cold",
+          "totalResults": 8,
+          "matchingResults": 0,
+          "results": []
+        }
+      ],
+      "linksFound": 0,
+      "linksWritten": 0
+    },
+    {
+      "remedy": {
+        "id": "rem_es01",
+        "name": "20-20-20 Screen Reset"
+      },
+      "existingUrls": 0,
+      "searches": [
+        {
+          "symptom": "Eye Strain",
+          "query": "20-20-20 Screen Reset Eye Strain",
+          "totalResults": 5,
+          "matchingResults": 0,
+          "results": []
+        }
+      ],
+      "linksFound": 0,
+      "linksWritten": 0
+    },
+    {
+      "remedy": {
+        "id": "rem_pc01",
+        "name": "Heating Pad for Period Cramps"
+      },
+      "existingUrls": 0,
+      "searches": [
+        {
+          "symptom": "Period Cramps",
+          "query": "Heating Pad for Period Cramps Period Cramps",
+          "totalResults": 5,
+          "matchingResults": 0,
+          "results": []
+        }
+      ],
+      "linksFound": 0,
+      "linksWritten": 0
+    },
+    {
+      "remedy": {
+        "id": "rem_pc02",
+        "name": "Ginger for Menstrual Pain"
+      },
+      "existingUrls": 0,
+      "searches": [
+        {
+          "symptom": "Period Cramps",
+          "query": "Ginger for Menstrual Pain Period Cramps",
+          "totalResults": 5,
+          "matchingResults": 0,
+          "results": []
+        },
+        {
+          "symptom": "Nausea",
+          "query": "Ginger for Menstrual Pain Nausea",
+          "totalResults": 5,
+          "matchingResults": 0,
+          "results": []
+        }
+      ],
+      "linksFound": 0,
+      "linksWritten": 0
+    },
+    {
+      "remedy": {
+        "id": "rem_sr01",
+        "name": "Colloidal Oatmeal for Mild Eczema"
+      },
+      "existingUrls": 0,
+      "searches": [
+        {
+          "symptom": "Skin Rash",
+          "query": "Colloidal Oatmeal for Mild Eczema Skin Rash",
+          "totalResults": 5,
+          "matchingResults": 3,
+          "results": [
+            {
+              "source": "Europe PMC",
+              "url": "https://pubmed.ncbi.nlm.nih.gov/40709409/",
+              "title": "A colloidal oat-containing baby wash is gentle and effective for atopic-prone skin.",
+              "journal": null,
+              "year": 2026,
+              "pmid": "40709409",
+              "isPeerReviewed": true
+            },
+            {
+              "source": "Europe PMC",
+              "url": "https://pubmed.ncbi.nlm.nih.gov/41598765/",
+              "title": "Impact of Isosorbide Diesters from Coconut and Sunflower Fatty Acids on Pediatric Atopic Dermatitis and the Skin Microbiome: A Randomized, Double-Blind, Vehicle-Controlled Trial.",
+              "journal": null,
+              "year": 2026,
+              "pmid": "41598765",
+              "isPeerReviewed": true
+            },
+            {
+              "source": "Europe PMC",
+              "url": "https://pubmed.ncbi.nlm.nih.gov/41578116/",
+              "title": "Managing Skin Side Effects Associated With Oncology Treatments: Asian Perspective on Use of Dermocosmetics.",
+              "journal": null,
+              "year": 2026,
+              "pmid": "41578116",
+              "isPeerReviewed": true
+            }
+          ]
+        }
+      ],
+      "linksFound": 3,
+      "linksWritten": 3
+    },
+    {
+      "remedy": {
+        "id": "rem_sr02",
+        "name": "Cool Compress for Itchy Irritation"
+      },
+      "existingUrls": 0,
+      "searches": [
+        {
+          "symptom": "Skin Rash",
+          "query": "Cool Compress for Itchy Irritation Skin Rash",
+          "totalResults": 5,
+          "matchingResults": 1,
+          "results": [
+            {
+              "source": "Europe PMC",
+              "url": "https://pubmed.ncbi.nlm.nih.gov/42075448/",
+              "title": "Herbal Remedies for Skin Diseases in Serbian Folk Medicine: A Review of 19th- and 20th-Century Practices.",
+              "journal": null,
+              "year": 2026,
+              "pmid": "42075448",
+              "isPeerReviewed": true
+            }
+          ]
+        }
+      ],
+      "linksFound": 1,
+      "linksWritten": 1
+    },
+    {
+      "remedy": {
+        "id": "rem_bg01",
+        "name": "Peppermint Bloating Tea"
+      },
+      "existingUrls": 0,
+      "searches": [
+        {
+          "symptom": "Bloating",
+          "query": "Peppermint Bloating Tea Bloating",
+          "totalResults": 5,
+          "matchingResults": 1,
+          "results": [
+            {
+              "source": "Europe PMC",
+              "url": "https://pubmed.ncbi.nlm.nih.gov/40844856/",
+              "title": "European Consensus on Functional Bloating and Abdominal Distension-An ESNM/UEG Recommendations for Clinical Management.",
+              "journal": null,
+              "year": 2025,
+              "pmid": "40844856",
+              "isPeerReviewed": true
+            }
+          ]
+        }
+      ],
+      "linksFound": 1,
+      "linksWritten": 1
+    },
+    {
+      "remedy": {
+        "id": "rem_bg02",
+        "name": "Post-Meal Walk"
+      },
+      "existingUrls": 0,
+      "searches": [
+        {
+          "symptom": "Bloating",
+          "query": "Post-Meal Walk Bloating",
+          "totalResults": 6,
+          "matchingResults": 0,
+          "results": []
+        }
+      ],
+      "linksFound": 0,
+      "linksWritten": 0
+    },
+    {
+      "remedy": {
+        "id": "rem_ho01",
+        "name": "Supportive Hydration After Alcohol"
+      },
+      "existingUrls": 0,
+      "searches": [
+        {
+          "symptom": "Hangover",
+          "query": "Supportive Hydration After Alcohol Hangover",
+          "totalResults": 6,
+          "matchingResults": 1,
+          "results": [
+            {
+              "source": "PubMed",
+              "url": "https://pubmed.ncbi.nlm.nih.gov/20041794/",
+              "title": "Effects of a preparation of combined glutathione-enriched yeast and rice embryo/soybean extracts on ethanol hangover.",
+              "journal": "Journal of medicinal food",
+              "year": 2009,
+              "pmid": "20041794",
+              "isPeerReviewed": true
+            }
+          ]
+        },
+        {
+          "symptom": "Dehydration",
+          "query": "Supportive Hydration After Alcohol Dehydration",
+          "totalResults": 5,
+          "matchingResults": 0,
+          "results": []
+        }
+      ],
+      "linksFound": 1,
+      "linksWritten": 1
+    },
+    {
+      "remedy": {
+        "id": "rem_a08",
+        "name": "Lavender Aromatherapy"
+      },
+      "existingUrls": 0,
+      "searches": [
+        {
+          "symptom": "Anxious",
+          "query": "Lavender Aromatherapy Anxious",
+          "totalResults": 5,
+          "matchingResults": 0,
+          "results": []
+        },
+        {
+          "symptom": "Stress",
+          "query": "Lavender Aromatherapy Stress",
+          "totalResults": 5,
+          "matchingResults": 1,
+          "results": [
+            {
+              "source": "PubMed",
+              "url": "https://pubmed.ncbi.nlm.nih.gov/42454872/",
+              "title": "Aromatherapy to Reduce Stress in Nurses: A Pilot Study.",
+              "journal": "Journal of holistic nursing : official journal of the American Holistic Nurses' Association",
+              "year": 2026,
+              "pmid": "42454872",
+              "isPeerReviewed": true
+            }
+          ]
+        }
+      ],
+      "linksFound": 1,
+      "linksWritten": 1
+    },
+    {
+      "remedy": {
+        "id": "rem_a09",
+        "name": "Yoga Nidra Practice"
+      },
+      "existingUrls": 0,
+      "searches": [
+        {
+          "symptom": "Stress",
+          "query": "Yoga Nidra Practice Stress",
+          "totalResults": 5,
+          "matchingResults": 1,
+          "results": [
+            {
+              "source": "PubMed",
+              "url": "https://pubmed.ncbi.nlm.nih.gov/41327816/",
+              "title": "Effects of Yoga Nidra on Stress, Anxiety, and Depression: A Systematic Review and Meta-Analysis.",
+              "journal": "Annals of the New York Academy of Sciences",
+              "year": 2026,
+              "pmid": "41327816",
+              "isPeerReviewed": true
+            }
+          ]
+        },
+        {
+          "symptom": "Anxious",
+          "query": "Yoga Nidra Practice Anxious",
+          "totalResults": 5,
+          "matchingResults": 0,
+          "results": []
+        }
+      ],
+      "linksFound": 1,
+      "linksWritten": 1
+    },
+    {
+      "remedy": {
+        "id": "rem_a10",
+        "name": "Daily Journaling Practice"
+      },
+      "existingUrls": 0,
+      "searches": [
+        {
+          "symptom": "Stress",
+          "query": "Daily Journaling Practice Stress",
+          "totalResults": 5,
+          "matchingResults": 1,
+          "results": [
+            {
+              "source": "PubMed",
+              "url": "https://pubmed.ncbi.nlm.nih.gov/41516942/",
+              "title": "A Four-Week Online Compassion and Gratitude Training Programme to Enhance Emotion Regulation: Implications for Stress Management and Healthcare Leadership.",
+              "journal": "Healthcare (Basel, Switzerland)",
+              "year": 2025,
+              "pmid": "41516942",
+              "isPeerReviewed": true
+            }
+          ]
+        },
+        {
+          "symptom": "Anxious",
+          "query": "Daily Journaling Practice Anxious",
+          "totalResults": 5,
+          "matchingResults": 0,
+          "results": []
+        }
+      ],
+      "linksFound": 1,
+      "linksWritten": 1
+    },
+    {
+      "remedy": {
+        "id": "rem_i08",
+        "name": "Weighted Blanket"
+      },
+      "existingUrls": 0,
+      "searches": [
+        {
+          "symptom": "Insomnia",
+          "query": "Weighted Blanket Insomnia",
+          "totalResults": 5,
+          "matchingResults": 2,
+          "results": [
+            {
+              "source": "PubMed",
+              "url": "https://pubmed.ncbi.nlm.nih.gov/39772300/",
+              "title": "Interim Analysis of a Prospective Polysomnographic Study of Weighted Blankets in Patients with Psychophysiological Insomnia.",
+              "journal": "Psychiatry and clinical psychopharmacology",
+              "year": 2024,
+              "pmid": "39772300",
+              "isPeerReviewed": true
+            },
+            {
+              "source": "PubMed",
+              "url": "https://pubmed.ncbi.nlm.nih.gov/39501163/",
+              "title": "Effect of weighted blankets on sleep quality among adults with insomnia: a pilot randomized controlled trial.",
+              "journal": "BMC psychiatry",
+              "year": 2024,
+              "pmid": "39501163",
+              "isPeerReviewed": true
+            }
+          ]
+        }
+      ],
+      "linksFound": 2,
+      "linksWritten": 2
+    },
+    {
+      "remedy": {
+        "id": "rem_i09",
+        "name": "Sleep Hygiene Protocol"
+      },
+      "existingUrls": 0,
+      "searches": [
+        {
+          "symptom": "Insomnia",
+          "query": "Sleep Hygiene Protocol Insomnia",
+          "totalResults": 5,
+          "matchingResults": 3,
+          "results": [
+            {
+              "source": "PubMed",
+              "url": "https://pubmed.ncbi.nlm.nih.gov/42391198/",
+              "title": "Insomnia and poor sleep quality in refugee and asylum-seeking populations: A systematic review and meta-analysis.",
+              "journal": "PloS one",
+              "year": 2026,
+              "pmid": "42391198",
+              "isPeerReviewed": true
+            },
+            {
+              "source": "PubMed",
+              "url": "https://pubmed.ncbi.nlm.nih.gov/42343684/",
+              "title": "[Clinical efficacy of acupuncture combined with estazolam on chronic insomnia].",
+              "journal": "Zhen ci yan jiu = Acupuncture research",
+              "year": 2026,
+              "pmid": "42343684",
+              "isPeerReviewed": true
+            },
+            {
+              "source": "PubMed",
+              "url": "https://pubmed.ncbi.nlm.nih.gov/42309658/",
+              "title": "Cognitive-behavioural therapy for insomnia in adults to decrease cannabis use: study protocol for a randomised controlled trial in a community sample of adults with frequent cannabis use.",
+              "journal": "BMJ open",
+              "year": 2026,
+              "pmid": "42309658",
+              "isPeerReviewed": true
+            }
+          ]
+        }
+      ],
+      "linksFound": 3,
+      "linksWritten": 3
+    },
+    {
+      "remedy": {
+        "id": "rem_n09",
+        "name": "Small Frequent Meals for Nausea"
+      },
+      "existingUrls": 0,
+      "searches": [
+        {
+          "symptom": "Nausea",
+          "query": "Small Frequent Meals for Nausea Nausea",
+          "totalResults": 5,
+          "matchingResults": 2,
+          "results": [
+            {
+              "source": "PubMed",
+              "url": "https://pubmed.ncbi.nlm.nih.gov/42301878/",
+              "title": "Nausea and Vomiting During Pregnancy.",
+              "journal": "American family physician",
+              "year": 2026,
+              "pmid": "42301878",
+              "isPeerReviewed": true
+            },
+            {
+              "source": "PubMed",
+              "url": "https://pubmed.ncbi.nlm.nih.gov/38804756/",
+              "title": "Evaluation and Treatment of Nausea and Vomiting in Adults.",
+              "journal": "American family physician",
+              "year": 2024,
+              "pmid": "38804756",
+              "isPeerReviewed": true
+            }
+          ]
+        }
+      ],
+      "linksFound": 2,
+      "linksWritten": 2
+    },
+    {
+      "remedy": {
+        "id": "rem_s10",
+        "name": "Forest Bathing Walk"
+      },
+      "existingUrls": 0,
+      "searches": [
+        {
+          "symptom": "Stress",
+          "query": "Forest Bathing Walk Stress",
+          "totalResults": 5,
+          "matchingResults": 1,
+          "results": [
+            {
+              "source": "PubMed",
+              "url": "https://pubmed.ncbi.nlm.nih.gov/41665553/",
+              "title": "The Efficacy of Forest Therapy on Negative Emotions, Oxidative Stress, and Cardiovascular Disease Risk in Elderly Hypertensive Patients.",
+              "journal": "Anatolian journal of cardiology",
+              "year": 2026,
+              "pmid": "41665553",
+              "isPeerReviewed": true
+            }
+          ]
+        },
+        {
+          "symptom": "Anxious",
+          "query": "Forest Bathing Walk Anxious",
+          "totalResults": 5,
+          "matchingResults": 0,
+          "results": []
+        }
+      ],
+      "linksFound": 1,
+      "linksWritten": 1
+    },
+    {
+      "remedy": {
+        "id": "rem_bp06",
+        "name": "Core Strengthening Routine"
+      },
+      "existingUrls": 0,
+      "searches": [
+        {
+          "symptom": "Back Pain",
+          "query": "Core Strengthening Routine Back Pain",
+          "totalResults": 6,
+          "matchingResults": 3,
+          "results": [
+            {
+              "source": "PubMed",
+              "url": "https://pubmed.ncbi.nlm.nih.gov/41941331/",
+              "title": "Does Baclofen Really Have a Role in the Management of Acute Lower Backpain: A Prospective Study.",
+              "journal": "Journal of pain & palliative care pharmacotherapy",
+              "year": 2026,
+              "pmid": "41941331",
+              "isPeerReviewed": true
+            },
+            {
+              "source": "Europe PMC",
+              "url": "https://doi.org/10.21203/rs.3.rs-10123598/v1",
+              "title": "Effect of core stability exercises on activity of daily living &amp; pain among college-going girls diagnosed with premenstrual dysphoric disorder",
+              "journal": null,
+              "year": 2026,
+              "pmid": null,
+              "isPeerReviewed": true
+            },
+            {
+              "source": "Europe PMC",
+              "url": "https://pubmed.ncbi.nlm.nih.gov/41773115/",
+              "title": "Lumbar Stabilization and Gluteal Strengthening Exercises Versus Health Education for Chronic Low Back Pain: A Retrospective Observational Study.",
+              "journal": null,
+              "year": 2026,
+              "pmid": "41773115",
+              "isPeerReviewed": true
+            }
+          ]
+        }
+      ],
+      "linksFound": 3,
+      "linksWritten": 3
+    },
+    {
+      "remedy": {
+        "id": "rem_st03",
+        "name": "Licorice Root Soothing Tea"
+      },
+      "existingUrls": 0,
+      "searches": [
+        {
+          "symptom": "Sore Throat",
+          "query": "Licorice Root Soothing Tea Sore Throat",
+          "totalResults": 5,
+          "matchingResults": 1,
+          "results": [
+            {
+              "source": "Europe PMC",
+              "url": "https://pubmed.ncbi.nlm.nih.gov/42043716/",
+              "title": "Medicinal plants as alternative and adjunct antimicrobial agents in ear, nose, and throat (ENT) Infections.",
+              "journal": null,
+              "year": 2026,
+              "pmid": "42043716",
+              "isPeerReviewed": true
+            }
+          ]
+        }
+      ],
+      "linksFound": 1,
+      "linksWritten": 1
+    },
+    {
+      "remedy": {
+        "id": "rem_pc05",
+        "name": "Gentle Exercise for Menstrual Cramps"
+      },
+      "existingUrls": 0,
+      "searches": [
+        {
+          "symptom": "Period Cramps",
+          "query": "Gentle Exercise for Menstrual Cramps Period Cramps",
+          "totalResults": 5,
+          "matchingResults": 0,
+          "results": []
+        }
+      ],
+      "linksFound": 0,
+      "linksWritten": 0
+    },
+    {
+      "remedy": {
+        "id": "rem_np07",
+        "name": "Workplace Stretching and Ergonomics Program"
+      },
+      "existingUrls": 0,
+      "searches": [
+        {
+          "symptom": "Neck Pain",
+          "query": "Workplace Stretching and Ergonomics Program Neck Pain",
+          "totalResults": 5,
+          "matchingResults": 3,
+          "results": [
+            {
+              "source": "PubMed",
+              "url": "https://pubmed.ncbi.nlm.nih.gov/25780258/",
+              "title": "The effectiveness of a neck and shoulder stretching exercise program among office workers with neck pain: a randomized controlled trial.",
+              "journal": "Clinical rehabilitation",
+              "year": 2016,
+              "pmid": "25780258",
+              "isPeerReviewed": true
+            },
+            {
+              "source": "PubMed",
+              "url": "https://pubmed.ncbi.nlm.nih.gov/20878213/",
+              "title": "On the effects of a workplace fitness program upon pain perception: a case study encompassing office workers in a Portuguese context.",
+              "journal": "Journal of occupational rehabilitation",
+              "year": 2011,
+              "pmid": "20878213",
+              "isPeerReviewed": true
+            },
+            {
+              "source": "PubMed",
+              "url": "https://pubmed.ncbi.nlm.nih.gov/20555173/",
+              "title": "Effects of intermittent stretching exercises at work on musculoskeletal pain associated with the use of a personal computer and the influence of media on outcomes.",
+              "journal": "Work (Reading, Mass.)",
+              "year": 2010,
+              "pmid": "20555173",
+              "isPeerReviewed": true
+            }
+          ]
+        },
+        {
+          "symptom": "Shoulder Pain",
+          "query": "Workplace Stretching and Ergonomics Program Shoulder Pain",
+          "totalResults": 8,
+          "matchingResults": 2,
+          "results": [
+            {
+              "source": "PubMed",
+              "url": "https://pubmed.ncbi.nlm.nih.gov/34084822/",
+              "title": "Workplace physiotherapy for musculoskeletal pain-relief in office workers: A pilot study.",
+              "journal": "Journal of education and health promotion",
+              "year": 2021,
+              "pmid": "34084822",
+              "isPeerReviewed": true
+            },
+            {
+              "source": "PubMed",
+              "url": "https://pubmed.ncbi.nlm.nih.gov/25780258/",
+              "title": "The effectiveness of a neck and shoulder stretching exercise program among office workers with neck pain: a randomized controlled trial.",
+              "journal": "Clinical rehabilitation",
+              "year": 2016,
+              "pmid": "25780258",
+              "isPeerReviewed": true
+            }
+          ]
+        }
+      ],
+      "linksFound": 5,
+      "linksWritten": 5
+    },
+    {
+      "remedy": {
+        "id": "rem_sp03",
+        "name": "Gentle Doorway Chest Stretch"
+      },
+      "existingUrls": 0,
+      "searches": [
+        {
+          "symptom": "Shoulder Pain",
+          "query": "Gentle Doorway Chest Stretch Shoulder Pain",
+          "totalResults": 5,
+          "matchingResults": 1,
+          "results": [
+            {
+              "source": "Europe PMC",
+              "url": "https://pubmed.ncbi.nlm.nih.gov/39006624/",
+              "title": "Droopy Shoulder Syndrome: A Gateway to Thoracic Outlet Syndrome.",
+              "journal": null,
+              "year": 2024,
+              "pmid": "39006624",
+              "isPeerReviewed": true
+            }
+          ]
+        }
+      ],
+      "linksFound": 1,
+      "linksWritten": 1
+    },
+    {
+      "remedy": {
+        "id": "rem_sp07",
+        "name": "Clinician-Guided Shoulder Mobility"
+      },
+      "existingUrls": 0,
+      "searches": [
+        {
+          "symptom": "Shoulder Pain",
+          "query": "Clinician-Guided Shoulder Mobility Shoulder Pain",
+          "totalResults": 5,
+          "matchingResults": 3,
+          "results": [
+            {
+              "source": "Europe PMC",
+              "url": "https://pubmed.ncbi.nlm.nih.gov/42338183/",
+              "title": "Effect of different liposomal bupivacaine concentrations in ultrasound-guided superior trunk block on postoperative analgesia and mobility: a randomized double-blind controlled trial protocol for shoulder arthroscopy.",
+              "journal": null,
+              "year": 2026,
+              "pmid": "42338183",
+              "isPeerReviewed": true
+            },
+            {
+              "source": "Europe PMC",
+              "url": "https://pubmed.ncbi.nlm.nih.gov/42166498/",
+              "title": "\"Every shoulder is different\": A qualitative study of clinicians' insights on the causative factors and strategies of managing work-related shoulder disorders among firefighters.",
+              "journal": null,
+              "year": 2026,
+              "pmid": "42166498",
+              "isPeerReviewed": true
+            },
+            {
+              "source": "Europe PMC",
+              "url": "https://pubmed.ncbi.nlm.nih.gov/41490469/",
+              "title": "Designing a Self-Guided Digital Intervention for Self-Management of Shoulder Pain in People Living With Spinal Cord Injury: Tutorial on Using a Person-Based Approach.",
+              "journal": null,
+              "year": 2026,
+              "pmid": "41490469",
+              "isPeerReviewed": true
+            }
+          ]
+        }
+      ],
+      "linksFound": 3,
+      "linksWritten": 3
+    },
+    {
+      "remedy": {
+        "id": "rem_ey06",
+        "name": "Blinking and Distance-Focus Break"
+      },
+      "existingUrls": 0,
+      "searches": [
+        {
+          "symptom": "Eye Strain",
+          "query": "Blinking and Distance-Focus Break Eye Strain",
+          "totalResults": 5,
+          "matchingResults": 2,
+          "results": [
+            {
+              "source": "Europe PMC",
+              "url": "https://pubmed.ncbi.nlm.nih.gov/41804380/",
+              "title": "From the Ocular Surface to Neurophysiology: An Integrative Review of Digital Eye Strain.",
+              "journal": null,
+              "year": 2026,
+              "pmid": "41804380",
+              "isPeerReviewed": true
+            },
+            {
+              "source": "Europe PMC",
+              "url": "https://pubmed.ncbi.nlm.nih.gov/40989226/",
+              "title": "A Review of Digital Eye Strain: Binocular Vision Anomalies, Ocular Surface Changes, and the Need for Objective Assessment.",
+              "journal": null,
+              "year": 2025,
+              "pmid": "40989226",
+              "isPeerReviewed": true
+            }
+          ]
+        }
+      ],
+      "linksFound": 2,
+      "linksWritten": 2
+    },
+    {
+      "remedy": {
+        "id": "rem_ms01",
+        "name": "Clinician-Provided Acupuncture for Migraine Prevention"
+      },
+      "existingUrls": 0,
+      "searches": [
+        {
+          "symptom": "Migraine",
+          "query": "Clinician-Provided Acupuncture for Migraine Prevention Migraine",
+          "totalResults": 9,
+          "matchingResults": 8,
+          "results": [
+            {
+              "source": "Europe PMC",
+              "url": "https://pubmed.ncbi.nlm.nih.gov/42088847/",
+              "title": "Artificial intelligence in migraine: a narrative review on the diagnostic, prognostic, and therapeutic applications.",
+              "journal": null,
+              "year": 2026,
+              "pmid": "42088847",
+              "isPeerReviewed": true
+            },
+            {
+              "source": "Europe PMC",
+              "url": "https://pubmed.ncbi.nlm.nih.gov/42200844/",
+              "title": "Slow Diaphragmatic Breathing for Chronic Migraine Prevention and Treatment: A Case Report.",
+              "journal": null,
+              "year": 2026,
+              "pmid": "42200844",
+              "isPeerReviewed": true
+            },
+            {
+              "source": "Europe PMC",
+              "url": "https://pubmed.ncbi.nlm.nih.gov/40237227/",
+              "title": "Acupuncture Versus Standard Medical Care in the Prophylactic Treatment of Migraine: A Systematic Review and Meta-Analysis.",
+              "journal": null,
+              "year": 2025,
+              "pmid": "40237227",
+              "isPeerReviewed": true
+            },
+            {
+              "source": "Crossref",
+              "url": "https://doi.org/10.1097/md.0000000000042304",
+              "title": "Economic impact of acupuncture for the prevention of episodic migraine and chronic migraine in Taiwan",
+              "journal": "Medicine",
+              "year": 2025,
+              "isPeerReviewed": true
+            },
+            {
+              "source": "Crossref",
+              "url": "https://doi.org/10.1001/jamainternmed.2016.9404",
+              "title": "Acupuncture for Migraine Prevention",
+              "journal": "JAMA Internal Medicine",
+              "year": 2017,
+              "isPeerReviewed": true
+            },
+            {
+              "source": "Crossref",
+              "url": "https://doi.org/10.1089/acu.2007.0514",
+              "title": "Acupuncture Outcome of Patients With Migraine",
+              "journal": "Medical Acupuncture",
+              "year": 2007,
+              "isPeerReviewed": true
+            },
+            {
+              "source": "Crossref",
+              "url": "https://doi.org/10.1111/head.12525",
+              "title": "Acupuncture for Migraine Prevention",
+              "journal": "Headache: The Journal of Head and Face Pain",
+              "year": 2015,
+              "isPeerReviewed": true
+            },
+            {
+              "source": "Crossref",
+              "url": "https://doi.org/10.1136/bmj.m1096",
+              "title": "Manual acupuncture for migraine",
+              "journal": "BMJ",
+              "year": 2020,
+              "isPeerReviewed": true
+            }
+          ]
+        }
+      ],
+      "linksFound": 8,
+      "linksWritten": 8
+    },
+    {
+      "remedy": {
+        "id": "rem_ms02",
+        "name": "Paracetamol for an Acute Migraine"
+      },
+      "existingUrls": 0,
+      "searches": [
+        {
+          "symptom": "Migraine",
+          "query": "Paracetamol for an Acute Migraine Migraine",
+          "totalResults": 5,
+          "matchingResults": 4,
+          "results": [
+            {
+              "source": "PubMed",
+              "url": "https://pubmed.ncbi.nlm.nih.gov/42529232/",
+              "title": "Drug interventions for acute treatment of pediatric migraine: a systematic review and network meta-analysis.",
+              "journal": "Frontiers in pharmacology",
+              "year": 2026,
+              "pmid": "42529232",
+              "isPeerReviewed": true
+            },
+            {
+              "source": "PubMed",
+              "url": "https://pubmed.ncbi.nlm.nih.gov/42452960/",
+              "title": "Acute migraine treatments in patients above age 65.",
+              "journal": "Headache",
+              "year": 2026,
+              "pmid": "42452960",
+              "isPeerReviewed": true
+            },
+            {
+              "source": "PubMed",
+              "url": "https://pubmed.ncbi.nlm.nih.gov/41998499/",
+              "title": "Sex-specific management of migraine a systematic review and consensus statement from the European Headache Federation (EHF).",
+              "journal": "The journal of headache and pain",
+              "year": 2026,
+              "pmid": "41998499",
+              "isPeerReviewed": true
+            },
+            {
+              "source": "PubMed",
+              "url": "https://pubmed.ncbi.nlm.nih.gov/41974011/",
+              "title": "How Would You Manage This Patient With Frequent Migraine Headaches? Grand Rounds Discussion From Beth Israel Deaconess Medical Center.",
+              "journal": "Annals of internal medicine",
+              "year": 2026,
+              "pmid": "41974011",
+              "isPeerReviewed": true
+            }
+          ]
+        }
+      ],
+      "linksFound": 4,
+      "linksWritten": 4
+    },
+    {
+      "remedy": {
+        "id": "rem_ms03",
+        "name": "Warm, Dry Covering During Chills"
+      },
+      "existingUrls": 0,
+      "searches": [
+        {
+          "symptom": "Warm, Dry Covering During Chills",
+          "query": "Warm, Dry Covering During Chills Warm, Dry Covering During Chills",
+          "totalResults": 6,
+          "matchingResults": 1,
+          "results": [
+            {
+              "source": "Europe PMC",
+              "url": "https://pubmed.ncbi.nlm.nih.gov/41438993/",
+              "title": "Case Report: Successful management of high-volume paclitaxel extravasation with hyaluronidase and dry warm compresses.",
+              "journal": null,
+              "year": 2025,
+              "pmid": "41438993",
+              "isPeerReviewed": true
+            }
+          ]
+        }
+      ],
+      "linksFound": 1,
+      "linksWritten": 1
+    },
+    {
+      "remedy": {
+        "id": "rem_ms04",
+        "name": "Rest and Fluids During Mononucleosis Recovery"
+      },
+      "existingUrls": 0,
+      "searches": [
+        {
+          "symptom": "Rest and Fluids During Mononucleosis Recovery",
+          "query": "Rest and Fluids During Mononucleosis Recovery Rest and Fluids During Mononucleosis Recovery",
+          "totalResults": 5,
+          "matchingResults": 2,
+          "results": [
+            {
+              "source": "Europe PMC",
+              "url": "https://pubmed.ncbi.nlm.nih.gov/41976817/",
+              "title": "Catastrophic ENT Complications of Pediatric Infectious Mononucleosis: Recent Experience at a Tertiary Pediatric Hospital.",
+              "journal": null,
+              "year": 2026,
+              "pmid": "41976817",
+              "isPeerReviewed": true
+            },
+            {
+              "source": "Europe PMC",
+              "url": "https://pubmed.ncbi.nlm.nih.gov/40519506/",
+              "title": "Infectious Mononucleosis Causing Bell's Palsy: A Case Report.",
+              "journal": null,
+              "year": 2025,
+              "pmid": "40519506",
+              "isPeerReviewed": true
+            }
+          ]
+        }
+      ],
+      "linksFound": 2,
+      "linksWritten": 2
+    },
+    {
+      "remedy": {
+        "id": "rem_ms05",
+        "name": "Salicylic Acid Cleanser for Mild Acne"
+      },
+      "existingUrls": 0,
+      "searches": [
+        {
+          "symptom": "Acne",
+          "query": "Salicylic Acid Cleanser for Mild Acne Acne",
+          "totalResults": 5,
+          "matchingResults": 5,
+          "results": [
+            {
+              "source": "PubMed",
+              "url": "https://pubmed.ncbi.nlm.nih.gov/40465501/",
+              "title": "Novel 2% Salicylic Acid Cleanser With Polymeric Cleansing Technology Treats Acne Without Compromising Skin Barrier.",
+              "journal": "Journal of drugs in dermatology : JDD",
+              "year": 2025,
+              "pmid": "40465501",
+              "isPeerReviewed": true
+            },
+            {
+              "source": "PubMed",
+              "url": "https://pubmed.ncbi.nlm.nih.gov/39913223/",
+              "title": "Efficacy and Consumer Perception of Topical Over-the-Counter Regimens Involving Beta-Hydroxy Acid for Acne Vulgaris.",
+              "journal": "Journal of drugs in dermatology : JDD",
+              "year": 2025,
+              "pmid": "39913223",
+              "isPeerReviewed": true
+            },
+            {
+              "source": "PubMed",
+              "url": "https://pubmed.ncbi.nlm.nih.gov/39301780/",
+              "title": "Efficacy and Tolerability of a Novel Cosmetic and Over-the-Counter Facial Acne Regimen Versus a Prescription Treatment.",
+              "journal": "Journal of cosmetic dermatology",
+              "year": 2025,
+              "pmid": "39301780",
+              "isPeerReviewed": true
+            },
+            {
+              "source": "PubMed",
+              "url": "https://pubmed.ncbi.nlm.nih.gov/29942425/",
+              "title": "Efficacy and Tolerability of an Acne Treatment Regimen with Antiaging Benefits in Adult Women: A Pilot Study.",
+              "journal": "The Journal of clinical and aesthetic dermatology",
+              "year": 2018,
+              "pmid": "29942425",
+              "isPeerReviewed": true
+            },
+            {
+              "source": "PubMed",
+              "url": "https://pubmed.ncbi.nlm.nih.gov/26516077/",
+              "title": "Novel retinoid ester in combination with salicylic acid for the treatment of acne.",
+              "journal": "Journal of cosmetic dermatology",
+              "year": 2016,
+              "pmid": "26516077",
+              "isPeerReviewed": true
+            }
+          ]
+        }
+      ],
+      "linksFound": 5,
+      "linksWritten": 5
+    },
+    {
+      "remedy": {
+        "id": "rem_ms06",
+        "name": "Menopause-Specific Cognitive Behavioural Therapy"
+      },
+      "existingUrls": 0,
+      "searches": [
+        {
+          "symptom": "Menopause",
+          "query": "Menopause-Specific Cognitive Behavioural Therapy Menopause",
+          "totalResults": 5,
+          "matchingResults": 2,
+          "results": [
+            {
+              "source": "PubMed",
+              "url": "https://pubmed.ncbi.nlm.nih.gov/42439607/",
+              "title": "A biopsychosocial framework for scalable menopause care: integrating cognitive behavioral therapy and digital therapeutics.",
+              "journal": "Climacteric : the journal of the International Menopause Society",
+              "year": 2026,
+              "pmid": "42439607",
+              "isPeerReviewed": true
+            },
+            {
+              "source": "PubMed",
+              "url": "https://pubmed.ncbi.nlm.nih.gov/41186597/",
+              "title": "Factors associated with subjective cognitive symptoms during the menopause transition.",
+              "journal": "Menopause (New York, N.Y.)",
+              "year": 2026,
+              "pmid": "41186597",
+              "isPeerReviewed": true
+            }
+          ]
+        }
+      ],
+      "linksFound": 2,
+      "linksWritten": 2
+    },
+    {
+      "remedy": {
+        "id": "rem_a01",
+        "name": "L-Theanine for Stress"
+      },
+      "existingUrls": 0,
+      "searches": [
+        {
+          "symptom": "Stress",
+          "query": "L-Theanine for Stress Stress",
+          "totalResults": 5,
+          "matchingResults": 0,
+          "results": []
+        },
+        {
+          "symptom": "Anxious",
+          "query": "L-Theanine for Stress Anxious",
+          "totalResults": 5,
+          "matchingResults": 0,
+          "results": []
+        }
+      ],
+      "linksFound": 0,
+      "linksWritten": 0
+    },
+    {
+      "remedy": {
+        "id": "rem_ho06",
+        "name": "Supervised Rest After Alcohol"
+      },
+      "existingUrls": 0,
+      "searches": [
+        {
+          "symptom": "Hangover",
+          "query": "Supervised Rest After Alcohol Hangover",
+          "totalResults": 6,
+          "matchingResults": 1,
+          "results": [
+            {
+              "source": "PubMed",
+              "url": "https://pubmed.ncbi.nlm.nih.gov/32586071/",
+              "title": "Hangover and fatigue: effects of Robuvit® supplementation. A pilot registry study.",
+              "journal": "Minerva cardioangiologica",
+              "year": 2020,
+              "pmid": "32586071",
+              "isPeerReviewed": true
+            }
+          ]
+        }
+      ],
+      "linksFound": 1,
+      "linksWritten": 1
+    },
+    {
+      "remedy": {
+        "id": "rem_ft06",
+        "name": "Short Daytime Nap"
+      },
+      "existingUrls": 0,
+      "searches": [
+        {
+          "symptom": "Fatigue",
+          "query": "Short Daytime Nap Fatigue",
+          "totalResults": 5,
+          "matchingResults": 1,
+          "results": [
+            {
+              "source": "PubMed",
+              "url": "https://pubmed.ncbi.nlm.nih.gov/41136428/",
+              "title": "Effects of optimal timed automatic awakening from a short daytime nap on cognitive performance, alertness, and fatigue.",
+              "journal": "Scientific reports",
+              "year": 2025,
+              "pmid": "41136428",
+              "isPeerReviewed": true
+            }
+          ]
+        },
+        {
+          "symptom": "Brain Fog",
+          "query": "Short Daytime Nap Brain Fog",
+          "totalResults": 9,
+          "matchingResults": 1,
+          "results": [
+            {
+              "source": "Europe PMC",
+              "url": "https://pubmed.ncbi.nlm.nih.gov/39959736/",
+              "title": "Sleep and Brain Function at Menopause.",
+              "journal": null,
+              "year": 2024,
+              "pmid": "39959736",
+              "isPeerReviewed": true
+            }
+          ]
+        }
+      ],
+      "linksFound": 2,
+      "linksWritten": 2
+    },
+    {
+      "remedy": {
+        "id": "rem_kp03",
+        "name": "Supervised Quadriceps Strengthening for Knee Osteoarthritis"
+      },
+      "existingUrls": 0,
+      "searches": [
+        {
+          "symptom": "Knee Pain",
+          "query": "Supervised Quadriceps Strengthening for Knee Osteoarthritis Knee Pain",
+          "totalResults": 5,
+          "matchingResults": 4,
+          "results": [
+            {
+              "source": "PubMed",
+              "url": "https://pubmed.ncbi.nlm.nih.gov/42170370/",
+              "title": "From paradox to population impact: Rethinking strengthening in knee osteoarthritis - A state-of-the-art review.",
+              "journal": "Osteoarthritis and cartilage open",
+              "year": 2026,
+              "pmid": "42170370",
+              "isPeerReviewed": true
+            },
+            {
+              "source": "PubMed",
+              "url": "https://pubmed.ncbi.nlm.nih.gov/41836462/",
+              "title": "Honey Phonophoresis as an Adjunctive Multimodal Intervention in Knee Osteoarthritis: A Case Report.",
+              "journal": "International medical case reports journal",
+              "year": 2026,
+              "pmid": "41836462",
+              "isPeerReviewed": true
+            },
+            {
+              "source": "PubMed",
+              "url": "https://pubmed.ncbi.nlm.nih.gov/41504515/",
+              "title": "Electromyographic biofeedback or neuromuscular electrical stimulation added to isometric quadriceps exercise does not improve pain and functional outcomes in knee osteoarthritis: a randomized controlled trial.",
+              "journal": "International journal of rehabilitation research. Internationale Zeitschrift fur Rehabilitationsforschung. Revue internationale de recherches de readaptation",
+              "year": 2026,
+              "pmid": "41504515",
+              "isPeerReviewed": true
+            },
+            {
+              "source": "PubMed",
+              "url": "https://pubmed.ncbi.nlm.nih.gov/40635148/",
+              "title": "Early Physiotherapy for Post-Total Knee Arthroplasty Recovery: A Systematic Review of Randomized Controlled Trials on Quality of Life, Pain, and Range of Motion Outcomes.",
+              "journal": "Musculoskeletal care",
+              "year": 2025,
+              "pmid": "40635148",
+              "isPeerReviewed": true
+            }
+          ]
+        }
+      ],
+      "linksFound": 4,
+      "linksWritten": 4
+    },
+    {
+      "remedy": {
+        "id": "rem_s02",
+        "name": "Lemon Balm Tea"
+      },
+      "existingUrls": 0,
+      "searches": [
+        {
+          "symptom": "Stress",
+          "query": "Lemon Balm Tea Stress",
+          "totalResults": 5,
+          "matchingResults": 1,
+          "results": [
+            {
+              "source": "PubMed",
+              "url": "https://pubmed.ncbi.nlm.nih.gov/37236879/",
+              "title": "Post-Traumatic Stress Disorder and Risk of Degenerative Synucleinopathies: Systematic Review and Meta-Analysis.",
+              "journal": "The American journal of geriatric psychiatry : official journal of the American Association for Geriatric Psychiatry",
+              "year": 2023,
+              "pmid": "37236879",
+              "isPeerReviewed": true
+            }
+          ]
+        },
+        {
+          "symptom": "Insomnia",
+          "query": "Lemon Balm Tea Insomnia",
+          "totalResults": 5,
+          "matchingResults": 1,
+          "results": [
+            {
+              "source": "Europe PMC",
+              "url": "https://pubmed.ncbi.nlm.nih.gov/41011705/",
+              "title": "The Efficacy of Melatonergic Receptor Agonists Used in Clinical Practice in Insomnia Treatment: Melatonin, Tasimelteon, Ramelteon, Agomelatine, and Selected Herbs.",
+              "journal": null,
+              "year": 2025,
+              "pmid": "41011705",
+              "isPeerReviewed": true
+            }
+          ]
+        }
+      ],
+      "linksFound": 2,
+      "linksWritten": 2
+    },
+    {
+      "remedy": {
+        "id": "rem_st05",
+        "name": "Marshmallow Root Soothing Tea"
+      },
+      "existingUrls": 0,
+      "searches": [
+        {
+          "symptom": "Sore Throat",
+          "query": "Marshmallow Root Soothing Tea Sore Throat",
+          "totalResults": 5,
+          "matchingResults": 0,
+          "results": []
+        }
+      ],
+      "linksFound": 0,
+      "linksWritten": 0
+    },
+    {
+      "remedy": {
+        "id": "rem_es04",
+        "name": "Brief Eyes-Closed Rest"
+      },
+      "existingUrls": 0,
+      "searches": [
+        {
+          "symptom": "Eye Strain",
+          "query": "Brief Eyes-Closed Rest Eye Strain",
+          "totalResults": 5,
+          "matchingResults": 0,
+          "results": []
+        }
+      ],
+      "linksFound": 0,
+      "linksWritten": 0
+    },
+    {
+      "remedy": {
+        "id": "rem_sr05",
+        "name": "Virgin Coconut Oil for Mild Eczema"
+      },
+      "existingUrls": 0,
+      "searches": [
+        {
+          "symptom": "Dry Skin",
+          "query": "Virgin Coconut Oil for Mild Eczema Dry Skin",
+          "totalResults": 5,
+          "matchingResults": 1,
+          "results": [
+            {
+              "source": "Europe PMC",
+              "url": "https://pubmed.ncbi.nlm.nih.gov/41598765/",
+              "title": "Impact of Isosorbide Diesters from Coconut and Sunflower Fatty Acids on Pediatric Atopic Dermatitis and the Skin Microbiome: A Randomized, Double-Blind, Vehicle-Controlled Trial.",
+              "journal": null,
+              "year": 2026,
+              "pmid": "41598765",
+              "isPeerReviewed": true
+            }
+          ]
+        }
+      ],
+      "linksFound": 1,
+      "linksWritten": 1
+    },
+    {
+      "remedy": {
+        "id": "rem_bg05",
+        "name": "Abdominal Self-Massage"
+      },
+      "existingUrls": 0,
+      "searches": [
+        {
+          "symptom": "Bloating",
+          "query": "Abdominal Self-Massage Bloating",
+          "totalResults": 5,
+          "matchingResults": 0,
+          "results": []
+        },
+        {
+          "symptom": "Constipation",
+          "query": "Abdominal Self-Massage Constipation",
+          "totalResults": 7,
+          "matchingResults": 5,
+          "results": [
+            {
+              "source": "PubMed",
+              "url": "https://pubmed.ncbi.nlm.nih.gov/41343762/",
+              "title": "A Primary Care Program Based on Behavioral Reeducation and Abdominal Massage for Improving the Symptoms of Chronic Constipation: Protocol for a Randomized Controlled Trial.",
+              "journal": "JMIR research protocols",
+              "year": 2025,
+              "pmid": "41343762",
+              "isPeerReviewed": true
+            },
+            {
+              "source": "PubMed",
+              "url": "https://pubmed.ncbi.nlm.nih.gov/20557387/",
+              "title": "Abdominal massage for people with constipation: a cost utility analysis.",
+              "journal": "Journal of advanced nursing",
+              "year": 2010,
+              "pmid": "20557387",
+              "isPeerReviewed": true
+            },
+            {
+              "source": "Europe PMC",
+              "url": "https://pubmed.ncbi.nlm.nih.gov/41919979/",
+              "title": "Safety and Efficacy of Manual and Automated Abdominal Colonic Massage for Chronic Constipation: A Systematic Review and Meta-Analysis.",
+              "journal": null,
+              "year": 2026,
+              "pmid": "41919979",
+              "isPeerReviewed": true
+            },
+            {
+              "source": "Europe PMC",
+              "url": "https://pubmed.ncbi.nlm.nih.gov/41814538/",
+              "title": "Abdominal Massage for Adults With an Intellectual Disability and Constipation: A Feasibility Pilot Study.",
+              "journal": null,
+              "year": 2026,
+              "pmid": "41814538",
+              "isPeerReviewed": true
+            },
+            {
+              "source": "Europe PMC",
+              "url": "https://pubmed.ncbi.nlm.nih.gov/42538844/",
+              "title": "Biofeedback Therapy and Pelvic Floor Physical Therapy in the Treatment of Constipation and Fecal Incontinence Are Very Different in Real-World Practice.",
+              "journal": null,
+              "year": 2026,
+              "pmid": "42538844",
+              "isPeerReviewed": true
+            }
+          ]
+        }
+      ],
+      "linksFound": 5,
+      "linksWritten": 5
+    },
+    {
+      "remedy": {
+        "id": "rem_bg06",
+        "name": "Clinician-Guided Low-FODMAP Trial"
+      },
+      "existingUrls": 0,
+      "searches": [
+        {
+          "symptom": "Bloating",
+          "query": "Clinician-Guided Low-FODMAP Trial Bloating",
+          "totalResults": 5,
+          "matchingResults": 0,
+          "results": []
+        }
+      ],
+      "linksFound": 0,
+      "linksWritten": 0
+    }
+  ],
+  "safeguards": [
+    "Only writes to research_papers table",
+    "No claims auto-approved",
+    "Deduplicates by remedy_id + url"
+  ]
+}

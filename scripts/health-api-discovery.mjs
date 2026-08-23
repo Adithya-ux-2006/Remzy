@@ -31,6 +31,10 @@ async function fetchJson(url, headers = {}) {
   return response.json();
 }
 
+function sanitizeQuery(str) {
+  return String(str || '').replace(/[()]/g, ' ').replace(/\s+/g, ' ').trim();
+}
+
 const STOP_WORDS = new Set(['and', 'for', 'from', 'with', 'the', 'based', 'treatment', 'therapy', 'practice', 'systematic', 'review']);
 function meaningfulTokens(value) {
   return String(value || '').toLowerCase().match(/[a-z0-9]+/g)?.filter((t) => t.length > 2 && !STOP_WORDS.has(t)) || [];
@@ -51,7 +55,7 @@ function titleMatchesClaim(title, remedyName, symptomLabel) {
 async function searchClinicalTrials(query) {
   const url = new URL('https://clinicaltrials.gov/api/v2/studies');
   url.search = new URLSearchParams({
-    query: query,
+    'query.term': query,
     'filter.overallStatus': 'COMPLETED,RECRUITING,ACTIVE_NOT_RECRUITING,ENROLLING_BY_INVITATION',
     pageSize: '10',
     fields: 'NCTId,BriefTitle,OverallStatus,Phase,StartDate,Condition,InterventionName,LeadSponsorName',
@@ -149,7 +153,7 @@ const packets = [];
 
 for (const symptom of targets) {
   const searches = symptom.remedies.length
-    ? symptom.remedies.map((r) => ({ remedy: r, query: `${r.name} ${symptom.label}` }))
+    ? symptom.remedies.map((r) => ({ remedy: r, query: sanitizeQuery(`${r.name} ${symptom.label}`) }))
     : [{ remedy: null, query: symptom.label }];
 
   const packet = {

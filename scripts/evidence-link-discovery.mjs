@@ -39,12 +39,9 @@ function meaningfulTokens(value) {
 function titleMatchesClaim(title, remedyName, symptomLabel) {
   const normalizedTitle = String(title || '').toLowerCase();
   const symptomTokens = meaningfulTokens(symptomLabel);
+  // Require at least one symptom token in the title
   const symptomMatch = symptomTokens.some((token) => normalizedTitle.includes(token));
-  if (!remedyName) return symptomMatch;
-  const remedyTokens = meaningfulTokens(remedyName)
-    .filter((t) => !symptomTokens.some((s) => t.includes(s) || s.includes(t)));
-  const remedyMatch = remedyTokens.length > 0 && remedyTokens.some((t) => normalizedTitle.includes(t));
-  return symptomMatch && remedyMatch;
+  return symptomMatch;
 }
 
 // --- Source 1: PubMed E-utilities (best quality URLs) ---
