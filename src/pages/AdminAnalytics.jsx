@@ -1,9 +1,9 @@
 import { useEffect, useMemo, useState } from 'react';
-import { BarChart3, BookOpenCheck, ExternalLink, Heart, Search, ShieldAlert, ThumbsDown, ThumbsUp } from 'lucide-react';
+import { BarChart3, BookOpenCheck, ExternalLink, Heart, Search, ShieldAlert, ThumbsDown, ThumbsUp, FlaskConical } from 'lucide-react';
 import { PageWrapper } from '../components/layout';
 import { useCatalogStore } from '../store/catalogStore';
 import { fetchAnalyticsSummary } from '../utils/analytics';
-import { fetchEvidenceAdminSummary } from '../utils/evidenceAdmin';
+import { fetchEvidenceAdminSummary, fetchHealthApiCoverage } from '../utils/evidenceAdmin';
 
 function aggregateCounts(items, getKeys) {
   return items.reduce((accumulator, item) => {
@@ -30,17 +30,21 @@ export function AdminAnalytics() {
   const [errorMessage, setErrorMessage] = useState('');
   const [evidenceSummary, setEvidenceSummary] = useState({ undercoveredSymptoms: [], reviewQueue: [] });
   const [evidenceError, setEvidenceError] = useState('');
+  const [healthCoverage, setHealthCoverage] = useState([]);
+  const [healthCoverageError, setHealthCoverageError] = useState('');
 
   useEffect(() => {
     let isMounted = true;
 
-    Promise.allSettled([fetchAnalyticsSummary(), fetchEvidenceAdminSummary()])
-      .then(([analyticsResult, evidenceResult]) => {
+    Promise.allSettled([fetchAnalyticsSummary(), fetchEvidenceAdminSummary(), fetchHealthApiCoverage()])
+      .then(([analyticsResult, evidenceResult, healthResult]) => {
         if (!isMounted) return;
         if (analyticsResult.status === 'fulfilled') setSummary(analyticsResult.value);
         else setErrorMessage(analyticsResult.reason?.message || 'Unable to load analytics right now.');
         if (evidenceResult.status === 'fulfilled') setEvidenceSummary(evidenceResult.value);
         else setEvidenceError(evidenceResult.reason?.message || 'Unable to load the evidence review queue.');
+        if (healthResult.status === 'fulfilled') setHealthCoverage(healthResult.value);
+        else setHealthCoverageError(healthResult.reason?.message || '');
         setIsLoading(false);
       });
 
@@ -124,6 +128,10 @@ export function AdminAnalytics() {
 
         {!isLoading ? (
           <EvidenceReviewSection summary={evidenceSummary} errorMessage={evidenceError} />
+        ) : null}
+
+        {!isLoading ? (
+          <HealthApiCoverageSection coverage={healthCoverage} errorMessage={healthCoverageError} />
         ) : null}
       </div>
     </PageWrapper>
@@ -234,5 +242,56 @@ function RankedList({ title, items, emptyLabel }) {
         )) : <p className="text-sm text-ink-muted">{emptyLabel}</p>}
       </div>
     </div>
+  );
+}
+
+function HealthApiCoverageSection({ coverage, errorMessage }) {
+  const items = coverage || [];
+
+  return (
+    <section className="space-y-5" aria-labelledby="health-api-heading">
+      <div>
+        <div className="inline-flex items-center gap-2 rounded-full bg-evidence/10 px-3 py-1 text-sm font-semibold text-evidence">
+          <FlaskConical className="h-4 w-4" />
+          Health API Coverage
+        </div>
+        <h2 id="health-api-heading" className="mt-3 text-2xl font-extrabold text-ink">External data discovery status</h2>
+        <p className="mt-2 text-sm text-ink-muted">
+          Clinical trial and FDA data availability for symptoms with fewer than five mapped remedies.
+        </p>
+      </div>
+
+      {errorMessage ? (
+        <p className="rounded-2xl bg-amber-50 px-4 py-3 text-sm text-amber-800 dark:bg-amber-950/30 dark:text-amber-200">{errorMessage}</p>
+      ) : null}
+
+      {!errorMessage ? (
+        <div className="rounded-2xl border border-border bg-card p-5 shadow-sm">
+          <h3 className="text-lg font-bold text-ink">Coverage gaps with external data</h3>
+          <div className="mt-4 max-h-[30rem] space-y-2 overflow-y-auto pr-1">
+            {items.map((item) => (
+              <div key={item.symptom_id} className="flex items-center justify-between gap-4 rounded-xl bg-bg px-4 py-3">
+                <div className="flex-1 min-w-0">
+                  <p className="text-sm font-semibold text-ink">{item.symptom_label}</p>
+                  <div className="flex items-center gap-3 mt-1 text-xs text-ink-muted">
+                    <span>{item.clinical_trial_count} clinical trials</span>
+                    <span>{item.fda_record_count} FDA records</span>
+                    {item.pending_discovery_claims > 0 && (
+                      <span className="text-warning">{item.pending_discovery_claims} pending review</span>
+                    )}
+                  </div>
+                </div>
+                <span className="rounded-full bg-primary/10 px-2.5 py-1 text-xs font-bold text-primary shrink-0">
+                  {item.remedy_count}/5
+                </span>
+              </div>
+            ))}
+            {items.length === 0 && (
+              <p className="text-sm text-ink-muted">No undercovered symptoms found. Every symptom has at least five mapped remedies.</p>
+            )}
+          </div>
+        </div>
+      ) : null}
+    </section>
   );
 }

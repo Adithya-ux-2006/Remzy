@@ -166,6 +166,19 @@ function buildPopularityMap(rows) {
   return map;
 }
 
+function buildEnrichmentMap(rows) {
+  const map = {};
+  for (const row of rows || []) {
+    map[row.remedy_id] = {
+      clinicalTrialCount: row.clinical_trial_count || 0,
+      activeTrialCount: row.active_trial_count || 0,
+      fdaRecordCount: row.fda_record_count || 0,
+      fdaWarningsSummary: row.fda_warnings_summary || null,
+    };
+  }
+  return map;
+}
+
 function buildApprovedEvidenceMap(rows) {
   const map = {};
   for (const row of rows || []) {
@@ -236,6 +249,7 @@ export const useCatalogStore = create((set, get) => ({
   symptoms: [],
   remedies: [],
   symptomRemedies: {},
+  enrichmentMap: {},
   popularityMap: {},
   isLoading: false,
   hasLoaded: false,
@@ -287,6 +301,19 @@ export const useCatalogStore = create((set, get) => ({
         // Popularity table may not exist yet — that's fine
       }
 
+      // Load enrichment data (non-blocking — failure doesn't prevent catalog load)
+      let enrichmentMap = {};
+      try {
+        const { data: enrichmentRows, error: enrichmentError } = await supabase
+          .from('remedy_enrichment')
+          .select('remedy_id, clinical_trial_count, active_trial_count, fda_record_count, fda_warnings_summary');
+        if (!enrichmentError && enrichmentRows) {
+          enrichmentMap = buildEnrichmentMap(enrichmentRows);
+        }
+      } catch {
+        // Enrichment view may not exist yet — that's fine
+      }
+
       const hasData = (symptoms?.length > 0 || remedies?.length > 0);
       if (!hasData) throw new Error('No data returned from Supabase');
 
@@ -303,6 +330,7 @@ export const useCatalogStore = create((set, get) => ({
 
       set({
         ...enriched,
+        enrichmentMap,
         popularityMap,
         isLoading: false,
         hasLoaded: true,

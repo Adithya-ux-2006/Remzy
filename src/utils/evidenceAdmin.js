@@ -22,3 +22,14 @@ export async function fetchEvidenceAdminSummary() {
     reviewQueue: queueResult.data || [],
   };
 }
+
+export async function fetchHealthApiCoverage() {
+  const { data, error } = await supabase
+    .from('admin_health_api_coverage')
+    .select('symptom_id,symptom_label,remedy_count,clinical_trial_count,fda_record_count,pending_discovery_claims')
+    .order('remedy_count', { ascending: true })
+    .order('symptom_label', { ascending: true });
+
+  if (error) throw error;
+  return data || [];
+}

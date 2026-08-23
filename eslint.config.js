@@ -21,7 +21,7 @@ export default defineConfig([
     },
   },
   {
-    files: ['api/**/*.js', 'netlify/**/*.js', 'scripts/**/*.js', 'sync-database.js'],
+    files: ['api/**/*.js', 'netlify/**/*.js', 'scripts/**/*.{js,mjs}', 'sync-database.js'],
     extends: [js.configs.recommended],
     languageOptions: {
       globals: globals.node,

@@ -13,6 +13,7 @@ import { EvidenceCard } from '../components/ui/EvidenceCard';
 import { AdvisoryCard } from '../components/ui/AdvisoryCard';
 import { DoctorGuidance } from '../components/ui/DoctorGuidance';
 import { NearbyShops } from '../components/ui/NearbyShops';
+import { EnrichmentSection } from '../components/ui/ExternalDataBadge';
 import { Reveal } from '../components/ui/Reveal';
 import { useFavoritesStore } from '../store/favoritesStore';
 import { useCatalogStore } from '../store/catalogStore';
@@ -53,6 +54,7 @@ export function RemedyDetail() {
   const toggleFavorite = useFavoritesStore((state) => state.toggleFavorite);
   const isAuthenticated = useAuthStore((state) => state.isAuthenticated);
   const remedies = useCatalogStore((state) => state.remedies);
+  const enrichmentMap = useCatalogStore((state) => state.enrichmentMap);
   const isCatalogLoading = useCatalogStore((state) => state.isLoading);
   const hasLoaded = useCatalogStore((state) => state.hasLoaded);
   const [showAllEvidence, setShowAllEvidence] = useState(false);
@@ -119,6 +121,11 @@ export function RemedyDetail() {
   const evidenceScore = useMemo(() => {
     return computeEvidenceScore(remedy);
   }, [remedy]);
+
+  const enrichment = useMemo(() => {
+    if (!remedy) return null;
+    return enrichmentMap[remedy.id] || null;
+  }, [remedy, enrichmentMap]);
 
   const safetyScore = useMemo(() => {
     if (!remedy) return 80;
@@ -278,6 +285,14 @@ export function RemedyDetail() {
         {remedy.isPurchasable !== false && (
           <div className="mb-12 md:mb-16">
             <NearbyShops remedyName={remedy.name} />
+          </div>
+        )}
+
+        {enrichment && (
+          <div className="mb-12 md:mb-16">
+            <Reveal>
+              <EnrichmentSection enrichment={enrichment} />
+            </Reveal>
           </div>
         )}
 
