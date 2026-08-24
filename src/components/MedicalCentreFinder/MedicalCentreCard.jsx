@@ -1,12 +1,12 @@
 import { MapPin, Phone, Globe, Clock, Navigation } from 'lucide-react';
 import { cn } from '../../utils/cn';
 
-const TYPE_COLORS = {
-  Hospital: { bg: 'bg-red-50', text: 'text-red-700', border: 'border-red-200' },
-  Clinic: { bg: 'bg-blue-50', text: 'text-blue-700', border: 'border-blue-200' },
-  'Medical Practice': { bg: 'bg-green-50', text: 'text-green-700', border: 'border-green-200' },
-  'Diagnostics Centre': { bg: 'bg-purple-50', text: 'text-purple-700', border: 'border-purple-200' },
-  Laboratory: { bg: 'bg-amber-50', text: 'text-amber-700', border: 'border-amber-200' },
+const TYPE_STYLES = {
+  Hospital: 'bg-red-500/10 text-red-500 border-red-500/20',
+  Clinic: 'bg-blue-500/10 text-blue-500 border-blue-500/20',
+  'Medical Practice': 'bg-emerald-500/10 text-emerald-500 border-emerald-500/20',
+  'Diagnostics Centre': 'bg-violet-500/10 text-violet-500 border-violet-500/20',
+  Laboratory: 'bg-amber-500/10 text-amber-500 border-amber-500/20',
 };
 
 function getDistanceLabel(distance) {
@@ -15,7 +15,7 @@ function getDistanceLabel(distance) {
 }
 
 export function MedicalCentreCard({ centre, isSelected, onSelect }) {
-  const typeColor = TYPE_COLORS[centre.type] || { bg: 'bg-gray-50', text: 'text-gray-700', border: 'border-gray-200' };
+  const typeStyle = TYPE_STYLES[centre.type] || 'bg-primary/10 text-primary border-primary/20';
 
   return (
     <article
@@ -41,8 +41,8 @@ export function MedicalCentreCard({ centre, isSelected, onSelect }) {
           <div className="flex items-center gap-2 mb-1.5">
             <h3 className="font-semibold text-ink truncate">{centre.name}</h3>
             <span className={cn(
-              'shrink-0 px-2 py-0.5 rounded-full text-[10px] font-semibold border',
-              typeColor.bg, typeColor.text, typeColor.border
+              'shrink-0 px-2.5 py-1 rounded-full text-xs font-medium border',
+              typeStyle
             )}>
               {centre.type}
             </span>

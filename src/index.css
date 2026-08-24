@@ -244,6 +244,39 @@
     -webkit-backdrop-filter: blur(12px);
     backdrop-filter: blur(12px);
   }
+
+  .medical-centre-map .leaflet-control-zoom {
+    @apply rounded-xl overflow-hidden shadow-soft;
+    border: 1px solid hsl(var(--border) / 0.6);
+  }
+
+  .medical-centre-map .leaflet-control-zoom a {
+    @apply flex items-center justify-center w-9 h-9 text-base font-semibold;
+    background: hsl(var(--card));
+    color: hsl(var(--ink));
+    border-bottom: 1px solid hsl(var(--border) / 0.4);
+    text-decoration: none;
+    transition: background-color 150ms ease, color 150ms ease;
+  }
+
+  .medical-centre-map .leaflet-control-zoom a:last-child {
+    border-bottom: none;
+  }
+
+  .medical-centre-map .leaflet-control-zoom a:hover {
+    background: hsl(var(--accent-tint));
+    color: hsl(var(--primary));
+  }
+
+  .medical-centre-map .leaflet-control-attribution {
+    background: hsl(var(--card) / 0.85);
+    color: hsl(var(--ink-muted));
+    font-size: 10px;
+  }
+
+  .medical-centre-map .leaflet-control-attribution a {
+    color: hsl(var(--primary));
+  }
 }
 
 @layer utilities {

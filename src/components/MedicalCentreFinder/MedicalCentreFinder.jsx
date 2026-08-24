@@ -273,7 +273,7 @@ export function MedicalCentreFinder({ className }) {
         )}
 
         {state === 'results' && centres.length > 0 && (
-          <div className="space-y-4">
+          <div className="space-y-3">
             <div className="flex flex-wrap items-center justify-between gap-3">
               <div className="flex items-center gap-2">
                 <span className="text-sm text-ink-muted">Radius:</span>
@@ -282,11 +282,12 @@ export function MedicalCentreFinder({ className }) {
                     key={r}
                     type="button"
                     onClick={() => handleRadiusChange(r)}
+                    aria-pressed={radius === r}
                     className={cn(
                       'px-3 py-1.5 rounded-full text-xs font-semibold transition-colors',
                       radius === r
-                        ? 'bg-primary text-white'
-                        : 'bg-surface text-ink-muted hover:bg-primary/10 hover:text-primary'
+                        ? 'bg-primary text-white shadow-sm'
+                        : 'border border-border bg-transparent text-ink-muted hover:text-ink hover:bg-surface'
                     )}
                   >
                     {r} km
@@ -294,43 +295,32 @@ export function MedicalCentreFinder({ className }) {
                 ))}
               </div>
 
-              <div className="flex items-center gap-1 bg-surface rounded-xl p-1">
-                <button
-                  type="button"
-                  onClick={() => setViewMode('both')}
-                  className={cn(
-                    'px-3 py-1.5 rounded-lg text-xs font-semibold transition-colors',
-                    viewMode === 'both' ? 'bg-card shadow-sm text-ink' : 'text-ink-muted'
-                  )}
-                  aria-label="Show map and list"
-                >
-                  <div className="flex items-center gap-1">
-                    <Map className="w-3 h-3" />
-                    <List className="w-3 h-3" />
-                  </div>
-                </button>
-                <button
-                  type="button"
-                  onClick={() => setViewMode('map')}
-                  className={cn(
-                    'px-3 py-1.5 rounded-lg text-xs font-semibold transition-colors',
-                    viewMode === 'map' ? 'bg-card shadow-sm text-ink' : 'text-ink-muted'
-                  )}
-                  aria-label="Show map only"
-                >
-                  <Map className="w-3 h-3" />
-                </button>
-                <button
-                  type="button"
-                  onClick={() => setViewMode('list')}
-                  className={cn(
-                    'px-3 py-1.5 rounded-lg text-xs font-semibold transition-colors',
-                    viewMode === 'list' ? 'bg-card shadow-sm text-ink' : 'text-ink-muted'
-                  )}
-                  aria-label="Show list only"
-                >
-                  <List className="w-3 h-3" />
-                </button>
+              <div className="flex items-center gap-1.5" role="group" aria-label="View mode">
+                {[
+                  { mode: 'both', label: 'Show map and list', icons: [Map, List] },
+                  { mode: 'map', label: 'Show map only', icons: [Map] },
+                  { mode: 'list', label: 'Show list only', icons: [List] },
+                ].map(({ mode, label, icons }) => (
+                  <button
+                    key={mode}
+                    type="button"
+                    onClick={() => setViewMode(mode)}
+                    aria-label={label}
+                    aria-pressed={viewMode === mode}
+                    className={cn(
+                      'px-2.5 py-1.5 rounded-full text-xs font-semibold transition-colors',
+                      viewMode === mode
+                        ? 'bg-primary text-white shadow-sm'
+                        : 'border border-border bg-transparent text-ink-muted hover:text-ink hover:bg-surface'
+                    )}
+                  >
+                    <span className="flex items-center gap-1">
+                      {icons.map((Icon, i) => (
+                        <Icon key={i} className="w-3 h-3" />
+                      ))}
+                    </span>
+                  </button>
+                ))}
               </div>
             </div>
 
@@ -370,7 +360,7 @@ export function MedicalCentreFinder({ className }) {
               )}
             </div>
 
-            <div className="pt-4 border-t border-ink/5">
+            <div className="pt-3 border-t border-ink/5">
               <button
                 type="button"
                 onClick={() => setState('idle')}

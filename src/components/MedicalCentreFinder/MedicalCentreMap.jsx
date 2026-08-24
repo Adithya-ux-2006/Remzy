@@ -108,7 +108,7 @@ export function MedicalCentreMap({ userLocation, centres, selectedCentre, onSele
   return (
     <div
       ref={mapRef}
-      className="w-full h-full"
+      className="medical-centre-map w-full h-full"
       style={{ minHeight: '350px' }}
       role="img"
       aria-label="Map showing medical centres near your location"

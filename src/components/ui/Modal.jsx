@@ -1,4 +1,5 @@
 import { useEffect, useRef } from 'react';
+import { createPortal } from 'react-dom';
 import { X } from 'lucide-react';
 import { cn } from '../../utils/cn';
 
@@ -63,9 +64,9 @@ export function Modal({ isOpen, onClose, title, children, className }) {
 
   const titleId = title ? 'modal-title' : undefined;
 
-  return (
-    <div className="fixed inset-0 z-50 flex items-center justify-center p-4" style={{ paddingBottom: 'calc(1rem + env(safe-area-inset-bottom, 0px))' }}>
-      <div className="fixed inset-0 bg-black/60 backdrop-blur-md" onClick={onClose} aria-hidden="true" />
+  return createPortal(
+    <div className="fixed inset-0 z-[60] flex items-center justify-center p-4" style={{ paddingBottom: 'calc(1rem + env(safe-area-inset-bottom, 0px))' }}>
+      <div className="fixed inset-0 bg-black/75 backdrop-blur-lg" onClick={onClose} aria-hidden="true" />
       <div
         ref={modalRef}
         role="dialog"
@@ -86,10 +87,11 @@ export function Modal({ isOpen, onClose, title, children, className }) {
             <X className="w-5 h-5" />
           </button>
         </div>
-        <div className="flex min-h-0 flex-1 flex-col overflow-y-auto p-5">
+        <div className="flex min-h-0 flex-1 flex-col overflow-y-auto p-5 pb-[calc(1.25rem+env(safe-area-inset-bottom,0px))]">
           {children}
         </div>
       </div>
-    </div>
+    </div>,
+    document.body
   );
 }
