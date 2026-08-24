@@ -4,7 +4,7 @@ export function LegalFooter() {
   return (
     <footer className="px-6 py-8 border-t border-ink/5 text-center">
       <div className="flex items-center justify-center gap-2 mb-2">
-        <span className="w-5 h-5 rounded-md bg-[hsl(210_30%_9%)] flex items-center justify-center shrink-0">
+        <span className="w-5 h-5 rounded-md bg-primary dark:bg-background flex items-center justify-center shrink-0">
           <img src="/logo.png?v=3" alt="Remzy" className="w-4 h-4 object-contain" />
         </span>
         <span className="font-bold text-ink">Remzy</span>
