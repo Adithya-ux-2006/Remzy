@@ -44,7 +44,7 @@ export function Login() {
       <div className="w-full max-w-md">
         <div className="text-center mb-8">
           <Link to="/" className="inline-flex w-14 h-14 rounded-2xl shadow-[0_4px_24px_hsl(152_40%_48%/0.3)] mb-4 bg-[hsl(210_30%_9%)] items-center justify-center">
-            <img src="/logo.png" alt="Remzy" className="w-12 h-12 object-contain" />
+            <img src="/logo.png?v=3" alt="Remzy" className="w-12 h-12 object-contain" />
           </Link>
           <h1 className="text-3xl font-bold text-ink">Welcome back</h1>
           <p className="text-ink-muted mt-2">Log in to your Remzy account</p>
