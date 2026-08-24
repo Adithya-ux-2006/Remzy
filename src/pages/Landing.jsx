@@ -86,7 +86,7 @@ export function Landing() {
       </section>
 
       {quickSymptoms.length > 0 && (
-        <section className="py-6 border-y border-ink/5 bg-background/50">
+        <section className="py-6 border-y border-ink/5 bg-card">
           <div className="max-w-6xl mx-auto px-6">
             <p className="text-xs font-semibold text-ink-muted uppercase tracking-wider mb-4">
               Common Searches
