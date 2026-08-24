@@ -38,8 +38,8 @@ export function MedicalCentreCard({ centre, isSelected, onSelect }) {
     >
       <div className="flex items-start justify-between gap-3">
         <div className="flex-1 min-w-0">
-          <div className="flex items-center gap-2 mb-1.5">
-            <h3 className="font-semibold text-ink truncate">{centre.name}</h3>
+          <div className="flex items-start gap-2 mb-1.5">
+            <h3 className="min-w-0 flex-1 font-semibold text-ink leading-snug line-clamp-2">{centre.name}</h3>
             <span className={cn(
               'shrink-0 px-2.5 py-1 rounded-full text-xs font-medium border',
               typeStyle

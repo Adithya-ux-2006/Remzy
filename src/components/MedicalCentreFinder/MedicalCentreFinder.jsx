@@ -333,7 +333,7 @@ export function MedicalCentreFinder({ className }) {
               viewMode === 'both' && 'grid grid-cols-1 lg:grid-cols-2',
             )}>
               {(viewMode === 'map' || viewMode === 'both') && userLocation && (
-                <div className="rounded-2xl overflow-hidden border border-border" style={{ minHeight: '350px' }}>
+                <div className="rounded-2xl overflow-hidden border border-border" style={{ minHeight: 'clamp(320px, 45vh, 460px)' }}>
                   <MedicalCentreMap
                     userLocation={userLocation}
                     centres={centres}

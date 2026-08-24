@@ -65,7 +65,7 @@ export function Modal({ isOpen, onClose, title, children, className }) {
   const titleId = title ? 'modal-title' : undefined;
 
   return createPortal(
-    <div className="fixed inset-0 z-[60] flex items-center justify-center p-4" style={{ paddingBottom: 'calc(1rem + env(safe-area-inset-bottom, 0px))' }}>
+    <div className="fixed inset-0 z-[60] flex items-stretch md:items-center md:justify-center md:p-4">
       <div className="fixed inset-0 bg-black/75 backdrop-blur-lg" onClick={onClose} aria-hidden="true" />
       <div
         ref={modalRef}
@@ -73,16 +73,16 @@ export function Modal({ isOpen, onClose, title, children, className }) {
         aria-modal="true"
         aria-labelledby={titleId}
         className={cn(
-          "relative flex w-full max-w-lg max-h-[90vh] flex-col overflow-hidden rounded-4xl border border-ink/15 bg-modal shadow-2xl shadow-black/30",
+          "relative flex w-full h-dvh max-w-lg md:h-auto md:max-h-[90vh] flex-col overflow-hidden rounded-none md:rounded-4xl border-0 md:border md:border-ink/15 bg-modal md:shadow-2xl md:shadow-black/30",
           className
         )}
       >
-        <div className="flex flex-none items-center justify-between p-5 pb-0">
+        <div className="flex flex-none items-center justify-between p-5 pt-[calc(1.25rem+env(safe-area-inset-top,0px))] md:pt-5 pb-0">
           {title && <h2 id={titleId} className="text-xl font-semibold text-ink">{title}</h2>}
           <button
             onClick={onClose}
             aria-label="Close dialog"
-            className="p-1 text-ink-muted hover:text-ink rounded-full hover:bg-surface transition-colors ml-auto"
+            className="flex items-center justify-center min-w-[44px] min-h-[44px] p-1 -mr-2 text-ink-muted hover:text-ink rounded-full hover:bg-surface transition-colors ml-auto"
           >
             <X className="w-5 h-5" />
           </button>
