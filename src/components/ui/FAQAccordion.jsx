@@ -26,7 +26,7 @@ function BlurredStagger({ text }) {
 }
 
 export function FAQAccordion({ items, bordered = false }) {
-  const [openIndex, setOpenIndex] = useState(0);
+  const [openIndex, setOpenIndex] = useState(-1);
 
   return (
     <div className="space-y-3">
