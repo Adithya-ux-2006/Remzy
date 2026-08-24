@@ -737,6 +737,7 @@ export function Profile() {
             lead="Remzy is a health information platform that maps common concerns to remedies and shows the review status of linked sources. Always consult a certified medical professional for serious health concerns."
             items={ABOUT_REMZY_ITEMS}
             bordered
+            collapsed
           />
         </section>
           </>
