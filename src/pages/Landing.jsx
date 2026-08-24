@@ -43,7 +43,7 @@ export function Landing() {
     <PageWrapper className="min-h-screen flex flex-col">
       <section className="relative pt-24 pb-16 px-6 lg:px-8 overflow-hidden">
         <div className="max-w-4xl mx-auto text-center space-y-8">
-          <div className="w-14 h-14 mx-auto rounded-2xl shadow-glow bg-primary dark:bg-background flex items-center justify-center">
+          <div className="w-14 h-14 mx-auto rounded-2xl shadow-glow bg-primary dark:bg-primary-tint flex items-center justify-center">
             <img src="/logo.png?v=3" alt="Remzy" className="w-12 h-12 object-contain" />
           </div>
 
