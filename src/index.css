@@ -35,7 +35,11 @@
 
 @layer base {
   :root {
-    --bottom-nav-clearance: calc(6rem + env(safe-area-inset-bottom, 0px));
+    /* Mobile bottom-nav clearance is derived from the nav's measured height
+       (published by BottomNav as --bottom-nav-height, which already includes
+       its safe-area padding) plus a fixed breathing buffer, rather than a
+       hardcoded pixel guess. */
+    --bottom-nav-clearance: calc(var(--bottom-nav-height, 0px) + 1rem);
 
     --background: 155 55% 93%;
     --foreground: 155 20% 14%;

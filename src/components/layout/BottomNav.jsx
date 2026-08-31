@@ -1,14 +1,21 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import { NavLink, useLocation, useNavigate } from 'react-router-dom';
 import { LayoutDashboard, Search, Heart, Bell, User } from 'lucide-react';
 import { cn } from '../../utils/cn';
 import { useAuthStore } from '../../store/authStore';
+
+const PUBLISH_VAR = '--bottom-nav-height';
+
+function isNavHidden(pathname) {
+  return pathname === '/' || pathname === '/onboarding' || pathname === '/login' || pathname === '/register';
+}
 
 export function BottomNav() {
   const isAuthenticated = useAuthStore((state) => state.isAuthenticated);
   const location = useLocation();
   const navigate = useNavigate();
   const [scrolled, setScrolled] = useState(false);
+  const navRef = useRef(null);
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 120);
@@ -17,7 +24,34 @@ export function BottomNav() {
     return () => window.removeEventListener('scroll', onScroll);
   }, []);
 
-  if (location.pathname === '/' || location.pathname === '/onboarding' || location.pathname === '/login' || location.pathname === '/register') {
+  useEffect(() => {
+    const root = document.documentElement;
+
+    if (isNavHidden(location.pathname)) {
+      root.style.setProperty(PUBLISH_VAR, '0px');
+      return;
+    }
+
+    // Publish the nav's real rendered height (includes safe-area padding
+    // baked into the nav itself) so global page clearance tracks it exactly.
+    const publish = () => {
+      const el = navRef.current;
+      if (el) root.style.setProperty(PUBLISH_VAR, `${el.offsetHeight}px`);
+    };
+
+    publish();
+    const raf = requestAnimationFrame(publish);
+
+    const observer = new ResizeObserver(publish);
+    if (navRef.current) observer.observe(navRef.current);
+
+    return () => {
+      cancelAnimationFrame(raf);
+      observer.disconnect();
+    };
+  }, [location.pathname, isAuthenticated]);
+
+  if (isNavHidden(location.pathname)) {
     return null;
   }
 
@@ -35,6 +69,7 @@ export function BottomNav() {
 
   return (
     <nav
+      ref={navRef}
       className={cn(
         'md:hidden fixed bottom-0 left-0 right-0 z-50',
         'border-t border-white/10 dark:border-white/5',
