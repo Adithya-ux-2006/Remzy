@@ -1,0 +1,1362 @@
+{
+  "pmid:27106030": {
+    "id": "5f6013f4-776b-5044-a458-78e59f3398fe",
+    "canonical_key": "pmid:27106030",
+    "pmid": "27106030",
+    "doi": null,
+    "guideline_id": null,
+    "title": "[Peppermint oil in the acute treatment of tension-type headache].",
+    "journal": "Schmerz (Berlin, Germany)",
+    "publication_year": 2016,
+    "source_database": "PubMed",
+    "publisher": null,
+    "metadata": {
+      "resolvedTitleSource": "pubmed",
+      "provenance": "evidence-assessments-backfill"
+    }
+  },
+  "pmid:38300170": {
+    "id": "386f9307-3e94-59d8-a850-1041c6a2a799",
+    "canonical_key": "pmid:38300170",
+    "pmid": "38300170",
+    "doi": null,
+    "guideline_id": null,
+    "title": "Guidelines of care for the management of acne vulgaris.",
+    "journal": "Journal of the American Academy of Dermatology",
+    "publication_year": 2024,
+    "source_database": "PubMed",
+    "publisher": null,
+    "metadata": {
+      "resolvedTitleSource": "pubmed",
+      "provenance": "evidence-assessments-backfill"
+    }
+  },
+  "pmid:30881647": {
+    "id": "56037db9-82fb-5c79-9b49-db2d6386d672",
+    "canonical_key": "pmid:30881647",
+    "pmid": "30881647",
+    "doi": null,
+    "guideline_id": null,
+    "title": "Predicting protein-ligand binding affinity and correcting crystal structures with quantum mechanical calculations: lactate dehydrogenase A.",
+    "journal": "Chemical science",
+    "publication_year": 2019,
+    "source_database": "PubMed",
+    "publisher": null,
+    "metadata": {
+      "resolvedTitleSource": "pubmed",
+      "provenance": "evidence-assessments-backfill"
+    }
+  },
+  "pmid:38813682": {
+    "id": "6463f92b-0a3f-5b4f-aa91-08e285983688",
+    "canonical_key": "pmid:38813682",
+    "pmid": "38813682",
+    "doi": null,
+    "guideline_id": null,
+    "title": "Efficacy and safety of simple analgesics for acute treatment of episodic tension-type headache in adults: a network meta-analysis.",
+    "journal": "Annals of medicine",
+    "publication_year": 2024,
+    "source_database": "PubMed",
+    "publisher": null,
+    "metadata": {
+      "resolvedTitleSource": "pubmed",
+      "provenance": "evidence-assessments-backfill"
+    }
+  },
+  "doi:10.1002/14651858.CD001548": {
+    "id": "e1dfdaa7-4193-5c3b-ac43-2c4cfe41695e",
+    "canonical_key": "doi:10.1002/14651858.CD001548",
+    "pmid": null,
+    "doi": "10.1002/14651858.cd001548",
+    "guideline_id": null,
+    "title": "Single dose oral ibuprofen for acute postoperative pain in adults",
+    "journal": "Cochrane Database of Systematic Reviews",
+    "publication_year": 1999,
+    "source_database": "Cochrane Library",
+    "publisher": null,
+    "metadata": {
+      "resolvedTitleSource": "crossref",
+      "provenance": "evidence-assessments-backfill"
+    }
+  },
+  "pmid:33125495": {
+    "id": "5509a8b8-f77f-5969-aca9-e692267d023e",
+    "canonical_key": "pmid:33125495",
+    "pmid": "33125495",
+    "doi": null,
+    "guideline_id": null,
+    "title": "Comparison of Acetaminophen (Paracetamol) With Ibuprofen for Treatment of Fever or Pain in Children Younger Than 2 Years: A Systematic Review and Meta-analysis.",
+    "journal": "JAMA network open",
+    "publication_year": 2020,
+    "source_database": "PubMed",
+    "publisher": null,
+    "metadata": {
+      "resolvedTitleSource": "pubmed",
+      "provenance": "evidence-assessments-backfill"
+    }
+  },
+  "pmid:41707943": {
+    "id": "9a1c529b-d3e4-5c42-a15c-59fbca27543e",
+    "canonical_key": "pmid:41707943",
+    "pmid": "41707943",
+    "doi": null,
+    "guideline_id": null,
+    "title": "Efficacy and Safety of Oral Antihistamines for Allergic Rhinitis: Network Meta-Analysis.",
+    "journal": "The journal of allergy and clinical immunology. In practice",
+    "publication_year": 2026,
+    "source_database": "PubMed",
+    "publisher": null,
+    "metadata": {
+      "resolvedTitleSource": "pubmed",
+      "provenance": "evidence-assessments-backfill"
+    }
+  },
+  "pmid:30380657": {
+    "id": "4319bffd-8ebc-5396-99c7-a3bc3a06fd3d",
+    "canonical_key": "pmid:30380657",
+    "pmid": "30380657",
+    "doi": null,
+    "guideline_id": null,
+    "title": "Prospective Association between Total and Specific Dietary Polyphenol Intakes and Cardiovascular Disease Risk in the Nutrinet-Santé French Cohort.",
+    "journal": "Nutrients",
+    "publication_year": 2018,
+    "source_database": "PubMed",
+    "publisher": null,
+    "metadata": {
+      "resolvedTitleSource": "pubmed",
+      "provenance": "evidence-assessments-backfill"
+    }
+  },
+  "doi:10.1002/14651858.CD001321": {
+    "id": "c51bbb8d-6bb0-5fac-9f36-a950508133cc",
+    "canonical_key": "doi:10.1002/14651858.CD001321",
+    "pmid": null,
+    "doi": "10.1002/14651858.cd001321",
+    "guideline_id": null,
+    "title": "Cranberries for preventing urinary tract infections",
+    "journal": "The Cochrane Database of Systematic Reviews (Complete Reviews)",
+    "publication_year": 2001,
+    "source_database": "Cochrane Library",
+    "publisher": null,
+    "metadata": {
+      "resolvedTitleSource": "crossref",
+      "provenance": "evidence-assessments-backfill"
+    }
+  },
+  "pmid:37068952": {
+    "id": "593c6080-f05e-5959-9840-83dfa8cb7d2e",
+    "canonical_key": "pmid:37068952",
+    "pmid": "37068952",
+    "doi": null,
+    "guideline_id": null,
+    "title": "Cranberries for preventing urinary tract infections.",
+    "journal": "The Cochrane database of systematic reviews",
+    "publication_year": 2023,
+    "source_database": "PubMed",
+    "publisher": null,
+    "metadata": {
+      "resolvedTitleSource": "pubmed",
+      "provenance": "evidence-assessments-backfill"
+    }
+  },
+  "pmid:39030132": {
+    "id": "18dabae0-15d9-51c3-a072-c9cf7e6f6b6d",
+    "canonical_key": "pmid:39030132",
+    "pmid": "39030132",
+    "doi": null,
+    "guideline_id": null,
+    "title": "Cranberry Juice, Cranberry Tablets, or Liquid Therapies for Urinary Tract Infection: A Systematic Review and Network Meta-analysis.",
+    "journal": "European urology focus",
+    "publication_year": 2024,
+    "source_database": "PubMed",
+    "publisher": null,
+    "metadata": {
+      "resolvedTitleSource": "pubmed",
+      "provenance": "evidence-assessments-backfill"
+    }
+  },
+  "doi:10.1002/14651858.CD010496": {
+    "id": "54252d51-6ade-520c-b8de-ec362a954538",
+    "canonical_key": "doi:10.1002/14651858.CD010496",
+    "pmid": null,
+    "doi": "10.1002/14651858.cd010496",
+    "guideline_id": null,
+    "title": "Probiotics for vulvovaginal candidiasis in non-pregnant women",
+    "journal": "Cochrane Database of Systematic Reviews",
+    "publication_year": 2013,
+    "source_database": "Cochrane Library",
+    "publisher": null,
+    "metadata": {
+      "resolvedTitleSource": "crossref",
+      "provenance": "evidence-assessments-backfill"
+    }
+  },
+  "pmid:38784519": {
+    "id": "dd96bb8c-e51b-5fce-b300-eab8ced57a8a",
+    "canonical_key": "pmid:38784519",
+    "pmid": "38784519",
+    "doi": null,
+    "guideline_id": null,
+    "title": "The Role of Probiotics in the Treatment of Vulvovaginal Candidiasis: A Systematic Review and Meta-Analysis.",
+    "journal": "Ethiopian journal of health sciences",
+    "publication_year": 2023,
+    "source_database": "PubMed",
+    "publisher": null,
+    "metadata": {
+      "resolvedTitleSource": "pubmed",
+      "provenance": "evidence-assessments-backfill"
+    }
+  },
+  "pmid:34353864": {
+    "id": "d5639e4c-8e57-50d8-981c-c9d019c618d9",
+    "canonical_key": "pmid:34353864",
+    "pmid": "34353864",
+    "doi": null,
+    "guideline_id": null,
+    "title": "Psyllium reduces inulin-induced colonic gas production in IBS: MRI and in vitro fermentation studies.",
+    "journal": "Gut",
+    "publication_year": 2022,
+    "source_database": "PubMed",
+    "publisher": null,
+    "metadata": {
+      "resolvedTitleSource": "pubmed",
+      "provenance": "evidence-assessments-backfill"
+    }
+  },
+  "pmid:35874439": {
+    "id": "c33a0ad4-a5ed-5a72-a689-68dbaf9a1b91",
+    "canonical_key": "pmid:35874439",
+    "pmid": "35874439",
+    "doi": null,
+    "guideline_id": null,
+    "title": "Comparative molecular dynamics simulations of thermal conductivities of aqueous and hydrocarbon nanofluids.",
+    "journal": "Beilstein journal of nanotechnology",
+    "publication_year": 2022,
+    "source_database": "PubMed",
+    "publisher": null,
+    "metadata": {
+      "resolvedTitleSource": "pubmed",
+      "provenance": "evidence-assessments-backfill"
+    }
+  },
+  "doi:10.1002/14651858.CD003162": {
+    "id": "fd6407b5-be0d-599e-83df-5d696f45e406",
+    "canonical_key": "doi:10.1002/14651858.CD003162",
+    "pmid": null,
+    "doi": "10.1002/14651858.cd003162",
+    "guideline_id": null,
+    "title": "The Epley (canalith repositioning) manoeuvre for benign paroxysmal positional vertigo",
+    "journal": "Cochrane Database of Systematic Reviews",
+    "publication_year": 2001,
+    "source_database": "Cochrane Library",
+    "publisher": null,
+    "metadata": {
+      "resolvedTitleSource": "crossref",
+      "provenance": "evidence-assessments-backfill"
+    }
+  },
+  "pmid:25485940": {
+    "id": "9d0b6c5c-e32a-5bb6-816d-c94bc3009f7c",
+    "canonical_key": "pmid:25485940",
+    "pmid": "25485940",
+    "doi": null,
+    "guideline_id": null,
+    "title": "The Epley (canalith repositioning) manoeuvre for benign paroxysmal positional vertigo.",
+    "journal": "The Cochrane database of systematic reviews",
+    "publication_year": 2014,
+    "source_database": "PubMed",
+    "publisher": null,
+    "metadata": {
+      "resolvedTitleSource": "pubmed",
+      "provenance": "evidence-assessments-backfill"
+    }
+  },
+  "pmid:22826542": {
+    "id": "c569ddc8-d88b-5d0e-9ae1-d5816c455586",
+    "canonical_key": "pmid:22826542",
+    "pmid": "22826542",
+    "doi": null,
+    "guideline_id": null,
+    "title": "A prescription for the Epley maneuver: www.youtube.com?",
+    "journal": "Neurology",
+    "publication_year": 2012,
+    "source_database": "PubMed",
+    "publisher": null,
+    "metadata": {
+      "resolvedTitleSource": "pubmed",
+      "provenance": "evidence-assessments-backfill"
+    }
+  },
+  "pmid:33966545": {
+    "id": "a5e0eff3-7e08-5280-8e7f-3b304269300f",
+    "canonical_key": "pmid:33966545",
+    "pmid": "33966545",
+    "doi": null,
+    "guideline_id": null,
+    "title": "Acetaminophen and ibuprofen in the treatment of pediatric fever: a narrative review.",
+    "journal": "Current medical research and opinion",
+    "publication_year": 2021,
+    "source_database": "PubMed",
+    "publisher": null,
+    "metadata": {
+      "resolvedTitleSource": "pubmed",
+      "provenance": "evidence-assessments-backfill"
+    }
+  },
+  "doi:10.1002/14651858.CD009572": {
+    "id": "c179c965-7d5c-5ec5-8d3e-ca013c2cbdb3",
+    "canonical_key": "doi:10.1002/14651858.CD009572",
+    "pmid": null,
+    "doi": "10.1002/14651858.cd009572",
+    "guideline_id": null,
+    "title": "Combined and alternating paracetamol and ibuprofen therapy for fever in children",
+    "journal": "Cochrane Database of Systematic Reviews",
+    "publication_year": 2012,
+    "source_database": "Cochrane Library",
+    "publisher": null,
+    "metadata": {
+      "resolvedTitleSource": "crossref",
+      "provenance": "evidence-assessments-backfill"
+    }
+  },
+  "pmid:40065343": {
+    "id": "0fdc05fc-3819-521e-b7be-a19d5aac781a",
+    "canonical_key": "pmid:40065343",
+    "pmid": "40065343",
+    "doi": null,
+    "guideline_id": null,
+    "title": "Efficacy and safety of different topical diclofenac formulations for the treatment of knee osteoarthritis: a meta-analysis of short-term and long-term treatment comparisons.",
+    "journal": "BMC musculoskeletal disorders",
+    "publication_year": 2025,
+    "source_database": "PubMed",
+    "publisher": null,
+    "metadata": {
+      "resolvedTitleSource": "pubmed",
+      "provenance": "evidence-assessments-backfill"
+    }
+  },
+  "doi:10.1002/14651858.CD001554": {
+    "id": "07172a44-4d8f-5148-920a-792b26c75a56",
+    "canonical_key": "doi:10.1002/14651858.CD001554",
+    "pmid": null,
+    "doi": "10.1002/14651858.cd001554",
+    "guideline_id": null,
+    "title": "Local corticosteroid injection for carpal tunnel syndrome",
+    "journal": "The Cochrane Database of Systematic Reviews",
+    "publication_year": 2002,
+    "source_database": "Cochrane Library",
+    "publisher": null,
+    "metadata": {
+      "resolvedTitleSource": "crossref",
+      "provenance": "evidence-assessments-backfill"
+    }
+  },
+  "url:https://www.nice.org.uk/guidance/ng226": {
+    "id": "76d6f62c-613e-5bda-8f26-6be1206a535c",
+    "canonical_key": "url:https://www.nice.org.uk/guidance/ng226",
+    "pmid": null,
+    "doi": null,
+    "guideline_id": "ng226",
+    "title": "Osteoarthritis in over 16s: diagnosis and management",
+    "journal": null,
+    "publication_year": null,
+    "source_database": "NICE",
+    "publisher": null,
+    "metadata": {
+      "resolvedTitleSource": "page-title",
+      "provenance": "evidence-assessments-backfill"
+    }
+  },
+  "pmid:14623704": {
+    "id": "9ab21b59-f005-5457-81b4-33788c04cb55",
+    "canonical_key": "pmid:14623704",
+    "pmid": "14623704",
+    "doi": null,
+    "guideline_id": null,
+    "title": "A comparison of 15% azelaic acid gel and 0.75% metronidazole gel in the topical treatment of papulopustular rosacea: results of a randomized trial.",
+    "journal": "Archives of dermatology",
+    "publication_year": 2003,
+    "source_database": "PubMed",
+    "publisher": null,
+    "metadata": {
+      "resolvedTitleSource": "pubmed",
+      "provenance": "evidence-assessments-backfill"
+    }
+  },
+  "doi:10.1002/14651858.CD011531": {
+    "id": "221fbf0b-d107-5550-b950-faa4911365d8",
+    "canonical_key": "doi:10.1002/14651858.CD011531",
+    "pmid": null,
+    "doi": "10.1002/14651858.cd011531",
+    "guideline_id": null,
+    "title": "Exercise therapy following surgical rotator cuff repair",
+    "journal": "Cochrane Database of Systematic Reviews",
+    "publication_year": 2015,
+    "source_database": "Cochrane Library",
+    "publisher": null,
+    "metadata": {
+      "resolvedTitleSource": "crossref",
+      "provenance": "evidence-assessments-backfill"
+    }
+  },
+  "pmid:11335732": {
+    "id": "0f176e05-0b07-5284-b773-0db9fe4d4ce1",
+    "canonical_key": "pmid:11335732",
+    "pmid": "11335732",
+    "doi": null,
+    "guideline_id": null,
+    "title": "Multicenter, randomized, double-blind clinical trial to evaluate the efficacy and safety of a reduced osmolarity oral rehydration salts solution in children with acute watery diarrhea.",
+    "journal": "Pediatrics",
+    "publication_year": 2001,
+    "source_database": "PubMed",
+    "publisher": null,
+    "metadata": {
+      "resolvedTitleSource": "pubmed",
+      "provenance": "evidence-assessments-backfill"
+    }
+  },
+  "doi:10.1002/14651858.CD001218": {
+    "id": "895a730d-c6a7-519a-97c8-91cbb66d0c83",
+    "canonical_key": "doi:10.1002/14651858.CD001218",
+    "pmid": null,
+    "doi": null,
+    "guideline_id": null,
+    "title": "Acupuncture for preventing migraine attacks | Cochrane",
+    "journal": null,
+    "publication_year": null,
+    "source_database": "Cochrane Library",
+    "publisher": null,
+    "metadata": {
+      "resolvedTitleSource": "generated-metadata",
+      "provenance": "evidence-assessments-backfill"
+    }
+  },
+  "pmid:22517298": {
+    "id": "27f1fee8-b6ea-5c1d-afa9-d80dbfed0332",
+    "canonical_key": "pmid:22517298",
+    "pmid": "22517298",
+    "doi": null,
+    "guideline_id": null,
+    "title": "Lavender essential oil in the treatment of migraine headache: a placebo-controlled clinical trial.",
+    "journal": "European neurology",
+    "publication_year": 2012,
+    "source_database": "PubMed",
+    "publisher": null,
+    "metadata": {
+      "resolvedTitleSource": "pubmed",
+      "provenance": "evidence-assessments-backfill"
+    }
+  },
+  "url:https://www.nice.org.uk/guidance/cg150/ifp/chapter/Treatments-for-migraine": {
+    "id": "aef3802c-1e77-565b-9645-4e9326b07e65",
+    "canonical_key": "url:https://www.nice.org.uk/guidance/cg150/ifp/chapter/Treatments-for-migraine",
+    "pmid": null,
+    "doi": null,
+    "guideline_id": null,
+    "title": "Headaches in over 12s: treatments for migraine",
+    "journal": null,
+    "publication_year": null,
+    "source_database": "NICE",
+    "publisher": null,
+    "metadata": {
+      "resolvedTitleSource": "generated-metadata",
+      "provenance": "evidence-assessments-backfill"
+    }
+  },
+  "pmid:27701665": {
+    "id": "491a12f3-4143-5adf-8618-356a481f7629",
+    "canonical_key": "pmid:27701665",
+    "pmid": "27701665",
+    "doi": null,
+    "guideline_id": null,
+    "title": "Treatments for Hyperemesis Gravidarum and Nausea and Vomiting in Pregnancy: A Systematic Review.",
+    "journal": "JAMA",
+    "publication_year": 2016,
+    "source_database": "PubMed",
+    "publisher": null,
+    "metadata": {
+      "resolvedTitleSource": "pubmed",
+      "provenance": "evidence-assessments-backfill"
+    }
+  },
+  "pmid:31634919": {
+    "id": "d665c0a6-4629-5f9d-a04b-175740b4cd51",
+    "canonical_key": "pmid:31634919",
+    "pmid": "31634919",
+    "doi": null,
+    "guideline_id": null,
+    "title": "The Management of Nausea and Vomiting of Pregnancy: Synthesis of National Guidelines.",
+    "journal": "Obstetrical & gynecological survey",
+    "publication_year": 2019,
+    "source_database": "PubMed",
+    "publisher": null,
+    "metadata": {
+      "resolvedTitleSource": "pubmed",
+      "provenance": "evidence-assessments-backfill"
+    }
+  },
+  "pmid:28217679": {
+    "id": "677ad6f5-eae4-5ab7-b188-7663759e8035",
+    "canonical_key": "pmid:28217679",
+    "pmid": "28217679",
+    "doi": null,
+    "guideline_id": null,
+    "title": "Effect of calcium on premenstrual syndrome: A double-blind randomized clinical trial.",
+    "journal": "Obstetrics & gynecology science",
+    "publication_year": 2017,
+    "source_database": "PubMed",
+    "publisher": null,
+    "metadata": {
+      "resolvedTitleSource": "pubmed",
+      "provenance": "evidence-assessments-backfill"
+    }
+  },
+  "doi:10.1002/14651858.CD006642": {
+    "id": "2385de4e-9ec2-5ed4-a835-f063b79dfb06",
+    "canonical_key": "doi:10.1002/14651858.CD006642",
+    "pmid": null,
+    "doi": "10.1002/14651858.cd006642",
+    "guideline_id": null,
+    "title": "Thoracic stent graft versus surgery for traumatic thoracic transection",
+    "journal": "Cochrane Database of Systematic Reviews",
+    "publication_year": 2007,
+    "source_database": "Cochrane Library",
+    "publisher": null,
+    "metadata": {
+      "resolvedTitleSource": "crossref",
+      "provenance": "evidence-assessments-backfill"
+    }
+  },
+  "doi:10.1002/14651858.CD002081": {
+    "id": "8345ab4e-9a54-5521-848c-3a561a1d652d",
+    "canonical_key": "doi:10.1002/14651858.CD002081",
+    "pmid": null,
+    "doi": "10.1002/14651858.cd002081",
+    "guideline_id": null,
+    "title": "Tamsulosin for benign prostatic hyperplasia",
+    "journal": "Cochrane Database of Systematic Reviews",
+    "publication_year": 2002,
+    "source_database": "Cochrane Library",
+    "publisher": null,
+    "metadata": {
+      "resolvedTitleSource": "crossref",
+      "provenance": "evidence-assessments-backfill"
+    }
+  },
+  "pmid:24687942": {
+    "id": "d4b31893-f549-58cf-afef-11393eb0cd3c",
+    "canonical_key": "pmid:24687942",
+    "pmid": "24687942",
+    "doi": null,
+    "guideline_id": null,
+    "title": "Rapid Systematic Review of the Epley Maneuver for Treating Posterior Canal Benign Paroxysmal Positional Vertigo.",
+    "journal": "Otolaryngology--head and neck surgery : official journal of American Academy of Otolaryngology-Head and Neck Surgery",
+    "publication_year": 2014,
+    "source_database": "PubMed",
+    "publisher": null,
+    "metadata": {
+      "resolvedTitleSource": "pubmed",
+      "provenance": "evidence-assessments-backfill"
+    }
+  },
+  "doi:10.1002/14651858.CD003707": {
+    "id": "775653a7-698a-5a89-8b05-c1c0bee7e8dc",
+    "canonical_key": "doi:10.1002/14651858.CD003707",
+    "pmid": null,
+    "doi": "10.1002/14651858.cd003707",
+    "guideline_id": null,
+    "title": "The use of partial liquid ventilation for the prevention of mortality and morbidity in adults with ALI/ARDS",
+    "journal": "The Cochrane Database of Systematic Reviews",
+    "publication_year": 2002,
+    "source_database": "Cochrane Library",
+    "publisher": null,
+    "metadata": {
+      "resolvedTitleSource": "crossref",
+      "provenance": "evidence-assessments-backfill"
+    }
+  },
+  "doi:10.1002/14651858.CD002845": {
+    "id": "b3bd9c60-3286-5544-a07d-ce99060533d9",
+    "canonical_key": "doi:10.1002/14651858.CD002845",
+    "pmid": null,
+    "doi": "10.1002/14651858.cd002845",
+    "guideline_id": null,
+    "title": "Oral versus intra-vaginal imidazole and triazole anti-fungal treatment of uncomplicated vulvovaginal candidiasis (thrush)",
+    "journal": "The Cochrane Database of Systematic Reviews",
+    "publication_year": 2001,
+    "source_database": "Cochrane Library",
+    "publisher": null,
+    "metadata": {
+      "resolvedTitleSource": "crossref",
+      "provenance": "evidence-assessments-backfill"
+    }
+  },
+  "pmid:23659460": {
+    "id": "ad929de0-ddd4-5189-bae7-bb0b4e57841a",
+    "canonical_key": "pmid:23659460",
+    "pmid": "23659460",
+    "doi": null,
+    "guideline_id": null,
+    "title": "Staff perspectives on the provision of end-of-life care in a community residence for older adults with developmental disabilities.",
+    "journal": "Journal of palliative medicine",
+    "publication_year": 2013,
+    "source_database": "PubMed",
+    "publisher": null,
+    "metadata": {
+      "resolvedTitleSource": "pubmed",
+      "provenance": "evidence-assessments-backfill"
+    }
+  },
+  "pmid:21833984": {
+    "id": "5ebaed7d-80c4-57d4-9adc-c369d15fedb7",
+    "canonical_key": "pmid:21833984",
+    "pmid": "21833984",
+    "doi": null,
+    "guideline_id": null,
+    "title": "Cochrane: spreading the message of research to students and juniors.",
+    "journal": "The Cochrane database of systematic reviews",
+    "publication_year": 2011,
+    "source_database": "PubMed",
+    "publisher": null,
+    "metadata": {
+      "resolvedTitleSource": "pubmed",
+      "provenance": "evidence-assessments-backfill"
+    }
+  },
+  "doi:10.1002/14651858.CD006112": {
+    "id": "de3cf021-5a50-5259-b429-3eec785ac46c",
+    "canonical_key": "doi:10.1002/14651858.CD006112",
+    "pmid": null,
+    "doi": "10.1002/14651858.cd006112",
+    "guideline_id": null,
+    "title": "Inspiratory muscle training for cystic fibrosis",
+    "journal": "Cochrane Database of Systematic Reviews",
+    "publication_year": 2006,
+    "source_database": "Cochrane Library",
+    "publisher": null,
+    "metadata": {
+      "resolvedTitleSource": "crossref",
+      "provenance": "evidence-assessments-backfill"
+    }
+  },
+  "pmid:21552537": {
+    "id": "44dd80ef-a3bc-5a18-b134-1c177adab648",
+    "canonical_key": "pmid:21552537",
+    "pmid": "21552537",
+    "doi": null,
+    "guideline_id": null,
+    "title": "RhoE deficiency produces postnatal lethality, profound motor deficits and neurodevelopmental delay in mice.",
+    "journal": "PloS one",
+    "publication_year": 2011,
+    "source_database": "PubMed",
+    "publisher": null,
+    "metadata": {
+      "resolvedTitleSource": "pubmed",
+      "provenance": "evidence-assessments-backfill"
+    }
+  },
+  "pmid:18477760": {
+    "id": "3a75bdf9-cbc3-581a-a811-55557c7eb5ae",
+    "canonical_key": "pmid:18477760",
+    "pmid": "18477760",
+    "doi": null,
+    "guideline_id": null,
+    "title": "Problems in estimating the number of suicides by charcoal burning in Taiwan.",
+    "journal": "Journal of epidemiology and community health",
+    "publication_year": 2008,
+    "source_database": "PubMed",
+    "publisher": null,
+    "metadata": {
+      "resolvedTitleSource": "pubmed",
+      "provenance": "evidence-assessments-backfill"
+    }
+  },
+  "pmid:9065268": {
+    "id": "267b0df2-2de3-5f70-936d-0239e5c4888d",
+    "canonical_key": "pmid:9065268",
+    "pmid": "9065268",
+    "doi": null,
+    "guideline_id": null,
+    "title": "[Treatment of chronic pain syndromes in surgery units with an acute pain service].",
+    "journal": "Der Anaesthesist",
+    "publication_year": 1996,
+    "source_database": "PubMed",
+    "publisher": null,
+    "metadata": {
+      "resolvedTitleSource": "pubmed",
+      "provenance": "evidence-assessments-backfill"
+    }
+  },
+  "pmid:21949856": {
+    "id": "21f8f85b-d74d-5be5-80dd-f81bd6096ecc",
+    "canonical_key": "pmid:21949856",
+    "pmid": "21949856",
+    "doi": null,
+    "guideline_id": null,
+    "title": "Reduced transmissibility of East African Indian strains of Mycobacterium tuberculosis.",
+    "journal": "PloS one",
+    "publication_year": 2011,
+    "source_database": "PubMed",
+    "publisher": null,
+    "metadata": {
+      "resolvedTitleSource": "pubmed",
+      "provenance": "evidence-assessments-backfill"
+    }
+  },
+  "doi:10.1002/14651858.CD012988": {
+    "id": "c672e480-032e-5190-9aed-fd2efe65964b",
+    "canonical_key": "doi:10.1002/14651858.CD012988",
+    "pmid": null,
+    "doi": "10.1002/14651858.cd012988",
+    "guideline_id": null,
+    "title": "Exercise therapies for preventing or treating aromatase inhibitor-induced musculoskeletal symptoms in early breast cancer",
+    "journal": "Cochrane Database of Systematic Reviews",
+    "publication_year": 2018,
+    "source_database": "Cochrane Library",
+    "publisher": null,
+    "metadata": {
+      "resolvedTitleSource": "crossref",
+      "provenance": "evidence-assessments-backfill"
+    }
+  },
+  "doi:10.1002/14651858.CD002862": {
+    "id": "5d73a664-d117-5fe6-a9c8-163ed079a2b6",
+    "canonical_key": "doi:10.1002/14651858.CD002862",
+    "pmid": null,
+    "doi": "10.1002/14651858.cd002862",
+    "guideline_id": null,
+    "title": "Amniotomy alone for induction of labour",
+    "journal": "Cochrane Database of Systematic Reviews",
+    "publication_year": 2000,
+    "source_database": "Cochrane Library",
+    "publisher": null,
+    "metadata": {
+      "resolvedTitleSource": "crossref",
+      "provenance": "evidence-assessments-backfill"
+    }
+  },
+  "pmid:24717008": {
+    "id": "90f128fc-e6a3-527f-a99b-e27e046c0706",
+    "canonical_key": "pmid:24717008",
+    "pmid": "24717008",
+    "doi": null,
+    "guideline_id": null,
+    "title": "Strength of affective reaction as a signal to think carefully.",
+    "journal": "Cognition & emotion",
+    "publication_year": 2015,
+    "source_database": "PubMed",
+    "publisher": null,
+    "metadata": {
+      "resolvedTitleSource": "pubmed",
+      "provenance": "evidence-assessments-backfill"
+    }
+  },
+  "pmid:15471731": {
+    "id": "36c70c31-9e14-59f6-a67e-06b739763a7d",
+    "canonical_key": "pmid:15471731",
+    "pmid": "15471731",
+    "doi": null,
+    "guideline_id": null,
+    "title": "The association between asthma and allergic symptoms in children and phthalates in house dust: a nested case-control study.",
+    "journal": "Environmental health perspectives",
+    "publication_year": 2004,
+    "source_database": "PubMed",
+    "publisher": null,
+    "metadata": {
+      "resolvedTitleSource": "pubmed",
+      "provenance": "evidence-assessments-backfill"
+    }
+  },
+  "pmid:12472620": {
+    "id": "7521f079-a13f-5372-b3a2-82395857bc64",
+    "canonical_key": "pmid:12472620",
+    "pmid": "12472620",
+    "doi": null,
+    "guideline_id": null,
+    "title": "Effect of Lepidium meyenii (MACA) on sexual desire and its absent relationship with serum testosterone levels in adult healthy men.",
+    "journal": "Andrologia",
+    "publication_year": 2002,
+    "source_database": "PubMed",
+    "publisher": null,
+    "metadata": {
+      "resolvedTitleSource": "pubmed",
+      "provenance": "evidence-assessments-backfill"
+    }
+  },
+  "pmid:24625904": {
+    "id": "392eb71b-a0ec-57b9-b6be-e66d105109e8",
+    "canonical_key": "pmid:24625904",
+    "pmid": "24625904",
+    "doi": null,
+    "guideline_id": null,
+    "title": "[Haemostatic abnormalities and thyroid disorders: the prospective observational MITH study].",
+    "journal": "Recenti progressi in medicina",
+    "publication_year": 2014,
+    "source_database": "PubMed",
+    "publisher": null,
+    "metadata": {
+      "resolvedTitleSource": "pubmed",
+      "provenance": "evidence-assessments-backfill"
+    }
+  },
+  "pmid:17389743": {
+    "id": "3901797f-5193-525a-8489-3891c8e91387",
+    "canonical_key": "pmid:17389743",
+    "pmid": "17389743",
+    "doi": null,
+    "guideline_id": null,
+    "title": "Performance of the 24-2-5 frequency doubling technology screening test: a prospective case study.",
+    "journal": "The British journal of ophthalmology",
+    "publication_year": 2007,
+    "source_database": "PubMed",
+    "publisher": null,
+    "metadata": {
+      "resolvedTitleSource": "pubmed",
+      "provenance": "evidence-assessments-backfill"
+    }
+  },
+  "pmid:30864991": {
+    "id": "81016e09-f131-59d6-bba3-0b5260334c63",
+    "canonical_key": "pmid:30864991",
+    "pmid": "30864991",
+    "doi": null,
+    "guideline_id": null,
+    "title": "Early Warning Signs and Rapid Response on the Nursing Floor-Can We Do More?",
+    "journal": "International anesthesiology clinics",
+    "publication_year": 2019,
+    "source_database": "PubMed",
+    "publisher": null,
+    "metadata": {
+      "resolvedTitleSource": "pubmed",
+      "provenance": "evidence-assessments-backfill"
+    }
+  },
+  "doi:10.1002/14651858.CD012298": {
+    "id": "d77643f1-8e15-5ea2-b612-37261e13b30f",
+    "canonical_key": "doi:10.1002/14651858.CD012298",
+    "pmid": null,
+    "doi": "10.1002/14651858.cd012298",
+    "guideline_id": null,
+    "title": "Non-nutritive sweeteners for the prevention or treatment of being overweight or obesity",
+    "journal": "Cochrane Database of Systematic Reviews",
+    "publication_year": 2016,
+    "source_database": "Cochrane Library",
+    "publisher": null,
+    "metadata": {
+      "resolvedTitleSource": "crossref",
+      "provenance": "evidence-assessments-backfill"
+    }
+  },
+  "doi:10.1002/14651858.CD009805": {
+    "id": "3cf325e6-ee19-5239-91e3-39c255d1ec04",
+    "canonical_key": "doi:10.1002/14651858.CD009805",
+    "pmid": null,
+    "doi": "10.1002/14651858.cd009805",
+    "guideline_id": null,
+    "title": "Hormonal and intrauterine contraception for women aged 25 years and younger",
+    "journal": "Cochrane Database of Systematic Reviews",
+    "publication_year": 2012,
+    "source_database": "Cochrane Library",
+    "publisher": null,
+    "metadata": {
+      "resolvedTitleSource": "crossref",
+      "provenance": "evidence-assessments-backfill"
+    }
+  },
+  "doi:10.1002/14651858.CD003120": {
+    "id": "89ce7fdd-b9fe-5e90-ad52-bdcbff8f2f83",
+    "canonical_key": "doi:10.1002/14651858.CD003120",
+    "pmid": null,
+    "doi": "10.1002/14651858.cd003120",
+    "guideline_id": null,
+    "title": "Ginkgo Biloba for cognitive impairment and dementia",
+    "journal": "Cochrane Database of Systematic Reviews",
+    "publication_year": 2002,
+    "source_database": "Cochrane Library",
+    "publisher": null,
+    "metadata": {
+      "resolvedTitleSource": "crossref",
+      "provenance": "evidence-assessments-backfill"
+    }
+  },
+  "doi:10.1002/14651858.CD012866": {
+    "id": "008e33f4-6a8b-5469-ab5d-f614786c4707",
+    "canonical_key": "doi:10.1002/14651858.CD012866",
+    "pmid": null,
+    "doi": "10.1002/14651858.cd012866",
+    "guideline_id": null,
+    "title": "Bed sharing versus no bed sharing for healthy term neonates",
+    "journal": "Cochrane Database of Systematic Reviews",
+    "publication_year": 2017,
+    "source_database": "Cochrane Library",
+    "publisher": null,
+    "metadata": {
+      "resolvedTitleSource": "crossref",
+      "provenance": "evidence-assessments-backfill"
+    }
+  },
+  "doi:10.1002/14651858.CD002946": {
+    "id": "66f2d907-6bcb-576d-a86e-3d9a1ea8519b",
+    "canonical_key": "doi:10.1002/14651858.CD002946",
+    "pmid": null,
+    "doi": "10.1002/14651858.cd002946",
+    "guideline_id": null,
+    "title": "Glucosamine therapy for treating osteoarthritis",
+    "journal": "The Cochrane Database of Systematic Reviews",
+    "publication_year": 2000,
+    "source_database": "Cochrane Library",
+    "publisher": null,
+    "metadata": {
+      "resolvedTitleSource": "crossref",
+      "provenance": "evidence-assessments-backfill"
+    }
+  },
+  "doi:10.1002/14651858.CD008232": {
+    "id": "fd752ada-9443-549b-8369-10808997dfed",
+    "canonical_key": "doi:10.1002/14651858.CD008232",
+    "pmid": null,
+    "doi": "10.1002/14651858.cd008232",
+    "guideline_id": null,
+    "title": "Topical nasal corticosteroids versus oral antihistamines for allergic rhinitis",
+    "journal": "Cochrane Database of Systematic Reviews",
+    "publication_year": 2010,
+    "source_database": "Cochrane Library",
+    "publisher": null,
+    "metadata": {
+      "resolvedTitleSource": "crossref",
+      "provenance": "evidence-assessments-backfill"
+    }
+  },
+  "doi:10.1002/14651858.CD013454": {
+    "id": "05941e32-336f-50ab-a3c5-230bffb6c062",
+    "canonical_key": "doi:10.1002/14651858.CD013454",
+    "pmid": null,
+    "doi": "10.1002/14651858.cd013454",
+    "guideline_id": null,
+    "title": "Mobile phone text messaging for the prevention of sexually transmitted infections",
+    "journal": "Cochrane Database of Systematic Reviews",
+    "publication_year": 2019,
+    "source_database": "Cochrane Library",
+    "publisher": null,
+    "metadata": {
+      "resolvedTitleSource": "crossref",
+      "provenance": "evidence-assessments-backfill"
+    }
+  },
+  "doi:10.1002/14651858.CD004078": {
+    "id": "9e5dc707-0f28-5085-b1bd-1a532e53976b",
+    "canonical_key": "doi:10.1002/14651858.CD004078",
+    "pmid": null,
+    "doi": "10.1002/14651858.cd004078",
+    "guideline_id": null,
+    "title": "Postoperative adjuvant chemotherapy for radically operated Dukes´C rectal cancer",
+    "journal": "Cochrane Database of Systematic Reviews",
+    "publication_year": 2002,
+    "source_database": "Cochrane Library",
+    "publisher": null,
+    "metadata": {
+      "resolvedTitleSource": "crossref",
+      "provenance": "evidence-assessments-backfill"
+    }
+  },
+  "doi:10.1002/14651858.CD008210": {
+    "id": "dd564325-c978-5b9a-9416-c50c8dabbf7a",
+    "canonical_key": "doi:10.1002/14651858.CD008210",
+    "pmid": null,
+    "doi": "10.1002/14651858.cd008210",
+    "guideline_id": null,
+    "title": "Acupuncture for multiple sclerosis",
+    "journal": "Cochrane Database of Systematic Reviews",
+    "publication_year": 2010,
+    "source_database": "Cochrane Library",
+    "publisher": null,
+    "metadata": {
+      "resolvedTitleSource": "crossref",
+      "provenance": "evidence-assessments-backfill"
+    }
+  },
+  "doi:10.1002/14651858.CD011204": {
+    "id": "6d8b641d-db76-56f8-bcc8-7126f26e8886",
+    "canonical_key": "doi:10.1002/14651858.CD011204",
+    "pmid": null,
+    "doi": "10.1002/14651858.cd011204",
+    "guideline_id": null,
+    "title": "Dialysate sodium levels for chronic haemodialysis",
+    "journal": "Cochrane Database of Systematic Reviews",
+    "publication_year": 2014,
+    "source_database": "Cochrane Library",
+    "publisher": null,
+    "metadata": {
+      "resolvedTitleSource": "crossref",
+      "provenance": "evidence-assessments-backfill"
+    }
+  },
+  "doi:10.1002/14651858.CD010746": {
+    "id": "8f240ffd-ebd0-5c14-b203-9c41785ceb48",
+    "canonical_key": "doi:10.1002/14651858.CD010746",
+    "pmid": null,
+    "doi": "10.1002/14651858.cd010746",
+    "guideline_id": null,
+    "title": "Perioperative medications for preventing temporarily increased intraocular pressure after laser trabeculoplasty",
+    "journal": "Cochrane Database of Systematic Reviews",
+    "publication_year": 2013,
+    "source_database": "Cochrane Library",
+    "publisher": null,
+    "metadata": {
+      "resolvedTitleSource": "crossref",
+      "provenance": "evidence-assessments-backfill"
+    }
+  },
+  "doi:10.1002/14651858.CD002984": {
+    "id": "e93476bc-07ab-5e98-90ea-127a457b03ee",
+    "canonical_key": "doi:10.1002/14651858.CD002984",
+    "pmid": null,
+    "doi": "10.1002/14651858.cd002984",
+    "guideline_id": null,
+    "title": "Inhaled short-acting beta2-agonists versus ipratropium for acute exacerbations of chronic obstructive pulmonary disease",
+    "journal": "Cochrane Database of Systematic Reviews",
+    "publication_year": 2001,
+    "source_database": "Cochrane Library",
+    "publisher": null,
+    "metadata": {
+      "resolvedTitleSource": "crossref",
+      "provenance": "evidence-assessments-backfill"
+    }
+  },
+  "doi:10.1002/14651858.CD004748": {
+    "id": "bae0fd08-daa2-5e57-8b6a-6ea96405cd0d",
+    "canonical_key": "doi:10.1002/14651858.CD004748",
+    "pmid": null,
+    "doi": "10.1002/14651858.cd004748",
+    "guideline_id": null,
+    "title": "Velnacrine for Alzheimer's disease",
+    "journal": "Cochrane Database of Systematic Reviews",
+    "publication_year": 2004,
+    "source_database": "Cochrane Library",
+    "publisher": null,
+    "metadata": {
+      "resolvedTitleSource": "crossref",
+      "provenance": "evidence-assessments-backfill"
+    }
+  },
+  "doi:10.1002/14651858.CD009588": {
+    "id": "cfd0bf47-6917-5700-b953-1347d4f16b77",
+    "canonical_key": "doi:10.1002/14651858.CD009588",
+    "pmid": null,
+    "doi": "10.1002/14651858.cd009588",
+    "guideline_id": null,
+    "title": "Routine viral load monitoring versus standard care for reducing morbidity and mortality in adolescent and adult patients living with HIV on antiretroviral therapy (ART)",
+    "journal": "Cochrane Database of Systematic Reviews",
+    "publication_year": 2012,
+    "source_database": "Cochrane Library",
+    "publisher": null,
+    "metadata": {
+      "resolvedTitleSource": "crossref",
+      "provenance": "evidence-assessments-backfill"
+    }
+  },
+  "doi:10.1002/14651858.CD004790": {
+    "id": "1037dc4b-f0b0-53e1-9cbf-810663f63cea",
+    "canonical_key": "doi:10.1002/14651858.CD004790",
+    "pmid": null,
+    "doi": "10.1002/14651858.cd004790",
+    "guideline_id": null,
+    "title": "Hepatitis B prophylaxis for newborns of hepatitis B surface antigen-positive mothers",
+    "journal": "Cochrane Database of Systematic Reviews",
+    "publication_year": 2004,
+    "source_database": "Cochrane Library",
+    "publisher": null,
+    "metadata": {
+      "resolvedTitleSource": "crossref",
+      "provenance": "evidence-assessments-backfill"
+    }
+  },
+  "doi:10.1002/14651858.CD014212": {
+    "id": "59e2a975-7461-58bd-a29a-1390a9af3298",
+    "canonical_key": "doi:10.1002/14651858.CD014212",
+    "pmid": null,
+    "doi": "10.1002/14651858.cd014212",
+    "guideline_id": null,
+    "title": "Dexmedetomidine for analgesia and sedation for procedural pain or discomfort in newborn infants",
+    "journal": "Cochrane Database of Systematic Reviews",
+    "publication_year": 2025,
+    "source_database": "Cochrane Library",
+    "publisher": null,
+    "metadata": {
+      "resolvedTitleSource": "crossref",
+      "provenance": "evidence-assessments-backfill"
+    }
+  },
+  "doi:10.1002/14651858.CD000027": {
+    "id": "27987a73-4922-5f59-9016-2cbf02dd90af",
+    "canonical_key": "doi:10.1002/14651858.CD000027",
+    "pmid": null,
+    "doi": "10.1002/14651858.cd000027",
+    "guideline_id": null,
+    "title": "Antihistamines versus aspirin for itching in late pregnancy",
+    "journal": "Cochrane Database of Systematic Reviews",
+    "publication_year": 1997,
+    "source_database": "Cochrane Library",
+    "publisher": null,
+    "metadata": {
+      "resolvedTitleSource": "crossref",
+      "provenance": "evidence-assessments-backfill"
+    }
+  },
+  "doi:10.1002/14651858.CD004249": {
+    "id": "ba234ec3-b5bb-5da6-ac2d-8b389c7e342c",
+    "canonical_key": "doi:10.1002/14651858.CD004249",
+    "pmid": null,
+    "doi": "10.1002/14651858.cd004249",
+    "guideline_id": null,
+    "title": "Manipulation and Mobilisation for Mechanical Neck Disorders",
+    "journal": "Cochrane Database of Systematic Reviews",
+    "publication_year": 2002,
+    "source_database": "Cochrane Library",
+    "publisher": null,
+    "metadata": {
+      "resolvedTitleSource": "crossref",
+      "provenance": "evidence-assessments-backfill"
+    }
+  },
+  "doi:10.1002/14651858.CD005430": {
+    "id": "3d6b33ff-ef67-5ed4-b1da-ea56d07030ad",
+    "canonical_key": "doi:10.1002/14651858.CD005430",
+    "pmid": null,
+    "doi": "10.1002/14651858.cd005430",
+    "guideline_id": null,
+    "title": "Topical corticosteroids as adjunctive therapy for bacterial keratitis",
+    "journal": "Cochrane Database of Systematic Reviews",
+    "publication_year": 2005,
+    "source_database": "Cochrane Library",
+    "publisher": null,
+    "metadata": {
+      "resolvedTitleSource": "crossref",
+      "provenance": "evidence-assessments-backfill"
+    }
+  },
+  "doi:10.1002/14651858.CD014751": {
+    "id": "535e722a-f4a4-57bb-b11e-9900abaa392a",
+    "canonical_key": "doi:10.1002/14651858.CD014751",
+    "pmid": null,
+    "doi": "10.1002/14651858.cd014751",
+    "guideline_id": null,
+    "title": "Routine decompression by nasogastric tube after oesophagectomy for oesophageal cancer",
+    "journal": "Cochrane Database of Systematic Reviews",
+    "publication_year": 2023,
+    "source_database": "Cochrane Library",
+    "publisher": null,
+    "metadata": {
+      "resolvedTitleSource": "crossref",
+      "provenance": "evidence-assessments-backfill"
+    }
+  },
+  "doi:10.1002/14651858.CD009828": {
+    "id": "0f7315b8-5062-5b7a-86bc-ee324f5f2c3a",
+    "canonical_key": "doi:10.1002/14651858.CD009828",
+    "pmid": null,
+    "doi": "10.1002/14651858.cd009828",
+    "guideline_id": null,
+    "title": "Hypoglycaemic agents for pregnant women with polycystic ovarian syndrome",
+    "journal": "Cochrane Database of Systematic Reviews",
+    "publication_year": 2012,
+    "source_database": "Cochrane Library",
+    "publisher": null,
+    "metadata": {
+      "resolvedTitleSource": "crossref",
+      "provenance": "evidence-assessments-backfill"
+    }
+  },
+  "doi:10.1002/14651858.CD005625": {
+    "id": "2174f301-04eb-56ba-b900-09a97d6a37da",
+    "canonical_key": "doi:10.1002/14651858.CD005625",
+    "pmid": null,
+    "doi": "10.1002/14651858.cd005625",
+    "guideline_id": null,
+    "title": "Rutosides for treatment of post-thrombotic syndrome",
+    "journal": "Cochrane Database of Systematic Reviews",
+    "publication_year": 2006,
+    "source_database": "Cochrane Library",
+    "publisher": null,
+    "metadata": {
+      "resolvedTitleSource": "crossref",
+      "provenance": "evidence-assessments-backfill"
+    }
+  },
+  "doi:10.1002/14651858.CD000023": {
+    "id": "6547dd1e-eae7-5586-bf5e-3cf59e27d5d4",
+    "canonical_key": "doi:10.1002/14651858.CD000023",
+    "pmid": null,
+    "doi": "10.1002/14651858.cd000023",
+    "guideline_id": null,
+    "title": "Antibiotics for sore throat",
+    "journal": "Cochrane Database of Systematic Reviews",
+    "publication_year": 2000,
+    "source_database": "Cochrane Library",
+    "publisher": null,
+    "metadata": {
+      "resolvedTitleSource": "crossref",
+      "provenance": "evidence-assessments-backfill"
+    }
+  },
+  "doi:10.1002/14651858.CD002808": {
+    "id": "e420a810-0497-5662-bd4f-e87bae0665df",
+    "canonical_key": "doi:10.1002/14651858.CD002808",
+    "pmid": null,
+    "doi": "10.1002/14651858.cd002808",
+    "guideline_id": null,
+    "title": "Depot versus daily administration of gonadotrophin releasing hormone agonist protocols for pituitary desensitization in assisted reproduction cycles",
+    "journal": "The Cochrane Database of Systematic Reviews",
+    "publication_year": 2002,
+    "source_database": "Cochrane Library",
+    "publisher": null,
+    "metadata": {
+      "resolvedTitleSource": "crossref",
+      "provenance": "evidence-assessments-backfill"
+    }
+  },
+  "doi:10.1002/14651858.CD006898": {
+    "id": "1772a34c-c293-570f-9e63-4a30b5b541e8",
+    "canonical_key": "doi:10.1002/14651858.CD006898",
+    "pmid": null,
+    "doi": "10.1002/14651858.cd006898",
+    "guideline_id": null,
+    "title": "Repositioning for treating pressure ulcers",
+    "journal": "Cochrane Database of Systematic Reviews",
+    "publication_year": 2008,
+    "source_database": "Cochrane Library",
+    "publisher": null,
+    "metadata": {
+      "resolvedTitleSource": "crossref",
+      "provenance": "evidence-assessments-backfill"
+    }
+  },
+  "doi:10.1002/14651858.CD001500": {
+    "id": "4dba3871-b5e4-525e-8da0-a672fc5a63a0",
+    "canonical_key": "doi:10.1002/14651858.CD001500",
+    "pmid": null,
+    "doi": "10.1002/14651858.cd001500",
+    "guideline_id": null,
+    "title": "Local oestrogen for vaginal atrophy in postmenopausal women",
+    "journal": "The Cochrane Database of Systematic Reviews",
+    "publication_year": 2003,
+    "source_database": "Cochrane Library",
+    "publisher": null,
+    "metadata": {
+      "resolvedTitleSource": "crossref",
+      "provenance": "evidence-assessments-backfill"
+    }
+  },
+  "doi:10.1002/14651858.CD003831": {
+    "id": "bb9e3e49-9546-59b1-92ae-6af8d79a17a0",
+    "canonical_key": "doi:10.1002/14651858.CD003831",
+    "pmid": null,
+    "doi": "10.1002/14651858.cd003831",
+    "guideline_id": null,
+    "title": "Celecoxib for rheumatoid arthritis",
+    "journal": "Cochrane Database of Systematic Reviews",
+    "publication_year": 2002,
+    "source_database": "Cochrane Library",
+    "publisher": null,
+    "metadata": {
+      "resolvedTitleSource": "crossref",
+      "provenance": "evidence-assessments-backfill"
+    }
+  },
+  "doi:10.1002/14651858.CD001808": {
+    "id": "1175685d-2905-59d7-a39f-917c2c33dab5",
+    "canonical_key": "doi:10.1002/14651858.CD001808",
+    "pmid": null,
+    "doi": "10.1002/14651858.cd001808",
+    "guideline_id": null,
+    "title": "Prophylactic oxytocin for the third stage of labour",
+    "journal": "Cochrane Database of Systematic Reviews",
+    "publication_year": 2001,
+    "source_database": "Cochrane Library",
+    "publisher": null,
+    "metadata": {
+      "resolvedTitleSource": "crossref",
+      "provenance": "evidence-assessments-backfill"
+    }
+  },
+  "doi:10.1002/14651858.CD003200": {
+    "id": "4f4ce763-47a6-5332-8055-5b2323c23a5d",
+    "canonical_key": "doi:10.1002/14651858.CD003200",
+    "pmid": null,
+    "doi": "10.1002/14651858.cd003200",
+    "guideline_id": null,
+    "title": "Exercise therapy for chronic fatigue syndrome",
+    "journal": "Cochrane Database of Systematic Reviews",
+    "publication_year": 2001,
+    "source_database": "Cochrane Library",
+    "publisher": null,
+    "metadata": {
+      "resolvedTitleSource": "crossref",
+      "provenance": "evidence-assessments-backfill"
+    }
+  },
+  "doi:10.1002/14651858.CD003244": {
+    "id": "0c4c7d7f-f697-581d-99d1-947b841049ce",
+    "canonical_key": "doi:10.1002/14651858.CD003244",
+    "pmid": null,
+    "doi": "10.1002/14651858.cd003244",
+    "guideline_id": null,
+    "title": "Medical treatments for the short term management of reflux oesophagitis",
+    "journal": "Cochrane Database of Systematic Reviews",
+    "publication_year": 2001,
+    "source_database": "Cochrane Library",
+    "publisher": null,
+    "metadata": {
+      "resolvedTitleSource": "crossref",
+      "provenance": "evidence-assessments-backfill"
+    }
+  },
+  "doi:10.1002/14651858.CD009811": {
+    "id": "32b54dad-f9df-5923-9e60-c8da54541192",
+    "canonical_key": "doi:10.1002/14651858.CD009811",
+    "pmid": null,
+    "doi": "10.1002/14651858.cd009811",
+    "guideline_id": null,
+    "title": "Low-level laser therapy for tinnitus",
+    "journal": "Cochrane Database of Systematic Reviews",
+    "publication_year": 2012,
+    "source_database": "Cochrane Library",
+    "publisher": null,
+    "metadata": {
+      "resolvedTitleSource": "crossref",
+      "provenance": "evidence-assessments-backfill"
+    }
+  },
+  "doi:10.1002/14651858.CD005968": {
+    "id": "1d9dabc6-c891-55b5-9a07-d10fc278506b",
+    "canonical_key": "doi:10.1002/14651858.CD005968",
+    "pmid": null,
+    "doi": "10.1002/14651858.cd005968.pub2",
+    "guideline_id": null,
+    "title": "Interventions for replacing missing teeth: dental implants in fresh extraction sockets (immediate, immediate-delayed and delayed implants)",
+    "journal": "Cochrane Database of Systematic Reviews",
+    "publication_year": 2006,
+    "source_database": "Cochrane Library",
+    "publisher": null,
+    "metadata": {
+      "resolvedTitleSource": "crossref",
+      "provenance": "evidence-assessments-backfill"
+    }
+  },
+  "doi:10.1002/14651858.CD007782": {
+    "id": "2f0c4bae-3681-509d-ba1a-152c35b0a51a",
+    "canonical_key": "doi:10.1002/14651858.CD007782",
+    "pmid": null,
+    "doi": "10.1002/14651858.cd007782",
+    "guideline_id": null,
+    "title": "Neoadjuvant chemotherapy for patients having resection or ablation of liver metastases from colorectal cancer.",
+    "journal": "Cochrane Database of Systematic Reviews",
+    "publication_year": 2009,
+    "source_database": "Cochrane Library",
+    "publisher": null,
+    "metadata": {
+      "resolvedTitleSource": "crossref",
+      "provenance": "evidence-assessments-backfill"
+    }
+  }
+}
