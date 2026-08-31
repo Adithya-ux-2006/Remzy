@@ -56,6 +56,25 @@ export function MedicalCentreMap({ userLocation, centres, selectedCentre, onSele
 
   useEffect(() => {
     const map = mapInstanceRef.current;
+    const container = mapRef.current;
+    if (!map || !container) return;
+
+    const invalidate = () => map.invalidateSize();
+
+    invalidate();
+    const raf = requestAnimationFrame(invalidate);
+
+    const observer = new ResizeObserver(invalidate);
+    observer.observe(container);
+
+    return () => {
+      cancelAnimationFrame(raf);
+      observer.disconnect();
+    };
+  }, []);
+
+  useEffect(() => {
+    const map = mapInstanceRef.current;
     if (!map) return;
 
     markersRef.current.forEach((marker, i) => {

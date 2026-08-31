@@ -329,7 +329,7 @@ export function MedicalCentreFinder({ className }) {
 
             <div className={cn(
               'gap-4',
-              viewMode === 'both' && 'grid grid-cols-1 lg:grid-cols-2',
+              viewMode === 'both' && 'grid grid-cols-1 lg:grid-cols-[2fr_3fr]',
             )}>
               {(viewMode === 'map' || viewMode === 'both') && userLocation && (
                 <div className="rounded-2xl overflow-hidden border border-border" style={{ minHeight: 'clamp(320px, 45vh, 460px)' }}>

@@ -56,7 +56,7 @@ export function DoctorGuidance({ message, flags, ctaLabel, onCtaClick, className
         {ctaLabel || 'Find Nearby Medical Centres'}
       </button>
 
-      <Modal isOpen={isFinderOpen} onClose={() => setIsFinderOpen(false)}>
+      <Modal isOpen={isFinderOpen} onClose={() => setIsFinderOpen(false)} className="md:max-w-6xl">
         <MedicalCentreFinder className="rounded-none border-0 bg-transparent shadow-none" />
       </Modal>
     </Reveal>
