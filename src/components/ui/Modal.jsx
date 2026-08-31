@@ -73,7 +73,7 @@ export function Modal({ isOpen, onClose, title, children, className }) {
         aria-modal="true"
         aria-labelledby={titleId}
         className={cn(
-          "relative flex w-full h-dvh max-w-lg md:h-auto md:max-h-[90vh] flex-col overflow-hidden rounded-none md:rounded-4xl border-0 md:border md:border-ink/15 bg-modal md:shadow-2xl md:shadow-black/30",
+          "relative flex w-full h-dvh md:h-auto md:max-w-lg md:max-h-[90vh] flex-col overflow-hidden rounded-none md:rounded-4xl border-0 md:border md:border-ink/15 bg-modal md:shadow-2xl md:shadow-black/30",
           className
         )}
       >

@@ -141,15 +141,15 @@ export function MedicalCentreFinder({ className }) {
 
   return (
     <section className={cn("rounded-3xl bg-card border border-border overflow-hidden shadow-soft", className)} role="region" aria-label="Find Medical Centres">
-      <div className="p-6 md:p-8">
-        <div className="flex items-start gap-3 mb-4">
-          <div className="w-10 h-10 rounded-xl bg-primary/10 flex items-center justify-center shrink-0">
-            <MapPin className="w-5 h-5 text-primary" />
+      <div className="p-5 md:p-6">
+        <div className="flex items-center gap-2.5 mb-4">
+          <div className="w-8 h-8 rounded-lg bg-primary/10 flex items-center justify-center shrink-0">
+            <MapPin className="w-4 h-4 text-primary" />
           </div>
-          <div>
-            <h2 className="text-xl font-bold text-ink">Find Medical Centres Near You</h2>
-            <p className="text-sm text-ink-muted mt-1">
-              Locate hospitals, clinics, and diagnostic centres using OpenStreetMap data.
+          <div className="min-w-0">
+            <h2 className="text-base font-bold text-ink leading-tight">Find Medical Centres Near You</h2>
+            <p className="text-xs text-ink-muted truncate">
+              Hospitals, clinics, and diagnostics near you.
             </p>
           </div>
         </div>
@@ -274,9 +274,8 @@ export function MedicalCentreFinder({ className }) {
 
         {state === 'results' && centres.length > 0 && (
           <div className="space-y-3">
-            <div className="flex flex-wrap items-center justify-between gap-3">
-              <div className="flex items-center gap-2">
-                <span className="text-sm text-ink-muted">Radius:</span>
+            <div className="flex items-center justify-between gap-3">
+              <div className="flex items-center gap-1.5" role="group" aria-label="Search radius">
                 {RADIUS_OPTIONS.map((r) => (
                   <button
                     key={r}
@@ -284,7 +283,7 @@ export function MedicalCentreFinder({ className }) {
                     onClick={() => handleRadiusChange(r)}
                     aria-pressed={radius === r}
                     className={cn(
-                      'px-3 py-1.5 rounded-full text-xs font-semibold transition-colors',
+                      'px-2.5 py-1 rounded-full text-xs font-semibold transition-colors',
                       radius === r
                         ? 'bg-primary text-white shadow-sm'
                         : 'border border-border bg-transparent text-ink-muted hover:text-ink hover:bg-surface'
@@ -295,7 +294,7 @@ export function MedicalCentreFinder({ className }) {
                 ))}
               </div>
 
-              <div className="flex items-center gap-1.5" role="group" aria-label="View mode">
+              <div className="flex items-center gap-1" role="group" aria-label="View mode">
                 {[
                   { mode: 'both', label: 'Show map and list', icons: [Map, List] },
                   { mode: 'map', label: 'Show map only', icons: [Map] },
@@ -308,13 +307,13 @@ export function MedicalCentreFinder({ className }) {
                     aria-label={label}
                     aria-pressed={viewMode === mode}
                     className={cn(
-                      'px-2.5 py-1.5 rounded-full text-xs font-semibold transition-colors',
+                      'px-2 py-1 rounded-full text-xs font-semibold transition-colors',
                       viewMode === mode
                         ? 'bg-primary text-white shadow-sm'
                         : 'border border-border bg-transparent text-ink-muted hover:text-ink hover:bg-surface'
                     )}
                   >
-                    <span className="flex items-center gap-1">
+                    <span className="flex items-center gap-0.5">
                       {icons.map((Icon, i) => (
                         <Icon key={i} className="w-3 h-3" />
                       ))}
