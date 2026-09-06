@@ -148,6 +148,7 @@ export function Landing() {
             items={ABOUT_REMZY_ITEMS}
             bordered
             collapsed
+            instant
           />
         </div>
       </section>

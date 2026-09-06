@@ -3,7 +3,7 @@ import { AnimatePresence, motion } from 'framer-motion';
 import { FAQAccordion } from './FAQAccordion';
 import { cn } from '../../utils/cn';
 
-export function AccordionSection({ title, subtitle, lead, items, bordered = false, className, twoColumn = false, leftItems, rightItems, collapsed = false }) {
+export function AccordionSection({ title, subtitle, lead, items, bordered = false, className, twoColumn = false, leftItems, rightItems, collapsed = false, instant = false }) {
   const [expanded, setExpanded] = useState(!collapsed);
 
   if (twoColumn) {
@@ -55,7 +55,7 @@ export function AccordionSection({ title, subtitle, lead, items, bordered = fals
             className="overflow-hidden"
           >
             <div className="mt-8 text-left">
-              <FAQAccordion items={items} bordered={bordered} />
+              <FAQAccordion items={items} bordered={bordered} instant={instant} />
             </div>
           </motion.div>
         )}

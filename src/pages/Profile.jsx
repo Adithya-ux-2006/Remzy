@@ -738,6 +738,7 @@ export function Profile() {
             items={ABOUT_REMZY_ITEMS}
             bordered
             collapsed
+            instant
           />
         </section>
           </>
