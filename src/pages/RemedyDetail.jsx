@@ -101,7 +101,7 @@ export function RemedyDetail() {
     return parts.slice(0, 3).map((sentence, i) => {
       const clean = sentence.trim().replace(/\.$/, '');
       return {
-        title: clean.length > 60 ? clean.slice(0, 57) + '…' : clean,
+        title: clean,
         description: defaults[i]?.description || undefined,
       };
     });
@@ -262,13 +262,18 @@ export function RemedyDetail() {
               <h2 className="section-title mb-5">Benefits</h2>
             </Reveal>
             <div className="rounded-[20px] bg-card border border-border p-6 md:p-8 shadow-card hover:shadow-card-lg transition-shadow duration-200">
-              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3">
+              <div className={cn(
+                'grid',
+                benefits.length === 1 && 'grid-cols-1',
+                benefits.length === 2 && 'grid-cols-1 sm:grid-cols-2',
+                benefits.length >= 3 && 'grid-cols-1 sm:grid-cols-2 lg:grid-cols-3',
+              )}>
                 {benefits.map((benefit, i) => (
                   <div key={i} className={cn(
                     'relative',
                     i > 0 && 'lg:pl-8',
                   )}>
-                    {i < benefits.length - 1 && (
+                    {i > 0 && (
                       <div className="hidden lg:block absolute top-3 bottom-3 left-0 w-px bg-border-subtle/60" />
                     )}
                     <BenefitCard

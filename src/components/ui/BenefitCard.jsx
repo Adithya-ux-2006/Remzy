@@ -20,7 +20,7 @@ export function BenefitCard({ title, description, delay = 0, className }) {
         <Check className="w-5 h-5 text-success transition-colors duration-200 group-hover/card:text-success/80" />
       </div>
       <div className="min-w-0">
-        <p className="font-semibold text-ink text-lg leading-snug mb-1 line-clamp-2">{title}</p>
+        <p className="font-semibold text-ink text-lg leading-snug mb-1">{title}</p>
         {description && (
           <p className="text-[14px] text-ink-muted leading-relaxed line-clamp-2">{description}</p>
         )}
