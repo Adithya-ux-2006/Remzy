@@ -162,8 +162,13 @@ export function SymptomSearch() {
           </h1>
 
           <p className="text-base md:text-lg text-ink-muted leading-relaxed max-w-lg mx-auto">
-            Evidence-backed remedies for common symptoms.{' '}
-            <span className="text-primary font-medium">No sign-up needed.</span>
+            Evidence-backed remedies for common symptoms.
+            {!isAuthenticated && (
+              <>
+                {' '}
+                <span className="text-primary font-medium">No sign-up needed.</span>
+              </>
+            )}
           </p>
         </div>
         <div onKeyDown={handleKeyDown} className="relative mb-10 w-full">
