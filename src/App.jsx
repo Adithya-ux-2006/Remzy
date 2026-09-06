@@ -89,6 +89,17 @@ function ProtectedRoute({ children }) {
   return children;
 }
 
+/** GuestOnlyRoute: Sends signed-in users away from the public Launch page to their Dashboard. */
+function GuestOnlyRoute({ children }) {
+  const isAuthenticated = useAuthStore((state) => state.isAuthenticated);
+
+  if (isAuthenticated) {
+    return <Navigate to="/dashboard" replace />;
+  }
+
+  return children;
+}
+
 function AppRoutes() {
   const isInitialized = useAuthStore((state) => state.isInitialized);
 
@@ -100,7 +111,7 @@ function AppRoutes() {
     <AuthEnforcer>
       <Routes>
         {/* Public Routes */}
-        <Route path="/" element={<Page><Landing /></Page>} />
+        <Route path="/" element={<Page><GuestOnlyRoute><Landing /></GuestOnlyRoute></Page>} />
         <Route path="/login" element={<Page><Login /></Page>} />
         <Route path="/register" element={<Page><Register /></Page>} />
         <Route path="/auth/callback" element={<Page><AuthCallback /></Page>} />
