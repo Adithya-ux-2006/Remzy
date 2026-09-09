@@ -5,12 +5,17 @@ import { RemedyScheduleForm } from '../forms/RemedyScheduleForm';
 import { useQuickScheduleStore } from '../../store/quickScheduleStore';
 import { useRemedyScheduleStore } from '../../store/remedyScheduleStore';
 import { useFavoritesStore } from '../../store/favoritesStore';
+import { useToastStore } from '../../store/toastStore';
+import { useNotificationStore } from '../../store/notificationStore';
 
 export function QuickScheduleModal() {
   const remedy = useQuickScheduleStore((s) => s.remedy);
   const closeQuickSchedule = useQuickScheduleStore((s) => s.closeQuickSchedule);
   const add = useRemedyScheduleStore((s) => s.add);
   const favorites = useFavoritesStore((s) => s.favorites);
+  const toast = useToastStore((s) => s.addToast);
+  const sendBrowserNotification = useNotificationStore((s) => s.sendBrowserNotification);
+  const addNotification = useNotificationStore((s) => s.addNotification);
 
   const [formError, setFormError] = useState(null);
   const [isSubmitting, setIsSubmitting] = useState(false);
@@ -31,12 +36,28 @@ export function QuickScheduleModal() {
     setIsSubmitting(false);
     if (result.success) {
       setShowSuccess(true);
+      toast({ message: `${remedy.name} reminder added!`, type: 'success', duration: 3000 });
+      const notifId = `schedule-${Date.now()}`;
+      addNotification({
+        id: notifId,
+        type: 'schedule',
+        title: 'Reminder Scheduled',
+        body: `${remedy.name} set for ${data.scheduledTime} (${data.recurrence})`,
+        read: false,
+        created_at: new Date().toISOString(),
+      });
+      sendBrowserNotification('Reminder Scheduled', {
+        body: `${remedy.name} set for ${data.scheduledTime}`,
+        tag: notifId,
+      });
       setTimeout(() => {
         resetState();
         closeQuickSchedule();
       }, 1500);
     } else {
-      setFormError(result.error?.message || 'Could not add schedule — please try again.');
+      const msg = result.error?.message || 'Could not add schedule — please try again.';
+      setFormError(msg);
+      toast({ message: msg, type: 'error' });
     }
   };
 
@@ -69,6 +90,7 @@ export function QuickScheduleModal() {
           onCancel={handleClose}
           error={formError}
           isSubmitting={isSubmitting}
+          submitLabel="Add Schedule"
         />
       )}
     </Modal>

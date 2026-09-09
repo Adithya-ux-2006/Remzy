@@ -9,6 +9,7 @@ import { RatingStars } from './RatingStars';
 import { AllergyBadge } from './AllergyBadge';
 import { useFavoritesStore } from '../../store/favoritesStore';
 import { useAuthStore } from '../../store/authStore';
+import { useToastStore } from '../../store/toastStore';
 import { getEvidenceText } from '../../utils/evidence';
 
 export function RemedyCard({ remedy, className, featured, variant, isSafe = true }) {
@@ -17,12 +18,18 @@ export function RemedyCard({ remedy, className, featured, variant, isSafe = true
   const toggleFavorite = useFavoritesStore((s) => s.toggleFavorite);
   const favorited = useFavoritesStore((s) => s.favorites.some((favorite) => favorite.id === remedy.id));
   const isAuthenticated = useAuthStore((s) => s.isAuthenticated);
+  const toast = useToastStore((s) => s.addToast);
 
-  const handleFavorite = (e) => {
+  const handleFavorite = async (e) => {
     e.preventDefault();
     e.stopPropagation();
     if (!isAuthenticated) { navigate('/register'); return; }
-    toggleFavorite(remedy);
+    const result = await toggleFavorite(remedy);
+    if (result && !result.success && result.error) {
+      toast({ message: result.error, type: 'error' });
+    } else if (result && result.success) {
+      toast({ message: favorited ? 'Removed from saved' : 'Saved to favorites!', type: 'success', duration: 2000 });
+    }
   };
 
   if (resolvedVariant === 'carousel') {

@@ -16,6 +16,7 @@ import { useFavoritesStore } from '../store/favoritesStore';
 import { useCatalogStore } from '../store/catalogStore';
 import { useAuthStore } from '../store/authStore';
 import { useGuestProfileStore } from '../store/guestProfileStore';
+import { useToastStore } from '../store/toastStore';
 import { isRemedySafeForUser } from '../utils/guestProfile';
 import { cn } from '../utils/cn';
 import { trackRemedyEvent } from '../utils/analytics';
@@ -58,6 +59,7 @@ export function RemedyDetail() {
   const enrichmentMap = useCatalogStore((state) => state.enrichmentMap);
   const isCatalogLoading = useCatalogStore((state) => state.isLoading);
   const hasLoaded = useCatalogStore((state) => state.hasLoaded);
+  const toast = useToastStore((s) => s.addToast);
   const [showAllEvidence, setShowAllEvidence] = useState(false);
 
   const userKnownAllergies = useAuthStore((state) => state.user?.known_allergies) ?? [];
@@ -178,9 +180,14 @@ export function RemedyDetail() {
           <div className="flex items-center gap-1">
             <ScheduleQuickAdd remedy={remedy} className="!p-2.5 !min-w-[44px] !min-h-[44px]" />
             <button
-              onClick={() => {
+              onClick={async () => {
                 if (!isAuthenticated) { navigate('/register'); return; }
-                toggleFavorite(remedy);
+                const result = await toggleFavorite(remedy);
+                if (result && !result.success && result.error) {
+                  toast({ message: result.error, type: 'error' });
+                } else if (result && result.success) {
+                  toast({ message: favorite ? 'Removed from saved' : 'Saved to favorites!', type: 'success', duration: 2000 });
+                }
               }}
               className={cn(
                 'p-2.5 rounded-full transition-colors duration-200 min-w-[44px] min-h-[44px] flex items-center justify-center',

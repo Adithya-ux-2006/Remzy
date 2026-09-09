@@ -5,7 +5,7 @@ import { CATEGORY_LABELS } from '../../constants/categoryIcons';
 
 const DAYS = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
 
-export function RemedyScheduleForm({ remedies, favorites, initialData, onSubmit, onCancel, error, isSubmitting, lockRemedy = false }) {
+export function RemedyScheduleForm({ remedies, favorites, initialData, onSubmit, onCancel, error, isSubmitting, lockRemedy = false, submitLabel }) {
   const [formData, setFormData] = useState(
     initialData || {
       remedyId: '',
@@ -239,7 +239,7 @@ export function RemedyScheduleForm({ remedies, favorites, initialData, onSubmit,
               Adding...
             </>
           ) : (
-            initialData ? 'Update' : 'Add Schedule'
+            submitLabel || (initialData ? 'Update' : 'Add Schedule')
           )}
         </button>
       </div>

@@ -7,6 +7,7 @@ import { needsOnboardingProfile, useAuthStore } from './store/authStore';
 import { useFavoritesStore } from './store/favoritesStore';
 import { useRemedyScheduleStore } from './store/remedyScheduleStore';
 import { useCatalogStore } from './store/catalogStore';
+import { useNotificationStore } from './store/notificationStore';
 import { LoadingSkeleton } from './components/ui/LoadingSkeleton';
 import { ErrorBoundary } from './components/ui/ErrorBoundary';
 
@@ -14,6 +15,7 @@ import { ErrorBoundary } from './components/ui/ErrorBoundary';
 const AppDock = lazy(() => import('./components/layout/AppDock').then(m => ({ default: m.AppDock })));
 const AdminGuard = lazy(() => import('./components/layout/AdminGuard').then(m => ({ default: m.AdminGuard })));
 const QuickScheduleModal = lazy(() => import('./components/ui/QuickScheduleModal').then(m => ({ default: m.QuickScheduleModal })));
+const ToastContainer = lazy(() => import('./components/ui/ToastContainer').then(m => ({ default: m.ToastContainer })));
 
 // Pages — lazy-loaded for code splitting
 const Landing = lazy(() => import('./pages/Landing').then(m => ({ default: m.Landing })));
@@ -149,6 +151,9 @@ function App() {
   const clearSchedules = useRemedyScheduleStore((state) => state.clear);
   const fetchCatalog = useCatalogStore((state) => state.fetchCatalog);
   const clearFavorites = useFavoritesStore((state) => state.clear);
+  const fetchNotifications = useNotificationStore((state) => state.fetchNotifications);
+  const clearNotifications = useNotificationStore((state) => state.clear);
+  const registerPushSubscription = useNotificationStore((state) => state.registerPushSubscription);
   const [bootstrapped, setBootstrapped] = useState(false);
   const [initTimedOut, setInitTimedOut] = useState(false);
   const bootstrappedRef = useRef(false);
@@ -194,13 +199,19 @@ function App() {
     if (!isAuthenticated) {
       clearFavorites();
       clearSchedules();
+      clearNotifications();
       return;
     }
 
     fetchFavorites();
     fetchSchedules();
     fetchCompletions();
-  }, [clearFavorites, clearSchedules, fetchFavorites, fetchSchedules, fetchCompletions, isAuthenticated]);
+    fetchNotifications();
+
+    if ('serviceWorker' in navigator && typeof Notification !== 'undefined' && Notification.permission === 'granted') {
+      registerPushSubscription();
+    }
+  }, [clearFavorites, clearSchedules, clearNotifications, fetchFavorites, fetchSchedules, fetchCompletions, fetchNotifications, registerPushSubscription, isAuthenticated]);
 
   if (!bootstrapped && !isInitialized) {
     return (
@@ -236,6 +247,9 @@ function App() {
             </Suspense>
             <Suspense fallback={null}>
               <QuickScheduleModal />
+            </Suspense>
+            <Suspense fallback={null}>
+              <ToastContainer />
             </Suspense>
           </div>
         </ErrorBoundary>

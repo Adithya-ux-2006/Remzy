@@ -15,6 +15,8 @@ import { RemedyScheduleForm } from '../components/forms';
 import { useRemedyScheduleStore } from '../store/remedyScheduleStore';
 import { useCatalogStore } from '../store/catalogStore';
 import { useFavoritesStore } from '../store/favoritesStore';
+import { useToastStore } from '../store/toastStore';
+import { useNotificationStore } from '../store/notificationStore';
 import {
   WEEKDAY_LABELS, formatTime, formatDayShort, formatMonthYear,
   isSameDay, startOfDay, addDays, toDateKey, hasOccurrenceOnDate,
@@ -126,6 +128,11 @@ export function TreatmentReminders() {
   const add = useRemedyScheduleStore((s) => s.add);
   const remedies = useCatalogStore((s) => s.remedies);
   const favorites = useFavoritesStore((s) => s.favorites);
+  const toast = useToastStore((s) => s.addToast);
+  const sendBrowserNotification = useNotificationStore((s) => s.sendBrowserNotification);
+  const addNotification = useNotificationStore((s) => s.addNotification);
+  const requestPushPermission = useNotificationStore((s) => s.requestPushPermission);
+  const pushPermission = useNotificationStore((s) => s.pushPermission);
 
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [formError, setFormError] = useState(null);
@@ -173,8 +180,27 @@ export function TreatmentReminders() {
     if (result.success) {
       setIsModalOpen(false);
       setFormError(null);
+      toast({ message: `${data.remedyName} reminder added!`, type: 'success', duration: 3000 });
+      const notifId = `schedule-${Date.now()}`;
+      addNotification({
+        id: notifId,
+        type: 'schedule',
+        title: 'Reminder Scheduled',
+        body: `${data.remedyName} set for ${data.scheduledTime} (${data.recurrence})`,
+        read: false,
+        created_at: new Date().toISOString(),
+      });
+      sendBrowserNotification('Reminder Scheduled', {
+        body: `${data.remedyName} set for ${data.scheduledTime}`,
+        tag: notifId,
+      });
+      if (pushPermission === 'default') {
+        requestPushPermission();
+      }
     } else {
-      setFormError(result.error?.message || 'Could not add reminder — please try again.');
+      const msg = result.error?.message || 'Could not add reminder — please try again.';
+      setFormError(msg);
+      toast({ message: msg, type: 'error' });
     }
   };
 
@@ -185,6 +211,7 @@ export function TreatmentReminders() {
   const handleRemove = (scheduleId) => {
     if (window.confirm('Remove this reminder?')) {
       remove(scheduleId);
+      toast({ message: 'Reminder removed', type: 'info', duration: 2000 });
     }
   };
 

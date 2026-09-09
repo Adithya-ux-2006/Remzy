@@ -10,6 +10,7 @@ import { EvidenceLabel } from './EvidenceLabel';
 import { SafetyLabel } from './SafetyLabel';
 import { useFavoritesStore } from '../../store/favoritesStore';
 import { useAuthStore } from '../../store/authStore';
+import { useToastStore } from '../../store/toastStore';
 
 function generateReasons(remedy, evidenceScore, safetyScore) {
   const reasons = [];
@@ -59,13 +60,19 @@ export function FeaturedRemedyCard({ remedy, isSafe, evidenceScore, safetyScore,
   const toggleFavorite = useFavoritesStore((s) => s.toggleFavorite);
   const favorited = useFavoritesStore((s) => s.favorites.some((favorite) => favorite.id === remedy.id));
   const isAuthenticated = useAuthStore((s) => s.isAuthenticated);
+  const toast = useToastStore((s) => s.addToast);
   const reasons = generateReasons(remedy, evidenceScore, safetyScore);
 
-  const handleFavorite = (e) => {
+  const handleFavorite = async (e) => {
     e.preventDefault();
     e.stopPropagation();
     if (!isAuthenticated) { navigate('/register'); return; }
-    toggleFavorite(remedy);
+    const result = await toggleFavorite(remedy);
+    if (result && !result.success && result.error) {
+      toast({ message: result.error, type: 'error' });
+    } else if (result && result.success) {
+      toast({ message: favorited ? 'Removed from saved' : 'Saved to favorites!', type: 'success', duration: 2000 });
+    }
   };
 
   return (

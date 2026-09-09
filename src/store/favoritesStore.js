@@ -48,7 +48,8 @@ export const useFavoritesStore = create((set, get) => ({
 
   addFavorite: async (remedy) => {
     const user = useAuthStore.getState().user;
-    if (!user || get().pendingIds.has(remedy.id)) return false;
+    if (!user) return { success: false, error: 'Not authenticated' };
+    if (get().pendingIds.has(remedy.id)) return { success: false, error: 'Already saving' };
 
     set((state) => ({
       pendingIds: new Set(state.pendingIds).add(remedy.id),
@@ -77,14 +78,14 @@ export const useFavoritesStore = create((set, get) => ({
         eventType: 'saved',
         metadata: { method: 'favorites' },
       }).catch(() => {});
-      return true;
+      return { success: true };
     } catch (error) {
       console.error('Error adding favorite:', error);
       set((state) => ({
         favorites: state.favorites.filter(f => f.id !== remedy.id),
         error,
       }));
-      return false;
+      return { success: false, error: error.message || 'Failed to save remedy' };
     } finally {
       set((state) => {
         const pendingIds = new Set(state.pendingIds);
@@ -96,7 +97,8 @@ export const useFavoritesStore = create((set, get) => ({
 
   removeFavorite: async (id) => {
     const user = useAuthStore.getState().user;
-    if (!user || get().pendingIds.has(id)) return false;
+    if (!user) return { success: false, error: 'Not authenticated' };
+    if (get().pendingIds.has(id)) return { success: false, error: 'Already processing' };
 
     set((state) => ({
       pendingIds: new Set(state.pendingIds).add(id),
@@ -112,14 +114,14 @@ export const useFavoritesStore = create((set, get) => ({
         .from('favorites')
         .delete()
         .match({ user_id: user.id, remedy_id: id });
-        
+         
       if (error) throw error;
-      return true;
+      return { success: true };
     } catch (error) {
       console.error('Error removing favorite:', error);
       set({ error });
       await get().fetchFavorites();
-      return false;
+      return { success: false, error: error.message || 'Failed to remove remedy' };
     } finally {
       set((state) => {
         const pendingIds = new Set(state.pendingIds);
@@ -136,7 +138,7 @@ export const useFavoritesStore = create((set, get) => ({
   clear: () => set({ favorites: [], pendingIds: new Set(), error: null, isLoading: false }),
 
   toggleFavorite: async (remedy) => {
-    if (!remedy?.id || get().pendingIds.has(remedy.id)) return false;
+    if (!remedy?.id || get().pendingIds.has(remedy.id)) return { success: false };
     if (get().isFavorite(remedy.id)) {
       return get().removeFavorite(remedy.id);
     }

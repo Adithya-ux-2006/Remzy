@@ -2,6 +2,7 @@ import { Link } from 'react-router-dom';
 import { Search } from 'lucide-react';
 import { useAuthStore } from '../../store/authStore';
 import { ThemeToggle } from '../ui/ThemeToggle';
+import { NotificationCenter } from '../ui/NotificationCenter';
 
 export function Navbar() {
   const isAuthenticated = useAuthStore((state) => state.isAuthenticated);
@@ -19,6 +20,7 @@ export function Navbar() {
             <span className="text-xl font-bold text-ink tracking-tight">Remzy</span>
           </Link>
           <div className="flex items-center justify-self-end gap-2">
+            <NotificationCenter />
             <ThemeToggle />
             <Link
               to="/profile"
