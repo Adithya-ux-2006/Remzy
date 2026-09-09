@@ -46,7 +46,7 @@ CREATE INDEX IF NOT EXISTS idx_notifications_created_at ON public.notifications 
 DROP TRIGGER IF EXISTS update_notifications_updated_at ON public.notifications;
 CREATE TRIGGER update_notifications_updated_at
   BEFORE UPDATE ON public.notifications
-  FOR EACH ROW EXECUTE FUNCTION update_updated_at_column();
+  FOR EACH ROW EXECUTE FUNCTION public.update_updated_at();
 
 -- Push subscriptions table for browser push notifications
 CREATE TABLE IF NOT EXISTS public.push_subscriptions (
@@ -76,4 +76,4 @@ CREATE INDEX IF NOT EXISTS idx_push_subscriptions_endpoint ON public.push_subscr
 DROP TRIGGER IF EXISTS update_push_subscriptions_updated_at ON public.push_subscriptions;
 CREATE TRIGGER update_push_subscriptions_updated_at
   BEFORE UPDATE ON public.push_subscriptions
-  FOR EACH ROW EXECUTE FUNCTION update_updated_at_column();
+  FOR EACH ROW EXECUTE FUNCTION public.update_updated_at();
