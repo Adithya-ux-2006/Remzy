@@ -7,7 +7,7 @@ export function AllergyBadge({ isSafe, compact, className }) {
       <span className={cn(
         "inline-flex items-center gap-1 px-2 py-0.5 rounded-full text-[10px] font-medium whitespace-nowrap",
         isSafe
-          ? "bg-accent/20 text-primary-dark"
+          ? "bg-accent/20 text-primary"
           : "bg-yellow-100 text-yellow-800",
         className
       )}>
@@ -24,7 +24,7 @@ export function AllergyBadge({ isSafe, compact, className }) {
     <div className={cn(
       "inline-flex items-center gap-2 px-4 py-2 rounded-xl text-sm font-medium",
       isSafe
-        ? "bg-accent/20 text-primary-dark"
+        ? "bg-accent/20 text-primary"
         : "bg-yellow-100 text-yellow-800",
       className
     )}>
