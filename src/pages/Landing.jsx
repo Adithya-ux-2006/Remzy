@@ -47,10 +47,10 @@ export function Landing() {
             <img src="/logo.png?v=3" alt="Remzy" className="w-12 h-12 object-contain" />
           </div>
 
-          <h1 className="max-w-3xl mx-auto text-3xl sm:text-4xl md:text-6xl font-bold text-ink tracking-tight">
+          <h1 className="text-4xl md:text-6xl font-bold text-ink tracking-tight">
             Something feels off?
             <br />
-            <span className="text-primary">See what's actually backed by evidence.</span>
+            <span className="text-primary">See what's evidence-backed.</span>
           </h1>
 
           <p className="text-lg text-ink-muted max-w-2xl mx-auto leading-relaxed">
