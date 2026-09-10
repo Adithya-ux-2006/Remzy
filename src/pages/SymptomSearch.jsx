@@ -156,9 +156,9 @@ export function SymptomSearch() {
           </div>
 
           <h1 className="text-[44px] md:text-[52px] font-bold text-ink tracking-tight leading-[1.05] mb-3">
-            Something feels off?
+            Not quite right?
             <br />
-            <span className="text-primary">Find out what might help.</span>
+            <span className="text-primary">We'll bring insight.</span>
           </h1>
 
           <p className="text-base md:text-lg text-ink-muted leading-relaxed max-w-lg mx-auto">
