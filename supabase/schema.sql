@@ -169,6 +169,12 @@ ALTER TABLE public.remedy_events ENABLE ROW LEVEL SECURITY;
 ALTER TABLE public.remedy_feedback ENABLE ROW LEVEL SECURITY;
 ALTER TABLE public.remedy_schedules ENABLE ROW LEVEL SECURITY;
 
+-- Grants for auth.users: needed by FK validation and profile-sharing RLS policies.
+-- Without these, every INSERT/UPDATE/DELETE on user-owned tables fails with 42501.
+GRANT USAGE ON SCHEMA auth TO authenticated;
+GRANT SELECT ON auth.users TO authenticated;
+GRANT REFERENCES ON auth.users TO authenticated;
+
 -- Public read access for core data
 DROP POLICY IF EXISTS "Allow public read access to symptoms" ON public.symptoms;
 DROP POLICY IF EXISTS "Allow public read access to remedies" ON public.remedies;
